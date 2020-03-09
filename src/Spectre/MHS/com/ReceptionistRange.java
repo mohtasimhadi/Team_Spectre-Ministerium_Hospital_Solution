@@ -7,4 +7,5 @@ public class ReceptionistRange {
     private JButton logOutButton;
     private JButton patientInformationButton;
     private JButton addNewPatientButton;
+    private JButton changePassword;
 }
