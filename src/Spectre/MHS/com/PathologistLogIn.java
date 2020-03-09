@@ -3,7 +3,7 @@ package Spectre.MHS.com;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class PathologistLogIn extends JFrame {
+public class PathologistLogIn{
     private JPanel contentPane;
     private JButton logInButton;
     private JButton exitButton;
@@ -12,8 +12,13 @@ public class PathologistLogIn extends JFrame {
     private JComboBox usertype;
 
     public PathologistLogIn() {
-        setContentPane(contentPane);
-        getRootPane().setDefaultButton(exitButton);
+        JFrame jFrame = new JFrame("Pathologist Log In");
+        jFrame.setVisible(true);
+        jFrame.setResizable(false);
+        jFrame.setSize(1280, 720);
+        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        jFrame.add(contentPane);
+
 
         exitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -26,22 +31,9 @@ public class PathologistLogIn extends JFrame {
                 onLogIn();
             }
         });
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                onExit();
-            }
-        });
-
-        contentPane.registerKeyboardAction(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onExit();
-            }
-        }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
     void onExit(){
-        dispose();
         System.exit(0);
     }
 
@@ -51,7 +43,5 @@ public class PathologistLogIn extends JFrame {
 
     public static void main(String[] args){
         PathologistLogIn pathologistLogIn = new PathologistLogIn();
-        pathologistLogIn.pack();
-        pathologistLogIn.setVisible(true);
     }
 }
