@@ -183,7 +183,7 @@
                       <text value="Label"/>
                     </properties>
                   </component>
-                  <component id="f188d" class="javax.swing.JLabel" binding="jDOB">
+                  <component id="f188d" class="javax.swing.JLabel" binding="jDateOfBirth">
                     <constraints>
                       <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -199,7 +199,7 @@
                       <text value="Label"/>
                     </properties>
                   </component>
-                  <component id="78f0d" class="javax.swing.JLabel" binding="jContact">
+                  <component id="78f0d" class="javax.swing.JLabel" binding="jContactNo">
                     <constraints>
                       <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -239,7 +239,7 @@
                       <text value="Label"/>
                     </properties>
                   </component>
-                  <component id="ab8a8" class="javax.swing.JLabel" binding="jBlood">
+                  <component id="ab8a8" class="javax.swing.JLabel" binding="jBloodGroup">
                     <constraints>
                       <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
