@@ -7,8 +7,23 @@ import java.awt.event.ActionListener;
 public class DoctorStation {
     private JPanel contentPanel;
     private JButton logOutButton;
-    private JButton viewAppointmentsButton;
     private JButton patientInformationButton;
+    private JButton viewAppointmentsButton;
+    private JLabel jID;
+    private JLabel jName;
+    private JLabel jDateOfBirth;
+    private JLabel jAddress;
+    private JLabel jContactNo;
+    private JLabel jGender;
+    private JLabel jEmail;
+    private JLabel jDesignation;
+    private JLabel jSpecialization;
+    private JLabel jBloodGroup;
+    private JLabel jJoiningDate;
+    private JLabel jWorkingDays;
+    private JLabel jWorkHours;
+    private JLabel jRoomNo;
+    private JButton changePassword;
 
     public DoctorStation() {
         JFrame jFrame = new JFrame("Doctors Station");
