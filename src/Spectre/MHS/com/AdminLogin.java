@@ -2,14 +2,29 @@ package Spectre.MHS.com;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.security.NoSuchAlgorithmException;
+import java.sql.*;
 
 public class AdminLogin{
     private JPanel contentPanel;
     private JButton logInButton;
     private JButton exitButton;
-    private JTextField userid;
-    private JPasswordField password;
-    private JComboBox usertype;
+    private JTextField juserid;
+    private JPasswordField jpassword;
+    private JComboBox jusertype;
+
+    Connection connection;
+    PreparedStatement preparedStatement;
+    ResultSet resultSet;
+
+    public void connect(){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mhs?useTimezone=true&serverTimezone=UTC","root","");
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public AdminLogin() {
         JFrame jFrame = new JFrame("Admin Log In");
@@ -27,17 +42,54 @@ public class AdminLogin{
 
         logInButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onLogIn();
+                try {
+                    onLogIn();
+                } catch (NoSuchAlgorithmException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
     }
 
-    void onExit(){
-        System.exit(0);
+    private void onLogIn() throws NoSuchAlgorithmException {
+        Encryption encryption = new Encryption();
+        String username = juserid.getText();
+        String password = encryption.Encrypt(jpassword.getText());
+        String usertype = jusertype.getSelectedItem().toString();
+
+        connect();
+
+        try {
+            String query = "select * from admin where ID = ? and Password = ? and Designation = ?";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2,password);
+            preparedStatement.setString(3, usertype);
+
+            resultSet = preparedStatement.executeQuery();
+
+            if(resultSet.next()){
+                if(usertype=="HR Admin"){
+                    AdminHR adminHR = new AdminHR();
+                }
+                if(usertype=="Administrative Director"){
+                    AdminstrativeDirector adminstrativeDirector = new AdminstrativeDirector();
+                }
+            }
+            else {
+                JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");
+                jpassword.setText("");
+                juserid.setText("");
+                jusertype.setSelectedIndex(-1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
-    void onLogIn(){
-
+    void onExit(){
+        System.exit(0);
     }
 
     public static void main(String[] args){

@@ -3,6 +3,7 @@ package Spectre.MHS.com;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
 
 public class AdminHR {
     private JButton logOutButton;
@@ -21,6 +22,7 @@ public class AdminHR {
     private JLabel jSpecialization;
     private JLabel jBloodGroup;
     private JLabel jJoiningDate;
+
 
     public AdminHR() {
         JFrame jFrame = new JFrame("Doctors Station");
