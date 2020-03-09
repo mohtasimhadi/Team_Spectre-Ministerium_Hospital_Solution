@@ -44,6 +44,7 @@ public class AdminLogin{
             public void actionPerformed(ActionEvent e) {
                 try {
                     onLogIn();
+                    jFrame.setVisible(false);
                 } catch (NoSuchAlgorithmException ex) {
                     ex.printStackTrace();
                 }
@@ -78,9 +79,7 @@ public class AdminLogin{
             }
             else {
                 JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");
-                jpassword.setText("");
-                juserid.setText("");
-                jusertype.setSelectedIndex(-1);
+                AdminLogin adminLogin = new AdminLogin();
             }
         } catch (SQLException e) {
             e.printStackTrace();
