@@ -7,8 +7,20 @@ import java.awt.event.ActionListener;
 public class AdminHR {
     private JButton logOutButton;
     private JPanel contentPanel;
-    private JButton viewEmployeeButton;
     private JButton addNewEmployeeButton;
+    private JButton changePassword;
+    private JButton viewEmployeeButton;
+    private JLabel jID;
+    private JLabel jName;
+    private JLabel jDateOfBirth;
+    private JLabel jAddress;
+    private JLabel jContactNo;
+    private JLabel jGender;
+    private JLabel jEmail;
+    private JLabel jDesignation;
+    private JLabel jSpecialization;
+    private JLabel jBloodGroup;
+    private JLabel jJoiningDate;
 
     public AdminHR() {
         JFrame jFrame = new JFrame("Doctors Station");
