@@ -44,6 +44,6 @@ public class ReceptionistRange {
     private JLabel jBloodGroup;
     private JLabel jJoiningDate;
     private JLabel jWorkingDays;
-    private JLabel jWorkHours;
+    private JLabel jWorkingHours;
     private JLabel jRoomNo;
 }
