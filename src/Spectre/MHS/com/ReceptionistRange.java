@@ -34,4 +34,5 @@ public class ReceptionistRange {
     /*public static void main(String[] args){
         ReceptionistRange receptionistRange = new ReceptionistRange();
     }*/
+    private JButton changePassword;
 }
