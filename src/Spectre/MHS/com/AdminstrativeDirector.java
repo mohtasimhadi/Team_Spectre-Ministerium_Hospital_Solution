@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 public class AdminstrativeDirector {
     private JButton logOutButton;
     private JPanel contentPanel;
+    private JButton viewEmployeeButton;
+    private JButton viewPatientButton;
 
     public AdminstrativeDirector() {
         JFrame jFrame = new JFrame("Doctors Station");
