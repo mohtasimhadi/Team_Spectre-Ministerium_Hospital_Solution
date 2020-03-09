@@ -1,8 +1,10 @@
 package Spectre.MHS.com;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class RecetionistLogin {
+public class ReceptionistLogin {
 
     private JPanel contentPane;
     private JTextField userid;
@@ -11,16 +13,25 @@ public class RecetionistLogin {
     private JButton logInButton;
     private JPanel ReceptionistLoginPanel;
 
-    RecetionistLogin(){
+    ReceptionistLogin(){
         JFrame jf = new JFrame("Login Terminal");
         jf.setVisible(true);
         jf.setResizable(false);
         jf.setSize(1280, 720);
         jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jf.add(ReceptionistLoginPanel);
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                onExit();
+            }
+        });
     }
 
+    void onExit(){
+        System.exit(0);
+    }
     public static void main(String[] args) {
-        new RecetionistLogin();
+        new ReceptionistLogin();
     }
 }
