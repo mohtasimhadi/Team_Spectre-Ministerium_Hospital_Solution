@@ -3,7 +3,7 @@ package Spectre.MHS.com;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class AdminLogin{
+public class PathologistLogIn{
     private JPanel contentPane;
     private JButton logInButton;
     private JButton exitButton;
@@ -11,13 +11,14 @@ public class AdminLogin{
     private JPasswordField password;
     private JComboBox usertype;
 
-    public AdminLogin() {
-        JFrame jFrame = new JFrame("Admin Log In");
+    public PathologistLogIn() {
+        JFrame jFrame = new JFrame("Pathologist Log In");
         jFrame.setVisible(true);
         jFrame.setResizable(false);
         jFrame.setSize(1280, 720);
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jFrame.add(contentPane);
+
 
         exitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -41,6 +42,6 @@ public class AdminLogin{
     }
 
     public static void main(String[] args){
-        AdminLogin adminLogin = new AdminLogin();
+        PathologistLogIn pathologistLogIn = new PathologistLogIn();
     }
 }
