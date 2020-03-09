@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class PathologistLogIn{
-    private JPanel contentPane;
+    private JPanel contentPanel;
     private JButton logInButton;
     private JButton exitButton;
     private JTextField userid;
@@ -17,7 +17,7 @@ public class PathologistLogIn{
         jFrame.setResizable(false);
         jFrame.setSize(1280, 720);
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jFrame.add(contentPane);
+        jFrame.add(contentPanel);
 
 
         exitButton.addActionListener(new ActionListener() {
