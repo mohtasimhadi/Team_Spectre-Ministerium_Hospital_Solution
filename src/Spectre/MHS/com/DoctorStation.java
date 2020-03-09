@@ -23,6 +23,7 @@ public class DoctorStation {
     private JLabel jWorkingDays;
     private JLabel jWorkHours;
     private JLabel jRoomNo;
+    private JButton changePassword;
 
     public DoctorStation() {
         JFrame jFrame = new JFrame("Doctors Station");
