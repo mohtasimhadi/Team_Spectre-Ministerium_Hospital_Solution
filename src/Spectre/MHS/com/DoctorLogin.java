@@ -11,8 +11,13 @@ public class DoctorLogin extends JFrame {
     private JPasswordField password;
 
     public DoctorLogin() {
-        setContentPane(contentPanel);
-        getRootPane().setDefaultButton(exitButton);
+
+        JFrame jFrame = new JFrame("Doctor Log In");
+        jFrame.setVisible(true);
+        jFrame.setResizable(false);
+        jFrame.setSize(1280, 720);
+        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        jFrame.add(contentPanel);
 
         exitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -25,22 +30,9 @@ public class DoctorLogin extends JFrame {
                 onLogIn();
             }
         });
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                onExit();
-            }
-        });
-
-        contentPanel.registerKeyboardAction(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onExit();
-            }
-        }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
     void onExit(){
-        dispose();
         System.exit(0);
     }
 
@@ -50,7 +42,5 @@ public class DoctorLogin extends JFrame {
 
     public static void main(String[] args){
         DoctorLogin doctorLogin = new DoctorLogin();
-        doctorLogin.pack();
-        doctorLogin.setVisible(true);
     }
 }
