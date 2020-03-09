@@ -7,8 +7,6 @@ import java.awt.event.ActionListener;
 public class ReceptionistRange {
     private JPanel contentPanel;
     private JButton logOutButton;
-    private JButton patientInformationButton;
-    private JButton addNewPatientButton;
 
     public ReceptionistRange() {
         JFrame jFrame = new JFrame("Pathologist Locale");
@@ -31,8 +29,21 @@ public class ReceptionistRange {
         ReceptionistLogin receptionistLogin = new ReceptionistLogin();
     }
 
-    /*public static void main(String[] args){
-        ReceptionistRange receptionistRange = new ReceptionistRange();
-    }*/
     private JButton changePassword;
+    private JButton patientInformationButton;
+    private JButton addNewPatientButton;
+    private JLabel jID;
+    private JLabel jName;
+    private JLabel jDateOfBirth;
+    private JLabel jAddress;
+    private JLabel jContactNo;
+    private JLabel jGender;
+    private JLabel jEmail;
+    private JLabel jDesignation;
+    private JLabel jSpecialization;
+    private JLabel jBloodGroup;
+    private JLabel jJoiningDate;
+    private JLabel jWorkingDays;
+    private JLabel jWorkHours;
+    private JLabel jRoomNo;
 }

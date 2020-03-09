@@ -12,14 +12,14 @@ public class PathologistLocale {
     private JButton changePassword;
     private JLabel jID;
     private JLabel jName;
-    private JLabel jDOB;
+    private JLabel jDateOfBirth;
     private JLabel jAddress;
-    private JLabel jContact;
+    private JLabel jContactNo;
     private JLabel jGender;
     private JLabel jEmail;
     private JLabel jDesignation;
     private JLabel jSpecialization;
-    private JLabel jBlood;
+    private JLabel jBloodGroup;
     private JLabel jJoiningDate;
     private JLabel jWorkingDays;
     private JLabel jWorkHours;
