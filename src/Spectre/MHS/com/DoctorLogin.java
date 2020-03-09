@@ -3,7 +3,7 @@ package Spectre.MHS.com;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class DoctorLogin extends JFrame {
+public class DoctorLogin{
     private JPanel contentPanel;
     private JButton logInButton;
     private JButton exitButton;
