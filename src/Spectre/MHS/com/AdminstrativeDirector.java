@@ -30,8 +30,4 @@ public class AdminstrativeDirector {
     void onLogOut(){
         AdminLogin adminLogin = new AdminLogin();
     }
-
-    public static void main(String[] args){
-        AdminstrativeDirector adminstrativeDirector = new AdminstrativeDirector();
-    }
 }

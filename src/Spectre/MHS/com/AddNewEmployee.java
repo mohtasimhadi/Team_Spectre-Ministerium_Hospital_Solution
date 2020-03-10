@@ -20,10 +20,12 @@ public class AddNewEmployee {
     private JComboBox jGender;
     private JTextField jEducationQualification;
     private JTextField jBloodGroup;
+    private String userid;
 
 
-    public AddNewEmployee() {
-        JFrame jFrame = new JFrame("Doctors Station");
+    public AddNewEmployee(String userid) {
+        this.userid = userid;
+        JFrame jFrame = new JFrame("Add New Employee");
         jFrame.setVisible(true);
         jFrame.setResizable(false);
         jFrame.setSize(1280, 720);
@@ -33,7 +35,8 @@ public class AddNewEmployee {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                onBack();
+                jFrame.setVisible(false);
             }
         });
         addEmployeeButton.addActionListener(new ActionListener() {
@@ -203,5 +206,9 @@ public class AddNewEmployee {
                 e.printStackTrace();
             }
         }
+    }
+
+    void onBack(){
+        AdminHR adminHR = new AdminHR(userid);
     }
 }

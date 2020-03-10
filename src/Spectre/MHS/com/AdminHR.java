@@ -21,8 +21,10 @@ public class AdminHR {
     private JLabel jDesignation;
     private JLabel jBloodGroup;
     private JLabel jJoiningDate;
+    private String userid;
 
     public AdminHR(String userid) {
+        this.userid = userid;
         JFrame jFrame = new JFrame("Human Resource Management Admin");
         jFrame.setVisible(true);
         jFrame.setResizable(false);
@@ -73,7 +75,7 @@ public class AdminHR {
     }
 
     void onAddNewEmployee(){
-        AddNewEmployee addNewEmployee = new AddNewEmployee();
+        AddNewEmployee addNewEmployee = new AddNewEmployee(userid);
     }
 
     void onLogOut(){
