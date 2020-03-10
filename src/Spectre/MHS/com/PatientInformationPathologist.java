@@ -18,7 +18,7 @@ public class PatientInformationPathologist {
     private JLabel jBloodGroup;
     private String userid;
 
-    public PatientInformationPathologist() {
+    public PatientInformationPathologist(String userid) {
 
         this.userid = userid;
         JFrame jFrame = new JFrame("Patient Information");

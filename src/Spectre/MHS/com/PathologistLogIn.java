@@ -62,7 +62,7 @@ public class PathologistLogIn{
                 PathologistLocale pathologistLocale = new PathologistLocale(userid);
             } else {
                 JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");
-                DoctorLogin doctorLogin = new DoctorLogin();
+                PathologistLogIn pathologistLogIn = new PathologistLogIn();
             }
         } catch (SQLException e) {
             e.printStackTrace();

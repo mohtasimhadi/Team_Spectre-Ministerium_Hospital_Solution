@@ -73,16 +73,10 @@ public class PathologistLocale {
     }
 
     void onPatientInformation(){
-        PatientInformationPathologist patientInformationPathologist = new PatientInformationPathologist();
+        PatientInformationPathologist patientInformationPathologist = new PatientInformationPathologist(userid);
     }
 
     void onLogOut(){
         PathologistLogIn logIn = new PathologistLogIn();
     }
-
-    /*public static void main(String[] args){
-        PathologistLocale pathologistLocale = new PathologistLocale();
-    }*/
-
-
 }
