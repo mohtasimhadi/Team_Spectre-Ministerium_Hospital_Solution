@@ -43,6 +43,6 @@ public class PatientInformationDoctor {
         });
     }
     void onBack(){
-        DoctorStation doctorStation = new DoctorStation();
+        DoctorStation doctorStation = new DoctorStation(userid);
     }
 }
