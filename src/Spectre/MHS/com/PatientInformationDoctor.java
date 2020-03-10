@@ -27,7 +27,7 @@ public class PatientInformationDoctor {
 
     public PatientInformationDoctor(String userid) {
         this.userid = userid;
-        JFrame jFrame = new JFrame("Doctors Station");
+        JFrame jFrame = new JFrame("Patient Information");
         jFrame.setVisible(true);
         jFrame.setResizable(false);
         jFrame.setSize(1280, 720);

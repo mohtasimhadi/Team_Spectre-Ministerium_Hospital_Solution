@@ -9,7 +9,7 @@ public class DoctorStation {
     private JButton logOutButton;
     private JButton patientInformationButton;
     private JButton viewAppointmentsButton;
-    private JLabel jID;
+    private JLabel juserid;
     private JLabel jName;
     private JLabel jDateOfBirth;
     private JLabel jAddress;
@@ -42,7 +42,7 @@ public class DoctorStation {
             sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
 
             if(sqlConnector.resultSet.next()){
-                jID.setText(sqlConnector.resultSet.getString("ID"));
+                juserid.setText(sqlConnector.resultSet.getString("ID"));
                 jJoiningDate.setText(sqlConnector.resultSet.getString("DateOfJoin"));
                 jGender.setText(sqlConnector.resultSet.getString("Gender"));
                 jEmail.setText(sqlConnector.resultSet.getString("Email"));

@@ -73,7 +73,7 @@
                   <text value="Password"/>
                 </properties>
               </component>
-              <component id="9ed9e" class="javax.swing.JTextField" binding="userid">
+              <component id="9ed9e" class="javax.swing.JTextField" binding="juserid">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -83,7 +83,7 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="4167" class="javax.swing.JPasswordField" binding="password">
+              <component id="4167" class="javax.swing.JPasswordField" binding="jpassword">
                 <constraints>
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
