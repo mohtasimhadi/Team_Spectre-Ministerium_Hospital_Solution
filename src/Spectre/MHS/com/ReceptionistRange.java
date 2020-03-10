@@ -72,9 +72,19 @@ public class ReceptionistRange {
                 onLogOut();
             }
         });
+        addNewPatientButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrame.setVisible(false);
+                onAddNewPatient();
+            }
+        });
     }
     void onPatientInformation(){
         PatientInformationReceptionist patientInformationReceptionist = new PatientInformationReceptionist(userid);
+    }
+    void onAddNewPatient(){
+        AddNewPatient addNewPatient = new AddNewPatient(userid);
     }
     void onLogOut(){
         ReceptionistLogin receptionistLogin = new ReceptionistLogin();
