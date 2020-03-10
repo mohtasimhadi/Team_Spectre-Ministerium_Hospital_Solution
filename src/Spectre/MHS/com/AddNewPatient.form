@@ -157,13 +157,29 @@
                 <constraints>
                   <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <model>
+                    <item value="MALE"/>
+                    <item value="FEMALE"/>
+                  </model>
+                </properties>
               </component>
               <component id="df6fb" class="javax.swing.JComboBox" binding="jBloodGroup">
                 <constraints>
                   <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <model>
+                    <item value="O+"/>
+                    <item value="O-"/>
+                    <item value="A+"/>
+                    <item value="A-"/>
+                    <item value="B+"/>
+                    <item value="B-"/>
+                    <item value="AB+"/>
+                    <item value="AB-"/>
+                  </model>
+                </properties>
               </component>
               <component id="bfbd2" class="javax.swing.JTextField" binding="jPatientID">
                 <constraints>
