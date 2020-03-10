@@ -36,6 +36,17 @@ public class DoctorStation {
                 onLogOut();
             }
         });
+        patientInformationButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                onPatientInformation();
+                jFrame.setVisible(false);
+            }
+        });
+    }
+
+    void onPatientInformation(){
+        PatientInformationDoctor patientInformationDoctor = new PatientInformationDoctor();
     }
 
     void onLogOut(){
