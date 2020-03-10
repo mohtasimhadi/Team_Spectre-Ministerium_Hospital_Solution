@@ -9,7 +9,7 @@ public class AdminHR {
     private JButton logOutButton;
     private JPanel contentPanel;
     private JButton addNewEmployeeButton;
-    private JButton changePassword;
+    private JButton changePasswordButton;
     private JButton viewEmployeeButton;
     private JLabel jID;
     private JLabel jName;

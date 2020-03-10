@@ -9,6 +9,17 @@ public class AdminstrativeDirector {
     private JPanel contentPanel;
     private JButton viewEmployeeButton;
     private JButton viewPatientButton;
+    private JLabel jID;
+    private JLabel jName;
+    private JLabel jDateOfBirth;
+    private JLabel jAddress;
+    private JLabel jContactNo;
+    private JLabel jGender;
+    private JLabel jEmail;
+    private JLabel jDesignation;
+    private JLabel jBloodGroup;
+    private JLabel jJoiningDate;
+    private JButton changePasswordButton;
 
     public AdminstrativeDirector() {
         JFrame jFrame = new JFrame("Doctors Station");
