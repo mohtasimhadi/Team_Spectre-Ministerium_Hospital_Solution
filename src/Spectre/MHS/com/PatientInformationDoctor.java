@@ -20,6 +20,9 @@ public class PatientInformationDoctor {
     private JTextArea jPathologyTests;
     private JTextField jDateOfRelease;
     private JPanel contentPanel;
+    private JLabel jBloodGroup;
+    private JLabel jEmail;
+    private JLabel jContactNo;
     private String userid;
 
     public PatientInformationDoctor(String userid) {
@@ -40,6 +43,6 @@ public class PatientInformationDoctor {
         });
     }
     void onBack(){
-        DoctorStation doctorStation = new DoctorStation(userid);
+        DoctorStation doctorStation = new DoctorStation();
     }
 }

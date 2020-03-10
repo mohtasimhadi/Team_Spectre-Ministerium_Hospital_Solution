@@ -7,4 +7,11 @@ public class PatientInformationPathologist {
     private JButton updateButton;
     private JButton refreshButton;
     private JPanel contentPanel;
+    private JTextArea jPathologyTests;
+    private JTextField jPatientID;
+    private JButton viewButton;
+    private JLabel jName;
+    private JLabel jAge;
+    private JLabel jGender;
+    private JLabel jBloodGroup;
 }
