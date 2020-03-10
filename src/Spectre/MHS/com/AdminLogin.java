@@ -13,8 +13,6 @@ public class AdminLogin{
     private JPasswordField jpassword;
     private JComboBox jusertype;
 
-
-
     public AdminLogin() {
         JFrame jFrame = new JFrame("Admin Log In");
         jFrame.setVisible(true);
@@ -61,7 +59,7 @@ public class AdminLogin{
 
             if(sqlConnector.resultSet.next()){
                 if(usertype=="HR Admin"){
-                    AdminHR adminHR = new AdminHR();
+                    AdminHR adminHR = new AdminHR(userid);
                 }
                 if(usertype=="Administrative Director"){
                     AdminstrativeDirector adminstrativeDirector = new AdminstrativeDirector();
