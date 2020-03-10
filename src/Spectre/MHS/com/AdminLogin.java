@@ -39,7 +39,7 @@ public class AdminLogin{
         });
     }
 
-    private void onLogIn() throws NoSuchAlgorithmException {
+    void onLogIn() throws NoSuchAlgorithmException {
         Encryption encryption = new Encryption();
         String userid = juserid.getText();
         String password = encryption.Encrypt(jpassword.getText());

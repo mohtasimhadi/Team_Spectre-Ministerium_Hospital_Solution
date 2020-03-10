@@ -20,8 +20,10 @@ public class PatientInformationDoctor {
     private JTextArea jPathologyTests;
     private JTextField jDateOfRelease;
     private JPanel contentPanel;
+    private String userid;
 
-    public PatientInformationDoctor() {
+    public PatientInformationDoctor(String userid) {
+        this.userid = userid;
         JFrame jFrame = new JFrame("Doctors Station");
         jFrame.setVisible(true);
         jFrame.setResizable(false);
@@ -38,6 +40,6 @@ public class PatientInformationDoctor {
         });
     }
     void onBack(){
-        DoctorStation doctorStation = new DoctorStation();
+        DoctorStation doctorStation = new DoctorStation(userid);
     }
 }
