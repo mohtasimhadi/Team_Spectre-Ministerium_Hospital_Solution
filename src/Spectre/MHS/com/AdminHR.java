@@ -25,7 +25,7 @@ public class AdminHR {
 
 
     public AdminHR() {
-        JFrame jFrame = new JFrame("Doctors Station");
+        JFrame jFrame = new JFrame("Human Resource Management Admin");
         jFrame.setVisible(true);
         jFrame.setResizable(false);
         jFrame.setSize(1280, 720);
@@ -39,6 +39,17 @@ public class AdminHR {
                 onLogOut();
             }
         });
+        addNewEmployeeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                onAddNewEmployee();
+                jFrame.setVisible(false);
+            }
+        });
+    }
+
+    void onAddNewEmployee(){
+        AddNewEmployee addNewEmployee = new AddNewEmployee();
     }
 
     void onLogOut(){
