@@ -3,6 +3,7 @@ package Spectre.MHS.com;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 public class AddNewEmployee {
@@ -42,13 +43,18 @@ public class AddNewEmployee {
         addEmployeeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                onAddEmployeeButton();
+                try {
+                    onAddEmployeeButton();
+                } catch (NoSuchAlgorithmException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
     }
 
-    void onAddEmployeeButton(){
+    void onAddEmployeeButton() throws NoSuchAlgorithmException {
         SQLConnector sqlConnector = new SQLConnector();
+        Encryption encryption = new Encryption();
 
         String Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password;
 
@@ -62,7 +68,7 @@ public class AddNewEmployee {
         Designation = jDesignation.getSelectedItem().toString();
         BloodGroup = jBloodGroup.getText();
         DateOfJoin = jDateOfJoin.getText();
-        Password = jPassword.getText();
+        Password = encryption.Encrypt(jPassword.getText());
 
         sqlConnector.connect();
 
