@@ -13,18 +13,7 @@ public class AdminLogin{
     private JPasswordField jpassword;
     private JComboBox jusertype;
 
-    Connection connection;
-    PreparedStatement preparedStatement;
-    ResultSet resultSet;
 
-    public void connect(){
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mhs?useTimezone=true&serverTimezone=UTC","root","");
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     public AdminLogin() {
         JFrame jFrame = new JFrame("Admin Log In");
@@ -58,18 +47,19 @@ public class AdminLogin{
         String password = encryption.Encrypt(jpassword.getText());
         String usertype = jusertype.getSelectedItem().toString();
 
-        connect();
+        SQLConnector sqlConnector = new SQLConnector();
+        sqlConnector.connect();
 
         try {
             String query = "select * from admin where ID = ? and Password = ? and Designation = ?";
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, username);
-            preparedStatement.setString(2,password);
-            preparedStatement.setString(3, usertype);
+            sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
+            sqlConnector.preparedStatement.setString(1, username);
+            sqlConnector.preparedStatement.setString(2,password);
+            sqlConnector.preparedStatement.setString(3, usertype);
 
-            resultSet = preparedStatement.executeQuery();
+            sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
 
-            if(resultSet.next()){
+            if(sqlConnector.resultSet.next()){
                 if(usertype=="HR Admin"){
                     AdminHR adminHR = new AdminHR();
                 }
