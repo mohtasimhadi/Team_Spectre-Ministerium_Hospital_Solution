@@ -4,6 +4,7 @@ import javax.swing.*;
 
 public class PatientInformationDoctor {
     private JButton backButton;
+    private JButton updateButton;
     private JButton referButton;
     private JButton refreshButton;
     private JButton viewButton;
@@ -21,4 +22,24 @@ public class PatientInformationDoctor {
     private JLabel jEmail;
     private JLabel jContactNo;
     private JButton updateButton;
+
+    public PatientInformationDoctor() {
+        JFrame jFrame = new JFrame("Doctors Station");
+        jFrame.setVisible(true);
+        jFrame.setResizable(false);
+        jFrame.setSize(1280, 720);
+        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        jFrame.add(contentPanel);
+
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                onBack();
+                jFrame.setVisible(false);
+            }
+        });
+    }
+    void onBack(){
+        DoctorStation doctorStation = new DoctorStation();
+    }
 }
