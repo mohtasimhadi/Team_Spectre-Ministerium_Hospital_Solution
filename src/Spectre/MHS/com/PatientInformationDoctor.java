@@ -1,6 +1,8 @@
 package Spectre.MHS.com;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class PatientInformationDoctor {
     private JButton backButton;
@@ -21,7 +23,6 @@ public class PatientInformationDoctor {
     private JLabel jBloodGroup;
     private JLabel jEmail;
     private JLabel jContactNo;
-    private JButton updateButton;
 
     public PatientInformationDoctor() {
         JFrame jFrame = new JFrame("Doctors Station");
