@@ -1,5 +1,6 @@
 package Spectre.MHS.com;
 
+import javax.print.Doc;
 import javax.swing.*;
 import java.awt.event.*;
 import java.security.NoSuchAlgorithmException;
@@ -64,7 +65,7 @@ public class DoctorLogin{
             }
             else {
                 JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");
-                AdminLogin adminLogin = new AdminLogin();
+                DoctorLogin doctorLogin = new DoctorLogin();
             }
         } catch (SQLException e) {
             e.printStackTrace();

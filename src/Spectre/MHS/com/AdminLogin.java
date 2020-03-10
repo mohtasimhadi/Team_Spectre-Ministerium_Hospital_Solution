@@ -58,11 +58,11 @@ public class AdminLogin{
             sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
 
             if(sqlConnector.resultSet.next()){
-                if(usertype=="HR Admin"){
+                if(usertype=="Human Resource Management Admin"){
                     AdminHR adminHR = new AdminHR(userid);
                 }
                 if(usertype=="Administrative Director"){
-                    AdminstrativeDirector adminstrativeDirector = new AdminstrativeDirector();
+                    AdminstrativeDirector adminstrativeDirector = new AdminstrativeDirector(userid);
                 }
             }
             else {
