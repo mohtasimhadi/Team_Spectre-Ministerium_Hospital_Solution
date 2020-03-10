@@ -35,6 +35,6 @@ public class Encryption {
 
     /*public static void main(String[] args) throws NoSuchAlgorithmException{
         Encryption n = new Encryption();
-        System.out.println(n.Encrypt("password"));
+        System.out.println(n.Encrypt("abc"));
     }*/
 }
