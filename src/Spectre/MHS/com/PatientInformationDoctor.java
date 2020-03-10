@@ -4,7 +4,6 @@ import javax.swing.*;
 
 public class PatientInformationDoctor {
     private JButton backButton;
-    private JButton updateButton;
     private JButton referButton;
     private JButton refreshButton;
     private JButton viewButton;
@@ -18,4 +17,8 @@ public class PatientInformationDoctor {
     private JTextArea jPathologyTests;
     private JTextField jDateOfRelease;
     private JPanel contentPanel;
+    private JLabel jBloodGroup;
+    private JLabel jEmail;
+    private JLabel jContactNo;
+    private JButton updateButton;
 }
