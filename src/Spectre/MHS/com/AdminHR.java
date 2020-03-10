@@ -23,7 +23,6 @@ public class AdminHR {
     private JLabel jBloodGroup;
     private JLabel jJoiningDate;
 
-
     public AdminHR() {
         JFrame jFrame = new JFrame("Human Resource Management Admin");
         jFrame.setVisible(true);

@@ -43,7 +43,7 @@ public class AdminLogin{
 
     private void onLogIn() throws NoSuchAlgorithmException {
         Encryption encryption = new Encryption();
-        String username = juserid.getText();
+        String userid = juserid.getText();
         String password = encryption.Encrypt(jpassword.getText());
         String usertype = jusertype.getSelectedItem().toString();
 
@@ -53,7 +53,7 @@ public class AdminLogin{
         try {
             String query = "select * from admin where ID = ? and Password = ? and Designation = ?";
             sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
-            sqlConnector.preparedStatement.setString(1, username);
+            sqlConnector.preparedStatement.setString(1, userid);
             sqlConnector.preparedStatement.setString(2,password);
             sqlConnector.preparedStatement.setString(3, usertype);
 
