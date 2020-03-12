@@ -247,7 +247,9 @@
                     <preferred-size width="150" height="50"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="false"/>
+                </properties>
               </component>
               <component id="5bc1a" class="javax.swing.JTextArea" binding="jPathologyTests">
                 <constraints>
@@ -255,7 +257,9 @@
                     <preferred-size width="150" height="50"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="false"/>
+                </properties>
               </component>
               <component id="c76cb" class="javax.swing.JButton" binding="viewButton" default-binding="true">
                 <constraints>

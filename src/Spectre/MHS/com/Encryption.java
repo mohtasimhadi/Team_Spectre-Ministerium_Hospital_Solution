@@ -33,8 +33,8 @@ public class Encryption {
         return salt;
     }*/
 
- /*   public static void main(String[] args) throws NoSuchAlgorithmException{
+    /*public static void main(String[] args) throws NoSuchAlgorithmException{
         Encryption n = new Encryption();
-        System.out.println(n.Encrypt("123"));
+        System.out.println(n.Encrypt("abc"));
     }*/
 }
