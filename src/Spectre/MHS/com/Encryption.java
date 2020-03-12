@@ -2,7 +2,6 @@ package Spectre.MHS.com;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 
 public class Encryption {
 
@@ -10,7 +9,9 @@ public class Encryption {
         return  Hash(message);
     }
     private String Hash(String message){
+
         String output = null;
+
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-1");
 
@@ -24,17 +25,7 @@ public class Encryption {
         catch (NoSuchAlgorithmException e){
             e.printStackTrace();
         }
+
         return output;
     }
-    /*private byte[] getSalt() throws NoSuchAlgorithmException {
-        SecureRandom n = SecureRandom.getInstance("SHA1PRNG");
-        byte[] salt = new byte[16];
-        n.nextBytes(salt);
-        return salt;
-    }*/
-
-    /*public static void main(String[] args) throws NoSuchAlgorithmException{
-        Encryption n = new Encryption();
-        System.out.println(n.Encrypt("abc"));
-    }*/
 }

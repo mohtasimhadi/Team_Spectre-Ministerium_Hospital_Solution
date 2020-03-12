@@ -1,6 +1,5 @@
 package Spectre.MHS.com;
 
-import javax.print.Doc;
 import javax.swing.*;
 import java.awt.event.*;
 import java.security.NoSuchAlgorithmException;
