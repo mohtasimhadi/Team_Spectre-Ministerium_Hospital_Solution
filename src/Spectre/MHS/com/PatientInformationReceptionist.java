@@ -23,11 +23,11 @@ public class PatientInformationReceptionist {
     private JButton refreshButton;
     private JButton updateButton;
     private String userid;
-    private Display display = new Display("Patient Information");
+    private Display display = new Display("Patient Information", contentPanel);
 
     PatientInformationReceptionist(String userid){
         this.userid = userid;
-        display.DisplayOn(contentPanel);
+        display.DisplayOn();
 
         backButton.addActionListener(new ActionListener() {
             @Override

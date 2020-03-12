@@ -24,11 +24,11 @@ public class PatientInformationDoctor {
     private JLabel jEmail;
     private JLabel jContactNo;
     private String userid;
-    private Display display = new Display("Patient Information");
+    private Display display = new Display("Patient Information", contentPanel);
 
     public PatientInformationDoctor(String userid) {
         this.userid = userid;
-        display.DisplayOn(contentPanel);
+        display.DisplayOn();
 
         backButton.addActionListener(new ActionListener() {
             @Override

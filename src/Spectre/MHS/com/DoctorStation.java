@@ -17,16 +17,15 @@ public class DoctorStation {
     private JLabel jGender;
     private JLabel jEmail;
     private JLabel jDesignation;
-    private JLabel jSpecialization;
     private JLabel jBloodGroup;
     private JLabel jJoiningDate;
     private JButton changePassword;
     private String userid;
-    private Display display = new Display("Doctors Station");
+    private Display display = new Display("Doctors Station", contentPanel);
 
     public DoctorStation(String userid) {
         this.userid = userid;
-        display.DisplayOn(contentPanel);
+        display.DisplayOn();
 
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();

@@ -13,10 +13,10 @@ public class ReceptionistLogin {
     private JButton exitButton;
     private JButton logInButton;
     private JPanel contentPanel;
-    private Display display = new Display("Receptionist Log In");
+    private Display display = new Display("Receptionist Log In", contentPanel);
 
     ReceptionistLogin(){
-        display.DisplayOn(contentPanel);
+        display.DisplayOn();
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

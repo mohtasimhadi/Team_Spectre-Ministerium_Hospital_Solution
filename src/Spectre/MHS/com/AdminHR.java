@@ -22,11 +22,11 @@ public class AdminHR {
     private JLabel jBloodGroup;
     private JLabel jJoiningDate;
     private String userid;
-    private Display display = new Display("Human Resource Management Admin");
+    private Display display = new Display("Human Resource Management Admin", contentPanel);
 
     public AdminHR(String userid) {
         this.userid = userid;
-        display.DisplayOn(contentPanel);
+        display.DisplayOn();
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();
 

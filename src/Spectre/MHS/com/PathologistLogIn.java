@@ -11,10 +11,10 @@ public class PathologistLogIn{
     private JButton exitButton;
     private JTextField juserid;
     private JPasswordField jpassword;
-    private Display display = new Display("Pathologist Log In");
+    private Display display = new Display("Pathologist Log In", contentPanel);
 
     public PathologistLogIn() {
-        display.DisplayOn(contentPanel);
+        display.DisplayOn();
 
         exitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

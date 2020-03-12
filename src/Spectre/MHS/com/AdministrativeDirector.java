@@ -21,11 +21,11 @@ public class AdministrativeDirector {
     private JLabel jJoiningDate;
     private JButton changePasswordButton;
     private String userid;
-    private Display display = new Display("Administrative Director");
+    private Display display = new Display("Administrative Director", contentPanel);
 
     public AdministrativeDirector(String userid) {
         this.userid = userid;
-        display.DisplayOn(contentPanel);
+        display.DisplayOn();
 
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();

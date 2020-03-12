@@ -21,11 +21,11 @@ public class AddNewPatient {
     private JTextField jAppointedDoctor;
     private JButton jViewDoctors;
     private String userid;
-    private Display display = new Display("Add New Patient");
+    private Display display = new Display("Add New Patient", contentPanel);
 
     public AddNewPatient(String userid) {
         this.userid = userid;
-        display.DisplayOn(contentPanel);
+        display.DisplayOn();
 
         backButton.addActionListener(new ActionListener() {
             @Override

@@ -22,12 +22,12 @@ public class AddNewEmployee {
     private JTextField jEducationQualification;
     private JTextField jBloodGroup;
     private String userid;
-    private Display display = new Display("Add New Employee");
+    private Display display = new Display("Add New Employee", contentPanel);
 
 
     public AddNewEmployee(String userid) {
         this.userid = userid;
-        display.DisplayOn(contentPanel);
+        display.DisplayOn();
 
         backButton.addActionListener(new ActionListener() {
             @Override

@@ -3,14 +3,16 @@ package Spectre.MHS.com;
 import javax.swing.*;
 
 public class Display {
+    private JFrame jFrame;
+    private JPanel contentPanel;
 
-    JFrame jFrame = new JFrame();
-    public Display(String title){
+    public Display(String title, JPanel contentPanel){
         JFrame jFrame = new JFrame(title);
         this.jFrame = jFrame;
+        this.contentPanel = contentPanel;
     }
 
-    void DisplayOn(JPanel contentPanel){
+    void DisplayOn(){
         jFrame.setVisible(true);
         jFrame.setResizable(false);
         jFrame.setSize(1280, 720);

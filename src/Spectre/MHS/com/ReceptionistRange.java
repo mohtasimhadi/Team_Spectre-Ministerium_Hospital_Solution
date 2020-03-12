@@ -19,14 +19,13 @@ public class ReceptionistRange {
     private JLabel jGender;
     private JLabel jEmail;
     private JLabel jDesignation;
-    private JLabel jSpecialization;
     private JLabel jBloodGroup;
     private JLabel jJoiningDate;
-    private Display display = new Display("Receptionist Range");
+    private Display display = new Display("Receptionists Range", contentPanel);
 
     public ReceptionistRange(String userid) {
         this.userid = userid;
-        display.DisplayOn(contentPanel);
+        display.DisplayOn();
 
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();

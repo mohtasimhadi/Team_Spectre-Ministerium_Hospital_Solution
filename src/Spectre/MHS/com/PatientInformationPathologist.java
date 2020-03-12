@@ -17,11 +17,11 @@ public class PatientInformationPathologist {
     private JLabel jGender;
     private JLabel jBloodGroup;
     private String userid;
-    private Display display = new Display("Patient Information");
+    private Display display = new Display("Patient Information", contentPanel);
 
     public PatientInformationPathologist(String userid) {
         this.userid = userid;
-        display.DisplayOn(contentPanel);
+        display.DisplayOn();
 
         backButton.addActionListener(new ActionListener() {
             @Override

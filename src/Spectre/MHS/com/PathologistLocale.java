@@ -21,11 +21,11 @@ public class PathologistLocale {
     private JLabel jBloodGroup;
     private JLabel jJoiningDate;
     public String userid;
-    private Display display = new Display("Pathologists Locale");
+    private Display display = new Display("Pathologists Locale", contentPanel);
 
     public PathologistLocale(String userid) {
         this.userid = userid;
-        display.DisplayOn(contentPanel);
+        display.DisplayOn();
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();
 

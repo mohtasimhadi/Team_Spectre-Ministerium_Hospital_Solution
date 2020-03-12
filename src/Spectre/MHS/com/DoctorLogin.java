@@ -12,10 +12,10 @@ public class DoctorLogin{
     private JButton exitButton;
     private JTextField juserid;
     private JPasswordField jpassword;
-    Display display = new Display("Doctor Log In");
+    Display display = new Display("Doctor Log In", contentPanel);
 
     public DoctorLogin() {
-        display.DisplayOn(contentPanel);
+        display.DisplayOn();
         exitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onExit();

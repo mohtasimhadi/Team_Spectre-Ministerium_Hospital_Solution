@@ -12,10 +12,10 @@ public class AdminLogin{
     private JTextField juserid;
     private JPasswordField jpassword;
     private JComboBox jusertype;
-    private Display display = new Display("Admin Log In");
+    private Display display = new Display("Admin Log In", contentPanel);
 
     public AdminLogin() {
-        display.DisplayOn(contentPanel);
+        display.DisplayOn();
 
         exitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
