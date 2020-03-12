@@ -11,14 +11,10 @@ public class PathologistLogIn{
     private JButton exitButton;
     private JTextField juserid;
     private JPasswordField jpassword;
+    private Display display = new Display("Pathologist Log In");
 
     public PathologistLogIn() {
-        JFrame jFrame = new JFrame("Pathologist Log In");
-        jFrame.setVisible(true);
-        jFrame.setResizable(false);
-        jFrame.setSize(1280, 720);
-        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jFrame.add(contentPanel);
+        display.DisplayOn(contentPanel);
 
         exitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -30,7 +26,7 @@ public class PathologistLogIn{
             public void actionPerformed(ActionEvent e) {
                 try {
                     onLogIn();
-                    jFrame.setVisible(false);
+                    display.DisplayOff();
                 } catch (NoSuchAlgorithmException ex) {
                     ex.printStackTrace();
                 }

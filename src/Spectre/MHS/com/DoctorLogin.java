@@ -12,16 +12,10 @@ public class DoctorLogin{
     private JButton exitButton;
     private JTextField juserid;
     private JPasswordField jpassword;
+    Display display = new Display("Doctor Log In");
 
     public DoctorLogin() {
-
-        JFrame jFrame = new JFrame("Doctor Log In");
-        jFrame.setVisible(true);
-        jFrame.setResizable(false);
-        jFrame.setSize(1280, 720);
-        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jFrame.add(contentPanel);
-
+        display.DisplayOn(contentPanel);
         exitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onExit();
@@ -32,7 +26,7 @@ public class DoctorLogin{
             public void actionPerformed(ActionEvent e) {
                 try {
                     onLogIn();
-                    jFrame.setVisible(false);
+                    display.DisplayOff();
                 } catch (NoSuchAlgorithmException ex) {
                     ex.printStackTrace();
                 }

@@ -13,15 +13,10 @@ public class ReceptionistLogin {
     private JButton exitButton;
     private JButton logInButton;
     private JPanel contentPanel;
+    private Display display = new Display("Receptionist Log In");
 
     ReceptionistLogin(){
-
-        JFrame jFrame = new JFrame("Receptionist Log In");
-        jFrame.setVisible(true);
-        jFrame.setResizable(false);
-        jFrame.setSize(1280, 720);
-        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jFrame.add(contentPanel);
+        display.DisplayOn(contentPanel);
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -32,7 +27,7 @@ public class ReceptionistLogin {
             public void actionPerformed(ActionEvent e) {
                 try {
                     onLogIn();
-                    jFrame.setVisible(false);
+                    display.DisplayOff();
                 } catch (NoSuchAlgorithmException ex) {
                     ex.printStackTrace();
                 }

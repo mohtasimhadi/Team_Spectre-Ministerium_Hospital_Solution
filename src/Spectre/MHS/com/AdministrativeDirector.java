@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AdminstrativeDirector {
+public class AdministrativeDirector {
     private JButton logOutButton;
     private JPanel contentPanel;
     private JButton viewEmployeeButton;
@@ -21,15 +21,11 @@ public class AdminstrativeDirector {
     private JLabel jJoiningDate;
     private JButton changePasswordButton;
     private String userid;
+    private Display display = new Display("Administrative Director");
 
-    public AdminstrativeDirector(String userid) {
+    public AdministrativeDirector(String userid) {
         this.userid = userid;
-        JFrame jFrame = new JFrame("Doctors Station");
-        jFrame.setVisible(true);
-        jFrame.setResizable(false);
-        jFrame.setSize(1280, 720);
-        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jFrame.add(contentPanel);
+        display.DisplayOn(contentPanel);
 
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();
@@ -60,7 +56,7 @@ public class AdminstrativeDirector {
         logOutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jFrame.setVisible(false);
+                display.DisplayOff();
                 onLogOut();
             }
         });

@@ -22,16 +22,11 @@ public class AdminHR {
     private JLabel jBloodGroup;
     private JLabel jJoiningDate;
     private String userid;
+    private Display display = new Display("Human Resource Management Admin");
 
     public AdminHR(String userid) {
         this.userid = userid;
-        JFrame jFrame = new JFrame("Human Resource Management Admin");
-        jFrame.setVisible(true);
-        jFrame.setResizable(false);
-        jFrame.setSize(1280, 720);
-        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jFrame.add(contentPanel);
-
+        display.DisplayOn(contentPanel);
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();
 
@@ -61,7 +56,7 @@ public class AdminHR {
         logOutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jFrame.setVisible(false);
+                display.DisplayOff();
                 onLogOut();
             }
         });
@@ -69,7 +64,7 @@ public class AdminHR {
             @Override
             public void actionPerformed(ActionEvent e) {
                 onAddNewEmployee();
-                jFrame.setVisible(false);
+                display.DisplayOff();
             }
         });
     }
@@ -81,8 +76,4 @@ public class AdminHR {
     void onLogOut(){
         AdminLogin adminLogin = new AdminLogin();
     }
-
-    /*public static void main(String[] args){
-        AdminHR adminHR = new AdminHR();
-    }*/
 }

@@ -23,22 +23,17 @@ public class PatientInformationReceptionist {
     private JButton refreshButton;
     private JButton updateButton;
     private String userid;
+    private Display display = new Display("Patient Information");
 
     PatientInformationReceptionist(String userid){
         this.userid = userid;
-
-        JFrame jFrame = new JFrame("Patient Information");
-        jFrame.setVisible(true);
-        jFrame.setResizable(false);
-        jFrame.setSize(1280, 720);
-        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jFrame.add(contentPanel);
+        display.DisplayOn(contentPanel);
 
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 onBack();
-                jFrame.setVisible(false);
+                display.DisplayOff();
             }
         });
     }

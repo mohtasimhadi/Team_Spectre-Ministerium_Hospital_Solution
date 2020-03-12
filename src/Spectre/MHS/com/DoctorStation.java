@@ -22,15 +22,11 @@ public class DoctorStation {
     private JLabel jJoiningDate;
     private JButton changePassword;
     private String userid;
+    private Display display = new Display("Doctors Station");
 
     public DoctorStation(String userid) {
         this.userid = userid;
-        JFrame jFrame = new JFrame("Doctors Station");
-        jFrame.setVisible(true);
-        jFrame.setResizable(false);
-        jFrame.setSize(1280, 720);
-        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jFrame.add(contentPanel);
+        display.DisplayOn(contentPanel);
 
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();
@@ -62,7 +58,7 @@ public class DoctorStation {
         logOutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jFrame.setVisible(false);
+                display.DisplayOff();
                 onLogOut();
             }
         });
@@ -70,7 +66,7 @@ public class DoctorStation {
             @Override
             public void actionPerformed(ActionEvent e) {
                 onPatientInformation();
-                jFrame.setVisible(false);
+                display.DisplayOff();
             }
         });
     }

@@ -22,22 +22,18 @@ public class AddNewEmployee {
     private JTextField jEducationQualification;
     private JTextField jBloodGroup;
     private String userid;
+    private Display display = new Display("Add New Employee");
 
 
     public AddNewEmployee(String userid) {
         this.userid = userid;
-        JFrame jFrame = new JFrame("Add New Employee");
-        jFrame.setVisible(true);
-        jFrame.setResizable(false);
-        jFrame.setSize(1280, 720);
-        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jFrame.add(contentPanel);
+        display.DisplayOn(contentPanel);
 
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 onBack();
-                jFrame.setVisible(false);
+                display.DisplayOff();
             }
         });
         addEmployeeButton.addActionListener(new ActionListener() {

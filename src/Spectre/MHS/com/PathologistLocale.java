@@ -21,15 +21,11 @@ public class PathologistLocale {
     private JLabel jBloodGroup;
     private JLabel jJoiningDate;
     public String userid;
+    private Display display = new Display("Pathologists Locale");
 
     public PathologistLocale(String userid) {
         this.userid = userid;
-        JFrame jFrame = new JFrame("Pathologist Locale");
-        jFrame.setVisible(true);
-        jFrame.setResizable(false);
-        jFrame.setSize(1280, 720);
-        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jFrame.add(contentPanel);
+        display.DisplayOn(contentPanel);
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();
 
@@ -58,7 +54,7 @@ public class PathologistLocale {
         logOutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jFrame.setVisible(false);
+                display.DisplayOff();
                 onLogOut();
             }
         });
@@ -67,7 +63,7 @@ public class PathologistLocale {
             @Override
             public void actionPerformed(ActionEvent e) {
                 onPatientInformation();
-                jFrame.setVisible(false);
+                display.DisplayOff();
             }
         });
     }

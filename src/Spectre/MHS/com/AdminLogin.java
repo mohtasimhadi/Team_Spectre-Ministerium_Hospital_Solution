@@ -12,14 +12,10 @@ public class AdminLogin{
     private JTextField juserid;
     private JPasswordField jpassword;
     private JComboBox jusertype;
+    private Display display = new Display("Admin Log In");
 
     public AdminLogin() {
-        JFrame jFrame = new JFrame("Admin Log In");
-        jFrame.setVisible(true);
-        jFrame.setResizable(false);
-        jFrame.setSize(1280, 720);
-        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jFrame.add(contentPanel);
+        display.DisplayOn(contentPanel);
 
         exitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -31,7 +27,7 @@ public class AdminLogin{
             public void actionPerformed(ActionEvent e) {
                 try {
                     onLogIn();
-                    jFrame.setVisible(false);
+                    display.DisplayOff();
                 } catch (NoSuchAlgorithmException ex) {
                     ex.printStackTrace();
                 }
@@ -62,7 +58,7 @@ public class AdminLogin{
                     AdminHR adminHR = new AdminHR(userid);
                 }
                 if(usertype=="Administrative Director"){
-                    AdminstrativeDirector adminstrativeDirector = new AdminstrativeDirector(userid);
+                    AdministrativeDirector administrativeDirector = new AdministrativeDirector(userid);
                 }
             }
             else {
