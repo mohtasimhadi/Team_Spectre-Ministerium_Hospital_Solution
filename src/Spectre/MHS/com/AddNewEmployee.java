@@ -20,9 +20,10 @@ public class AddNewEmployee {
     private JTextField jEmail;
     private JComboBox jGender;
     private JTextField jEducationQualification;
-    private JTextField jBloodGroup;
+    private JComboBox jBloodGroup;
     private String userid;
     private Display display = new Display("Add New Employee", contentPanel);
+    SQLConnector sqlConnector = new SQLConnector();
 
 
     public AddNewEmployee(String userid) {
@@ -49,164 +50,64 @@ public class AddNewEmployee {
     }
 
     void onAddEmployeeButton() throws NoSuchAlgorithmException {
-        SQLConnector sqlConnector = new SQLConnector();
-        Encryption encryption = new Encryption();
-
-        String Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password;
-
-        Name = jName.getText();
-        DateOfBirth = jDateOfBirth.getText();
-        ContactNo = jContactNo.getText();
-        Address = jAddress.getText();
-        Email = jEmail.getText();
-        Gender = jGender.getSelectedItem().toString();
-        EducationQualification = jEducationQualification.getText();
+        String Designation;
         Designation = jDesignation.getSelectedItem().toString();
-        BloodGroup = jBloodGroup.getText();
-        DateOfJoin = jDateOfJoin.getText();
-        Password = encryption.Encrypt(jPassword.getText());
 
-        sqlConnector.connect();
 
         if(Designation == "Doctor"){
-            try {
-                String sql = "INSERT INTO doctor (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
-                sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(sql);
-                sqlConnector.preparedStatement.setString(1, Name);
-                sqlConnector.preparedStatement.setString(2, DateOfBirth);
-                sqlConnector.preparedStatement.setString(3, ContactNo);
-                sqlConnector.preparedStatement.setString(4, Address);
-                sqlConnector.preparedStatement.setString(5, Email);
-                sqlConnector.preparedStatement.setString(6,Gender);
-                sqlConnector.preparedStatement.setString(7,EducationQualification);
-                sqlConnector.preparedStatement.setString(8,Designation);
-                sqlConnector.preparedStatement.setString(9,BloodGroup);
-                sqlConnector.preparedStatement.setString(10,DateOfJoin);
-                sqlConnector.preparedStatement.setString(11,Password);
-
-                sqlConnector.preparedStatement.executeUpdate();
-
-                JOptionPane.showMessageDialog(contentPanel, "User Inserted");
-
-                jAddress.setText("");
-                jBloodGroup.setText("");
-                jContactNo.setText("");
-                jDateOfBirth.setText("");
-                jDateOfJoin.setText("");
-                jEducationQualification.setText("");
-                jDesignation.setSelectedIndex(-1);
-                jName.setText("");
-                jEmail.setText("");
-                jGender.setSelectedIndex(-1);
-                jPassword.setText("");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            String sql = "INSERT INTO doctor (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
+            addEmployee(sql);
         }
         else if (Designation == "Receptionist"){
-            try {
-                String sql = "INSERT INTO receptionist (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
-                sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(sql);
-                sqlConnector.preparedStatement.setString(1, Name);
-                sqlConnector.preparedStatement.setString(2, DateOfBirth);
-                sqlConnector.preparedStatement.setString(3, ContactNo);
-                sqlConnector.preparedStatement.setString(4, Address);
-                sqlConnector.preparedStatement.setString(5, Email);
-                sqlConnector.preparedStatement.setString(6,Gender);
-                sqlConnector.preparedStatement.setString(7,EducationQualification);
-                sqlConnector.preparedStatement.setString(8,Designation);
-                sqlConnector.preparedStatement.setString(9,BloodGroup);
-                sqlConnector.preparedStatement.setString(10,DateOfJoin);
-                sqlConnector.preparedStatement.setString(11,Password);
+            String sql = "INSERT INTO receptionist (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
+            addEmployee(sql);
 
-                sqlConnector.preparedStatement.executeUpdate();
-
-                JOptionPane.showMessageDialog(contentPanel, "User Inserted");
-
-                jAddress.setText("");
-                jBloodGroup.setText("");
-                jContactNo.setText("");
-                jDateOfBirth.setText("");
-                jDateOfJoin.setText("");
-                jEducationQualification.setText("");
-                jDesignation.setSelectedIndex(-1);
-                jName.setText("");
-                jEmail.setText("");
-                jGender.setSelectedIndex(-1);
-                jPassword.setText("");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
         else if (Designation == "Pathologist"){
-            try {
-                String sql = "INSERT INTO pathologist (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
-                sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(sql);
-                sqlConnector.preparedStatement.setString(1, Name);
-                sqlConnector.preparedStatement.setString(2, DateOfBirth);
-                sqlConnector.preparedStatement.setString(3, ContactNo);
-                sqlConnector.preparedStatement.setString(4, Address);
-                sqlConnector.preparedStatement.setString(5, Email);
-                sqlConnector.preparedStatement.setString(6,Gender);
-                sqlConnector.preparedStatement.setString(7,EducationQualification);
-                sqlConnector.preparedStatement.setString(8,Designation);
-                sqlConnector.preparedStatement.setString(9,BloodGroup);
-                sqlConnector.preparedStatement.setString(10,DateOfJoin);
-                sqlConnector.preparedStatement.setString(11,Password);
+            String sql = "INSERT INTO pathologist (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
+            addEmployee(sql);
 
-                sqlConnector.preparedStatement.executeUpdate();
-
-                JOptionPane.showMessageDialog(contentPanel, "User Inserted");
-
-                jAddress.setText("");
-                jBloodGroup.setText("");
-                jContactNo.setText("");
-                jDateOfBirth.setText("");
-                jDateOfJoin.setText("");
-                jEducationQualification.setText("");
-                jDesignation.setSelectedIndex(-1);
-                jName.setText("");
-                jEmail.setText("");
-                jGender.setSelectedIndex(-1);
-                jPassword.setText("");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
         else {
-            try {
-                String sql = "INSERT INTO admin (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
-                sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(sql);
-                sqlConnector.preparedStatement.setString(1, Name);
-                sqlConnector.preparedStatement.setString(2, DateOfBirth);
-                sqlConnector.preparedStatement.setString(3, ContactNo);
-                sqlConnector.preparedStatement.setString(4, Address);
-                sqlConnector.preparedStatement.setString(5, Email);
-                sqlConnector.preparedStatement.setString(6,Gender);
-                sqlConnector.preparedStatement.setString(7,EducationQualification);
-                sqlConnector.preparedStatement.setString(8,Designation);
-                sqlConnector.preparedStatement.setString(9,BloodGroup);
-                sqlConnector.preparedStatement.setString(10,DateOfJoin);
-                sqlConnector.preparedStatement.setString(11,Password);
+            String sql = "INSERT INTO admin (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
+            addEmployee(sql);
+        }
+    }
 
-                sqlConnector.preparedStatement.executeUpdate();
+    void addEmployee(String sql){
+        sqlConnector.connect();
+        Encryption encryption = new Encryption();
+        try {
+            sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(sql);
+            sqlConnector.preparedStatement.setString(1, jName.getText());
+            sqlConnector.preparedStatement.setString(2, jDateOfBirth.getText());
+            sqlConnector.preparedStatement.setString(3, jContactNo.getText());
+            sqlConnector.preparedStatement.setString(4, jAddress.getText());
+            sqlConnector.preparedStatement.setString(5, jEmail.getText());
+            sqlConnector.preparedStatement.setString(6,jGender.getSelectedItem().toString());
+            sqlConnector.preparedStatement.setString(7,jEducationQualification.getText());
+            sqlConnector.preparedStatement.setString(8,jDesignation.getSelectedItem().toString());
+            sqlConnector.preparedStatement.setString(9,jBloodGroup.getSelectedItem().toString());
+            sqlConnector.preparedStatement.setString(10,jDateOfJoin.getText());
+            sqlConnector.preparedStatement.setString(11, encryption.Encrypt(jPassword.getText()));
 
-                JOptionPane.showMessageDialog(contentPanel, "User Inserted");
+            sqlConnector.preparedStatement.executeUpdate();
 
-                jAddress.setText("");
-                jBloodGroup.setText("");
-                jContactNo.setText("");
-                jDateOfBirth.setText("");
-                jDateOfJoin.setText("");
-                jEducationQualification.setText("");
-                jDesignation.setSelectedIndex(-1);
-                jName.setText("");
-                jEmail.setText("");
-                jGender.setSelectedIndex(-1);
-                jPassword.setText("");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            JOptionPane.showMessageDialog(contentPanel, "User Inserted");
+
+            jAddress.setText("");
+            jBloodGroup.setSelectedIndex(-1);
+            jContactNo.setText("");
+            jDateOfBirth.setText("");
+            jDateOfJoin.setText("");
+            jEducationQualification.setText("");
+            jDesignation.setSelectedIndex(-1);
+            jName.setText("");
+            jEmail.setText("");
+            jGender.setSelectedIndex(-1);
+            jPassword.setText("");
+        } catch (SQLException | NoSuchAlgorithmException e) {
+            e.printStackTrace();
         }
     }
 
