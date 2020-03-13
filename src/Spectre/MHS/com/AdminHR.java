@@ -56,7 +56,6 @@ public class AdminHR {
         logOutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                display.DisplayOff();
                 onLogOut();
             }
         });
@@ -64,16 +63,17 @@ public class AdminHR {
             @Override
             public void actionPerformed(ActionEvent e) {
                 onAddNewEmployee();
-                display.DisplayOff();
             }
         });
     }
 
     void onAddNewEmployee(){
         AddNewEmployee addNewEmployee = new AddNewEmployee(userid);
+        display.DisplayOff();
     }
 
     void onLogOut(){
         AdminLogin adminLogin = new AdminLogin();
+        display.DisplayOff();
     }
 }
