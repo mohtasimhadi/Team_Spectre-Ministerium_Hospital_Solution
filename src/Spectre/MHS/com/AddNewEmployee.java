@@ -53,7 +53,6 @@ public class AddNewEmployee {
         String Designation;
         Designation = jDesignation.getSelectedItem().toString();
 
-
         if(Designation == "Doctor"){
             String sql = "INSERT INTO doctor (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
             addEmployee(sql);
