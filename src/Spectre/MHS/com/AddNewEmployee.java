@@ -53,24 +53,28 @@ public class AddNewEmployee {
         String Designation;
         Designation = jDesignation.getSelectedItem().toString();
 
-        if(Designation == "Doctor"){
-            String sql = "INSERT INTO doctor (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
-            addEmployee(sql);
-        }
-        else if (Designation == "Receptionist"){
-            String sql = "INSERT INTO receptionist (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
-            addEmployee(sql);
+        // Fixed Type Based Conditioning
+        String sql = "INSERT INTO " + Designation.toLowerCase() + " (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
+        addEmployee(sql);
 
-        }
-        else if (Designation == "Pathologist"){
-            String sql = "INSERT INTO pathologist (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
-            addEmployee(sql);
-
-        }
-        else {
-            String sql = "INSERT INTO admin (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
-            addEmployee(sql);
-        }
+//        if(Designation == "Doctor"){
+//            String sql = "INSERT INTO doctor (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
+//            addEmployee(sql);
+//        }
+//        else if (Designation == "Receptionist"){
+//            String sql = "INSERT INTO receptionist (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
+//            addEmployee(sql);
+//
+//        }
+//        else if (Designation == "Pathologist"){
+//            String sql = "INSERT INTO pathologist (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
+//            addEmployee(sql);
+//
+//        }
+//        else {
+//            String sql = "INSERT INTO admin (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
+//            addEmployee(sql);
+//        }
     }
 
     void addEmployee(String sql){
