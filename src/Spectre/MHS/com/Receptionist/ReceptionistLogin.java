@@ -12,8 +12,8 @@ public class ReceptionistLogin {
     private JButton exitButton;
     private JButton logInButton;
     private JPanel contentPanel;
-    private LogIn logIn = new LogIn();
-    private Display display = new Display("Receptionist Log In", contentPanel);
+    private final LogIn logIn = new LogIn();
+    private final Display display = new Display("Receptionist Log In", contentPanel);
 
     ReceptionistLogin(){
         display.DisplayOn();

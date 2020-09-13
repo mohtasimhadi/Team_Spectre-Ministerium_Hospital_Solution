@@ -4,6 +4,8 @@ import Spectre.MHS.com.OperationsNTools.LogIn;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Encryption;
 import javax.swing.*;
+import java.util.Arrays;
+import java.util.Objects;
 
 public class AdminLogin{
     private JPanel contentPanel;
@@ -30,8 +32,8 @@ public class AdminLogin{
         Encryption encryption = new Encryption();
         String query = "select * from admin where ID = ? and Password = ?";
 
-        if(logIn.onLogIn(query, userid.getText(), encryption.encrypt(password.getText()))){
-            if(usertype.getSelectedItem().toString().equals("Human Resource Management Admin")){
+        if(logIn.onLogIn(query, userid.getText(), encryption.encrypt(Arrays.toString(password.getPassword())))){
+            if(Objects.requireNonNull(usertype.getSelectedItem()).toString().equals("Human Resource Management Admin")){
 
                 new AdminHR(userid.getText());
             }

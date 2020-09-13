@@ -21,8 +21,8 @@ public class AdminHR {
     private JLabel jDesignation;
     private JLabel jBloodGroup;
     private JLabel jJoiningDate;
-    private String userid;
-    private Display display = new Display("Human Resource Management Admin", contentPanel);
+    private final String userid;
+    private final Display display = new Display("Human Resource Management Admin", contentPanel);
 
     public AdminHR(String userid) {
         this.userid = userid;

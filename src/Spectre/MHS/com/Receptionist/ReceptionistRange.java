@@ -2,15 +2,12 @@ package Spectre.MHS.com.Receptionist;
 
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
-
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class ReceptionistRange {
     private JPanel contentPanel;
     private JButton logOutButton;
-    private String userid;
+    private final String userid;
     private JButton changePassword;
     private JButton patientInformationButton;
     private JButton addNewPatientButton;
@@ -24,7 +21,7 @@ public class ReceptionistRange {
     private JLabel jDesignation;
     private JLabel jBloodGroup;
     private JLabel jJoiningDate;
-    private Display display = new Display("Receptionists Range", contentPanel);
+    private final Display display = new Display("Receptionists Range", contentPanel);
 
     public ReceptionistRange(String userid) {
         this.userid = userid;

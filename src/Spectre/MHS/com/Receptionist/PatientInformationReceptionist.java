@@ -3,8 +3,6 @@ package Spectre.MHS.com.Receptionist;
 import Spectre.MHS.com.OperationsNTools.Display;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class PatientInformationReceptionist {
     private JButton backButton;
@@ -24,8 +22,8 @@ public class PatientInformationReceptionist {
     private JButton viewButton;
     private JButton refreshButton;
     private JButton updateButton;
-    private String userid;
-    private Display display = new Display("Patient Information", contentPanel);
+    private final String userid;
+    private final Display display = new Display("Patient Information", contentPanel);
 
     PatientInformationReceptionist(String userid){
         this.userid = userid;

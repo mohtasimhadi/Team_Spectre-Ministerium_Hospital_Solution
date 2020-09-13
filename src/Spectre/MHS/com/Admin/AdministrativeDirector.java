@@ -2,10 +2,7 @@ package Spectre.MHS.com.Admin;
 
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
-
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class AdministrativeDirector {
     private JButton logOutButton;
@@ -23,11 +20,9 @@ public class AdministrativeDirector {
     private JLabel jBloodGroup;
     private JLabel jJoiningDate;
     private JButton changePasswordButton;
-    private String userid;
-    private Display display = new Display("Administrative Director", contentPanel);
+    private final Display display = new Display("Administrative Director", contentPanel);
 
     public AdministrativeDirector(String userid) {
-        this.userid = userid;
         display.DisplayOn();
 
         SQLConnector sqlConnector = new SQLConnector();

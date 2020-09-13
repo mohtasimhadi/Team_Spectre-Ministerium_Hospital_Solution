@@ -2,11 +2,10 @@ package Spectre.MHS.com.Receptionist;
 
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
-
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.sql.SQLException;
+import java.util.Objects;
 
 public class AddNewPatient {
     private JPanel contentPanel;
@@ -25,8 +24,8 @@ public class AddNewPatient {
     private JTextField jAppointedDoctor;
     private JButton jViewDoctors;
     private JTextField jAddress;
-    private String userid;
-    private Display display = new Display("Add New Patient", contentPanel);
+    private final String userid;
+    private final Display display = new Display("Add New Patient", contentPanel);
 
     public AddNewPatient(String userid) {
         this.userid = userid;
@@ -50,14 +49,14 @@ public class AddNewPatient {
             sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(sql);
             sqlConnector.preparedStatement.setString(1, jName.getText());
             sqlConnector.preparedStatement.setString(2, jAge.getText());
-            sqlConnector.preparedStatement.setString(3, jGender.getSelectedItem().toString());
+            sqlConnector.preparedStatement.setString(3, Objects.requireNonNull(jGender.getSelectedItem()).toString());
             sqlConnector.preparedStatement.setString(4, jDateOfAdmission.getText());
             sqlConnector.preparedStatement.setString(5, jDateOfAppointment.getText());
             sqlConnector.preparedStatement.setString(6, jAppointedDoctor.getText());
             sqlConnector.preparedStatement.setString(7, jDateOfRelease.getText());
             sqlConnector.preparedStatement.setString(8, jContactNo.getText());
             sqlConnector.preparedStatement.setString(9, jAddress.getText());
-            sqlConnector.preparedStatement.setString(10, jBloodGroup.getSelectedItem().toString());
+            sqlConnector.preparedStatement.setString(10, Objects.requireNonNull(jBloodGroup.getSelectedItem()).toString());
 
             sqlConnector.preparedStatement.executeUpdate();
 

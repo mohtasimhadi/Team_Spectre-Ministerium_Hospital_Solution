@@ -2,10 +2,7 @@ package Spectre.MHS.com.Doctor;
 
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
-
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class DoctorStation {
     private JPanel contentPanel;
@@ -23,8 +20,8 @@ public class DoctorStation {
     private JLabel jBloodGroup;
     private JLabel jJoiningDate;
     private JButton changePassword;
-    private String userid;
-    private Display display = new Display("Doctors Station", contentPanel);
+    private final String userid;
+    private final Display display = new Display("Doctors Station", contentPanel);
 
     public DoctorStation(String userid) {
         this.userid = userid;

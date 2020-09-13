@@ -18,8 +18,8 @@ public class PatientInformationPathologist {
     private JLabel jAge;
     private JLabel jGender;
     private JLabel jBloodGroup;
-    private String userid;
-    private Display display = new Display("Patient Information", contentPanel);
+    private final String userid;
+    private final Display display = new Display("Patient Information", contentPanel);
 
     public PatientInformationPathologist(String userid) {
         this.userid = userid;
