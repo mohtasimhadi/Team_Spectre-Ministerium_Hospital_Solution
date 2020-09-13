@@ -1,13 +1,11 @@
 package Spectre.MHS.com.Doctor;
 
-import Spectre.MHS.com.Tools.Display;
-import Spectre.MHS.com.Tools.Encryption;
-import Spectre.MHS.com.Tools.SQLConnector;
+import Spectre.MHS.com.OperationsNTools.LogIn;
+import Spectre.MHS.com.OperationsNTools.Display;
+import Spectre.MHS.com.OperationsNTools.Encryption;
 
 import javax.swing.*;
 import java.awt.event.*;
-import java.security.NoSuchAlgorithmException;
-import java.sql.SQLException;
 
 public class DoctorLogin{
     private JPanel contentPanel;
@@ -15,6 +13,9 @@ public class DoctorLogin{
     private JButton exitButton;
     private JTextField juserid;
     private JPasswordField jpassword;
+    private LogIn logIn = new LogIn();
+
+
     Display display = new Display("Doctor Log In", contentPanel);
 
     public DoctorLogin() {
@@ -27,12 +28,8 @@ public class DoctorLogin{
 
         logInButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                try {
-                    onLogIn();
-                    display.DisplayOff();
-                } catch (NoSuchAlgorithmException ex) {
-                    ex.printStackTrace();
-                }
+                onLogIn();
+                display.DisplayOff();
             }
         });
     }
@@ -41,7 +38,18 @@ public class DoctorLogin{
         System.exit(0);
     }
 
-    void onLogIn() throws NoSuchAlgorithmException {
+    void onLogIn(){
+        Encryption encryption = new Encryption();
+        String query = "select * from doctor where ID = ? and Password = ?";
+
+        if(logIn.onLogIn(query, juserid.getText(), encryption.Encrypt(jpassword.getText()))){
+            new DoctorStation(juserid.getText());
+        } else {
+            new DoctorLogin();
+        }
+    }
+
+    /* void onLogIn() throws NoSuchAlgorithmException {
         Encryption encryption = new Encryption();
         String userid = juserid.getText();
         String password = encryption.Encrypt(jpassword.getText());
@@ -68,7 +76,7 @@ public class DoctorLogin{
             e.printStackTrace();
         }
 
-    }
+    } */
 
 
     public static void main(String[] args){

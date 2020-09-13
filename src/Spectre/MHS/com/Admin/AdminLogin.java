@@ -1,13 +1,11 @@
 package Spectre.MHS.com.Admin;
 
-import Spectre.MHS.com.Tools.Display;
-import Spectre.MHS.com.Tools.Encryption;
-import Spectre.MHS.com.Tools.SQLConnector;
+import Spectre.MHS.com.OperationsNTools.LogIn;
+import Spectre.MHS.com.OperationsNTools.Display;
+import Spectre.MHS.com.OperationsNTools.Encryption;
 
 import javax.swing.*;
 import java.awt.event.*;
-import java.security.NoSuchAlgorithmException;
-import java.sql.*;
 
 public class AdminLogin{
     private JPanel contentPanel;
@@ -16,6 +14,7 @@ public class AdminLogin{
     private JTextField juserid;
     private JPasswordField jpassword;
     private JComboBox jusertype;
+    private LogIn logIn = new LogIn();
     private Display display = new Display("Admin Log In", contentPanel);
 
     public AdminLogin() {
@@ -29,17 +28,29 @@ public class AdminLogin{
 
         logInButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                try {
-                    onLogIn();
-                    display.DisplayOff();
-                } catch (NoSuchAlgorithmException ex) {
-                    ex.printStackTrace();
-                }
+                onLogIn();
+                display.DisplayOff();
             }
         });
     }
 
-    void onLogIn() throws NoSuchAlgorithmException {
+    void onLogIn(){
+        Encryption encryption = new Encryption();
+        String query = "select * from admin where ID = ? and Password = ?";
+
+        if(logIn.onLogIn(query, juserid.getText(), encryption.Encrypt(jpassword.getText()))){
+            if(jusertype.getSelectedItem().toString()=="Human Resource Management Admin"){
+                new AdminHR(juserid.getText());
+            }
+            if(jusertype.getSelectedItem().toString()=="Administrative Director"){
+                new AdministrativeDirector(juserid.getText());
+            }
+        } else {
+            new AdminLogin();
+        }
+    }
+
+    /*void onLogIn() throws NoSuchAlgorithmException {
         Encryption encryption = new Encryption();
         String userid = juserid.getText();
         String password = encryption.Encrypt(jpassword.getText());
@@ -73,7 +84,7 @@ public class AdminLogin{
             e.printStackTrace();
         }
 
-    }
+    }*/
 
     void onExit(){
         System.exit(0);

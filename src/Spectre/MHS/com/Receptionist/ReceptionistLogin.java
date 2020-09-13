@@ -1,14 +1,11 @@
 package Spectre.MHS.com.Receptionist;
 
-import Spectre.MHS.com.Tools.Display;
-import Spectre.MHS.com.Tools.Encryption;
-import Spectre.MHS.com.Tools.SQLConnector;
-
+import Spectre.MHS.com.OperationsNTools.LogIn;
+import Spectre.MHS.com.OperationsNTools.Display;
+import Spectre.MHS.com.OperationsNTools.Encryption;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.security.NoSuchAlgorithmException;
-import java.sql.SQLException;
 
 public class ReceptionistLogin {
 
@@ -17,6 +14,7 @@ public class ReceptionistLogin {
     private JButton exitButton;
     private JButton logInButton;
     private JPanel contentPanel;
+    private LogIn logIn = new LogIn();
     private Display display = new Display("Receptionist Log In", contentPanel);
 
     ReceptionistLogin(){
@@ -29,12 +27,8 @@ public class ReceptionistLogin {
         });
         logInButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                try {
-                    onLogIn();
-                    display.DisplayOff();
-                } catch (NoSuchAlgorithmException ex) {
-                    ex.printStackTrace();
-                }
+                onLogIn();
+                display.DisplayOff();
             }
         });
     }
@@ -43,7 +37,18 @@ public class ReceptionistLogin {
         System.exit(0);
     }
 
-    void onLogIn() throws NoSuchAlgorithmException {
+    void onLogIn(){
+        Encryption encryption = new Encryption();
+        String query = "select * from receptionist where ID = ? and Password = ?";
+
+        if(logIn.onLogIn(query, juserid.getText(), encryption.Encrypt(jpassword.getText()))){
+            new ReceptionistRange(juserid.getText());
+        } else {
+            new ReceptionistLogin();
+        }
+    }
+
+/*    void onLogIn() throws NoSuchAlgorithmException {
         Encryption encryption = new Encryption();
         String userid = juserid.getText();
         String password = encryption.Encrypt(jpassword.getText());
@@ -68,7 +73,7 @@ public class ReceptionistLogin {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+    }*/
         public static void main (String[]args){
             new ReceptionistLogin();
         }

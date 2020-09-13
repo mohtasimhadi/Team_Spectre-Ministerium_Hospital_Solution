@@ -1,6 +1,6 @@
 package Spectre.MHS.com.Receptionist;
 
-import Spectre.MHS.com.Tools.Display;
+import Spectre.MHS.com.OperationsNTools.Display;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
