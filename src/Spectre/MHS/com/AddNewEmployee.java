@@ -109,7 +109,7 @@ public class AddNewEmployee {
             jEmail.setText("");
             jGender.setSelectedIndex(-1);
             jPassword.setText("");
-        } catch (SQLException | NoSuchAlgorithmException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

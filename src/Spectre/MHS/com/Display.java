@@ -3,12 +3,11 @@ package Spectre.MHS.com;
 import javax.swing.*;
 
 public class Display {
-    private JFrame jFrame;
-    private JPanel contentPanel;
+    private final JFrame jFrame;
+    private final JPanel contentPanel;
 
     public Display(String title, JPanel contentPanel){
-        JFrame jFrame = new JFrame(title);
-        this.jFrame = jFrame;
+        this.jFrame = new JFrame(title);
         this.contentPanel = contentPanel;
     }
 

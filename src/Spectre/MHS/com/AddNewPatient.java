@@ -85,7 +85,7 @@ public class AddNewPatient {
     }
 
     void onBack(){
-        ReceptionistRange receptionistRange = new ReceptionistRange(userid);
+        new ReceptionistRange(userid);
         display.DisplayOff();
     }
 }

@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class Encryption {
 
-    public String Encrypt(String message) throws NoSuchAlgorithmException {
+    public String Encrypt(String message) {
         return  Hash(message);
     }
     private String Hash(String message){
