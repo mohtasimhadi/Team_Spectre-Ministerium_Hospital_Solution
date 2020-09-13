@@ -4,8 +4,6 @@ import Spectre.MHS.com.OperationsNTools.LogIn;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Encryption;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class ReceptionistLogin {
 
@@ -34,7 +32,7 @@ public class ReceptionistLogin {
         Encryption encryption = new Encryption();
         String query = "select * from receptionist where ID = ? and Password = ?";
 
-        if(logIn.onLogIn(query, juserid.getText(), encryption.Encrypt(jpassword.getText()))){
+        if(logIn.onLogIn(query, juserid.getText(), encryption.encrypt(jpassword.getText()))){
             new ReceptionistRange(juserid.getText());
         } else {
             new ReceptionistLogin();

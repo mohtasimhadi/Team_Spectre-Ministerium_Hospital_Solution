@@ -35,7 +35,7 @@ public class AddNewPatient {
         backButton.addActionListener(e -> onBack());
 
         addPatientButton.addActionListener(e -> {
-            if(jName.getText()=="")
+            if(jName.getText().equals(""))
                 JOptionPane.showMessageDialog(contentPanel, "Input Data Correctly");
             else
                 onAddPatient();

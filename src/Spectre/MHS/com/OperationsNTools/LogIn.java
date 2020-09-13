@@ -4,7 +4,6 @@ import java.sql.SQLException;
 
 public class LogIn {
     SQLConnector sqlConnector = new SQLConnector();
-
     public boolean onLogIn(String query, String userid, String password){
         sqlConnector.connect();
 

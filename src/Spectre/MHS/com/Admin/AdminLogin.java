@@ -30,14 +30,16 @@ public class AdminLogin{
         Encryption encryption = new Encryption();
         String query = "select * from admin where ID = ? and Password = ?";
 
-        if(logIn.onLogIn(query, userid.getText(), encryption.Encrypt(password.getText()))){
+        if(logIn.onLogIn(query, userid.getText(), encryption.encrypt(password.getText()))){
             if(usertype.getSelectedItem().toString().equals("Human Resource Management Admin")){
+
                 new AdminHR(userid.getText());
             }
             if(usertype.getSelectedItem().toString().equals("Administrative Director")){
                 new AdministrativeDirector(userid.getText());
             }
         } else {
+            JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");
             new AdminLogin();
         }
     }

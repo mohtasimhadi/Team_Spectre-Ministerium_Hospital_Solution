@@ -4,28 +4,26 @@ import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Encryption;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 public class AddNewEmployee {
     private JButton backButton;
     private JPanel contentPanel;
-    private JPasswordField jPassword;
-    private JTextField jDateOfJoin;
+    private JPasswordField password;
+    private JTextField dateOfJoin;
     private JButton addEmployeeButton;
-    private JComboBox jDesignation;
-    private JTextField jName;
-    private JTextField jDateOfBirth;
-    private JTextField jContactNo;
-    private JTextField jAddress;
-    private JTextField jEmail;
-    private JComboBox jGender;
-    private JTextField jEducationQualification;
-    private JComboBox jBloodGroup;
+    private JComboBox designation;
+    private JTextField name;
+    private JTextField dateOfBirth;
+    private JTextField contactNo;
+    private JTextField address;
+    private JTextField email;
+    private JComboBox gender;
+    private JTextField educationalQualification;
+    private JComboBox bloodGroup;
     private String userid;
-    private Display display = new Display("Add New Employee", contentPanel);
+    private final Display display = new Display("Add New Employee", contentPanel);
     SQLConnector sqlConnector = new SQLConnector();
 
 
@@ -47,31 +45,33 @@ public class AddNewEmployee {
     }
 
     void onAddEmployeeButton() throws NoSuchAlgorithmException {
-        String Designation;
-        Designation = jDesignation.getSelectedItem().toString();
 
-        // Fixed Type Based Conditioning
-        String sql = "INSERT INTO " + Designation.toLowerCase() + " (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
+        String designation, sql;
+        designation = this.designation.getSelectedItem().toString();
+        if((designation.equals("Administrative Director"))||designation.equals("Human Resource Management Admin")){
+            sql = "INSERT INTO admin (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationalQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
+        } else
+            sql = "INSERT INTO " + designation.toLowerCase() + " (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationalQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
         addEmployee(sql);
 
-//        if(Designation == "Doctor"){
-//            String sql = "INSERT INTO doctor (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
-//            addEmployee(sql);
-//        }
-//        else if (Designation == "Receptionist"){
-//            String sql = "INSERT INTO receptionist (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
-//            addEmployee(sql);
-//
-//        }
-//        else if (Designation == "Pathologist"){
-//            String sql = "INSERT INTO pathologist (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
-//            addEmployee(sql);
-//
-//        }
-//        else {
-//            String sql = "INSERT INTO admin (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
-//            addEmployee(sql);
-//        }
+/*        if(designation.equals("Doctor")){
+            String sql = "INSERT INTO doctor (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
+            addEmployee(sql);
+        }
+        else if (designation.equals("Receptionist")){
+            String sql = "INSERT INTO receptionist (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
+            addEmployee(sql);
+
+        }
+        else if (designation.equals("Pathologist")){
+            String sql = "INSERT INTO pathologist (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
+            addEmployee(sql);
+
+        }
+        else {
+            String sql = "INSERT INTO admin (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
+            addEmployee(sql);
+        }*/
     }
 
     void addEmployee(String sql){
@@ -79,33 +79,33 @@ public class AddNewEmployee {
         Encryption encryption = new Encryption();
         try {
             sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(sql);
-            sqlConnector.preparedStatement.setString(1, jName.getText());
-            sqlConnector.preparedStatement.setString(2, jDateOfBirth.getText());
-            sqlConnector.preparedStatement.setString(3, jContactNo.getText());
-            sqlConnector.preparedStatement.setString(4, jAddress.getText());
-            sqlConnector.preparedStatement.setString(5, jEmail.getText());
-            sqlConnector.preparedStatement.setString(6,jGender.getSelectedItem().toString());
-            sqlConnector.preparedStatement.setString(7,jEducationQualification.getText());
-            sqlConnector.preparedStatement.setString(8,jDesignation.getSelectedItem().toString());
-            sqlConnector.preparedStatement.setString(9,jBloodGroup.getSelectedItem().toString());
-            sqlConnector.preparedStatement.setString(10,jDateOfJoin.getText());
-            sqlConnector.preparedStatement.setString(11, encryption.Encrypt(jPassword.getText()));
+            sqlConnector.preparedStatement.setString(1, name.getText());
+            sqlConnector.preparedStatement.setString(2, dateOfBirth.getText());
+            sqlConnector.preparedStatement.setString(3, contactNo.getText());
+            sqlConnector.preparedStatement.setString(4, address.getText());
+            sqlConnector.preparedStatement.setString(5, email.getText());
+            sqlConnector.preparedStatement.setString(6, gender.getSelectedItem().toString());
+            sqlConnector.preparedStatement.setString(7, educationalQualification.getText());
+            sqlConnector.preparedStatement.setString(8, designation.getSelectedItem().toString());
+            sqlConnector.preparedStatement.setString(9, bloodGroup.getSelectedItem().toString());
+            sqlConnector.preparedStatement.setString(10, dateOfJoin.getText());
+            sqlConnector.preparedStatement.setString(11, encryption.encrypt(password.getText()));
 
             sqlConnector.preparedStatement.executeUpdate();
 
             JOptionPane.showMessageDialog(contentPanel, "User Inserted");
 
-            jAddress.setText("");
-            jBloodGroup.setSelectedIndex(-1);
-            jContactNo.setText("");
-            jDateOfBirth.setText("");
-            jDateOfJoin.setText("");
-            jEducationQualification.setText("");
-            jDesignation.setSelectedIndex(-1);
-            jName.setText("");
-            jEmail.setText("");
-            jGender.setSelectedIndex(-1);
-            jPassword.setText("");
+            address.setText("");
+            bloodGroup.setSelectedIndex(-1);
+            contactNo.setText("");
+            dateOfBirth.setText("");
+            dateOfJoin.setText("");
+            educationalQualification.setText("");
+            designation.setSelectedIndex(-1);
+            name.setText("");
+            email.setText("");
+            gender.setSelectedIndex(-1);
+            password.setText("");
         } catch (SQLException e) {
             e.printStackTrace();
         }

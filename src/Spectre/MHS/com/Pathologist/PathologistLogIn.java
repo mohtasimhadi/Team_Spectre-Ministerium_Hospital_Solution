@@ -41,7 +41,7 @@ public class PathologistLogIn{
         Encryption encryption = new Encryption();
         String query = "select * from pathologist where ID = ? and Password = ?";
 
-        if(logIn.onLogIn(query, juserid.getText(), encryption.Encrypt(jpassword.getText()))){
+        if(logIn.onLogIn(query, juserid.getText(), encryption.encrypt(jpassword.getText()))){
             new PathologistLocale(juserid.getText());
         } else {
             new PathologistLogIn();
