@@ -1,5 +1,4 @@
 package Spectre.MHS.com.Doctor;
-
 import Spectre.MHS.com.OperationsNTools.Display;
 
 import javax.swing.*;
@@ -32,15 +31,12 @@ public class PatientInformationDoctor {
         this.userid = userid;
         display.DisplayOn();
 
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onBack();
-                display.DisplayOff();
-            }
+        backButton.addActionListener(e -> {
+            onBack();
+            display.DisplayOff();
         });
     }
     void onBack(){
-        DoctorStation doctorStation = new DoctorStation(userid);
+        new DoctorStation(userid);
     }
 }

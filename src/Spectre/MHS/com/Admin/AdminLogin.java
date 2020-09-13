@@ -3,34 +3,26 @@ package Spectre.MHS.com.Admin;
 import Spectre.MHS.com.OperationsNTools.LogIn;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Encryption;
-
 import javax.swing.*;
-import java.awt.event.*;
 
 public class AdminLogin{
     private JPanel contentPanel;
     private JButton logInButton;
     private JButton exitButton;
-    private JTextField juserid;
-    private JPasswordField jpassword;
-    private JComboBox jusertype;
-    private LogIn logIn = new LogIn();
-    private Display display = new Display("Admin Log In", contentPanel);
+    private JTextField userid;
+    private JPasswordField password;
+    private JComboBox usertype;
+    private final LogIn logIn = new LogIn();
+    private final Display display = new Display("Admin Log In", contentPanel);
 
     public AdminLogin() {
         display.DisplayOn();
 
-        exitButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onExit();
-            }
-        });
+        exitButton.addActionListener(e -> onExit());
 
-        logInButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onLogIn();
-                display.DisplayOff();
-            }
+        logInButton.addActionListener(e -> {
+            onLogIn();
+            display.DisplayOff();
         });
     }
 
@@ -38,12 +30,12 @@ public class AdminLogin{
         Encryption encryption = new Encryption();
         String query = "select * from admin where ID = ? and Password = ?";
 
-        if(logIn.onLogIn(query, juserid.getText(), encryption.Encrypt(jpassword.getText()))){
-            if(jusertype.getSelectedItem().toString()=="Human Resource Management Admin"){
-                new AdminHR(juserid.getText());
+        if(logIn.onLogIn(query, userid.getText(), encryption.Encrypt(password.getText()))){
+            if(usertype.getSelectedItem().toString().equals("Human Resource Management Admin")){
+                new AdminHR(userid.getText());
             }
-            if(jusertype.getSelectedItem().toString()=="Administrative Director"){
-                new AdministrativeDirector(juserid.getText());
+            if(usertype.getSelectedItem().toString().equals("Administrative Director")){
+                new AdministrativeDirector(userid.getText());
             }
         } else {
             new AdminLogin();
@@ -91,6 +83,6 @@ public class AdminLogin{
     }
 
     public static void main(String[] args){
-        AdminLogin adminLogin = new AdminLogin();
+        new AdminLogin();
     }
 }

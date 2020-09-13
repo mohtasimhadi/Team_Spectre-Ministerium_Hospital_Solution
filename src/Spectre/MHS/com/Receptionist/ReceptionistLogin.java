@@ -19,17 +19,10 @@ public class ReceptionistLogin {
 
     ReceptionistLogin(){
         display.DisplayOn();
-        exitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onExit();
-            }
-        });
-        logInButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onLogIn();
-                display.DisplayOff();
-            }
+        exitButton.addActionListener(e -> onExit());
+        logInButton.addActionListener(e -> {
+            onLogIn();
+            display.DisplayOff();
         });
     }
 

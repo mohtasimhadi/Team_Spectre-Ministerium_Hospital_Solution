@@ -31,16 +31,13 @@ public class PatientInformationReceptionist {
         this.userid = userid;
         display.DisplayOn();
 
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onBack();
-                display.DisplayOff();
-            }
+        backButton.addActionListener(e -> {
+            onBack();
+            display.DisplayOff();
         });
     }
 
     void onBack(){
-        ReceptionistRange receptionistRange = new ReceptionistRange(userid);
+        new ReceptionistRange(userid);
     }
 }

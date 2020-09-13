@@ -20,17 +20,11 @@ public class DoctorLogin{
 
     public DoctorLogin() {
         display.DisplayOn();
-        exitButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onExit();
-            }
-        });
+        exitButton.addActionListener(e -> onExit());
 
-        logInButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onLogIn();
-                display.DisplayOff();
-            }
+        logInButton.addActionListener(e -> {
+            onLogIn();
+            display.DisplayOff();
         });
     }
 
@@ -80,6 +74,6 @@ public class DoctorLogin{
 
 
     public static void main(String[] args){
-        DoctorLogin doctorLogin = new DoctorLogin();
+        new DoctorLogin();
     }
 }

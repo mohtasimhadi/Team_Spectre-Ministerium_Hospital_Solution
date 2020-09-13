@@ -55,36 +55,27 @@ public class ReceptionistRange {
             e.printStackTrace();
         }
 
-        patientInformationButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onPatientInformation();
-                display.DisplayOff();
-            }
+        patientInformationButton.addActionListener(e -> {
+            onPatientInformation();
+            display.DisplayOff();
         });
 
-        logOutButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                display.DisplayOff();
-                onLogOut();
-            }
+        logOutButton.addActionListener(e -> {
+            display.DisplayOff();
+            onLogOut();
         });
-        addNewPatientButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                display.DisplayOff();
-                onAddNewPatient();
-            }
+        addNewPatientButton.addActionListener(e -> {
+            display.DisplayOff();
+            onAddNewPatient();
         });
     }
     void onPatientInformation(){
-        PatientInformationReceptionist patientInformationReceptionist = new PatientInformationReceptionist(userid);
+        new PatientInformationReceptionist(userid);
     }
     void onAddNewPatient(){
-        AddNewPatient addNewPatient = new AddNewPatient(userid);
+        new AddNewPatient(userid);
     }
     void onLogOut(){
-        ReceptionistLogin receptionistLogin = new ReceptionistLogin();
+        new ReceptionistLogin();
     }
 }

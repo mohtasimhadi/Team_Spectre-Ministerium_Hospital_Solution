@@ -4,8 +4,6 @@ import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class PathologistLocale {
     private JButton logOutButton;
@@ -54,28 +52,22 @@ public class PathologistLocale {
             e.printStackTrace();
         }
 
-        logOutButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                display.DisplayOff();
-                onLogOut();
-            }
+        logOutButton.addActionListener(e -> {
+            display.DisplayOff();
+            onLogOut();
         });
 
-        patientInformationButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onPatientInformation();
-                display.DisplayOff();
-            }
+        patientInformationButton.addActionListener(e -> {
+            onPatientInformation();
+            display.DisplayOff();
         });
     }
 
     void onPatientInformation(){
-        PatientInformationPathologist patientInformationPathologist = new PatientInformationPathologist(userid);
+        new PatientInformationPathologist(userid);
     }
 
     void onLogOut(){
-        PathologistLogIn logIn = new PathologistLogIn();
+        new PathologistLogIn();
     }
 }

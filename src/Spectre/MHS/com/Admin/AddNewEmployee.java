@@ -3,7 +3,6 @@ package Spectre.MHS.com.Admin;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Encryption;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,21 +33,15 @@ public class AddNewEmployee {
         this.userid = userid;
         display.DisplayOn();
 
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onBack();
-                display.DisplayOff();
-            }
+        backButton.addActionListener(e -> {
+            onBack();
+            display.DisplayOff();
         });
-        addEmployeeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    onAddEmployeeButton();
-                } catch (NoSuchAlgorithmException ex) {
-                    ex.printStackTrace();
-                }
+        addEmployeeButton.addActionListener(e -> {
+            try {
+                onAddEmployeeButton();
+            } catch (NoSuchAlgorithmException ex) {
+                ex.printStackTrace();
             }
         });
     }
@@ -119,6 +112,6 @@ public class AddNewEmployee {
     }
 
     void onBack(){
-        AdminHR adminHR = new AdminHR(userid);
+        new AdminHR(userid);
     }
 }

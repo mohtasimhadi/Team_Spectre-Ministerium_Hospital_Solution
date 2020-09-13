@@ -1,5 +1,4 @@
 package Spectre.MHS.com.OperationsNTools;
-import Spectre.MHS.com.OperationsNTools.SQLConnector;
 
 import java.sql.SQLException;
 

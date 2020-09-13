@@ -57,27 +57,21 @@ public class DoctorStation {
 
 
 
-        logOutButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                display.DisplayOff();
-                onLogOut();
-            }
+        logOutButton.addActionListener(e -> {
+            display.DisplayOff();
+            onLogOut();
         });
-        patientInformationButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onPatientInformation();
-                display.DisplayOff();
-            }
+        patientInformationButton.addActionListener(e -> {
+            onPatientInformation();
+            display.DisplayOff();
         });
     }
 
     void onPatientInformation(){
-        PatientInformationDoctor patientInformationDoctor = new PatientInformationDoctor(userid);
+        new PatientInformationDoctor(userid);
     }
 
     void onLogOut(){
-        DoctorLogin doctorLogin = new DoctorLogin();
+        new DoctorLogin();
     }
 }

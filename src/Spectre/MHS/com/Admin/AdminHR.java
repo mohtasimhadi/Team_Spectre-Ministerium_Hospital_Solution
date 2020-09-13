@@ -4,8 +4,6 @@ import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class AdminHR {
     private JButton logOutButton;
@@ -55,27 +53,17 @@ public class AdminHR {
         }
 
 
-        logOutButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onLogOut();
-            }
-        });
-        addNewEmployeeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onAddNewEmployee();
-            }
-        });
+        logOutButton.addActionListener(e -> onLogOut());
+        addNewEmployeeButton.addActionListener(e -> onAddNewEmployee());
     }
 
     void onAddNewEmployee(){
-        AddNewEmployee addNewEmployee = new AddNewEmployee(userid);
+        new AddNewEmployee(userid);
         display.DisplayOff();
     }
 
     void onLogOut(){
-        AdminLogin adminLogin = new AdminLogin();
+        new AdminLogin();
         display.DisplayOff();
     }
 }

@@ -56,16 +56,13 @@ public class AdministrativeDirector {
         }
 
 
-        logOutButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                display.DisplayOff();
-                onLogOut();
-            }
+        logOutButton.addActionListener(e -> {
+            display.DisplayOff();
+            onLogOut();
         });
     }
 
     void onLogOut(){
-        AdminLogin adminLogin = new AdminLogin();
+        new AdminLogin();
     }
 }

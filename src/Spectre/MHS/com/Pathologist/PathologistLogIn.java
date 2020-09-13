@@ -75,6 +75,6 @@ public class PathologistLogIn{
         }
     }*/
         public static void main(String[] args){
-        PathologistLogIn pathologistLogIn = new PathologistLogIn();
+        new PathologistLogIn();
     }
 }

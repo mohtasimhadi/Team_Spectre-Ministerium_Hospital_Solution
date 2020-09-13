@@ -32,21 +32,13 @@ public class AddNewPatient {
         this.userid = userid;
         display.DisplayOn();
 
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onBack();
-            }
-        });
+        backButton.addActionListener(e -> onBack());
 
-        addPatientButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(jName.getText()=="")
-                    JOptionPane.showMessageDialog(contentPanel, "Input Data Correctly");
-                else
-                    onAddPatient();
-            }
+        addPatientButton.addActionListener(e -> {
+            if(jName.getText()=="")
+                JOptionPane.showMessageDialog(contentPanel, "Input Data Correctly");
+            else
+                onAddPatient();
         });
     }
 

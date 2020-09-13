@@ -25,15 +25,12 @@ public class PatientInformationPathologist {
         this.userid = userid;
         display.DisplayOn();
 
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onBack();
-                display.DisplayOff();
-            }
+        backButton.addActionListener(e -> {
+            onBack();
+            display.DisplayOff();
         });
     }
     void onBack(){
-        PathologistLocale pathologistLocale = new PathologistLocale(userid);
+        new PathologistLocale(userid);
     }
 }
