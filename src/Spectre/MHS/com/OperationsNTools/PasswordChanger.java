@@ -10,10 +10,12 @@ public class PasswordChanger {
     private JButton OKButton;
     private JPanel PasswordChangerPanel;
 
-    public PasswordChanger() {
+    public PasswordChanger(String table_name) {
         OKButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String oldPassword = OldPasswordField.getText();
+                String newPassword = NewPasswordField.getText();
 
             }
         });
@@ -25,7 +27,7 @@ public class PasswordChanger {
         display.changeSize(400, 200);
     }
     public static void main(String[] args) {
-       PasswordChanger p = new PasswordChanger();
+       PasswordChanger p = new PasswordChanger("Table_Name");
        p.Display_This();
     }
 
