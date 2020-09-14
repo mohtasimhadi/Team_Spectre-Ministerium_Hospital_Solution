@@ -9,20 +9,12 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class AddNewEmployee {
-    private JButton backButton;
+
     private JPanel contentPanel;
     private JPasswordField password;
-    private JTextField dateOfJoin;
-    private JButton addEmployeeButton;
-    private JComboBox designation;
-    private JTextField name;
-    private JTextField dateOfBirth;
-    private JTextField contactNo;
-    private JTextField address;
-    private JTextField email;
-    private JComboBox gender;
-    private JTextField educationalQualification;
-    private JComboBox bloodGroup;
+    private JButton backButton, addEmployeeButton;
+    private JComboBox designation, gender, bloodGroup;
+    private JTextField dateOfJoin, name, dateOfBirth, contactNo, address, email, educationalQualification;
     private final String userid;
     private final Display display = new Display("Add New Employee", contentPanel);
     SQLConnector sqlConnector = new SQLConnector();
@@ -31,7 +23,6 @@ public class AddNewEmployee {
     public AddNewEmployee(String userid) {
         this.userid = userid;
         display.DisplayOn();
-
         backButton.addActionListener(e -> onBack());
         addEmployeeButton.addActionListener(e -> onAddEmployeeButton());
     }

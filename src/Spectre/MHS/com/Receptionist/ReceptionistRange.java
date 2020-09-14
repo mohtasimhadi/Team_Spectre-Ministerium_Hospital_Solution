@@ -1,6 +1,7 @@
 package Spectre.MHS.com.Receptionist;
 
 import Spectre.MHS.com.OperationsNTools.Display;
+import Spectre.MHS.com.OperationsNTools.PersonalInfo;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
 import javax.swing.*;
 
@@ -27,31 +28,9 @@ public class ReceptionistRange {
         this.userid = userid;
         display.DisplayOn();
 
-        SQLConnector sqlConnector = new SQLConnector();
-        sqlConnector.connect();
-
-        try {
-            String query = "SELECT * FROM receptionist WHERE ID=?";
-            sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
-            sqlConnector.preparedStatement.setString(1, userid);
-            sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
-
-            if(sqlConnector.resultSet.next()){
-                juserid.setText(sqlConnector.resultSet.getString("ID"));
-                jJoiningDate.setText(sqlConnector.resultSet.getString("DateOfJoin"));
-                jGender.setText(sqlConnector.resultSet.getString("Gender"));
-                jEmail.setText(sqlConnector.resultSet.getString("Email"));
-                jDesignation.setText(sqlConnector.resultSet.getString("Designation"));
-                jContactNo.setText(sqlConnector.resultSet.getString("ContactNo"));
-                jBloodGroup.setText(sqlConnector.resultSet.getString("BloodGroup"));
-                jAddress.setText(sqlConnector.resultSet.getString("Address"));
-                jDateOfBirth.setText(sqlConnector.resultSet.getString("DateOfBirth"));
-                jName.setText(sqlConnector.resultSet.getString("Name"));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        String query = "SELECT * FROM receptionist WHERE ID=?";
+        PersonalInfo personalInfo = new PersonalInfo();
+        personalInfo.getPersonalInfo(userid, query, juserid, jJoiningDate, jGender, jEmail, jDesignation, jContactNo, jBloodGroup, jAddress, jDateOfBirth, jName);
         patientInformationButton.addActionListener(e -> {
             onPatientInformation();
             display.DisplayOff();
