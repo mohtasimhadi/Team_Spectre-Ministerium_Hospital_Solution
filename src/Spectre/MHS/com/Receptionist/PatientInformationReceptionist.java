@@ -17,6 +17,7 @@ public class PatientInformationReceptionist {
     private JLabel jGender;
     private JLabel jDateOfAdmission;
     private JLabel jDateOfAppointment;
+    private JLabel jAppointedDoctor;
     private JTextField jDateOfRelease;
     private JLabel jContactNo;
     private JLabel jEmail;
@@ -64,7 +65,7 @@ public class PatientInformationReceptionist {
         String query = ("SELECT * FROM patient WHERE ID="+patientID);
         PatientInfo patientInfo = new PatientInfo();
         //if(())              //Rafi HELP
-            patientInfo.getPatientInfoReceptionist(query,jName,jAge,jGender,jDateOfAdmission,jDateOfAppointment,jDateOfRelease,jContactNo,jEmail,jBloodGroup,jPrescription,jPathologyTests);
+        patientInfo.getPatientInfoReceptionist(query,jName,jAge,jGender,jDateOfAdmission,jDateOfAppointment,jAppointedDoctor,jDateOfRelease,jContactNo,jEmail,jBloodGroup,jPrescription,jPathologyTests);
         //else
         //    JOptionPane.showMessageDialog(null, "No Patient With That ID");
     }

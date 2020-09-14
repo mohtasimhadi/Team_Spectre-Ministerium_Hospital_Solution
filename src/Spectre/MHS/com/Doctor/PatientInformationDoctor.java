@@ -67,7 +67,7 @@ public class PatientInformationDoctor {
         String query = ("SELECT * FROM patient WHERE ID="+patientID);
         PatientInfo patientInfo = new PatientInfo();
         //if(())              //Rafi HELP
-        patientInfo.getPatientInfoReceptionist(query,jName,jAge,jGender,jDateOfAdmission,jDateOfAppointment,jDateOfRelease,jContactNo,jEmail,jBloodGroup,jPrescription,jPathologyTests);
+        patientInfo.getPatientInfoDoctor(query,jName,jAge,jGender,jDateOfAdmission,jDateOfAppointment,jDateOfRelease,jContactNo,jEmail,jBloodGroup,jPrescription,jPathologyTests);
         //else
         //    JOptionPane.showMessageDialog(null, "No Patient With That ID");
     }
