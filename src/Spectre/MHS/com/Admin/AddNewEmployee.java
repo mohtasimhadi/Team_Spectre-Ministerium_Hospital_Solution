@@ -15,7 +15,6 @@ public class AddNewEmployee {
     private JButton backButton, addEmployeeButton;
     private JComboBox designation, gender, bloodGroup;
     private JTextField dateOfJoin, name, dateOfBirth, contactNo, address, email, educationalQualification;
-
     private final String userid;
     private final Display display = new Display("Add New Employee", contentPanel);
     SQLConnector sqlConnector = new SQLConnector();
