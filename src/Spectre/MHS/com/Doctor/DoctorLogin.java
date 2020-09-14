@@ -18,12 +18,12 @@ public class DoctorLogin{
     Display display = new Display("Doctor Log In", contentPanel);
 
     public DoctorLogin() {
-        display.DisplayOn();
+        display.displayOn();
         exitButton.addActionListener(e -> onExit());
 
         logInButton.addActionListener(e -> {
             onLogIn();
-            display.DisplayOff();
+            display.displayOff();
         });
     }
 

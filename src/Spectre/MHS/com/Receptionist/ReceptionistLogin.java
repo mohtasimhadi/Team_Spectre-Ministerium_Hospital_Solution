@@ -16,11 +16,11 @@ public class ReceptionistLogin {
     private final Display display = new Display("Receptionist Log In", contentPanel);
 
     ReceptionistLogin(){
-        display.DisplayOn();
+        display.displayOn();
         exitButton.addActionListener(e -> onExit());
         logInButton.addActionListener(e -> {
             onLogIn();
-            display.DisplayOff();
+            display.displayOff();
         });
     }
 

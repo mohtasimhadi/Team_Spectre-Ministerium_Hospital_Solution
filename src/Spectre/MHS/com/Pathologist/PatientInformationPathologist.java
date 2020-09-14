@@ -3,8 +3,6 @@ package Spectre.MHS.com.Pathologist;
 import Spectre.MHS.com.OperationsNTools.Display;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class PatientInformationPathologist {
     private JButton backButton;
@@ -23,11 +21,11 @@ public class PatientInformationPathologist {
 
     public PatientInformationPathologist(String userid) {
         this.userid = userid;
-        display.DisplayOn();
+        display.displayOn();
 
         backButton.addActionListener(e -> {
             onBack();
-            display.DisplayOff();
+            display.displayOff();
         });
     }
     void onBack(){

@@ -2,8 +2,6 @@ package Spectre.MHS.com.Doctor;
 import Spectre.MHS.com.OperationsNTools.Display;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class PatientInformationDoctor {
     private JButton backButton;
@@ -29,11 +27,11 @@ public class PatientInformationDoctor {
 
     public PatientInformationDoctor(String userid) {
         this.userid = userid;
-        display.DisplayOn();
+        display.displayOn();
 
         backButton.addActionListener(e -> {
             onBack();
-            display.DisplayOff();
+            display.displayOff();
         });
     }
     void onBack(){

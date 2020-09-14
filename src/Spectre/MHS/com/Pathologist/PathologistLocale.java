@@ -14,20 +14,20 @@ public class PathologistLocale {
 
     public PathologistLocale(String userid) {
         this.userid = userid;
-        display.DisplayOn();
+        display.displayOn();
         String query = "SELECT * FROM pathologist WHERE ID=?";
         PersonalInfo personalInfo = new PersonalInfo();
         personalInfo.getPersonalInfo(userid, query, userID, joiningDate, gender, email, designation,
                 contactNo, bloodGroup, address, dateOfBirth, name);
 
         logOutButton.addActionListener(e -> {
-            display.DisplayOff();
+            display.displayOff();
             onLogOut();
         });
 
         patientInformationButton.addActionListener(e -> {
             onPatientInformation();
-            display.DisplayOff();
+            display.displayOff();
         });
     }
 

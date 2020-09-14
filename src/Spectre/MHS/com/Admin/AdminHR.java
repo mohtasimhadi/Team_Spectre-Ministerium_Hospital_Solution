@@ -14,7 +14,7 @@ public class AdminHR {
 
     public AdminHR(String userid) {
         this.userid = userid;
-        display.DisplayOn();
+        display.displayOn();
         String query = "SELECT * FROM admin WHERE ID=?";
         PersonalInfo personalInfo = new PersonalInfo();
         personalInfo.getPersonalInfo(userid, query, userID, joiningDate, gender, email, designation,
@@ -25,11 +25,11 @@ public class AdminHR {
 
     void onAddNewEmployee(){
         new AddNewEmployee(userid);
-        display.DisplayOff();
+        display.displayOff();
     }
 
     void onLogOut(){
         new AdminLogin();
-        display.DisplayOff();
+        display.displayOff();
     }
 }

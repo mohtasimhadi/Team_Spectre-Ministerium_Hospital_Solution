@@ -22,7 +22,7 @@ public class AddNewEmployee {
 
     public AddNewEmployee(String userid) {
         this.userid = userid;
-        display.DisplayOn();
+        display.displayOn();
         backButton.addActionListener(e -> onBack());
         addEmployeeButton.addActionListener(e -> onAddEmployeeButton());
     }
@@ -77,6 +77,6 @@ public class AddNewEmployee {
 
     void onBack(){
         new AdminHR(userid);
-        display.DisplayOff();
+        display.displayOff();
     }
 }

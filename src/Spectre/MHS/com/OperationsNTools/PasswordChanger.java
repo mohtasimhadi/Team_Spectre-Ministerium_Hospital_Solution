@@ -49,11 +49,11 @@ public class PasswordChanger {
 
     public void Display_This(){
         display = new Display("Password Changer", PasswordChangerPanel);
-        display.DisplayOn();
+        display.displayOn();
         display.changeSize(400, 200);
     }
     public void close_this(){
-        display.DisplayOff();
+        display.displayOff();
     }
 
     public static void main(String[] args) {

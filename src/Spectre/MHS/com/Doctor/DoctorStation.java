@@ -14,7 +14,7 @@ public class DoctorStation {
 
     public DoctorStation(String userid) {
         this.userid = userid;
-        display.DisplayOn();
+        display.displayOn();
 
         String query = "SELECT * FROM doctor WHERE ID=?";
         PersonalInfo personalInfo = new PersonalInfo();
@@ -22,12 +22,12 @@ public class DoctorStation {
                 designation, contactNo, bloodGroup, address, dateOfBirth, name);
 
         logOutButton.addActionListener(e -> {
-            display.DisplayOff();
+            display.displayOff();
             onLogOut();
         });
         patientInformationButton.addActionListener(e -> {
             onPatientInformation();
-            display.DisplayOff();
+            display.displayOff();
         });
     }
 

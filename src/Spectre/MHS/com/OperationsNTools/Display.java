@@ -16,7 +16,7 @@ public class Display {
         jFrame.setSize(height, width);
     }
 
-    public void DisplayOn(){
+    public void displayOn(){
         jFrame.setVisible(true);
         jFrame.setResizable(false);
         jFrame.setSize(1280, 720);
@@ -24,7 +24,7 @@ public class Display {
         jFrame.add(contentPanel);
     }
 
-    public void DisplayOff(){
+    public void displayOff(){
         jFrame.setVisible(false);
     }
 }
