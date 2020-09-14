@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.Arrays;
 
 public class PasswordChanger {
     private JPasswordField OldPasswordField;
@@ -17,8 +18,8 @@ public class PasswordChanger {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                String oldPassword = OldPasswordField.getText();
-                String newPassword = NewPasswordField.getText();
+                String oldPassword = Arrays.toString(OldPasswordField.getPassword());
+                String newPassword = Arrays.toString(NewPasswordField.getPassword());
 
                 Encryption encryption = new Encryption();
 
@@ -35,7 +36,7 @@ public class PasswordChanger {
                         sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(newPasswordQuery);
                         sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
                         JOptionPane.showMessageDialog(null, "Password has been successfully changed");
-                        close_this();
+                        closethis();
                     } else {
                         JOptionPane.showMessageDialog(null, "Old Password does not Match.");
                     }
@@ -47,18 +48,18 @@ public class PasswordChanger {
         });
     }
 
-    public void Display_This(){
+    public void displayThis(){
         display = new Display("Password Changer", PasswordChangerPanel);
         display.displayOn();
         display.changeSize(400, 200);
     }
-    public void close_this(){
+    public void closethis(){
         display.displayOff();
     }
 
     public static void main(String[] args) {
        PasswordChanger p = new PasswordChanger("doctor", 2001);
-       p.Display_This();
+       p.displayThis();
     }
 
 }
