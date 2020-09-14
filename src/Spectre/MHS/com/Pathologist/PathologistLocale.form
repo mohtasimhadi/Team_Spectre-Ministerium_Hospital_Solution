@@ -63,7 +63,7 @@
                   <text value="Patient Information"/>
                 </properties>
               </component>
-              <grid id="619a8" layout-manager="GridLayoutManager" row-count="11" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="619a8" layout-manager="GridLayoutManager" row-count="10" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="0" column="0" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -119,17 +119,9 @@
                       <text value="Designation"/>
                     </properties>
                   </component>
-                  <component id="651bd" class="javax.swing.JLabel">
-                    <constraints>
-                      <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text value="Specialization"/>
-                    </properties>
-                  </component>
                   <component id="64d4f" class="javax.swing.JLabel">
                     <constraints>
-                      <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <text value="Blood Group"/>
@@ -137,13 +129,13 @@
                   </component>
                   <component id="5d987" class="javax.swing.JLabel">
                     <constraints>
-                      <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <text value="Joining Date"/>
                     </properties>
                   </component>
-                  <component id="204" class="javax.swing.JLabel" binding="juserid">
+                  <component id="204" class="javax.swing.JLabel" binding="userID">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -151,7 +143,7 @@
                       <text value="Label"/>
                     </properties>
                   </component>
-                  <component id="11039" class="javax.swing.JLabel" binding="jName">
+                  <component id="11039" class="javax.swing.JLabel" binding="name">
                     <constraints>
                       <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -159,7 +151,7 @@
                       <text value="Label"/>
                     </properties>
                   </component>
-                  <component id="f188d" class="javax.swing.JLabel" binding="jDateOfBirth">
+                  <component id="f188d" class="javax.swing.JLabel" binding="dateOfBirth">
                     <constraints>
                       <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -167,7 +159,7 @@
                       <text value="Label"/>
                     </properties>
                   </component>
-                  <component id="ecf9c" class="javax.swing.JLabel" binding="jAddress">
+                  <component id="ecf9c" class="javax.swing.JLabel" binding="address">
                     <constraints>
                       <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -175,7 +167,7 @@
                       <text value="Label"/>
                     </properties>
                   </component>
-                  <component id="78f0d" class="javax.swing.JLabel" binding="jContactNo">
+                  <component id="78f0d" class="javax.swing.JLabel" binding="contactNo">
                     <constraints>
                       <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -183,7 +175,7 @@
                       <text value="Label"/>
                     </properties>
                   </component>
-                  <component id="9e985" class="javax.swing.JLabel" binding="jGender">
+                  <component id="9e985" class="javax.swing.JLabel" binding="gender">
                     <constraints>
                       <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -191,7 +183,7 @@
                       <text value="Label"/>
                     </properties>
                   </component>
-                  <component id="57a19" class="javax.swing.JLabel" binding="jEmail">
+                  <component id="57a19" class="javax.swing.JLabel" binding="email">
                     <constraints>
                       <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -199,7 +191,7 @@
                       <text value="Label"/>
                     </properties>
                   </component>
-                  <component id="c9446" class="javax.swing.JLabel" binding="jDesignation">
+                  <component id="c9446" class="javax.swing.JLabel" binding="designation">
                     <constraints>
                       <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -207,7 +199,7 @@
                       <text value="Label"/>
                     </properties>
                   </component>
-                  <component id="519b7" class="javax.swing.JLabel" binding="jSpecialization">
+                  <component id="ab8a8" class="javax.swing.JLabel" binding="bloodGroup">
                     <constraints>
                       <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -215,17 +207,9 @@
                       <text value="Label"/>
                     </properties>
                   </component>
-                  <component id="ab8a8" class="javax.swing.JLabel" binding="jBloodGroup">
+                  <component id="1d2a4" class="javax.swing.JLabel" binding="joiningDate">
                     <constraints>
                       <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <text value="Label"/>
-                    </properties>
-                  </component>
-                  <component id="1d2a4" class="javax.swing.JLabel" binding="jJoiningDate">
-                    <constraints>
-                      <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <text value="Label"/>

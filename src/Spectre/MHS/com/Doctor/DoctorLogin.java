@@ -9,8 +9,7 @@ import java.util.Arrays;
 
 public class DoctorLogin{
     private JPanel contentPanel;
-    private JButton logInButton;
-    private JButton exitButton;
+    private JButton logInButton, exitButton;
     private JTextField userid;
     private JPasswordField password;
     private final LogIn logIn = new LogIn();
