@@ -63,40 +63,6 @@ public class PatientInfo {
         }
 
     }
-    public static void getPatientInfoDoctor(String query, JLabel jName, JLabel jAge,
-                                                  JLabel jGender, JLabel jDateOfAdmission, JLabel jDateOfAppointment,
-                                                  JTextField jDateOfRelease, JLabel jContactNo, JLabel jEmail,
-                                                  JLabel jBloodGroup, JTextArea jPrescription, JTextArea jPathologyTests){
-        SQLConnector sqlConnector = new SQLConnector();
-        sqlConnector.connect();
-
-
-
-        try {
-            sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
-            sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
-
-            if(sqlConnector.resultSet.next()){
-
-                jName.setText(sqlConnector.resultSet.getString("Name"));
-                jAge.setText(sqlConnector.resultSet.getString("Age"));
-                jGender.setText(sqlConnector.resultSet.getString("Gender"));
-                jDateOfAdmission.setText(sqlConnector.resultSet.getString("DateOfAdmission"));
-                jDateOfAppointment.setText(sqlConnector.resultSet.getString("DateOfAppointment"));
-                jDateOfRelease.setText(sqlConnector.resultSet.getString("DateOfRelease"));
-                jContactNo.setText(sqlConnector.resultSet.getString("ContactNo"));
-                jEmail.setText(sqlConnector.resultSet.getString("Email"));
-                jBloodGroup.setText(sqlConnector.resultSet.getString("BloodGroup"));
-                jPrescription.setText(sqlConnector.resultSet.getString("Prescription"));
-                jPathologyTests.setText(sqlConnector.resultSet.getString("PathologyTests"));
-
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
     public static void updatePatientInfo(String query){
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();

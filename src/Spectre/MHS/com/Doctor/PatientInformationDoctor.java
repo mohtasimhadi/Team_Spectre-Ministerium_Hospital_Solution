@@ -1,16 +1,18 @@
 package Spectre.MHS.com.Doctor;
 import Spectre.MHS.com.OperationsNTools.Display;
+import Spectre.MHS.com.OperationsNTools.PatientInfo;
+import Spectre.MHS.com.Receptionist.PatientInformationReceptionist;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PatientInformationDoctor {
-    private JButton backButton;
-    private JButton updateButton;
-    private JButton referButton;
-    private JButton refreshButton;
-    private JButton viewButton;
+    private JButton jbackButton;
+    private JButton jupdateButton;
+    private JButton jreferButton;
+    private JButton jrefreshButton;
+    private JButton jviewButton;
     private JTextField jPatientID;
     private JTextArea jPrescription;
     private JLabel jName;
@@ -31,12 +33,55 @@ public class PatientInformationDoctor {
         this.userid = userid;
         display.DisplayOn();
 
-        backButton.addActionListener(e -> {
+        jbackButton.addActionListener(e -> {
             onBack();
             display.DisplayOff();
         });
+
+        jrefreshButton.addActionListener(e -> {
+            onRefresh();
+        });
+
+        jviewButton.addActionListener(e -> {
+            onView();
+
+        });
+
+        jupdateButton.addActionListener(e -> {
+            onUpdate();
+
+        });
     }
+
     void onBack(){
         new DoctorStation(userid);
+    }
+
+    void onRefresh(){
+        display.DisplayOff();
+        new PatientInformationDoctor(userid);
+    }
+
+    void onView(){
+        String patientID = jPatientID.getText();
+        String query = ("SELECT * FROM patient WHERE ID="+patientID);
+        PatientInfo patientInfo = new PatientInfo();
+        //if(())              //Rafi HELP
+        patientInfo.getPatientInfoReceptionist(query,jName,jAge,jGender,jDateOfAdmission,jDateOfAppointment,jDateOfRelease,jContactNo,jEmail,jBloodGroup,jPrescription,jPathologyTests);
+        //else
+        //    JOptionPane.showMessageDialog(null, "No Patient With That ID");
+    }
+
+    void onUpdate(){
+        String patientID = jPatientID.getText();
+        String dateOfRelease = jDateOfRelease.getText();
+        String prescription=jPrescription.getText();
+        String pathologyTests=jPathologyTests.getText();
+        PatientInfo patientInfo = new PatientInfo();
+        String query = ("UPDATE patient SET DateOfRelease ='"+dateOfRelease+ "', Prescription ='"+prescription+"', PathologyTests ='"+pathologyTests+"' WHERE ID ="+patientID);
+        //if(())              //Rafi HELP
+        patientInfo.updatePatientInfo(query);
+        //else
+        //    JOptionPane.showMessageDialog(null, "No Patient With That ID");
     }
 }
