@@ -46,12 +46,12 @@ public class PatientInformationPathologist {
     }
 
     void onBack(){
-        display.DisplayOff();
+        display.displayOff();
         new PathologistLocale(userid);
     }
 
     void onRefresh(){
-        display.DisplayOff();
+        display.displayOff();
         new PatientInformationPathologist(userid);
     }
 

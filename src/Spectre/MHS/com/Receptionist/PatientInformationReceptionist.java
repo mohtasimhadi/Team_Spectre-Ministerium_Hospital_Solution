@@ -52,11 +52,11 @@ public class PatientInformationReceptionist {
     }
 
     void onBack(){
-        display.DisplayOff();
+        display.displayOff();
         new ReceptionistRange(userid);
     }
     void onRefresh(){
-        display.DisplayOff();
+        display.displayOff();
         new PatientInformationReceptionist(userid);
     }
     void onView(){
