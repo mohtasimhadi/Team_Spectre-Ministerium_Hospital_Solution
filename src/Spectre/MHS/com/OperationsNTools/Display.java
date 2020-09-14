@@ -1,6 +1,7 @@
 package Spectre.MHS.com.OperationsNTools;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Display {
     private final JFrame jFrame;
@@ -9,6 +10,10 @@ public class Display {
     public Display(String title, JPanel contentPanel){
         this.jFrame = new JFrame(title);
         this.contentPanel = contentPanel;
+    }
+
+    public void changeSize(int height, int width){
+        jFrame.setSize(height, width);
     }
 
     public void DisplayOn(){
