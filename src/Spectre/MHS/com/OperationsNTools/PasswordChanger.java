@@ -2,7 +2,6 @@ package Spectre.MHS.com.OperationsNTools;
 
 import javax.swing.*;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Arrays;
 
 public class PasswordChanger {
@@ -43,7 +42,6 @@ public class PasswordChanger {
             } catch (SQLException throwable) {
                 throwable.printStackTrace();
             }
-            closeThis();
         });
 
         displayThis();
