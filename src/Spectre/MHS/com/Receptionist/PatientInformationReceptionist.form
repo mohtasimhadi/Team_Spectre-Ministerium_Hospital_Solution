@@ -44,7 +44,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="67723" class="javax.swing.JButton" binding="backButton" default-binding="true">
+          <component id="67723" class="javax.swing.JButton" binding="jbackButton">
             <constraints>
               <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -261,7 +261,7 @@
                   <editable value="false"/>
                 </properties>
               </component>
-              <component id="c76cb" class="javax.swing.JButton" binding="viewButton" default-binding="true">
+              <component id="c76cb" class="javax.swing.JButton" binding="jviewButton">
                 <constraints>
                   <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -276,7 +276,7 @@
               </hspacer>
             </children>
           </grid>
-          <component id="204ea" class="javax.swing.JButton" binding="refreshButton" default-binding="true">
+          <component id="204ea" class="javax.swing.JButton" binding="jrefreshButton">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -284,7 +284,7 @@
               <text value="Refresh"/>
             </properties>
           </component>
-          <component id="f3193" class="javax.swing.JButton" binding="updateButton" default-binding="true">
+          <component id="f3193" class="javax.swing.JButton" binding="jupdateButton">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>

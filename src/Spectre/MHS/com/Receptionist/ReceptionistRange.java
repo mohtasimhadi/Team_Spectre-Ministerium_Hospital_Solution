@@ -31,6 +31,7 @@ public class ReceptionistRange {
         String query = "SELECT * FROM receptionist WHERE ID=?";
         PersonalInfo personalInfo = new PersonalInfo();
         personalInfo.getPersonalInfo(userid, query, juserid, jJoiningDate, jGender, jEmail, jDesignation, jContactNo, jBloodGroup, jAddress, jDateOfBirth, jName);
+
         patientInformationButton.addActionListener(e -> {
             onPatientInformation();
             display.displayOff();
@@ -47,11 +48,14 @@ public class ReceptionistRange {
     }
     void onPatientInformation(){
         new PatientInformationReceptionist(userid);
+
     }
     void onAddNewPatient(){
+
         new AddNewPatient(userid);
     }
     void onLogOut(){
+
         new ReceptionistLogin();
     }
 }
