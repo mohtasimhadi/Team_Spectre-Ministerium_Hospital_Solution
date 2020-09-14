@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.sql.SQLException;
 
 public class ViewEmployee {
-    public JPanel contentPanel;
+    private JPanel contentPanel;
     private JButton backButton, viewEmployeeButton, updateInformationButton, removeEmployeeButton;
     private JTextField userID, name, dateOfBirth, address,  contactNo,  Gender,  email,  designation,  bloodGroup, joiningDate;
     private String userid;
@@ -38,11 +38,11 @@ public class ViewEmployee {
 
     void onViewEmployeeButton(){
         System.out.println("YES\n");
-        String query = "SELECT * FROM doctor " +
-                "UNION SELECT * FROM pathologist " +
-                "UNION SELECT * FROM receptionist " +
-                "UNION SELECT * FROM admin WHERE ID = " + userID.getText();
-        System.out.println(query);
+        String query = "SELECT * FROM doctor WHERE ID = " + userID.getText() +
+                " UNION SELECT * FROM pathologist WHERE ID = " + userID.getText() +
+                " UNION SELECT * FROM receptionist WHERE ID = " + userID.getText() +
+                " UNION SELECT * FROM admin WHERE ID = " + userID.getText();
+
         try {
             sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
             sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
