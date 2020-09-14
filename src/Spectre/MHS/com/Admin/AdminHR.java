@@ -1,6 +1,7 @@
 package Spectre.MHS.com.Admin;
 
 import Spectre.MHS.com.OperationsNTools.Display;
+import Spectre.MHS.com.OperationsNTools.PersonalInfo;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
 
 import javax.swing.*;
@@ -27,7 +28,11 @@ public class AdminHR {
     public AdminHR(String userid) {
         this.userid = userid;
         display.DisplayOn();
-        SQLConnector sqlConnector = new SQLConnector();
+        String query = "SELECT * FROM admin WHERE ID=?";
+        PersonalInfo personalInfo = new PersonalInfo();
+        personalInfo.getPersonalInfo(userid, query, jID, jJoiningDate, jGender, jEmail, jDesignation, jContactNo, jBloodGroup, jAddress, jDateOfBirth, jName);
+
+        /*SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();
 
         try {
@@ -51,7 +56,7 @@ public class AdminHR {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+*/
 
         logOutButton.addActionListener(e -> onLogOut());
         addNewEmployeeButton.addActionListener(e -> onAddNewEmployee());
