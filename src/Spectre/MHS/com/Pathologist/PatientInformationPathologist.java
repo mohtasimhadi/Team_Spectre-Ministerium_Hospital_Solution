@@ -2,22 +2,15 @@ package Spectre.MHS.com.Pathologist;
 
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PatientInfo;
-import Spectre.MHS.com.Receptionist.PatientInformationReceptionist;
 
 import javax.swing.*;
 
 public class PatientInformationPathologist {
-    private JButton jbackButton;
-    private JButton jupdateButton;
-    private JButton jrefreshButton;
-    private JButton jviewButton;
+    private JButton backButton, updateButton, refreshButton, viewButton;
     private JPanel contentPanel;
-    private JTextArea jPathologyTests;
-    private JTextField jPatientID;
-    private JLabel jName;
-    private JLabel jAge;
-    private JLabel jGender;
-    private JLabel jBloodGroup;
+    private JTextArea pathologyTests;
+    private JTextField patientID;
+    private JLabel name, age, gender, bloodGroup;
     private final String userid;
     private final Display display = new Display("Patient Information", contentPanel);
 
@@ -25,23 +18,21 @@ public class PatientInformationPathologist {
         this.userid = userid;
         display.displayOn();
 
-        jbackButton.addActionListener(e -> {
+        backButton.addActionListener(e -> {
             onBack();
             display.displayOff();
         });
 
-        jrefreshButton.addActionListener(e -> {
+        refreshButton.addActionListener(e -> {
             onRefresh();
         });
 
-        jviewButton.addActionListener(e -> {
+        viewButton.addActionListener(e -> {
             onView();
-
         });
 
-        jupdateButton.addActionListener(e -> {
+        updateButton.addActionListener(e -> {
             onUpdate();
-
         });
     }
 
@@ -56,18 +47,19 @@ public class PatientInformationPathologist {
     }
 
     void onView(){
-        String patientID = jPatientID.getText();
+        String patientID = this.patientID.getText();
         String query = ("SELECT * FROM patient WHERE ID="+patientID);
         PatientInfo patientInfo = new PatientInfo();
+        //if(sqlConnector.resultSet.getString(1).equals(encryption.encrypt(oldPassword)))
         //if(())              //Rafi HELP
-        patientInfo.getPatientInfoPathologist(query,jName,jAge,jGender,jBloodGroup,jPathologyTests);
+        patientInfo.getPatientInfoPathologist(query, name, age, gender, bloodGroup, pathologyTests);
         //else
         //    JOptionPane.showMessageDialog(null, "No Patient With That ID");
     }
 
     void onUpdate(){
-        String patientID = jPatientID.getText();
-        String pathologyTests = jPathologyTests.getText();
+        String patientID = this.patientID.getText();
+        String pathologyTests = this.pathologyTests.getText();
         PatientInfo patientInfo = new PatientInfo();
         String query = ("UPDATE patient SET DateOfRelease ='"+pathologyTests+ "' WHERE ID ="+patientID);
         //if(())              //Rafi HELP

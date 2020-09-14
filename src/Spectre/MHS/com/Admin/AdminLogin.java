@@ -34,7 +34,6 @@ public class AdminLogin{
 
         if(logIn.onLogIn(query, userid.getText(), encryption.encrypt(Arrays.toString(password.getPassword())))){
             if(Objects.requireNonNull(usertype.getSelectedItem()).toString().equals("Human Resource Management Admin")){
-
                 new AdminHR(userid.getText());
             }
             if(usertype.getSelectedItem().toString().equals("Administrative Director")){
