@@ -1,5 +1,7 @@
 package Spectre.MHS.com.OperationsNTools;
 
+import Spectre.MHS.com.Admin.ViewEmployee;
+
 import javax.swing.*;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -58,9 +60,9 @@ public class PasswordChanger {
         display.displayOff();
     }
 
-/*    public static void main(String[] args) {
-       PasswordChanger p = new PasswordChanger("doctor", 2001);
-       p.displayThis();
-    }*/
 
+    public static void main(String[] args) {
+       PasswordChanger p = new PasswordChanger("doctor", "1");
+       p.displayThis();
+    }
 }
