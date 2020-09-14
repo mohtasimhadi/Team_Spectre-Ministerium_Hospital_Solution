@@ -6,6 +6,7 @@ public class SQLConnector {
     public Connection connection;
     public PreparedStatement preparedStatement;
     public ResultSet resultSet;
+    public Statement statement;
 
     public void connect(){
         try {

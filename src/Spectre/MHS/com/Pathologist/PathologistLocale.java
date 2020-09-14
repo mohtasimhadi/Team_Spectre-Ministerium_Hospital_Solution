@@ -1,8 +1,8 @@
 package Spectre.MHS.com.Pathologist;
 
 import Spectre.MHS.com.OperationsNTools.Display;
+import Spectre.MHS.com.OperationsNTools.PasswordChanger;
 import Spectre.MHS.com.OperationsNTools.PersonalInfo;
-
 import javax.swing.*;
 
 public class PathologistLocale {
@@ -28,6 +28,9 @@ public class PathologistLocale {
         patientInformationButton.addActionListener(e -> {
             onPatientInformation();
             display.displayOff();
+        });
+        changePassword.addActionListener(e -> {
+            new PasswordChanger("pathologist", userID.getText());
         });
     }
 
