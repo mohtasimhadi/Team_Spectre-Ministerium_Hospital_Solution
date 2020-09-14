@@ -1,6 +1,7 @@
 package Spectre.MHS.com.Admin;
 
 import Spectre.MHS.com.OperationsNTools.Display;
+import Spectre.MHS.com.OperationsNTools.PersonalInfo;
 
 import javax.swing.*;
 
@@ -29,7 +30,7 @@ public class ViewEmployee {
     }
 
     void onViewEmployeeButton(){
-
+        
     }
 
     void onBackButton(String usertype){
