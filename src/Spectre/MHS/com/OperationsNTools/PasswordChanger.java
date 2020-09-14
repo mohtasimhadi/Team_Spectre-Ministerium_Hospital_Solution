@@ -1,5 +1,7 @@
 package Spectre.MHS.com.OperationsNTools;
 
+import Spectre.MHS.com.Admin.ViewEmployee;
+
 import javax.swing.*;
 import java.sql.SQLException;
 import java.util.Arrays;
@@ -53,8 +55,8 @@ public class PasswordChanger {
     }
 
     public static void main(String[] args) {
-       PasswordChanger p = new PasswordChanger("doctor", 2001);
-       p.displayThis();
+        ViewEmployee v = new ViewEmployee("10", "HABLA");
+        Display d = new Display("TitleHere", v.contentPanel);
     }
 
 }
