@@ -4,6 +4,7 @@ import Spectre.MHS.com.OperationsNTools.LogIn;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Encryption;
 import javax.swing.*;
+import java.util.Arrays;
 
 public class ReceptionistLogin {
 
@@ -32,7 +33,7 @@ public class ReceptionistLogin {
         Encryption encryption = new Encryption();
         String query = "select * from receptionist where ID = ? and Password = ?";
 
-        if(logIn.onLogIn(query, userid.getText(), encryption.encrypt(password.getText()))){
+        if(logIn.onLogIn(query, userid.getText(), encryption.encrypt(Arrays.toString(password.getPassword())))){
             new ReceptionistRange(userid.getText());
         } else {
             JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");
