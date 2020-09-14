@@ -20,7 +20,7 @@ public class PasswordChanger {
             Encryption encryption = new Encryption();
 
             String oldPasswordQuery = "SELECT Password FROM " + tableName + " WHERE ID = " + ID;
-            String newPasswordQuery = "UPDATE " + tableName + " SET Password = " + encryption.encrypt(newPassword) + " WHERE ID = " + ID;
+            String newPasswordQuery = "UPDATE " + tableName + " SET Password = '" + encryption.encrypt(newPassword) + "' WHERE ID = " + ID;
 
             SQLConnector sqlConnector = new SQLConnector();
             sqlConnector.connect();
@@ -29,8 +29,6 @@ public class PasswordChanger {
                 sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
                 sqlConnector.resultSet.next();
                 if(sqlConnector.resultSet.getString(1).equals(encryption.encrypt(oldPassword))) {
-                    //sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(newPasswordQuery);
-                    //sqlConnector.resultSet = sqlConnector.preparedStatement.executeUpdate(newPasswordQuery);
                     sqlConnector.statement = sqlConnector.connection.createStatement();
                     sqlConnector.statement.executeUpdate(newPasswordQuery);
                     JOptionPane.showMessageDialog(null, "Password has been successfully changed");
@@ -55,10 +53,4 @@ public class PasswordChanger {
     public void closeThis(){
         display.displayOff();
     }
-
-/*    public static void main(String[] args) {
-       PasswordChanger p = new PasswordChanger("doctor", 2001);
-       p.displayThis();
-    }*/
-
 }
