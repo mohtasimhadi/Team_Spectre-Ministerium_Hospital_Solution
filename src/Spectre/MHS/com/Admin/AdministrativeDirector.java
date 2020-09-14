@@ -12,13 +12,13 @@ public class AdministrativeDirector {
     private final Display display = new Display("Administrative Director", contentPanel);
 
     public AdministrativeDirector(String userid) {
-        display.DisplayOn();
+        display.displayOn();
         String query = "SELECT * FROM admin WHERE ID=?";
         PersonalInfo personalInfo = new PersonalInfo();
         personalInfo.getPersonalInfo(userid, query, userID, joiningDate, gender, email, designation,
                 contactNo, bloodGroup, address, dateOfBirth, name);
         logOutButton.addActionListener(e -> {
-            display.DisplayOff();
+            display.displayOff();
             onLogOut();
         });
     }

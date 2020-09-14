@@ -27,11 +27,11 @@ public class PatientInformationReceptionist {
 
     PatientInformationReceptionist(String userid){
         this.userid = userid;
-        display.DisplayOn();
+        display.displayOn();
 
         backButton.addActionListener(e -> {
             onBack();
-            display.DisplayOff();
+            display.displayOff();
         });
     }
 

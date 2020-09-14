@@ -21,7 +21,7 @@ public class PasswordChanger {
 
     public void Display_This(){
         Display display = new Display("Password Changer", PasswordChangerPanel);
-        display.DisplayOn();
+        display.displayOn();
         display.changeSize(400, 200);
     }
     public static void main(String[] args) {

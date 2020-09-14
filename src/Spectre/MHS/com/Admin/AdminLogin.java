@@ -18,13 +18,13 @@ public class AdminLogin{
     private final Display display = new Display("Admin Log In", contentPanel);
 
     public AdminLogin() {
-        display.DisplayOn();
+        display.displayOn();
 
         exitButton.addActionListener(e -> onExit());
 
         logInButton.addActionListener(e -> {
             onLogIn();
-            display.DisplayOff();
+            display.displayOff();
         });
     }
 

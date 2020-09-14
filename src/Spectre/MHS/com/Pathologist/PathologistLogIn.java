@@ -15,13 +15,13 @@ public class PathologistLogIn{
     private final Display display = new Display("Pathologist Log In", contentPanel);
 
     public PathologistLogIn() {
-        display.DisplayOn();
+        display.displayOn();
 
         exitButton.addActionListener(e -> onExit());
 
         logInButton.addActionListener(e -> {
             onLogIn();
-            display.DisplayOff();
+            display.displayOff();
         });
     }
 

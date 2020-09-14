@@ -29,7 +29,7 @@ public class AddNewPatient {
 
     public AddNewPatient(String userid) {
         this.userid = userid;
-        display.DisplayOn();
+        display.displayOn();
 
         backButton.addActionListener(e -> onBack());
 
@@ -80,6 +80,6 @@ public class AddNewPatient {
 
     void onBack(){
         new ReceptionistRange(userid);
-        display.DisplayOff();
+        display.displayOff();
     }
 }

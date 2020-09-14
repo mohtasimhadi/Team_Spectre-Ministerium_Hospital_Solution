@@ -2,7 +2,7 @@ package Spectre.MHS.com.Receptionist;
 
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PersonalInfo;
-import Spectre.MHS.com.OperationsNTools.SQLConnector;
+
 import javax.swing.*;
 
 public class ReceptionistRange {
@@ -26,22 +26,22 @@ public class ReceptionistRange {
 
     public ReceptionistRange(String userid) {
         this.userid = userid;
-        display.DisplayOn();
+        display.displayOn();
 
         String query = "SELECT * FROM receptionist WHERE ID=?";
         PersonalInfo personalInfo = new PersonalInfo();
         personalInfo.getPersonalInfo(userid, query, juserid, jJoiningDate, jGender, jEmail, jDesignation, jContactNo, jBloodGroup, jAddress, jDateOfBirth, jName);
         patientInformationButton.addActionListener(e -> {
             onPatientInformation();
-            display.DisplayOff();
+            display.displayOff();
         });
 
         logOutButton.addActionListener(e -> {
-            display.DisplayOff();
+            display.displayOff();
             onLogOut();
         });
         addNewPatientButton.addActionListener(e -> {
-            display.DisplayOff();
+            display.displayOff();
             onAddNewPatient();
         });
     }
