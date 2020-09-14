@@ -1,8 +1,6 @@
 package Spectre.MHS.com.OperationsNTools;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.Arrays;
 
@@ -14,36 +12,33 @@ public class PasswordChanger {
     private Display display;
 
     public PasswordChanger(String table_name, int ID) {
-        OKButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        OKButton.addActionListener(e -> {
 
-                String oldPassword = Arrays.toString(OldPasswordField.getPassword());
-                String newPassword = Arrays.toString(NewPasswordField.getPassword());
+            String oldPassword = Arrays.toString(OldPasswordField.getPassword());
+            String newPassword = Arrays.toString(NewPasswordField.getPassword());
 
-                Encryption encryption = new Encryption();
+            Encryption encryption = new Encryption();
 
-                String oldPasswordQuery = "SELECT Password FROM " + table_name + " WHERE ID = " + ID;
-                String newPasswordQuery = "UPDATE " + table_name + " SET Password = " + encryption.encrypt(newPassword) + " WHERE ID = " + ID;
+            String oldPasswordQuery = "SELECT Password FROM " + table_name + " WHERE ID = " + ID;
+            String newPasswordQuery = "UPDATE " + table_name + " SET Password = " + encryption.encrypt(newPassword) + " WHERE ID = " + ID;
 
-                SQLConnector sqlConnector = new SQLConnector();
-                sqlConnector.connect();
-                try {
-                    sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(oldPasswordQuery);
+            SQLConnector sqlConnector = new SQLConnector();
+            sqlConnector.connect();
+            try {
+                sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(oldPasswordQuery);
+                sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
+                sqlConnector.resultSet.next();
+                if(sqlConnector.resultSet.getString(1).equals(encryption.encrypt(oldPassword))) {
+                    sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(newPasswordQuery);
                     sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
-                    sqlConnector.resultSet.next();
-                    if(sqlConnector.resultSet.getString(1) == encryption.encrypt(oldPassword)) {
-                        sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(newPasswordQuery);
-                        sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
-                        JOptionPane.showMessageDialog(null, "Password has been successfully changed");
-                        closethis();
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Old Password does not Match.");
-                    }
-
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Password has been successfully changed");
+                    closeThis();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Old Password does not Match.");
                 }
+
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
             }
         });
     }
@@ -53,7 +48,7 @@ public class PasswordChanger {
         display.displayOn();
         display.changeSize(400, 200);
     }
-    public void closethis(){
+    public void closeThis(){
         display.displayOff();
     }
 
