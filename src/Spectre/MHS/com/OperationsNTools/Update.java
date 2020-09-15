@@ -24,9 +24,9 @@ public class Update {
 
         try {
             sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
-            sqlConnector.preparedStatement.setString(1, prescription);
+            sqlConnector.preparedStatement.setString(1, dateOfRelease);
             sqlConnector.preparedStatement.setString(2, pathologyTests);
-            sqlConnector.preparedStatement.setString(3, dateOfRelease);
+            sqlConnector.preparedStatement.setString(3, prescription);
             sqlConnector.preparedStatement.setString(4, iD);
             sqlConnector.preparedStatement.executeUpdate();
         } catch (SQLException e) {
