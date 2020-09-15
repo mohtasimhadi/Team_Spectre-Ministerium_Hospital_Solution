@@ -4,6 +4,8 @@ import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
 import Spectre.MHS.com.OperationsNTools.Update;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.Objects;
 
@@ -13,12 +15,14 @@ public class ViewEmployee {
     private JTextField userID, name, dateOfBirth, address, contactNo, email, joiningDate, educationQualification;
     private JComboBox gender, bloodGroup;
     private JLabel designation;
-    private String userid;
+    private JButton refreshButton;
+    private String userid, userType;
     private final Display display = new Display("View Employee", contentPanel);
     SQLConnector sqlConnector;
 
     public ViewEmployee(String userid, String usertype){
         this.userid = userid;
+        this.userType = usertype;
         display.displayOn();
 
         sqlConnector = new SQLConnector();
@@ -28,6 +32,17 @@ public class ViewEmployee {
         removeEmployeeButton.addActionListener(e -> onRemoveEmployeeButton());
         updateInformationButton.addActionListener(e -> onUpdateInformationButton());
         viewEmployeeButton.addActionListener(e -> onViewEmployeeButton());
+        refreshButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                onRefresh();
+            }
+        });
+    }
+
+    void onRefresh(){
+        new ViewEmployee(userid, userType);
+        display.displayOff();
     }
 
     void onRemoveEmployeeButton(){
