@@ -73,19 +73,18 @@ public class PatientInfo {
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();
 
-
-
         try {
             sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
             sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
 
             if(sqlConnector.resultSet.next()){
-
                 jName.setText(sqlConnector.resultSet.getString("Name"));
                 jAge.setText(sqlConnector.resultSet.getString("Age"));
                 jGender.setText(sqlConnector.resultSet.getString("Gender"));
                 jBloodGroup.setText(sqlConnector.resultSet.getString("BloodGroup"));
                 jPathologyTests.setText(sqlConnector.resultSet.getString("PathologyTests"));
+            } else {
+                JOptionPane.showMessageDialog(null, "No Patient With That ID");
             }
         } catch (Exception e) {
             e.printStackTrace();

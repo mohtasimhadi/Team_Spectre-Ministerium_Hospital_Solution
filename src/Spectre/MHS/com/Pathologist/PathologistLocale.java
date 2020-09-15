@@ -21,25 +21,18 @@ public class PathologistLocale {
         personalInfo.getPersonalInfo(userid, query, userID, joiningDate, gender, email, designation,
                 contactNo, bloodGroup, address, dateOfBirth, name);
 
-        logOutButton.addActionListener(e -> {
-            display.displayOff();
-            onLogOut();
-        });
-
-        patientInformationButton.addActionListener(e -> {
-            onPatientInformation();
-            display.displayOff();
-        });
-        changePassword.addActionListener(e -> {
-            new PasswordChanger("pathologist", userID.getText());
-        });
+        logOutButton.addActionListener(e -> onLogOut());
+        patientInformationButton.addActionListener(e -> onPatientInformation());
+        changePassword.addActionListener(e -> new PasswordChanger("pathologist", userID.getText()));
     }
 
     void onPatientInformation(){
         new PatientInformationPathologist(userid);
+        display.displayOff();
     }
 
     void onLogOut(){
+        display.displayOff();
         new PathologistLogIn();
     }
 }
