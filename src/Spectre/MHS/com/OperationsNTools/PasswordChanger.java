@@ -17,7 +17,6 @@ public class PasswordChanger {
 
             String oldPassword = Arrays.toString(OldPasswordField.getPassword());
             String newPassword = Arrays.toString(NewPasswordField.getPassword());
-
             Encryption encryption = new Encryption();
 
             String oldPasswordQuery = "SELECT Password FROM " + tableName + " WHERE ID = " + ID;
@@ -37,7 +36,6 @@ public class PasswordChanger {
                 } else {
                     JOptionPane.showMessageDialog(null, "Old Password does not Match.");
                 }
-
             } catch (SQLException throwable) {
                 throwable.printStackTrace();
             }
