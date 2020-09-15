@@ -73,7 +73,6 @@ public class AddNewEmployee {
             e.printStackTrace();
         }
     }
-
     void onBack(){
         new AdminHR(userid);
         display.displayOff();

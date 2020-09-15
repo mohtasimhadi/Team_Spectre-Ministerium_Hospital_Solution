@@ -9,6 +9,7 @@ public class PasswordChanger {
     private JPasswordField NewPasswordField;
     private JButton OKButton;
     private JPanel PasswordChangerPanel;
+    private JButton cancelButton;
     private Display display;
 
     public PasswordChanger(String tableName, String ID) {
@@ -43,14 +44,15 @@ public class PasswordChanger {
         });
 
         displayThis();
+        cancelButton.addActionListener(e -> closeThis());
     }
 
-    public void displayThis(){
-        display = new Display("Password Changer", PasswordChangerPanel);
+    private void displayThis(){
+        display = new Display("Change Password", PasswordChangerPanel);
         display.displayOn();
         display.changeSize(400, 200);
     }
-    public void closeThis(){
+    private void closeThis(){
         display.displayOff();
     }
 }

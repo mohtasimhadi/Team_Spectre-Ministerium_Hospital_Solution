@@ -9,6 +9,7 @@ public class PathologistLocale {
     private JPanel contentPanel;
     private JButton logOutButton, changePassword, patientInformationButton;
     private JLabel userID, name, dateOfBirth, address, contactNo, gender, email, designation, bloodGroup, joiningDate;
+
     public String userid;
     private final Display display = new Display("Pathologists Locale", contentPanel);
 

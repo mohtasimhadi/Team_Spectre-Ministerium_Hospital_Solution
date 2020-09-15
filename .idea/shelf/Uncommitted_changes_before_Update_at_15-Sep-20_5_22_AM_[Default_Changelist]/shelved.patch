@@ -1,0 +1,124 @@
+Index: src/Spectre/MHS/com/Pathologist/PathologistLocale.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Spectre.MHS.com.Pathologist;\r\n\r\nimport Spectre.MHS.com.OperationsNTools.Display;\r\nimport Spectre.MHS.com.OperationsNTools.PersonalInfo;\r\n\r\nimport javax.swing.*;\r\n\r\npublic class PathologistLocale {\r\n    private JPanel contentPanel;\r\n    private JButton logOutButton, changePassword, patientInformationButton;\r\n    private JLabel userID, name, dateOfBirth, address, contactNo, gender, email, designation, bloodGroup, joiningDate;\r\n    public String userid;\r\n    private final Display display = new Display(\"Pathologists Locale\", contentPanel);\r\n\r\n    public PathologistLocale(String userid) {\r\n        this.userid = userid;\r\n        display.displayOn();\r\n        String query = \"SELECT * FROM pathologist WHERE ID=?\";\r\n        PersonalInfo personalInfo = new PersonalInfo();\r\n        personalInfo.getPersonalInfo(userid, query, userID, joiningDate, gender, email, designation,\r\n                contactNo, bloodGroup, address, dateOfBirth, name);\r\n\r\n        logOutButton.addActionListener(e -> {\r\n            display.displayOff();\r\n            onLogOut();\r\n        });\r\n\r\n        patientInformationButton.addActionListener(e -> {\r\n            onPatientInformation();\r\n            display.displayOff();\r\n        });\r\n    }\r\n\r\n    void onPatientInformation(){\r\n        new PatientInformationPathologist(userid);\r\n    }\r\n\r\n    void onLogOut(){\r\n        new PathologistLogIn();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Spectre/MHS/com/Pathologist/PathologistLocale.java	(revision abd5319d9d7685c2bde9573efe91c1559cb6ed05)
++++ src/Spectre/MHS/com/Pathologist/PathologistLocale.java	(date 1600125642425)
+@@ -1,8 +1,8 @@
+ package Spectre.MHS.com.Pathologist;
+ 
+ import Spectre.MHS.com.OperationsNTools.Display;
++import Spectre.MHS.com.OperationsNTools.PasswordChanger;
+ import Spectre.MHS.com.OperationsNTools.PersonalInfo;
+-
+ import javax.swing.*;
+ 
+ public class PathologistLocale {
+@@ -29,6 +29,9 @@
+             onPatientInformation();
+             display.displayOff();
+         });
++        changePassword.addActionListener(e -> {
++            new PasswordChanger("pathologist", userID.getText());
++        });
+     }
+ 
+     void onPatientInformation(){
+Index: src/Spectre/MHS/com/OperationsNTools/PasswordChanger.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Spectre.MHS.com.OperationsNTools;\r\n\r\nimport Spectre.MHS.com.Admin.ViewEmployee;\r\n\r\nimport javax.swing.*;\r\nimport java.sql.SQLException;\r\nimport java.util.Arrays;\r\n\r\npublic class PasswordChanger {\r\n    private JPasswordField OldPasswordField;\r\n    private JPasswordField NewPasswordField;\r\n    private JButton OKButton;\r\n    private JPanel PasswordChangerPanel;\r\n    private Display display;\r\n\r\n    public PasswordChanger(String table_name, int ID) {\r\n        OKButton.addActionListener(e -> {\r\n\r\n            String oldPassword = Arrays.toString(OldPasswordField.getPassword());\r\n            String newPassword = Arrays.toString(NewPasswordField.getPassword());\r\n\r\n            Encryption encryption = new Encryption();\r\n\r\n            String oldPasswordQuery = \"SELECT Password FROM \" + table_name + \" WHERE ID = \" + ID;\r\n            String newPasswordQuery = \"UPDATE \" + table_name + \" SET Password = \" + encryption.encrypt(newPassword) + \" WHERE ID = \" + ID;\r\n\r\n            SQLConnector sqlConnector = new SQLConnector();\r\n            sqlConnector.connect();\r\n            try {\r\n                sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(oldPasswordQuery);\r\n                sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();\r\n                sqlConnector.resultSet.next();\r\n                if(sqlConnector.resultSet.getString(1).equals(encryption.encrypt(oldPassword))) {\r\n                    sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(newPasswordQuery);\r\n                    sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();\r\n                    JOptionPane.showMessageDialog(null, \"Password has been successfully changed\");\r\n                    closeThis();\r\n                } else {\r\n                    JOptionPane.showMessageDialog(null, \"Old Password does not Match.\");\r\n                }\r\n\r\n            } catch (SQLException throwables) {\r\n                throwables.printStackTrace();\r\n            }\r\n        });\r\n    }\r\n\r\n    public void displayThis(){\r\n        display = new Display(\"Password Changer\", PasswordChangerPanel);\r\n        display.displayOn();\r\n        display.changeSize(400, 200);\r\n    }\r\n    public void closeThis(){\r\n        display.displayOff();\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        ViewEmployee v = new ViewEmployee(\"10\", \"HABLA\");\r\n        Display d = new Display(\"TitleHere\", v.contentPanel);\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Spectre/MHS/com/OperationsNTools/PasswordChanger.java	(revision abd5319d9d7685c2bde9573efe91c1559cb6ed05)
++++ src/Spectre/MHS/com/OperationsNTools/PasswordChanger.java	(date 1600125747007)
+@@ -4,6 +4,7 @@
+ 
+ import javax.swing.*;
+ import java.sql.SQLException;
++import java.sql.Statement;
+ import java.util.Arrays;
+ 
+ public class PasswordChanger {
+@@ -13,7 +14,7 @@
+     private JPanel PasswordChangerPanel;
+     private Display display;
+ 
+-    public PasswordChanger(String table_name, int ID) {
++    public PasswordChanger(String tableName, String ID) {
+         OKButton.addActionListener(e -> {
+ 
+             String oldPassword = Arrays.toString(OldPasswordField.getPassword());
+@@ -21,8 +22,8 @@
+ 
+             Encryption encryption = new Encryption();
+ 
+-            String oldPasswordQuery = "SELECT Password FROM " + table_name + " WHERE ID = " + ID;
+-            String newPasswordQuery = "UPDATE " + table_name + " SET Password = " + encryption.encrypt(newPassword) + " WHERE ID = " + ID;
++            String oldPasswordQuery = "SELECT Password FROM " + tableName + " WHERE ID = " + ID;
++            String newPasswordQuery = "UPDATE " + tableName + " SET Password = " + encryption.encrypt(newPassword) + " WHERE ID = " + ID;
+ 
+             SQLConnector sqlConnector = new SQLConnector();
+             sqlConnector.connect();
+@@ -31,18 +32,23 @@
+                 sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
+                 sqlConnector.resultSet.next();
+                 if(sqlConnector.resultSet.getString(1).equals(encryption.encrypt(oldPassword))) {
+-                    sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(newPasswordQuery);
+-                    sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
++                    //sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(newPasswordQuery);
++                    //sqlConnector.resultSet = sqlConnector.preparedStatement.executeUpdate(newPasswordQuery);
++                    sqlConnector.statement = sqlConnector.connection.createStatement();
++                    sqlConnector.statement.executeUpdate(newPasswordQuery);
+                     JOptionPane.showMessageDialog(null, "Password has been successfully changed");
+                     closeThis();
+                 } else {
+                     JOptionPane.showMessageDialog(null, "Old Password does not Match.");
+                 }
+ 
+-            } catch (SQLException throwables) {
+-                throwables.printStackTrace();
++            } catch (SQLException throwable) {
++                throwable.printStackTrace();
+             }
++            closeThis();
+         });
++
++        displayThis();
+     }
+ 
+     public void displayThis(){
+@@ -54,9 +60,9 @@
+         display.displayOff();
+     }
+ 
++
+     public static void main(String[] args) {
+-        ViewEmployee v = new ViewEmployee("10", "HABLA");
+-        Display d = new Display("TitleHere", v.contentPanel);
++       PasswordChanger p = new PasswordChanger("doctor", 2001);
++       p.displayThis();
+     }
+-
+ }
+Index: src/Spectre/MHS/com/OperationsNTools/SQLConnector.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Spectre.MHS.com.OperationsNTools;\r\n\r\nimport java.sql.*;\r\n\r\npublic class SQLConnector {\r\n    public Connection connection;\r\n    public PreparedStatement preparedStatement;\r\n    public ResultSet resultSet;\r\n\r\n    public void connect(){\r\n        try {\r\n            Class.forName(\"com.mysql.cj.jdbc.Driver\");\r\n            connection = DriverManager.getConnection(\"jdbc:mysql://localhost:3306/mhs?useTimezone=true&serverTimezone=UTC\",\"root\",\"\");\r\n        } catch (ClassNotFoundException | SQLException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Spectre/MHS/com/OperationsNTools/SQLConnector.java	(revision abd5319d9d7685c2bde9573efe91c1559cb6ed05)
++++ src/Spectre/MHS/com/OperationsNTools/SQLConnector.java	(date 1600125642424)
+@@ -6,6 +6,7 @@
+     public Connection connection;
+     public PreparedStatement preparedStatement;
+     public ResultSet resultSet;
++    public Statement statement;
+ 
+     public void connect(){
+         try {

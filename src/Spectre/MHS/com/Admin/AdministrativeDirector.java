@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class AdministrativeDirector {
     private JPanel contentPanel;
-    private JButton logOutButton, addNewEmployeeButton, changePasswordButton, viewEmployeeButton, viewPatientButton;
+    private JButton logOutButton, changePasswordButton, viewEmployeeButton, viewPatientButton;
     private JLabel userID, name, dateOfBirth, address, contactNo, gender, email, designation, bloodGroup, joiningDate;
     private final Display display = new Display("Administrative Director", contentPanel);
 
