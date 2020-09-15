@@ -26,8 +26,18 @@ public class AddNewEmployee {
         addEmployeeButton.addActionListener(e -> onAddEmployeeButton());
     }
 
-    void onAddEmployeeButton() {
+    boolean checkIfAllAreFilled(){
+        if(name.getText().isEmpty() || dateOfJoin.getText().isEmpty() || dateOfBirth.getText().isEmpty() || contactNo.getText().isEmpty() || address.getText().isEmpty() || email.getText().isEmpty() || educationalQualification.getText().isEmpty() || password.getText().isEmpty())
+            return false;
+        else
+            return true;
+    }
 
+    void onAddEmployeeButton() {
+        if(!checkIfAllAreFilled()){
+            JOptionPane.showMessageDialog(null, "Please Fill Out all the Information");
+            return;
+        }
         String designation, sql;
         designation = Objects.requireNonNull(this.designation.getSelectedItem()).toString();
         if((designation.equals("Administrative Director"))||designation.equals("Human Resource Management Admin")){
