@@ -30,19 +30,24 @@ public class AdministrativeDirector {
         viewEmployeeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                onViewEmployee();
+                onViewEmployees();
             }
         });
         viewPatientButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                onViewPatients();
             }
         });
     }
 
-    void onViewEmployee(){
+    void onViewEmployees(){
         new ViewEmployee(userID.getText(), "Administrative Admin");
+        display.displayOff();
+    }
+
+    void onViewPatients(){
+        new PatientInformationAdmin(userID.getText());
         display.displayOff();
     }
 

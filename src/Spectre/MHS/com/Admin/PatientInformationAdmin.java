@@ -18,7 +18,7 @@ public class PatientInformationAdmin {
 
      public PatientInformationAdmin(String userid){
         this.userid = userid;
-        display.displayOff();
+        display.displayOn();
 
         backButton.addActionListener(e -> {
             onBack();
