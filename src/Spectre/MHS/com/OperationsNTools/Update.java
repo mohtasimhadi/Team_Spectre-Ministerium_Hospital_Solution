@@ -57,4 +57,18 @@ public class Update {
             e.printStackTrace();
         }
     }
+
+    public static void onUpdateReceptionist(String query, String iD, String dateOfRelease) {
+        SQLConnector sqlConnector = new SQLConnector();
+        sqlConnector.connect();
+
+        try {
+            sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
+            sqlConnector.preparedStatement.setString(1, dateOfRelease);
+            sqlConnector.preparedStatement.setString(2, iD);
+            sqlConnector.preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

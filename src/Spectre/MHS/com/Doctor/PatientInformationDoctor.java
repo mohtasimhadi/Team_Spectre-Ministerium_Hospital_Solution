@@ -8,10 +8,8 @@ import javax.swing.*;
 public class PatientInformationDoctor {
 
     private JPanel contentPanel;
-    private JTextField patientID;
-    private JTextArea prescription;
-    private JTextArea pathologyTests;
-    private JTextField dateOfRelease;
+    private JTextField patientID, dateOfRelease;
+    private JTextArea prescription, pathologyTests;
     private JButton backButton, updateButton, referButton, refreshButton, viewButton;
     private JLabel name, age, gender, dateOfAdmission, dateOfAppointment, bloodGroup, contactNo, email;
 
@@ -22,26 +20,18 @@ public class PatientInformationDoctor {
         this.userid = userid;
         display.displayOn();
 
-        backButton.addActionListener(e -> {
-            onBack();
-            display.displayOff();
-        });
+        backButton.addActionListener(e -> onBack());
 
-        refreshButton.addActionListener(e -> {
-            onRefresh();
-        });
+        refreshButton.addActionListener(e -> onRefresh());
 
-        viewButton.addActionListener(e -> {
-            onView();
-        });
+        viewButton.addActionListener(e -> onView());
 
-        updateButton.addActionListener(e -> {
-            onUpdate();
-        });
+        updateButton.addActionListener(e -> onUpdate());
     }
 
     void onBack() {
         new DoctorStation(userid);
+        display.displayOff();
     }
 
     void onRefresh() {
@@ -53,15 +43,13 @@ public class PatientInformationDoctor {
         String patientID = this.patientID.getText();
         String query = ("SELECT * FROM patient WHERE ID=" + patientID);
         PatientInfo patientInfo = new PatientInfo();
-        //if(())              //Rafi HELP
         patientInfo.getPatientInfoDoctor(query, name, age, gender, dateOfAdmission, dateOfAppointment, dateOfRelease, contactNo, email, bloodGroup, prescription, pathologyTests);
-        //else
-        //    JOptionPane.showMessageDialog(null, "No Patient With That ID");
     }
 
     void onUpdate() {
         String query = ("UPDATE patient SET DateOfRelease = ?, PathologyTests = ?, Prescription = ?  WHERE ID = ?");
         Update.onUpdateDoctor(query, patientID.getText(), dateOfRelease.getText(), pathologyTests.getText(), prescription.getText());
+        JOptionPane.showMessageDialog(null, "Updated");
     }
 
     public static void main(String[] args) {

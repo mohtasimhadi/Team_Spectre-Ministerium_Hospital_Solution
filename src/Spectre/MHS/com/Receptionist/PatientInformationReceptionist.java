@@ -1,29 +1,31 @@
 package Spectre.MHS.com.Receptionist;
 
+import Spectre.MHS.com.Doctor.PatientInformationDoctor;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PatientInfo;
-import Spectre.MHS.com.OperationsNTools.SQLConnector;
+import Spectre.MHS.com.OperationsNTools.Update;
+
 import javax.swing.*;
 
 public class PatientInformationReceptionist {
-    private JButton jbackButton;
-    private JButton jviewButton;
-    private JButton jrefreshButton;
-    private JButton jupdateButton;
+    private JButton backButton;
+    private JButton viewButton;
+    private JButton refreshButton;
+    private JButton updateButton;
     private JPanel contentPanel;
-    private JTextField jPatientID;
-    private JLabel jName;
-    private JLabel jAge;
-    private JLabel jGender;
-    private JLabel jDateOfAdmission;
-    private JLabel jDateOfAppointment;
-    private JLabel jAppointedDoctor;
-    private JTextField jDateOfRelease;
-    private JLabel jContactNo;
-    private JLabel jEmail;
-    private JLabel jBloodGroup;
-    private JTextArea jPrescription;
-    private JTextArea jPathologyTests;
+    private JTextField patientID;
+    private JLabel name;
+    private JLabel age;
+    private JLabel gender;
+    private JLabel dateOfAdmission;
+    private JLabel dateOfAppointment;
+    private JLabel appointedDoctor;
+    private JTextField dateOfRelease;
+    private JLabel contactNo;
+    private JLabel email;
+    private JLabel bloodGroup;
+    private JTextArea prescription;
+    private JTextArea pathologyTests;
 
     private final String userid;
     private final Display display = new Display("Patient Information", contentPanel);
@@ -32,21 +34,21 @@ public class PatientInformationReceptionist {
         this.userid = userid;
         display.displayOn();
 
-        jbackButton.addActionListener(e -> {
+        backButton.addActionListener(e -> {
             onBack();
             display.displayOff();
         });
 
-        jrefreshButton.addActionListener(e -> {
+        refreshButton.addActionListener(e -> {
             onRefresh();
         });
 
-        jviewButton.addActionListener(e -> {
+        viewButton.addActionListener(e -> {
             onView();
 
         });
 
-        jupdateButton.addActionListener(e -> {
+        updateButton.addActionListener(e -> {
             onUpdate();
 
         });
@@ -61,24 +63,23 @@ public class PatientInformationReceptionist {
         new PatientInformationReceptionist(userid);
     }
     void onView(){
-        String patientID = jPatientID.getText();
+        String patientID = this.patientID.getText();
         String query = ("SELECT * FROM patient WHERE ID="+patientID);
         PatientInfo patientInfo = new PatientInfo();
         //if(())              //Rafi HELP
-        patientInfo.getPatientInfoReceptionist(query,jName,jAge,jGender,jDateOfAdmission,jDateOfAppointment,jAppointedDoctor,jDateOfRelease,jContactNo,jEmail,jBloodGroup,jPrescription,jPathologyTests);
+        patientInfo.getPatientInfoReceptionist(query, name, age, gender, dateOfAdmission, dateOfAppointment, appointedDoctor, dateOfRelease, contactNo, email, bloodGroup, prescription, pathologyTests);
         //else
         //    JOptionPane.showMessageDialog(null, "No Patient With That ID");
     }
 
     void onUpdate(){
-        String patientID = jPatientID.getText();
-        String dateOfRelease = jDateOfRelease.getText();
-        PatientInfo patientInfo = new PatientInfo();
-        String query = ("UPDATE patient SET DateOfRelease ='"+dateOfRelease+ "' WHERE ID ="+patientID);
-        //if(())              //Rafi HELP
-            patientInfo.updatePatientInfo(query);
-        //else
-        //    JOptionPane.showMessageDialog(null, "No Patient With That ID");
+        String query = ("UPDATE patient SET DateOfRelease = ?  WHERE ID = ?");
+
+        Update.onUpdateReceptionist(query, patientID.getText(),dateOfRelease.getText());
     }
 
+    public static void main(String[] args) {
+        String asd = null;
+        new PatientInformationReceptionist(asd);
+    }
 }
