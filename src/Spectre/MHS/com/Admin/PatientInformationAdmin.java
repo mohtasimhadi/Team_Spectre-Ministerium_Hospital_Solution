@@ -29,11 +29,11 @@ public class PatientInformationAdmin {
 
      public PatientInformationAdmin(String userid){
         this.userid = userid;
-        display.DisplayOn();
+        display.displayOff();
 
         jbackButton.addActionListener(e -> {
             onBack();
-            display.DisplayOff();
+            display.displayOff();
         });
 
         jrefreshButton.addActionListener(e -> {
@@ -48,11 +48,11 @@ public class PatientInformationAdmin {
     }
 
     void onBack(){
-        display.DisplayOff();
+        display.displayOff();
         new AdministrativeDirector(userid);
     }
     void onRefresh(){
-        display.DisplayOff();
+        display.displayOff();
         new PatientInformationAdmin(userid);
     }
     void onView(){

@@ -56,7 +56,7 @@ public class PatientInformationDoctor {
     }
 
     void onRefresh(){
-        display.DisplayOff();
+        display.displayOff();
         new PatientInformationDoctor(userid);
     }
 

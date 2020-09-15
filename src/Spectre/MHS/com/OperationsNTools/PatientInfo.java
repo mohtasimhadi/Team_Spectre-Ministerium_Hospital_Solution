@@ -3,11 +3,12 @@ package Spectre.MHS.com.OperationsNTools;
 import javax.swing.*;
 
 public class PatientInfo {
-    public static void getPatientInfoReceptionist(String query, JLabel jName, JLabel jAge,
-                                      JLabel jGender, JLabel jDateOfAdmission, JLabel jDateOfAppointment,
-                                      JLabel jAppointedDoctor, JTextField jDateOfRelease, JLabel jContactNo, JLabel jEmail,
-                                      JLabel jBloodGroup, JTextArea jPrescription, JTextArea jPathologyTests){
-        SQLConnector sqlConnector = new SQLConnector();
+    public SQLConnector sqlConnector = new SQLConnector();
+    public void getPatientInfoReceptionist(String query, JLabel jName, JLabel jAge,
+                                           JLabel jGender, JLabel jDateOfAdmission, JLabel jDateOfAppointment,
+                                           JLabel jAppointedDoctor, JTextField jDateOfRelease, JLabel jContactNo, JLabel jEmail,
+                                           JLabel jBloodGroup, JTextArea jPrescription, JTextArea jPathologyTests){
+
         sqlConnector.connect();
 
 
@@ -86,8 +87,6 @@ public class PatientInfo {
                 jGender.setText(sqlConnector.resultSet.getString("Gender"));
                 jBloodGroup.setText(sqlConnector.resultSet.getString("BloodGroup"));
                 jPathologyTests.setText(sqlConnector.resultSet.getString("PathologyTests"));
-
-
             }
         } catch (Exception e) {
             e.printStackTrace();

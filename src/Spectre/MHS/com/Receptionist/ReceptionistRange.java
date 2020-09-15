@@ -1,27 +1,16 @@
 package Spectre.MHS.com.Receptionist;
 
 import Spectre.MHS.com.OperationsNTools.Display;
+import Spectre.MHS.com.OperationsNTools.PasswordChanger;
 import Spectre.MHS.com.OperationsNTools.PersonalInfo;
 
 import javax.swing.*;
 
 public class ReceptionistRange {
     private JPanel contentPanel;
-    private JButton logOutButton;
     private final String userid;
-    private JButton changePassword;
-    private JButton patientInformationButton;
-    private JButton addNewPatientButton;
-    private JLabel juserid;
-    private JLabel jName;
-    private JLabel jDateOfBirth;
-    private JLabel jAddress;
-    private JLabel jContactNo;
-    private JLabel jGender;
-    private JLabel jEmail;
-    private JLabel jDesignation;
-    private JLabel jBloodGroup;
-    private JLabel jJoiningDate;
+    private JButton logOutButton, changePasswordButton, patientInformationButton, addNewPatientButton;
+    private JLabel userID, name, dateOfBirth, address, contactNo, gender, email, designation, bloodGroup, joiningDate;
     private final Display display = new Display("Receptionists Range", contentPanel);
 
     public ReceptionistRange(String userid) {
@@ -30,11 +19,15 @@ public class ReceptionistRange {
 
         String query = "SELECT * FROM receptionist WHERE ID=?";
         PersonalInfo personalInfo = new PersonalInfo();
-        personalInfo.getPersonalInfo(userid, query, juserid, jJoiningDate, jGender, jEmail, jDesignation, jContactNo, jBloodGroup, jAddress, jDateOfBirth, jName);
+        personalInfo.getPersonalInfo(userid, query, userID, joiningDate, gender, email, designation, contactNo, bloodGroup, address, dateOfBirth, name);
 
         patientInformationButton.addActionListener(e -> {
             onPatientInformation();
             display.displayOff();
+        });
+
+        changePasswordButton.addActionListener(e -> {
+            new PasswordChanger("receptionist", userID.getText());
         });
 
         logOutButton.addActionListener(e -> {

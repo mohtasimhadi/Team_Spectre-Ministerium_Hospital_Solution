@@ -1,6 +1,7 @@
 package Spectre.MHS.com.Admin;
 
 import Spectre.MHS.com.OperationsNTools.Display;
+import Spectre.MHS.com.OperationsNTools.PasswordChanger;
 import Spectre.MHS.com.OperationsNTools.PersonalInfo;
 
 import javax.swing.*;
@@ -20,6 +21,9 @@ public class AdministrativeDirector {
         logOutButton.addActionListener(e -> {
             display.displayOff();
             onLogOut();
+        });
+        changePasswordButton.addActionListener(e -> {
+            new PasswordChanger("admin", userID.getText());
         });
     }
 

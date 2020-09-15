@@ -1,13 +1,14 @@
 package Spectre.MHS.com.Doctor;
 
 import Spectre.MHS.com.OperationsNTools.Display;
+import Spectre.MHS.com.OperationsNTools.PasswordChanger;
 import Spectre.MHS.com.OperationsNTools.PersonalInfo;
 
 import javax.swing.*;
 
 public class DoctorStation {
     private JPanel contentPanel;
-    private JButton logOutButton, addNewEmployeeButton, changePassword, viewEmployeeButton, patientInformationButton, viewAppointmentsButton;
+    private JButton logOutButton, addNewEmployeeButton, changePasswordButton, viewEmployeeButton, patientInformationButton, viewAppointmentsButton;
     private JLabel userID, name, dateOfBirth, address, contactNo, gender, email, designation, bloodGroup, joiningDate;
     private final String userid;
     private final Display display = new Display("Doctors Station", contentPanel);
@@ -28,6 +29,9 @@ public class DoctorStation {
         patientInformationButton.addActionListener(e -> {
             onPatientInformation();
             display.displayOff();
+        });
+        changePasswordButton.addActionListener(e -> {
+            new PasswordChanger("doctor", userID.getText());
         });
     }
 
