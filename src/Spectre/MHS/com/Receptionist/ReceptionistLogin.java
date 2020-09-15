@@ -10,8 +10,7 @@ public class ReceptionistLogin {
 
     private JTextField userid;
     private JPasswordField password;
-    private JButton exitButton;
-    private JButton logInButton;
+    private JButton exitButton, logInButton;
     private JPanel contentPanel;
     private final LogIn logIn = new LogIn();
     private final Display display = new Display("Receptionist Log In", contentPanel);
