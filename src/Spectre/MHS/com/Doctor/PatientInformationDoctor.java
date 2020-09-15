@@ -1,41 +1,52 @@
 package Spectre.MHS.com.Doctor;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PatientInfo;
+import Spectre.MHS.com.OperationsNTools.Update;
+import Spectre.MHS.com.Receptionist.PatientInformationReceptionist;
 
 import javax.swing.*;
 
 public class PatientInformationDoctor {
-
+    private JButton jbackButton;
+    private JButton jupdateButton;
+    private JButton jreferButton;
+    private JButton jrefreshButton;
+    private JButton jviewButton;
+    private JTextField jPatientID;
+    private JTextArea jPrescription;
+    private JLabel jName;
+    private JLabel jAge;
+    private JLabel jGender;
+    private JLabel jDateOfAdmission;
+    private JLabel jDateOfAppointment;
+    private JTextArea jPathologyTests;
+    private JTextField jDateOfRelease;
     private JPanel contentPanel;
-    private JTextField patientID;
-    private JTextArea prescription;
-    private JTextArea pathologyTests;
-    private JTextField dateOfRelease;
-    private JButton backButton, updateButton, referButton, refreshButton, viewButton;
-    private JLabel name, age, gender, dateOfAdmission, dateOfAppointment, bloodGroup, contactNo, email;
-
-    private final String userid;
-    private final Display display = new Display("Patient Information", contentPanel);
+    private JLabel jBloodGroup;
+    private JLabel jEmail;
+    private JLabel jContactNo;
+    private String userid;
+    private Display display = new Display("Patient Information", contentPanel);
 
     public PatientInformationDoctor(String userid) {
         this.userid = userid;
         display.displayOn();
 
-        backButton.addActionListener(e -> {
+        jbackButton.addActionListener(e -> {
             onBack();
             display.displayOff();
         });
 
-        refreshButton.addActionListener(e -> {
+        jrefreshButton.addActionListener(e -> {
             onRefresh();
         });
 
-        viewButton.addActionListener(e -> {
+        jviewButton.addActionListener(e -> {
             onView();
 
         });
 
-        updateButton.addActionListener(e -> {
+        jupdateButton.addActionListener(e -> {
             onUpdate();
 
         });
@@ -51,25 +62,18 @@ public class PatientInformationDoctor {
     }
 
     void onView(){
-        String patientID = this.patientID.getText();
+        String patientID = jPatientID.getText();
         String query = ("SELECT * FROM patient WHERE ID="+patientID);
         PatientInfo patientInfo = new PatientInfo();
         //if(())              //Rafi HELP
-        patientInfo.getPatientInfoDoctor(query, name, age, gender, dateOfAdmission, dateOfAppointment, dateOfRelease, contactNo, email, bloodGroup, prescription, pathologyTests);
+        patientInfo.getPatientInfoDoctor(query,jName,jAge,jGender,jDateOfAdmission,jDateOfAppointment,jDateOfRelease,jContactNo,jEmail,jBloodGroup,jPrescription,jPathologyTests);
         //else
         //    JOptionPane.showMessageDialog(null, "No Patient With That ID");
     }
 
     void onUpdate(){
-        String patientID = this.patientID.getText();
-        String dateOfRelease = this.dateOfRelease.getText();
-        String prescription= this.prescription.getText();
-        String pathologyTests= this.pathologyTests.getText();
-        PatientInfo patientInfo = new PatientInfo();
-        String query = ("UPDATE patient SET DateOfRelease ='"+dateOfRelease+ "', Prescription ='"+prescription+"', PathologyTests ='"+pathologyTests+"' WHERE ID ="+patientID);
-        //if(())              //Rafi HELP
-        patientInfo.updatePatientInfo(query);
-        //else
-        //    JOptionPane.showMessageDialog(null, "No Patient With That ID");
+        String query = ("UPDATE patient SET Prescription = ?, PathologyTests = ? WHERE ID = ?");
+
+        Update.onUpdateDoctor(query, jPatientID.getText(),jPrescription.getText(), jPathologyTests.getText());
     }
 }
