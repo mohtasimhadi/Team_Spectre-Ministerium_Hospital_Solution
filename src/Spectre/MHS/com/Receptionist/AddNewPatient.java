@@ -3,13 +3,7 @@ package Spectre.MHS.com.Receptionist;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.DoctorList;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
-
-import javax.naming.Name;
-import javax.print.Doc;
 import javax.swing.*;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.Objects;
 
@@ -17,17 +11,10 @@ public class AddNewPatient {
     private JPanel contentPanel;
     private JButton backButton;
     private JButton addPatientButton;
-    private JComboBox jGender;
-    private JComboBox jBloodGroup;
-    private JTextField jName;
-    private JTextField jAge;
-    private JTextField jDateOfAdmission;
-    private JTextField jDateOfAppointment;
-    private JTextField jDateOfRelease;
-    private JTextField jContactNo;
-    private JTextField jEmail;
-    private JTextField jAppointedDoctor;
-    private JButton jViewDoctors;
+    private JComboBox gender, bloodGroup;
+    private JTextField name, age, dateOfAdmission, dateOfAppointment,
+            dateOfRelease, contactNo, email, appointedDoctor, viewDoctors;
+
     private final String userid;
     private final Display display = new Display("Add New Patient", contentPanel);
 
@@ -36,19 +23,8 @@ public class AddNewPatient {
         display.displayOn();
 
         backButton.addActionListener(e -> onBack());
-
-        addPatientButton.addActionListener(e -> {
-            if(jName.getText().equals(""))
-                JOptionPane.showMessageDialog(contentPanel, "Input Data Correctly");
-            else
-                onAddPatient();
-        });
-        jViewDoctors.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onViewDoctors();
-            }
-        });
+        addPatientButton.addActionListener(e -> onAddPatient());
+        viewDoctors.addActionListener(e -> onViewDoctors());
     }
 
     void onViewDoctors(){
@@ -56,38 +32,43 @@ public class AddNewPatient {
     }
 
     void onAddPatient(){
-        SQLConnector sqlConnector = new SQLConnector();
-        sqlConnector.connect();
-        String sql = "INSERT INTO patient (Name, Age, Gender, DateOfAdmission, DateOfAppointment, AppointedDoctor, DateOfRelease, ContactNo, Email, BloodGroup) values (?,?,?,?,?,?,?,?,?,?)";
-        try {
-            sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(sql);
-            sqlConnector.preparedStatement.setString(1, jName.getText());
-            sqlConnector.preparedStatement.setString(2, jAge.getText());
-            sqlConnector.preparedStatement.setString(3, Objects.requireNonNull(jGender.getSelectedItem()).toString());
-            sqlConnector.preparedStatement.setString(4, jDateOfAdmission.getText());
-            sqlConnector.preparedStatement.setString(5, jDateOfAppointment.getText());
-            sqlConnector.preparedStatement.setString(6, jAppointedDoctor.getText());
-            sqlConnector.preparedStatement.setString(7, jDateOfRelease.getText());
-            sqlConnector.preparedStatement.setString(8, jContactNo.getText());
-            sqlConnector.preparedStatement.setString(9, jEmail.getText());
-            sqlConnector.preparedStatement.setString(10, Objects.requireNonNull(jBloodGroup.getSelectedItem()).toString());
+        if(name.getText().equals(""))
+            JOptionPane.showMessageDialog(contentPanel, "Input Data Correctly");
+        else{
 
-            sqlConnector.preparedStatement.executeUpdate();
+            SQLConnector sqlConnector = new SQLConnector();
+            sqlConnector.connect();
+            String sql = "INSERT INTO patient (Name, Age, Gender, DateOfAdmission, DateOfAppointment, AppointedDoctor, DateOfRelease, ContactNo, Email, BloodGroup) values (?,?,?,?,?,?,?,?,?,?)";
+            try {
+                sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(sql);
+                sqlConnector.preparedStatement.setString(1, name.getText());
+                sqlConnector.preparedStatement.setString(2, age.getText());
+                sqlConnector.preparedStatement.setString(3, Objects.requireNonNull(gender.getSelectedItem()).toString());
+                sqlConnector.preparedStatement.setString(4, dateOfAdmission.getText());
+                sqlConnector.preparedStatement.setString(5, dateOfAppointment.getText());
+                sqlConnector.preparedStatement.setString(6, appointedDoctor.getText());
+                sqlConnector.preparedStatement.setString(7, dateOfRelease.getText());
+                sqlConnector.preparedStatement.setString(8, contactNo.getText());
+                sqlConnector.preparedStatement.setString(9, email.getText());
+                sqlConnector.preparedStatement.setString(10, Objects.requireNonNull(bloodGroup.getSelectedItem()).toString());
 
-            JOptionPane.showMessageDialog(contentPanel, "Patient Inserted");
+                sqlConnector.preparedStatement.executeUpdate();
 
-            jName.setText("");
-            jAge.setText("");
-            jGender.setSelectedIndex(-1);
-            jDateOfAdmission.setText("");
-            jDateOfAppointment.setText("");
-            jAppointedDoctor.setText("");
-            jDateOfRelease.setText("");
-            jContactNo.setText("");
-            jBloodGroup.setSelectedIndex(-1);
+                JOptionPane.showMessageDialog(contentPanel, "Patient Inserted");
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+                name.setText("");
+                age.setText("");
+                gender.setSelectedIndex(-1);
+                dateOfAdmission.setText("");
+                dateOfAppointment.setText("");
+                appointedDoctor.setText("");
+                dateOfRelease.setText("");
+                contactNo.setText("");
+                bloodGroup.setSelectedIndex(-1);
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 

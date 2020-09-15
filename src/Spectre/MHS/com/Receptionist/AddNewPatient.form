@@ -137,7 +137,7 @@
                   <text value="Date of Appointment"/>
                 </properties>
               </component>
-              <component id="1ccd2" class="javax.swing.JComboBox" binding="jGender">
+              <component id="1ccd2" class="javax.swing.JComboBox" binding="gender">
                 <constraints>
                   <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -148,7 +148,7 @@
                   </model>
                 </properties>
               </component>
-              <component id="5ab16" class="javax.swing.JTextField" binding="jName">
+              <component id="5ab16" class="javax.swing.JTextField" binding="name">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -156,7 +156,7 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="6b708" class="javax.swing.JTextField" binding="jAge">
+              <component id="6b708" class="javax.swing.JTextField" binding="age">
                 <constraints>
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -164,7 +164,7 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="8139f" class="javax.swing.JTextField" binding="jDateOfAdmission">
+              <component id="8139f" class="javax.swing.JTextField" binding="dateOfAdmission">
                 <constraints>
                   <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -172,7 +172,7 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="48831" class="javax.swing.JTextField" binding="jDateOfAppointment">
+              <component id="48831" class="javax.swing.JTextField" binding="dateOfAppointment">
                 <constraints>
                   <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -180,7 +180,7 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="f85be" class="javax.swing.JTextField" binding="jDateOfRelease">
+              <component id="f85be" class="javax.swing.JTextField" binding="dateOfRelease">
                 <constraints>
                   <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -188,7 +188,7 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="f7c81" class="javax.swing.JTextField" binding="jContactNo">
+              <component id="f7c81" class="javax.swing.JTextField" binding="contactNo">
                 <constraints>
                   <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -196,7 +196,7 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="53de7" class="javax.swing.JTextField" binding="jEmail">
+              <component id="53de7" class="javax.swing.JTextField" binding="email">
                 <constraints>
                   <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -204,7 +204,7 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="e626" class="javax.swing.JTextField" binding="jAppointedDoctor">
+              <component id="e626" class="javax.swing.JTextField" binding="appointedDoctor">
                 <constraints>
                   <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -228,7 +228,7 @@
                   <text value="Blood Group"/>
                 </properties>
               </component>
-              <component id="df6fb" class="javax.swing.JComboBox" binding="jBloodGroup">
+              <component id="df6fb" class="javax.swing.JComboBox" binding="bloodGroup">
                 <constraints>
                   <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -247,7 +247,7 @@
               </component>
             </children>
           </grid>
-          <component id="1ead2" class="javax.swing.JButton" binding="jViewDoctors">
+          <component id="1ead2" class="javax.swing.JButton" binding="viewDoctors">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>

@@ -9,19 +9,17 @@ import java.util.Arrays;
 public class ReceptionistLogin {
 
     private JTextField userid;
+    private JPanel contentPanel;
     private JPasswordField password;
     private JButton exitButton, logInButton;
-    private JPanel contentPanel;
+
     private final LogIn logIn = new LogIn();
     private final Display display = new Display("Receptionist Log In", contentPanel);
 
     ReceptionistLogin(){
         display.displayOn();
         exitButton.addActionListener(e -> onExit());
-        logInButton.addActionListener(e -> {
-            onLogIn();
-            display.displayOff();
-        });
+        logInButton.addActionListener(e -> onLogIn());
     }
 
     void onExit(){
@@ -38,6 +36,7 @@ public class ReceptionistLogin {
             JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");
             new ReceptionistLogin();
         }
+        display.displayOff();
     }
         public static void main (String[]args){
             new ReceptionistLogin();
