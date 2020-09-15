@@ -8,10 +8,8 @@ import javax.swing.*;
 public class PatientInformationDoctor {
 
     private JPanel contentPanel;
-    private JTextField patientID;
-    private JTextArea prescription;
-    private JTextArea pathologyTests;
-    private JTextField dateOfRelease;
+    private JTextField patientID, dateOfRelease;
+    private JTextArea prescription, pathologyTests;
     private JButton backButton, updateButton, referButton, refreshButton, viewButton;
     private JLabel name, age, gender, dateOfAdmission, dateOfAppointment, bloodGroup, contactNo, email;
 
@@ -22,26 +20,18 @@ public class PatientInformationDoctor {
         this.userid = userid;
         display.displayOn();
 
-        backButton.addActionListener(e -> {
-            onBack();
-            display.displayOff();
-        });
+        backButton.addActionListener(e -> onBack());
 
-        refreshButton.addActionListener(e -> {
-            onRefresh();
-        });
+        refreshButton.addActionListener(e -> onRefresh());
 
-        viewButton.addActionListener(e -> {
-            onView();
-        });
+        viewButton.addActionListener(e -> onView());
 
-        updateButton.addActionListener(e -> {
-            onUpdate();
-        });
+        updateButton.addActionListener(e -> onUpdate());
     }
 
     void onBack() {
         new DoctorStation(userid);
+        display.displayOff();
     }
 
     void onRefresh() {
