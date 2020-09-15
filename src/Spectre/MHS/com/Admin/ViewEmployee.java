@@ -79,6 +79,7 @@ public class ViewEmployee {
             contactNo.setText(sqlConnector.resultSet.getString("ContactNo"));
             gender.setText(sqlConnector.resultSet.getString("Gender"));
             email.setText(sqlConnector.resultSet.getString("email"));
+            educationQualification.setText(sqlConnector.resultSet.getString("educationQualification"));
             designation.setText(sqlConnector.resultSet.getString("Designation"));
             bloodGroup.setText(sqlConnector.resultSet.getString("BloodGroup"));
             joiningDate.setText(sqlConnector.resultSet.getString("DateOfJoin"));
