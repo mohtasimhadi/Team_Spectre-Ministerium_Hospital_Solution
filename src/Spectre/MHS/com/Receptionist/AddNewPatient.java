@@ -1,11 +1,15 @@
 package Spectre.MHS.com.Receptionist;
 
 import Spectre.MHS.com.OperationsNTools.Display;
+import Spectre.MHS.com.OperationsNTools.DoctorList;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
 
 import javax.naming.Name;
+import javax.print.Doc;
 import javax.swing.*;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.Objects;
 
@@ -39,6 +43,16 @@ public class AddNewPatient {
             else
                 onAddPatient();
         });
+        jViewDoctors.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                onViewDoctors();
+            }
+        });
+    }
+
+    void onViewDoctors(){
+        new DoctorList();
     }
 
     void onAddPatient(){

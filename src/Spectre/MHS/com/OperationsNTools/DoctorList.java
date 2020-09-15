@@ -1,7 +1,6 @@
 package Spectre.MHS.com.OperationsNTools;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -9,8 +8,9 @@ public class DoctorList {
     private JTable Table;
     private JScrollPane contentPanel;
     SQLConnector sqlConnector;
+    JFrame jf;
 
-    DoctorList(){
+    public DoctorList(){
         sqlConnector = new SQLConnector();
         sqlConnector.connect();
 
@@ -27,6 +27,16 @@ public class DoctorList {
         String columnNames[] = {"ID", "Name", "Designation"};
         Table = new JTable(data , columnNames);
         contentPanel = new JScrollPane(Table);
+        displayOn();
+
+    }
+
+    void displayOn(){
+        jf = new JFrame("Doctor's List");
+        jf.setSize(300,300);
+        jf.setResizable(false);
+        jf.add(contentPanel);
+        jf.setVisible(true);
     }
 
     int getNumberOfRows(ResultSet resultSet){
@@ -56,18 +66,9 @@ public class DoctorList {
                 rowNum++;
             }
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
         }
         return data;
-    }
-
-    public static void main(String[] args) {
-        DoctorList d = new DoctorList();
-        JFrame jf = new JFrame("title");
-        jf.setSize(720, 650);
-        jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jf.add(d.contentPanel);
-        jf.setVisible(true);
     }
 }
