@@ -3,10 +3,8 @@ package Spectre.MHS.com.Admin;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PasswordChanger;
 import Spectre.MHS.com.OperationsNTools.PersonalInfo;
-
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 public class AdministrativeDirector {
     private JPanel contentPanel;
@@ -27,18 +25,8 @@ public class AdministrativeDirector {
         changePasswordButton.addActionListener(e -> {
             new PasswordChanger("admin", userID.getText());
         });
-        viewEmployeeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onViewEmployees();
-            }
-        });
-        viewPatientButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onViewPatients();
-            }
-        });
+        viewEmployeeButton.addActionListener(e -> onViewEmployees());
+        viewPatientButton.addActionListener(e -> onViewPatients());
     }
 
     void onViewEmployees(){

@@ -18,15 +18,16 @@ public class Update {
         }
     }
 
-    public static void onUpdateDoctor(String query, String iD, String prescription, String pathologyTests) {
+    public static void onUpdateDoctor(String query, String iD, String dateOfRelease, String pathologyTests, String prescription ) {
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();
 
         try {
             sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
-            sqlConnector.preparedStatement.setString(1, prescription);
+            sqlConnector.preparedStatement.setString(1, dateOfRelease);
             sqlConnector.preparedStatement.setString(2, pathologyTests);
-            sqlConnector.preparedStatement.setString(3, iD);
+            sqlConnector.preparedStatement.setString(3, prescription);
+            sqlConnector.preparedStatement.setString(4, iD);
             sqlConnector.preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

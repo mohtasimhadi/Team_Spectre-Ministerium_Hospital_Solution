@@ -3,24 +3,16 @@ package Spectre.MHS.com.Admin;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
 import Spectre.MHS.com.OperationsNTools.Update;
-
 import javax.swing.*;
 import java.sql.SQLException;
+import java.util.Objects;
 
 public class ViewEmployee {
     private JPanel contentPanel;
     private JButton backButton, viewEmployeeButton, updateInformationButton, removeEmployeeButton;
-    private JTextField userID;
-    private JTextField name;
-    private JTextField dateOfBirth;
-    private JTextField address;
-    private JTextField contactNo;
-    private JTextField gender;
-    private JTextField email;
-    private JTextField designation;
-    private JTextField bloodGroup;
-    private JTextField joiningDate;
-    private JTextField educationQualification;
+    private JTextField userID, name, dateOfBirth, address, contactNo, email, joiningDate, educationQualification;
+    private JComboBox gender, bloodGroup;
+    private JLabel designation;
     private String userid;
     private final Display display = new Display("View Employee", contentPanel);
     SQLConnector sqlConnector;
@@ -38,15 +30,6 @@ public class ViewEmployee {
         viewEmployeeButton.addActionListener(e -> onViewEmployeeButton());
     }
 
-    void runDML(String query){
-        try {
-            sqlConnector.statement = sqlConnector.connection.createStatement();
-            sqlConnector.statement.executeUpdate(query);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-    }
-
     void onRemoveEmployeeButton(){
         runDML("DELETE FROM doctor WHERE ID = " + userID.getText());
         runDML("DELETE FROM admin WHERE ID = " + userID.getText());
@@ -55,9 +38,25 @@ public class ViewEmployee {
     }
 
     void onUpdateInformationButton(){
-            String query = ("UPDATE Doctor SET Name = ?, DateOfBirth = ?, Address = ?, ContactNo = ?, Email = ?, Gender = ?, EducationQualification = ?, Designation = ?, BloodGroup = ?, DateOfJoin = ?  WHERE ID = ?");
+        runUpdate("admin");
+        runUpdate("doctor");
+        runUpdate("pathologist");
+        runUpdate("receptionist");
+        JOptionPane.showMessageDialog(null, "Updated");
+    }
 
-        Update.onUpdateHR(query, userID.getText(), name.getText(), dateOfBirth.getText(), address.getText(), contactNo.getText(), email.getText(), gender.getText(), educationQualification.getText(), designation.getText(), bloodGroup.getText(), joiningDate.getText());
+    void runUpdate(String table){
+        String query = ("UPDATE "+table+" SET Name = ?, DateOfBirth = ?, Address = ?, ContactNo = ?, Email = ?, Gender = ?, EducationQualification = ?, Designation = ?, BloodGroup = ?, DateOfJoin = ?  WHERE ID = ?");
+        Update.onUpdateHR(query, userID.getText(), name.getText(), dateOfBirth.getText(), address.getText(), contactNo.getText(), email.getText(), Objects.requireNonNull(gender.getSelectedItem()).toString(), educationQualification.getText(), designation.getText(), Objects.requireNonNull(bloodGroup.getSelectedItem()).toString(), joiningDate.getText());
+    }
+
+    void runDML(String query){
+        try {
+            sqlConnector.statement = sqlConnector.connection.createStatement();
+            sqlConnector.statement.executeUpdate(query);
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
+        }
     }
 
     void onViewEmployeeButton(){
@@ -77,12 +76,12 @@ public class ViewEmployee {
             dateOfBirth.setText(sqlConnector.resultSet.getString("DateOfBirth"));
             address.setText(sqlConnector.resultSet.getString("Address"));
             contactNo.setText(sqlConnector.resultSet.getString("ContactNo"));
-            gender.setText(sqlConnector.resultSet.getString("Gender"));
+            gender.setSelectedItem(sqlConnector.resultSet.getString("Gender"));
             email.setText(sqlConnector.resultSet.getString("email"));
+            educationQualification.setText(sqlConnector.resultSet.getString("educationQualification"));
+            bloodGroup.setSelectedItem(sqlConnector.resultSet.getString("BloodGroup"));
             designation.setText(sqlConnector.resultSet.getString("Designation"));
-            bloodGroup.setText(sqlConnector.resultSet.getString("BloodGroup"));
             joiningDate.setText(sqlConnector.resultSet.getString("DateOfJoin"));
-            educationQualification.setText((sqlConnector.resultSet.getString("EducationQualification")));
 
         } catch (SQLException e){
             e.printStackTrace();
