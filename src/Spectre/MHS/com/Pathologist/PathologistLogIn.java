@@ -37,7 +37,7 @@ public class PathologistLogIn{
             new PathologistLocale(userid.getText());
         } else {
             JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");
-            new PathologistLogIn();
+            new PathologistLogIn();new PathologistLocale(userid.getText());
         }
     }
         public static void main(String[] args){

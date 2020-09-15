@@ -1,8 +1,8 @@
 package Spectre.MHS.com.Admin;
 
 import Spectre.MHS.com.OperationsNTools.Display;
-import Spectre.MHS.com.OperationsNTools.PersonalInfo;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
+import Spectre.MHS.com.OperationsNTools.Update;
 
 import javax.swing.*;
 import java.sql.SQLException;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class ViewEmployee {
     public JPanel contentPanel;
     private JButton backButton, viewEmployeeButton, updateInformationButton, removeEmployeeButton;
-    private JTextField userID, name, dateOfBirth, address,  contactNo,  Gender,  email,  designation,  bloodGroup, joiningDate;
+    private JTextField jUserID, jName, jDateOfBirth, jAddress, jContactNo, jeducationalQualification, jGender, jEmail, jDesignation, jBloodGroup, jJoiningDate;
     private String userid;
     private final Display display = new Display("View Employee", contentPanel);
     SQLConnector sqlConnector;
@@ -33,7 +33,9 @@ public class ViewEmployee {
     }
 
     void onUpdateInformationButton(){
+        String query = ("UPDATE patient SET Name = ?, DateOfBirth = ?, Address = ?, ContactNo = ?, Email = ?, Gender = ?, EducationQualification = ?, Designation = ?, BloodGroup = ?, DateOfJoin = ?,  WHERE ID = ?");
 
+        Update.onUpdateHR(query, jUserID.getText(), jName.getText(), jDateOfBirth.getText(), jAddress.getText(), jContactNo.getText(), jEmail.getText(), jGender.getText(), jeducationalQualification.getText(), jDesignation.getText(), jBloodGroup.getText(), jJoiningDate.getText());
     }
 
     void onViewEmployeeButton(){
@@ -41,7 +43,7 @@ public class ViewEmployee {
         String query = "SELECT * FROM doctor " +
                 "UNION SELECT * FROM pathologist " +
                 "UNION SELECT * FROM receptionist " +
-                "UNION SELECT * FROM admin WHERE ID = " + userID.getText();
+                "UNION SELECT * FROM admin WHERE ID = " + jUserID.getText();
         System.out.println(query);
         try {
             sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
@@ -50,15 +52,15 @@ public class ViewEmployee {
                 JOptionPane.showMessageDialog(null, "Employee does not Exist");
                 return;
             }
-            name.setText(sqlConnector.resultSet.getString("Name"));
-            dateOfBirth.setText(sqlConnector.resultSet.getString("DateOfBirth"));
-            address.setText(sqlConnector.resultSet.getString("Address"));
-            contactNo.setText(sqlConnector.resultSet.getString("ContactNo"));
-            Gender.setText(sqlConnector.resultSet.getString("Gender"));
-            email.setText(sqlConnector.resultSet.getString("email"));
-            designation.setText(sqlConnector.resultSet.getString("Designation"));
-            bloodGroup.setText(sqlConnector.resultSet.getString("BloodGroup"));
-            joiningDate.setText(sqlConnector.resultSet.getString("DateOfJoin"));
+            jName.setText(sqlConnector.resultSet.getString("Name"));
+            jDateOfBirth.setText(sqlConnector.resultSet.getString("DateOfBirth"));
+            jAddress.setText(sqlConnector.resultSet.getString("Address"));
+            jContactNo.setText(sqlConnector.resultSet.getString("ContactNo"));
+            jGender.setText(sqlConnector.resultSet.getString("Gender"));
+            jEmail.setText(sqlConnector.resultSet.getString("email"));
+            jDesignation.setText(sqlConnector.resultSet.getString("Designation"));
+            jBloodGroup.setText(sqlConnector.resultSet.getString("BloodGroup"));
+            jJoiningDate.setText(sqlConnector.resultSet.getString("DateOfJoin"));
 
         } catch (SQLException e){
             e.printStackTrace();

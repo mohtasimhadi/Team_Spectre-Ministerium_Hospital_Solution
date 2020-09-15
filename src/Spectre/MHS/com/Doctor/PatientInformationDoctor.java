@@ -1,6 +1,7 @@
 package Spectre.MHS.com.Doctor;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PatientInfo;
+import Spectre.MHS.com.OperationsNTools.Update;
 import Spectre.MHS.com.Receptionist.PatientInformationReceptionist;
 
 import javax.swing.*;
@@ -71,15 +72,8 @@ public class PatientInformationDoctor {
     }
 
     void onUpdate(){
-        String patientID = jPatientID.getText();
-        String dateOfRelease = jDateOfRelease.getText();
-        String prescription=jPrescription.getText();
-        String pathologyTests=jPathologyTests.getText();
-        PatientInfo patientInfo = new PatientInfo();
-        String query = ("UPDATE patient SET DateOfRelease ='"+dateOfRelease+ "', Prescription ='"+prescription+"', PathologyTests ='"+pathologyTests+"' WHERE ID ="+patientID);
-        //if(())              //Rafi HELP
-        patientInfo.updatePatientInfo(query);
-        //else
-        //    JOptionPane.showMessageDialog(null, "No Patient With That ID");
+        String query = ("UPDATE patient SET Prescription = ?, PathologyTests = ? WHERE ID = ?");
+
+        Update.onUpdateDoctor(query, jPatientID.getText(),jPrescription.getText(), jPathologyTests.getText());
     }
 }
