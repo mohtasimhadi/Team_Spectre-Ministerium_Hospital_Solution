@@ -4,10 +4,10 @@ import javax.swing.*;
 
 public class PersonalInfo {
     public void getPersonalInfo(String userid, String query,
-                                JLabel jID, JLabel jJoiningDate, JLabel jGender,
-                                JLabel jEmail, JLabel jDesignation,
-                                JLabel jContactNo, JLabel jBloodGroup, JLabel jAddress,
-                                JLabel jDateOfBirth, JLabel jName){
+                                JLabel ID, JLabel joiningDate, JLabel gender,
+                                JLabel email, JLabel designation,
+                                JLabel contactNo, JLabel bloodGroup, JLabel address,
+                                JLabel dateOfBirth, JLabel name){
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();
 
@@ -17,16 +17,16 @@ public class PersonalInfo {
             sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
 
             if(sqlConnector.resultSet.next()){
-                jID.setText(sqlConnector.resultSet.getString("ID"));
-                jJoiningDate.setText(sqlConnector.resultSet.getString("DateOfJoin"));
-                jGender.setText(sqlConnector.resultSet.getString("Gender"));
-                jEmail.setText(sqlConnector.resultSet.getString("Email"));
-                jDesignation.setText(sqlConnector.resultSet.getString("Designation"));
-                jContactNo.setText(sqlConnector.resultSet.getString("ContactNo"));
-                jBloodGroup.setText(sqlConnector.resultSet.getString("BloodGroup"));
-                jAddress.setText(sqlConnector.resultSet.getString("Address"));
-                jDateOfBirth.setText(sqlConnector.resultSet.getString("DateOfBirth"));
-                jName.setText(sqlConnector.resultSet.getString("Name"));
+                ID.setText(sqlConnector.resultSet.getString("ID"));
+                joiningDate.setText(sqlConnector.resultSet.getString("DateOfJoin"));
+                gender.setText(sqlConnector.resultSet.getString("Gender"));
+                email.setText(sqlConnector.resultSet.getString("Email"));
+                designation.setText(sqlConnector.resultSet.getString("Designation"));
+                contactNo.setText(sqlConnector.resultSet.getString("ContactNo"));
+                bloodGroup.setText(sqlConnector.resultSet.getString("BloodGroup"));
+                address.setText(sqlConnector.resultSet.getString("Address"));
+                dateOfBirth.setText(sqlConnector.resultSet.getString("DateOfBirth"));
+                name.setText(sqlConnector.resultSet.getString("Name"));
             }
         } catch (Exception e) {
             e.printStackTrace();

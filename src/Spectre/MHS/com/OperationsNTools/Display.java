@@ -1,7 +1,6 @@
 package Spectre.MHS.com.OperationsNTools;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class Display {
     private final JFrame jFrame;

@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class DoctorStation {
     private JPanel contentPanel;
-    private JButton logOutButton, addNewEmployeeButton, changePasswordButton, viewEmployeeButton, patientInformationButton, viewAppointmentsButton;
+    private JButton logOutButton, changePasswordButton, patientInformationButton, viewAppointmentsButton;
     private JLabel userID, name, dateOfBirth, address, contactNo, gender, email, designation, bloodGroup, joiningDate;
     private final String userid;
     private final Display display = new Display("Doctors Station", contentPanel);

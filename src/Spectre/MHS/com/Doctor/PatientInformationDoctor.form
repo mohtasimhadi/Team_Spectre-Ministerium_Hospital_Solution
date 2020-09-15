@@ -44,7 +44,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="9a41d" class="javax.swing.JButton" binding="jbackButton">
+          <component id="9a41d" class="javax.swing.JButton" binding="backButton">
             <constraints>
               <grid row="13" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -57,7 +57,7 @@
               <grid row="13" column="0" row-span="1" col-span="3" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
-          <component id="14e0" class="javax.swing.JButton" binding="jreferButton">
+          <component id="14e0" class="javax.swing.JButton" binding="referButton">
             <constraints>
               <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -65,7 +65,7 @@
               <text value="Refer"/>
             </properties>
           </component>
-          <component id="7f31f" class="javax.swing.JButton" binding="jrefreshButton">
+          <component id="7f31f" class="javax.swing.JButton" binding="refreshButton">
             <constraints>
               <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -81,7 +81,7 @@
               <text value="Patient ID"/>
             </properties>
           </component>
-          <component id="f6528" class="javax.swing.JButton" binding="jviewButton">
+          <component id="f6528" class="javax.swing.JButton" binding="viewButton">
             <constraints>
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -94,7 +94,7 @@
               <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
-          <component id="af07c" class="javax.swing.JTextField" binding="jPatientID">
+          <component id="af07c" class="javax.swing.JTextField" binding="patientID">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -182,7 +182,7 @@
               <text value="Date of Appointment"/>
             </properties>
           </component>
-          <component id="8eef0" class="javax.swing.JLabel" binding="jName">
+          <component id="8eef0" class="javax.swing.JLabel" binding="name">
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -190,7 +190,7 @@
               <text value="Name"/>
             </properties>
           </component>
-          <component id="5e8b0" class="javax.swing.JLabel" binding="jAge">
+          <component id="5e8b0" class="javax.swing.JLabel" binding="age">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -198,7 +198,7 @@
               <text value="Age"/>
             </properties>
           </component>
-          <component id="d935e" class="javax.swing.JLabel" binding="jGender">
+          <component id="d935e" class="javax.swing.JLabel" binding="gender">
             <constraints>
               <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -206,7 +206,7 @@
               <text value="Gender"/>
             </properties>
           </component>
-          <component id="e01c" class="javax.swing.JLabel" binding="jDateOfAdmission">
+          <component id="e01c" class="javax.swing.JLabel" binding="dateOfAdmission">
             <constraints>
               <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -214,7 +214,7 @@
               <text value="Date of Admission"/>
             </properties>
           </component>
-          <component id="6ce5f" class="javax.swing.JLabel" binding="jDateOfAppointment">
+          <component id="6ce5f" class="javax.swing.JLabel" binding="dateOfAppointment">
             <constraints>
               <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -222,7 +222,7 @@
               <text value="Date of Appointment"/>
             </properties>
           </component>
-          <component id="90609" class="javax.swing.JLabel" binding="jContactNo">
+          <component id="90609" class="javax.swing.JLabel" binding="contactNo">
             <constraints>
               <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -230,7 +230,7 @@
               <text value="Contact No"/>
             </properties>
           </component>
-          <component id="780f3" class="javax.swing.JLabel" binding="jEmail">
+          <component id="780f3" class="javax.swing.JLabel" binding="email">
             <constraints>
               <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -238,7 +238,7 @@
               <text value="Email"/>
             </properties>
           </component>
-          <component id="5d76d" class="javax.swing.JLabel" binding="jBloodGroup">
+          <component id="5d76d" class="javax.swing.JLabel" binding="bloodGroup">
             <constraints>
               <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -246,7 +246,7 @@
               <text value="Blood Group"/>
             </properties>
           </component>
-          <component id="87b0c" class="javax.swing.JTextArea" binding="jPrescription">
+          <component id="87b0c" class="javax.swing.JTextArea" binding="prescription">
             <constraints>
               <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="50"/>
@@ -254,7 +254,7 @@
             </constraints>
             <properties/>
           </component>
-          <component id="a3ce1" class="javax.swing.JTextArea" binding="jPathologyTests">
+          <component id="a3ce1" class="javax.swing.JTextArea" binding="pathologyTests">
             <constraints>
               <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="50"/>
@@ -262,7 +262,7 @@
             </constraints>
             <properties/>
           </component>
-          <component id="50555" class="javax.swing.JTextField" binding="jDateOfRelease">
+          <component id="50555" class="javax.swing.JTextField" binding="dateOfRelease">
             <constraints>
               <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -270,7 +270,7 @@
             </constraints>
             <properties/>
           </component>
-          <component id="d509b" class="javax.swing.JButton" binding="jupdateButton">
+          <component id="d509b" class="javax.swing.JButton" binding="updateButton">
             <constraints>
               <grid row="12" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
