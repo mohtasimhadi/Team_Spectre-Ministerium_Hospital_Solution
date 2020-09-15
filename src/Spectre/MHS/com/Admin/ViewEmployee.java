@@ -82,6 +82,7 @@ public class ViewEmployee {
             designation.setText(sqlConnector.resultSet.getString("Designation"));
             bloodGroup.setText(sqlConnector.resultSet.getString("BloodGroup"));
             joiningDate.setText(sqlConnector.resultSet.getString("DateOfJoin"));
+            educationQualification.setText((sqlConnector.resultSet.getString("EducationQualification")));
 
         } catch (SQLException e){
             e.printStackTrace();
