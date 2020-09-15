@@ -10,10 +10,10 @@ import java.util.Objects;
 public class AddNewPatient {
     private JPanel contentPanel;
     private JButton backButton;
-    private JButton addPatientButton;
     private JComboBox gender, bloodGroup;
+    private JButton addPatientButton, viewDoctors;
     private JTextField name, age, dateOfAdmission, dateOfAppointment,
-            dateOfRelease, contactNo, email, appointedDoctor, viewDoctors;
+            dateOfRelease, contactNo, email, appointedDoctor;
 
     private final String userid;
     private final Display display = new Display("Add New Patient", contentPanel);
