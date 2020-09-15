@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 public class Update {
 
-    public static void onUpdate(String query, String iD, String data) {
+    public static void onUpdatePathologist(String query, String iD, String data) {
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();
 

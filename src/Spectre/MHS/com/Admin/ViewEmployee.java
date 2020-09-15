@@ -55,7 +55,7 @@ public class ViewEmployee {
     }
 
     void onUpdateInformationButton(){
-        String query = ("UPDATE patient SET Name = ?, DateOfBirth = ?, Address = ?, ContactNo = ?, Email = ?, Gender = ?, EducationQualification = ?, Designation = ?, BloodGroup = ?, DateOfJoin = ?,  WHERE ID = ?");
+            String query = ("UPDATE Doctor SET Name = ?, DateOfBirth = ?, Address = ?, ContactNo = ?, Email = ?, Gender = ?, EducationQualification = ?, Designation = ?, BloodGroup = ?, DateOfJoin = ?  WHERE ID = ?");
 
         Update.onUpdateHR(query, userID.getText(), name.getText(), dateOfBirth.getText(), address.getText(), contactNo.getText(), email.getText(), gender.getText(), educationQualification.getText(), designation.getText(), bloodGroup.getText(), joiningDate.getText());
     }
@@ -82,6 +82,7 @@ public class ViewEmployee {
             designation.setText(sqlConnector.resultSet.getString("Designation"));
             bloodGroup.setText(sqlConnector.resultSet.getString("BloodGroup"));
             joiningDate.setText(sqlConnector.resultSet.getString("DateOfJoin"));
+            educationQualification.setText((sqlConnector.resultSet.getString("EducationQualification")));
 
         } catch (SQLException e){
             e.printStackTrace();
