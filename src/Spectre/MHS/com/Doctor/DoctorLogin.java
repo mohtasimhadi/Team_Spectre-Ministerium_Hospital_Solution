@@ -8,12 +8,12 @@ import javax.swing.*;
 import java.util.Arrays;
 
 public class DoctorLogin{
-    private JPanel contentPanel;
-    private JButton logInButton, exitButton;
     private JTextField userid;
+    private JPanel contentPanel;
     private JPasswordField password;
-    private final LogIn logIn = new LogIn();
+    private JButton logInButton, exitButton;
 
+    private final LogIn logIn = new LogIn();
 
     Display display = new Display("Doctor Log In", contentPanel);
 

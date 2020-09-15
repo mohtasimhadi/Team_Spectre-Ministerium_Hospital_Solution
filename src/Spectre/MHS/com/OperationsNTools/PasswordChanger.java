@@ -45,12 +45,12 @@ public class PasswordChanger {
         displayThis();
     }
 
-    public void displayThis(){
+    private void displayThis(){
         display = new Display("Password Changer", PasswordChangerPanel);
         display.displayOn();
         display.changeSize(400, 200);
     }
-    public void closeThis(){
+    private void closeThis(){
         display.displayOff();
     }
 }
