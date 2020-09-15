@@ -10,7 +10,17 @@ import java.sql.SQLException;
 public class ViewEmployee {
     private JPanel contentPanel;
     private JButton backButton, viewEmployeeButton, updateInformationButton, removeEmployeeButton;
-    private JTextField jUserID, jName, jDateOfBirth, jAddress, jContactNo, jeducationalQualification, jGender, jEmail, jDesignation, jBloodGroup, jJoiningDate;
+    private JTextField userID;
+    private JTextField name;
+    private JTextField dateOfBirth;
+    private JTextField address;
+    private JTextField contactNo;
+    private JTextField gender;
+    private JTextField email;
+    private JTextField designation;
+    private JTextField bloodGroup;
+    private JTextField joiningDate;
+    private JTextField educationQualification;
     private String userid;
     private final Display display = new Display("View Employee", contentPanel);
     SQLConnector sqlConnector;
@@ -38,23 +48,23 @@ public class ViewEmployee {
     }
 
     void onRemoveEmployeeButton(){
-        runDML("DELETE FROM doctor WHERE ID = " + jUserID.getText());
-        runDML("DELETE FROM admin WHERE ID = " + jUserID.getText());
-        runDML("DELETE FROM pathologist WHERE ID = " + jUserID.getText());
-        runDML("DELETE FROM receptionist WHERE ID = " + jUserID.getText());
+        runDML("DELETE FROM doctor WHERE ID = " + userID.getText());
+        runDML("DELETE FROM admin WHERE ID = " + userID.getText());
+        runDML("DELETE FROM pathologist WHERE ID = " + userID.getText());
+        runDML("DELETE FROM receptionist WHERE ID = " + userID.getText());
     }
 
     void onUpdateInformationButton(){
         String query = ("UPDATE patient SET Name = ?, DateOfBirth = ?, Address = ?, ContactNo = ?, Email = ?, Gender = ?, EducationQualification = ?, Designation = ?, BloodGroup = ?, DateOfJoin = ?,  WHERE ID = ?");
 
-        Update.onUpdateHR(query, jUserID.getText(), jName.getText(), jDateOfBirth.getText(), jAddress.getText(), jContactNo.getText(), jEmail.getText(), jGender.getText(), jeducationalQualification.getText(), jDesignation.getText(), jBloodGroup.getText(), jJoiningDate.getText());
+        Update.onUpdateHR(query, userID.getText(), name.getText(), dateOfBirth.getText(), address.getText(), contactNo.getText(), email.getText(), gender.getText(), educationQualification.getText(), designation.getText(), bloodGroup.getText(), joiningDate.getText());
     }
 
     void onViewEmployeeButton(){
-        String query = "SELECT * FROM doctor WHERE ID = " + jUserID.getText() +
-                " UNION SELECT * FROM pathologist WHERE ID = " + jUserID.getText() +
-                " UNION SELECT * FROM receptionist WHERE ID = " + jUserID.getText() +
-                " UNION SELECT * FROM admin WHERE ID = " + jUserID.getText();
+        String query = "SELECT * FROM doctor WHERE ID = " + userID.getText() +
+                " UNION SELECT * FROM pathologist WHERE ID = " + userID.getText() +
+                " UNION SELECT * FROM receptionist WHERE ID = " + userID.getText() +
+                " UNION SELECT * FROM admin WHERE ID = " + userID.getText();
 
         try {
             sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
@@ -63,15 +73,15 @@ public class ViewEmployee {
                 JOptionPane.showMessageDialog(null, "Employee does not Exist");
                 return;
             }
-            jName.setText(sqlConnector.resultSet.getString("Name"));
-            jDateOfBirth.setText(sqlConnector.resultSet.getString("DateOfBirth"));
-            jAddress.setText(sqlConnector.resultSet.getString("Address"));
-            jContactNo.setText(sqlConnector.resultSet.getString("ContactNo"));
-            jGender.setText(sqlConnector.resultSet.getString("Gender"));
-            jEmail.setText(sqlConnector.resultSet.getString("email"));
-            jDesignation.setText(sqlConnector.resultSet.getString("Designation"));
-            jBloodGroup.setText(sqlConnector.resultSet.getString("BloodGroup"));
-            jJoiningDate.setText(sqlConnector.resultSet.getString("DateOfJoin"));
+            name.setText(sqlConnector.resultSet.getString("Name"));
+            dateOfBirth.setText(sqlConnector.resultSet.getString("DateOfBirth"));
+            address.setText(sqlConnector.resultSet.getString("Address"));
+            contactNo.setText(sqlConnector.resultSet.getString("ContactNo"));
+            gender.setText(sqlConnector.resultSet.getString("Gender"));
+            email.setText(sqlConnector.resultSet.getString("email"));
+            designation.setText(sqlConnector.resultSet.getString("Designation"));
+            bloodGroup.setText(sqlConnector.resultSet.getString("BloodGroup"));
+            joiningDate.setText(sqlConnector.resultSet.getString("DateOfJoin"));
 
         } catch (SQLException e){
             e.printStackTrace();
