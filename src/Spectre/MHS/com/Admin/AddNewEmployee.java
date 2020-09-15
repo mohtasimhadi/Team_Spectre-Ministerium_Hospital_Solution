@@ -19,7 +19,6 @@ public class AddNewEmployee {
     private final Display display = new Display("Add New Employee", contentPanel);
     SQLConnector sqlConnector = new SQLConnector();
 
-
     public AddNewEmployee(String userid) {
         this.userid = userid;
         display.displayOn();

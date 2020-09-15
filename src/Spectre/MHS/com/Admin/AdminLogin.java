@@ -9,8 +9,7 @@ import java.util.Objects;
 
 public class AdminLogin{
     private JPanel contentPanel;
-    private JButton logInButton;
-    private JButton exitButton;
+    private JButton logInButton, exitButton;
     private JTextField userid;
     private JPasswordField password;
     private JComboBox usertype;
@@ -44,42 +43,6 @@ public class AdminLogin{
             new AdminLogin();
         }
     }
-
-    /*void onLogIn() throws NoSuchAlgorithmException {
-        Encryption encryption = new Encryption();
-        String userid = juserid.getText();
-        String password = encryption.Encrypt(jpassword.getText());
-        String usertype = jusertype.getSelectedItem().toString();
-
-        SQLConnector sqlConnector = new SQLConnector();
-        sqlConnector.connect();
-
-        try {
-            String query = "select * from admin where ID = ? and Password = ? and Designation = ?";
-            sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
-            sqlConnector.preparedStatement.setString(1, userid);
-            sqlConnector.preparedStatement.setString(2,password);
-            sqlConnector.preparedStatement.setString(3, usertype);
-
-            sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
-
-            if(sqlConnector.resultSet.next()){
-                if(usertype=="Human Resource Management Admin"){
-                    AdminHR adminHR = new AdminHR(userid);
-                }
-                if(usertype=="Administrative Director"){
-                    AdministrativeDirector administrativeDirector = new AdministrativeDirector(userid);
-                }
-            }
-            else {
-                JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");
-                AdminLogin adminLogin = new AdminLogin();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-    }*/
 
     void onExit(){
         System.exit(0);

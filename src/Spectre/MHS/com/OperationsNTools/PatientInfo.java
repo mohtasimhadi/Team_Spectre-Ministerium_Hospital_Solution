@@ -87,8 +87,6 @@ public class PatientInfo {
                 jGender.setText(sqlConnector.resultSet.getString("Gender"));
                 jBloodGroup.setText(sqlConnector.resultSet.getString("BloodGroup"));
                 jPathologyTests.setText(sqlConnector.resultSet.getString("PathologyTests"));
-
-
             }
         } catch (Exception e) {
             e.printStackTrace();
