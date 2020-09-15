@@ -38,10 +38,10 @@ public class ViewEmployee {
     }
 
     void onRemoveEmployeeButton(){
-        runDML("DELETE FROM doctor WHERE ID = " + userID.getText());
-        runDML("DELETE FROM admin WHERE ID = " + userID.getText());
-        runDML("DELETE FROM pathologist WHERE ID = " + userID.getText());
-        runDML("DELETE FROM receptionist WHERE ID = " + userID.getText());
+        runDML("DELETE FROM doctor WHERE ID = " + jUserID.getText());
+        runDML("DELETE FROM admin WHERE ID = " + jUserID.getText());
+        runDML("DELETE FROM pathologist WHERE ID = " + jUserID.getText());
+        runDML("DELETE FROM receptionist WHERE ID = " + jUserID.getText());
     }
 
     void onUpdateInformationButton(){
@@ -51,10 +51,10 @@ public class ViewEmployee {
     }
 
     void onViewEmployeeButton(){
-        String query = "SELECT * FROM doctor WHERE ID = " + userID.getText() +
-                " UNION SELECT * FROM pathologist WHERE ID = " + userID.getText() +
-                " UNION SELECT * FROM receptionist WHERE ID = " + userID.getText() +
-                " UNION SELECT * FROM admin WHERE ID = " + userID.getText();
+        String query = "SELECT * FROM doctor WHERE ID = " + jUserID.getText() +
+                " UNION SELECT * FROM pathologist WHERE ID = " + jUserID.getText() +
+                " UNION SELECT * FROM receptionist WHERE ID = " + jUserID.getText() +
+                " UNION SELECT * FROM admin WHERE ID = " + jUserID.getText();
 
         try {
             sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
