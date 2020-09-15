@@ -33,12 +33,10 @@ public class PatientInformationDoctor {
 
         viewButton.addActionListener(e -> {
             onView();
-
         });
 
         updateButton.addActionListener(e -> {
             onUpdate();
-
         });
     }
 
@@ -63,7 +61,6 @@ public class PatientInformationDoctor {
 
     void onUpdate() {
         String query = ("UPDATE patient SET DateOfRelease = ?, PathologyTests = ?, Prescription = ?  WHERE ID = ?");
-
         Update.onUpdateDoctor(query, patientID.getText(), dateOfRelease.getText(), pathologyTests.getText(), prescription.getText());
     }
 

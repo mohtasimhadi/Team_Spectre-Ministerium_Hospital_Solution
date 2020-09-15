@@ -42,6 +42,7 @@ public class ViewEmployee {
         runUpdate("doctor");
         runUpdate("pathologist");
         runUpdate("receptionist");
+        JOptionPane.showMessageDialog(null, "Updated");
     }
 
     void runUpdate(String table){
