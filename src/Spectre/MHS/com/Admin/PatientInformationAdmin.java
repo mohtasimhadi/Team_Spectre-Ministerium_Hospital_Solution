@@ -1,15 +1,14 @@
-package Spectre.MHS.com.Receptionist;
+package Spectre.MHS.com.Admin;
 
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PatientInfo;
-import Spectre.MHS.com.OperationsNTools.SQLConnector;
+
 import javax.swing.*;
 
-public class PatientInformationReceptionist {
+public class PatientInformationAdmin {
     private JButton jbackButton;
     private JButton jviewButton;
     private JButton jrefreshButton;
-    private JButton jupdateButton;
     private JPanel contentPanel;
     private JTextField jPatientID;
     private JLabel jName;
@@ -28,13 +27,13 @@ public class PatientInformationReceptionist {
     private final String userid;
     private final Display display = new Display("Patient Information", contentPanel);
 
-    PatientInformationReceptionist(String userid){
+     public PatientInformationAdmin(String userid){
         this.userid = userid;
-        display.displayOn();
+        display.DisplayOn();
 
         jbackButton.addActionListener(e -> {
             onBack();
-            display.displayOff();
+            display.DisplayOff();
         });
 
         jrefreshButton.addActionListener(e -> {
@@ -46,19 +45,15 @@ public class PatientInformationReceptionist {
 
         });
 
-        jupdateButton.addActionListener(e -> {
-            onUpdate();
-
-        });
     }
 
     void onBack(){
-        display.displayOff();
-        new ReceptionistRange(userid);
+        display.DisplayOff();
+        new AdministrativeDirector(userid);
     }
     void onRefresh(){
-        display.displayOff();
-        new PatientInformationReceptionist(userid);
+        display.DisplayOff();
+        new PatientInformationAdmin(userid);
     }
     void onView(){
         String patientID = jPatientID.getText();
@@ -66,17 +61,6 @@ public class PatientInformationReceptionist {
         PatientInfo patientInfo = new PatientInfo();
         //if(())              //Rafi HELP
         patientInfo.getPatientInfoReceptionist(query,jName,jAge,jGender,jDateOfAdmission,jDateOfAppointment,jAppointedDoctor,jDateOfRelease,jContactNo,jEmail,jBloodGroup,jPrescription,jPathologyTests);
-        //else
-        //    JOptionPane.showMessageDialog(null, "No Patient With That ID");
-    }
-
-    void onUpdate(){
-        String patientID = jPatientID.getText();
-        String dateOfRelease = jDateOfRelease.getText();
-        PatientInfo patientInfo = new PatientInfo();
-        String query = ("UPDATE patient SET DateOfRelease ='"+dateOfRelease+ "' WHERE ID ="+patientID);
-        //if(())              //Rafi HELP
-            patientInfo.updatePatientInfo(query);
         //else
         //    JOptionPane.showMessageDialog(null, "No Patient With That ID");
     }
