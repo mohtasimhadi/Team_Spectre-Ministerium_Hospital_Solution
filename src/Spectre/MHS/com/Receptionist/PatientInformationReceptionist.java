@@ -1,5 +1,6 @@
 package Spectre.MHS.com.Receptionist;
 
+import Spectre.MHS.com.Doctor.PatientInformationDoctor;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PatientInfo;
 import Spectre.MHS.com.OperationsNTools.Update;
@@ -77,4 +78,8 @@ public class PatientInformationReceptionist {
         Update.onUpdateReceptionist(query, patientID.getText(),dateOfRelease.getText());
     }
 
+    public static void main(String[] args) {
+        String asd = null;
+        new PatientInformationReceptionist(asd);
+    }
 }
