@@ -1,7 +1,6 @@
 package Spectre.MHS.com.Admin;
 
 import Spectre.MHS.com.OperationsNTools.Display;
-import Spectre.MHS.com.OperationsNTools.PersonalInfo;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
 
 import javax.swing.*;
@@ -28,8 +27,20 @@ public class ViewEmployee {
         viewEmployeeButton.addActionListener(e -> onViewEmployeeButton());
     }
 
-    void onRemoveEmployeeButton(){
+    void runDML(String query){
+        try {
+            sqlConnector.statement = sqlConnector.connection.createStatement();
+            sqlConnector.statement.executeUpdate(query);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 
+    void onRemoveEmployeeButton(){
+        runDML("DELETE FROM doctor WHERE ID = " + userID.getText());
+        runDML("DELETE FROM admin WHERE ID = " + userID.getText());
+        runDML("DELETE FROM pathologist WHERE ID = " + userID.getText());
+        runDML("DELETE FROM receptionist WHERE ID = " + userID.getText());
     }
 
     void onUpdateInformationButton(){
@@ -37,7 +48,6 @@ public class ViewEmployee {
     }
 
     void onViewEmployeeButton(){
-        System.out.println("YES\n");
         String query = "SELECT * FROM doctor WHERE ID = " + userID.getText() +
                 " UNION SELECT * FROM pathologist WHERE ID = " + userID.getText() +
                 " UNION SELECT * FROM receptionist WHERE ID = " + userID.getText() +
@@ -73,4 +83,10 @@ public class ViewEmployee {
         }
         display.displayOff();
     }
+
+    public static void main(String[] args) {
+        ViewEmployee v = new ViewEmployee("asd", "asd");
+        Display d = new Display("tit", v.contentPanel);
+    }
+
 }
