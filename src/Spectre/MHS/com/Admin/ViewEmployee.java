@@ -3,7 +3,6 @@ package Spectre.MHS.com.Admin;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
 import Spectre.MHS.com.OperationsNTools.Update;
-
 import javax.swing.*;
 import java.sql.SQLException;
 import java.util.Objects;
@@ -31,15 +30,6 @@ public class ViewEmployee {
         viewEmployeeButton.addActionListener(e -> onViewEmployeeButton());
     }
 
-    void runDML(String query){
-        try {
-            sqlConnector.statement = sqlConnector.connection.createStatement();
-            sqlConnector.statement.executeUpdate(query);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-    }
-
     void onRemoveEmployeeButton(){
         runDML("DELETE FROM doctor WHERE ID = " + userID.getText());
         runDML("DELETE FROM admin WHERE ID = " + userID.getText());
@@ -57,6 +47,15 @@ public class ViewEmployee {
     void runUpdate(String table){
         String query = ("UPDATE "+table+" SET Name = ?, DateOfBirth = ?, Address = ?, ContactNo = ?, Email = ?, Gender = ?, EducationQualification = ?, Designation = ?, BloodGroup = ?, DateOfJoin = ?  WHERE ID = ?");
         Update.onUpdateHR(query, userID.getText(), name.getText(), dateOfBirth.getText(), address.getText(), contactNo.getText(), email.getText(), Objects.requireNonNull(gender.getSelectedItem()).toString(), educationQualification.getText(), designation.getText(), Objects.requireNonNull(bloodGroup.getSelectedItem()).toString(), joiningDate.getText());
+    }
+
+    void runDML(String query){
+        try {
+            sqlConnector.statement = sqlConnector.connection.createStatement();
+            sqlConnector.statement.executeUpdate(query);
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
+        }
     }
 
     void onViewEmployeeButton(){
