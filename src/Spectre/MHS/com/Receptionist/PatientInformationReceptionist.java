@@ -3,10 +3,10 @@ package Spectre.MHS.com.Receptionist;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PatientInfo;
 import Spectre.MHS.com.OperationsNTools.Update;
-
 import javax.swing.*;
 
 public class PatientInformationReceptionist {
+
     private JPanel contentPanel;
     private JTextField patientID, dateOfRelease;
     private JTextArea prescription, pathologyTests;
