@@ -37,7 +37,7 @@ public class PatientInfo {
         }
 
     }
-    public static void getPatientInfoDoctor(String query, JLabel jName, JLabel jAge,
+    public void getPatientInfoDoctor(String query, JLabel jName, JLabel jAge,
                                             JLabel jGender, JLabel jDateOfAdmission, JLabel jDateOfAppointment,
                                             JTextField jDateOfRelease, JLabel jContactNo, JLabel jEmail,
                                             JLabel jBloodGroup, JTextArea jPrescription, JTextArea jPathologyTests){
@@ -69,7 +69,7 @@ public class PatientInfo {
         }
 
     }
-    public static void getPatientInfoPathologist(String query, JLabel jName, JLabel jAge,
+    public void getPatientInfoPathologist(String query, JLabel jName, JLabel jAge,
                                                   JLabel jGender, JLabel jBloodGroup, JTextArea jPathologyTests){
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();
@@ -93,7 +93,7 @@ public class PatientInfo {
         }
 
     }
-    public static void updatePatientInfo(String query){
+    public void updatePatientInfo(String query){
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();
 
