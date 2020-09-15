@@ -55,7 +55,20 @@ public class ViewEmployee {
     }
 
     void onUpdateInformationButton(){
-            String query = ("UPDATE Doctor SET Name = ?, DateOfBirth = ?, Address = ?, ContactNo = ?, Email = ?, Gender = ?, EducationQualification = ?, Designation = ?, BloodGroup = ?, DateOfJoin = ?  WHERE ID = ?");
+        int idValue = Integer.parseInt(userID.getText());
+        String query = "0";
+        if(idValue>1000&&idValue<=2000) {
+            query = ("UPDATE Admin SET Name = ?, DateOfBirth = ?, Address = ?, ContactNo = ?, Email = ?, Gender = ?, EducationQualification = ?, Designation = ?, BloodGroup = ?, DateOfJoin = ?  WHERE ID = ?");
+        }
+        if(idValue>2000&&idValue<=3000) {
+            query = ("UPDATE Doctor SET Name = ?, DateOfBirth = ?, Address = ?, ContactNo = ?, Email = ?, Gender = ?, EducationQualification = ?, Designation = ?, BloodGroup = ?, DateOfJoin = ?  WHERE ID = ?");
+        }
+        if(idValue>3000&&idValue<=4000) {
+            query = ("UPDATE Receptionist SET Name = ?, DateOfBirth = ?, Address = ?, ContactNo = ?, Email = ?, Gender = ?, EducationQualification = ?, Designation = ?, BloodGroup = ?, DateOfJoin = ?  WHERE ID = ?");
+        }
+        if(idValue>4000&&idValue<=5000) {
+            query = ("UPDATE Pathologist SET Name = ?, DateOfBirth = ?, Address = ?, ContactNo = ?, Email = ?, Gender = ?, EducationQualification = ?, Designation = ?, BloodGroup = ?, DateOfJoin = ?  WHERE ID = ?");
+        }
 
         Update.onUpdateHR(query, userID.getText(), name.getText(), dateOfBirth.getText(), address.getText(), contactNo.getText(), email.getText(), gender.getText(), educationQualification.getText(), designation.getText(), bloodGroup.getText(), joiningDate.getText());
     }
@@ -83,7 +96,6 @@ public class ViewEmployee {
             designation.setText(sqlConnector.resultSet.getString("Designation"));
             bloodGroup.setText(sqlConnector.resultSet.getString("BloodGroup"));
             joiningDate.setText(sqlConnector.resultSet.getString("DateOfJoin"));
-            educationQualification.setText((sqlConnector.resultSet.getString("EducationQualification")));
 
         } catch (SQLException e){
             e.printStackTrace();
