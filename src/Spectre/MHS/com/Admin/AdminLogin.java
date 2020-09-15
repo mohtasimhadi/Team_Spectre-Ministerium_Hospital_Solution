@@ -27,31 +27,35 @@ public class AdminLogin{
         });
     }
 
+    void wrongTypeMessage(){
+        JOptionPane.showMessageDialog(null, "Wrong User Type");
+        new AdminLogin();
+    }
+
+    void logIntoHRAdmin(){
+        new AdminHR(userid.getText());
+    }
+
+    void logIntoAdministrativeAdmin(){
+        new AdministrativeDirector(userid.getText());
+    }
+
     void onLogIn(){
         Encryption encryption = new Encryption();
         String query = "select * from admin where ID = ? and Password = ?";
 
         if(logIn.onLogIn(query, userid.getText(), encryption.encrypt(Arrays.toString(password.getPassword())))){
-            System.out.println(logIn.userTypeFound);
             if(Objects.requireNonNull(usertype.getSelectedItem()).toString().equals("Human Resource Management Admin")){
                 if(logIn.userTypeFound.equals("Human Resource Management Admin"))
-                    new AdminHR(userid.getText());
-                else {
-                    JOptionPane.showMessageDialog(null, "Wrong User Type");
-                    new AdminLogin();
-                }
+                    logIntoHRAdmin();
+                else
+                    wrongTypeMessage();
             }
-            else if(usertype.getSelectedItem().toString().equals("Administrative Director")){
+            else {
                 if(logIn.userTypeFound.equals("Administrative Director"))
-                    new AdministrativeDirector(userid.getText());
-                else {
-                    JOptionPane.showMessageDialog(null, "Wrong User Type");
-                    new AdminLogin();
-                }
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "User Type Does Not Exist");
-                new AdminLogin();
+                    logIntoAdministrativeAdmin();
+                else
+                    wrongTypeMessage();
             }
         } else {
             JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");

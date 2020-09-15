@@ -97,7 +97,6 @@
               <model>
                 <item value="Human Resource Management Admin"/>
                 <item value="Administrative Director"/>
-                <item value="Financial Management"/>
               </model>
             </properties>
           </component>
