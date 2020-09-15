@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.sql.SQLException;
 
 public class ViewEmployee {
-    public JPanel contentPanel;
+    private JPanel contentPanel;
     private JButton backButton, viewEmployeeButton, updateInformationButton, removeEmployeeButton;
     private JTextField jUserID, jName, jDateOfBirth, jAddress, jContactNo, jeducationalQualification, jGender, jEmail, jDesignation, jBloodGroup, jJoiningDate;
     private String userid;
@@ -28,8 +28,20 @@ public class ViewEmployee {
         viewEmployeeButton.addActionListener(e -> onViewEmployeeButton());
     }
 
-    void onRemoveEmployeeButton(){
+    void runDML(String query){
+        try {
+            sqlConnector.statement = sqlConnector.connection.createStatement();
+            sqlConnector.statement.executeUpdate(query);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 
+    void onRemoveEmployeeButton(){
+        runDML("DELETE FROM doctor WHERE ID = " + userID.getText());
+        runDML("DELETE FROM admin WHERE ID = " + userID.getText());
+        runDML("DELETE FROM pathologist WHERE ID = " + userID.getText());
+        runDML("DELETE FROM receptionist WHERE ID = " + userID.getText());
     }
 
     void onUpdateInformationButton(){
@@ -39,12 +51,11 @@ public class ViewEmployee {
     }
 
     void onViewEmployeeButton(){
-        System.out.println("YES\n");
-        String query = "SELECT * FROM doctor " +
-                "UNION SELECT * FROM pathologist " +
-                "UNION SELECT * FROM receptionist " +
-                "UNION SELECT * FROM admin WHERE ID = " + jUserID.getText();
-        System.out.println(query);
+        String query = "SELECT * FROM doctor WHERE ID = " + userID.getText() +
+                " UNION SELECT * FROM pathologist WHERE ID = " + userID.getText() +
+                " UNION SELECT * FROM receptionist WHERE ID = " + userID.getText() +
+                " UNION SELECT * FROM admin WHERE ID = " + userID.getText();
+
         try {
             sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
             sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
@@ -75,4 +86,10 @@ public class ViewEmployee {
         }
         display.displayOff();
     }
+
+    public static void main(String[] args) {
+        ViewEmployee v = new ViewEmployee("asd", "asd");
+        Display d = new Display("tit", v.contentPanel);
+    }
+
 }
