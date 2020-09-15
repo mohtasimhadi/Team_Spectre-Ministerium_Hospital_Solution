@@ -1,0 +1,64 @@
+<changelist name="Uncommitted_changes_before_Update_at_15-Sep-20_5_20_AM_[Default_Changelist]" date="1600125642211" recycled="false" toDelete="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15-Sep-20_5_20_AM_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 15-Sep-20 5:20 AM [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" />
+    <option name="AFTER_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15-Sep-20_5_20_AM_[Default_Changelist]/SupportCode$TextWithMnemonic.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/Spectre/MHS/com/OperationsNTools/Display.class" />
+    <option name="AFTER_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/Spectre/MHS/com/OperationsNTools/Display.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15-Sep-20_5_20_AM_[Default_Changelist]/Display.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/Spectre/MHS/com/Pathologist/PatientInformationPathologist.class" />
+    <option name="AFTER_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/Spectre/MHS/com/Pathologist/PatientInformationPathologist.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15-Sep-20_5_20_AM_[Default_Changelist]/PatientInformationPathologist.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/Spectre/MHS/com/Receptionist/PatientInformationReceptionist.class" />
+    <option name="AFTER_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/Spectre/MHS/com/Receptionist/PatientInformationReceptionist.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15-Sep-20_5_20_AM_[Default_Changelist]/PatientInformationReceptionist.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/Spectre/MHS/com/Admin/AdminLogin.class" />
+    <option name="AFTER_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/Spectre/MHS/com/Admin/AdminLogin.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15-Sep-20_5_20_AM_[Default_Changelist]/AdminLogin.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/Spectre/MHS/com/Doctor/PatientInformationDoctor.class" />
+    <option name="AFTER_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/Spectre/MHS/com/Doctor/PatientInformationDoctor.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15-Sep-20_5_20_AM_[Default_Changelist]/PatientInformationDoctor.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/com/intellij/uiDesigner/core/SupportCode.class" />
+    <option name="AFTER_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/com/intellij/uiDesigner/core/SupportCode.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15-Sep-20_5_20_AM_[Default_Changelist]/SupportCode.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/Spectre/MHS/com/Receptionist/AddNewPatient.class" />
+    <option name="AFTER_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/Spectre/MHS/com/Receptionist/AddNewPatient.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15-Sep-20_5_20_AM_[Default_Changelist]/AddNewPatient.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/Spectre/MHS/com/OperationsNTools/LogIn.class" />
+    <option name="AFTER_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/Spectre/MHS/com/OperationsNTools/LogIn.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15-Sep-20_5_20_AM_[Default_Changelist]/LogIn.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/Spectre/MHS/com/OperationsNTools/SQLConnector.class" />
+    <option name="AFTER_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/Spectre/MHS/com/OperationsNTools/SQLConnector.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15-Sep-20_5_20_AM_[Default_Changelist]/SQLConnector.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/Spectre/MHS/com/Receptionist/ReceptionistLogin.class" />
+    <option name="AFTER_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/Spectre/MHS/com/Receptionist/ReceptionistLogin.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15-Sep-20_5_20_AM_[Default_Changelist]/ReceptionistLogin.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/Spectre/MHS/com/OperationsNTools/PersonalInfo.class" />
+    <option name="AFTER_PATH" value="out/production/Team Spectre - Ministerium Hospital Solution/Spectre/MHS/com/OperationsNTools/PersonalInfo.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15-Sep-20_5_20_AM_[Default_Changelist]/PersonalInfo.class" />
+  </binary>
+</changelist>
