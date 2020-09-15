@@ -8,7 +8,6 @@ public class PatientInfo {
                                            JLabel gender, JLabel dateOfAdmission, JLabel dateOfAppointment,
                                            JLabel appointedDoctor, JTextField dateOfRelease, JLabel contactNo, JLabel email,
                                            JLabel bloodGroup, JTextArea prescription, JTextArea pathologyTests){
-
         sqlConnector.connect();
 
         try {
@@ -29,6 +28,8 @@ public class PatientInfo {
                 bloodGroup.setText(sqlConnector.resultSet.getString("BloodGroup"));
                 prescription.setText(sqlConnector.resultSet.getString("Prescription"));
                 pathologyTests.setText(sqlConnector.resultSet.getString("PathologyTests"));
+            } else {
+                JOptionPane.showMessageDialog(null, "No Patient With That ID");
             }
         } catch (Exception e) {
             e.printStackTrace();
