@@ -55,7 +55,11 @@ public class ViewEmployee {
     }
 
     void onUpdateInformationButton(){
-        int idValue = Integer.parseInt(userID.getText());
+        runUpdate("admin");
+        runUpdate("doctor");
+        runUpdate("pathologist");
+        runUpdate("receptionist");
+        /*int idValue = Integer.parseInt(userID.getText());
         String query = "0";
         query = ("UPDATE Admin SET Name = ?, DateOfBirth = ?, Address = ?, ContactNo = ?, Email = ?, Gender = ?, EducationQualification = ?, Designation = ?, BloodGroup = ?, DateOfJoin = ?  WHERE ID = ?");
         Update.onUpdateHR(query, userID.getText(), name.getText(), dateOfBirth.getText(), address.getText(), contactNo.getText(), email.getText(), gender.getText(), educationQualification.getText(), designation.getText(), bloodGroup.getText(), joiningDate.getText());
@@ -64,6 +68,11 @@ public class ViewEmployee {
         query = ("UPDATE Pathologist SET Name = ?, DateOfBirth = ?, Address = ?, ContactNo = ?, Email = ?, Gender = ?, EducationQualification = ?, Designation = ?, BloodGroup = ?, DateOfJoin = ?  WHERE ID = ?");
         Update.onUpdateHR(query, userID.getText(), name.getText(), dateOfBirth.getText(), address.getText(), contactNo.getText(), email.getText(), gender.getText(), educationQualification.getText(), designation.getText(), bloodGroup.getText(), joiningDate.getText());
         query = ("UPDATE Receptionist SET Name = ?, DateOfBirth = ?, Address = ?, ContactNo = ?, Email = ?, Gender = ?, EducationQualification = ?, Designation = ?, BloodGroup = ?, DateOfJoin = ?  WHERE ID = ?");
+        Update.onUpdateHR(query, userID.getText(), name.getText(), dateOfBirth.getText(), address.getText(), contactNo.getText(), email.getText(), gender.getText(), educationQualification.getText(), designation.getText(), bloodGroup.getText(), joiningDate.getText());*/
+    }
+
+    void runUpdate(String table){
+        String query = ("UPDATE "+table+" SET Name = ?, DateOfBirth = ?, Address = ?, ContactNo = ?, Email = ?, Gender = ?, EducationQualification = ?, Designation = ?, BloodGroup = ?, DateOfJoin = ?  WHERE ID = ?");
         Update.onUpdateHR(query, userID.getText(), name.getText(), dateOfBirth.getText(), address.getText(), contactNo.getText(), email.getText(), gender.getText(), educationQualification.getText(), designation.getText(), bloodGroup.getText(), joiningDate.getText());
     }
 
