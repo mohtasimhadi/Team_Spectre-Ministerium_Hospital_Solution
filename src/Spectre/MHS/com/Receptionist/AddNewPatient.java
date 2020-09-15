@@ -23,8 +23,6 @@ public class AddNewPatient {
     private JTextField jContactNo;
     private JTextField jEmail;
     private JTextField jAppointedDoctor;
-    private JTextField jPrescription;
-    private JTextField jPathologyTests;
     private JButton jViewDoctors;
     private final String userid;
     private final Display display = new Display("Add New Patient", contentPanel);
@@ -46,7 +44,7 @@ public class AddNewPatient {
     void onAddPatient(){
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();
-        String sql = "INSERT INTO patient (Name, Age, Gender, DateOfAdmission, DateOfAppointment, AppointedDoctor, DateOfRelease, ContactNo, Email, BloodGroup, Prescription, PathologyTests) values (?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO patient (Name, Age, Gender, DateOfAdmission, DateOfAppointment, AppointedDoctor, DateOfRelease, ContactNo, Email, BloodGroup) values (?,?,?,?,?,?,?,?,?,?)";
         try {
             sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(sql);
             sqlConnector.preparedStatement.setString(1, jName.getText());
@@ -59,8 +57,6 @@ public class AddNewPatient {
             sqlConnector.preparedStatement.setString(8, jContactNo.getText());
             sqlConnector.preparedStatement.setString(9, jEmail.getText());
             sqlConnector.preparedStatement.setString(10, Objects.requireNonNull(jBloodGroup.getSelectedItem()).toString());
-            sqlConnector.preparedStatement.setString(11,jPrescription.getText());
-            sqlConnector.preparedStatement.setString(12,jPathologyTests.getText());
 
             sqlConnector.preparedStatement.executeUpdate();
 
@@ -73,8 +69,6 @@ public class AddNewPatient {
             jDateOfAppointment.setText("");
             jAppointedDoctor.setText("");
             jDateOfRelease.setText("");
-            jPrescription.setText("");
-            jPathologyTests.setText("");
             jContactNo.setText("");
             jBloodGroup.setSelectedIndex(-1);
 
