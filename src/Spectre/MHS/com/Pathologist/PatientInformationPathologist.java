@@ -32,9 +32,9 @@ public class PatientInformationPathologist {
             onView();
         });
 
-      //  updateButton.addActionListener(e -> {
-       //     onUpdate();
-      //  });
+        updateButton.addActionListener(e -> {
+            onUpdate();
+        });
     }
 
     void onBack(){
@@ -58,14 +58,10 @@ public class PatientInformationPathologist {
         //    JOptionPane.showMessageDialog(null, "No Patient With That ID");
     }
 
-   // void onUpdate(){
+    void onUpdate(){
 
-      //  String patientID = this.patientID.getText();
-      //  String pathologyTests = this.pathologyTests.getText();
-       // PatientInfo patientInfo = new PatientInfo();
-       // String query = ("UPDATE patient SET DateOfRelease ='"+pathologyTests+ "' WHERE ID ="+patientID);
-      //  String query = ("UPDATE patient SET Name = ?, DateOfBirth = ?, Address = ?, ContactNo = ?, Email = ?, Gender = ?, EducationQualification = ?, Designation = ?, BloodGroup = ?, DateOfJoin = ?  WHERE ID = ?");
+        String query = ("UPDATE patient SET PathologyTests = ?  WHERE ID = ?");
 
-        //Update.onUpdatePathologist(query, name.getText(), dateOfBirth.getText(), address.getText(), contactNo.getText(), email.getText(), gender.getText(), educationQualification.getText(), designation.getText(), bloodGroup.getText(), joiningDate.getText());
-    //}
+        Update.onUpdatePathologist(query, patientID.getText(),pathologyTests.getText());
+    }
 }
