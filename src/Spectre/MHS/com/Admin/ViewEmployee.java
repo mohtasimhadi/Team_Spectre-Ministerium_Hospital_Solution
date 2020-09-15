@@ -35,6 +35,7 @@ public class ViewEmployee {
         runDML("DELETE FROM admin WHERE ID = " + userID.getText());
         runDML("DELETE FROM pathologist WHERE ID = " + userID.getText());
         runDML("DELETE FROM receptionist WHERE ID = " + userID.getText());
+        JOptionPane.showMessageDialog(null, "Employee Removed");
     }
 
     void onUpdateInformationButton(){
@@ -96,10 +97,4 @@ public class ViewEmployee {
         }
         display.displayOff();
     }
-
-    public static void main(String[] args) {
-        ViewEmployee v = new ViewEmployee("asd", "asd");
-        Display d = new Display("tit", v.contentPanel);
-    }
-
 }
