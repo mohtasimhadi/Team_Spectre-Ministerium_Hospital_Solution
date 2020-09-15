@@ -2,6 +2,7 @@ package Spectre.MHS.com.Admin;
 
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
+import Spectre.MHS.com.OperationsNTools.Update;
 
 import javax.swing.*;
 import java.sql.SQLException;
@@ -9,7 +10,17 @@ import java.sql.SQLException;
 public class ViewEmployee {
     private JPanel contentPanel;
     private JButton backButton, viewEmployeeButton, updateInformationButton, removeEmployeeButton;
-    private JTextField userID, name, dateOfBirth, address,  contactNo,  Gender,  email,  designation,  bloodGroup, joiningDate;
+    private JTextField userID;
+    private JTextField name;
+    private JTextField dateOfBirth;
+    private JTextField address;
+    private JTextField contactNo;
+    private JTextField gender;
+    private JTextField email;
+    private JTextField designation;
+    private JTextField bloodGroup;
+    private JTextField joiningDate;
+    private JTextField educationQualification;
     private String userid;
     private final Display display = new Display("View Employee", contentPanel);
     SQLConnector sqlConnector;
@@ -41,59 +52,12 @@ public class ViewEmployee {
         runDML("DELETE FROM admin WHERE ID = " + userID.getText());
         runDML("DELETE FROM pathologist WHERE ID = " + userID.getText());
         runDML("DELETE FROM receptionist WHERE ID = " + userID.getText());
-        JOptionPane.showMessageDialog(null, "Employee Removed");
     }
 
-    // This needs refactoring
     void onUpdateInformationButton(){
+        String query = ("UPDATE patient SET Name = ?, DateOfBirth = ?, Address = ?, ContactNo = ?, Email = ?, Gender = ?, EducationQualification = ?, Designation = ?, BloodGroup = ?, DateOfJoin = ?,  WHERE ID = ?");
 
-        runDML("UPDATE doctor" +
-                " SET Name = '" + name.getText() + "'," +
-                    " DateOfBirth = STR_TO_DATE('" + dateOfBirth.getText() + "', '%Y-%m-%d')," +
-                    " Address = '" + address.getText() + "'," +
-                    " ContactNo = '" + contactNo.getText() + "'," +
-                    " Gender = '" + Gender.getText() + "'," +
-                    " Email = '" + email.getText() + "'," +
-                    " Designation = '" + designation.getText() + "'," +
-                    " BloodGroup = '" + bloodGroup.getText() + "'," +
-                    " DateOfJoin = '" + joiningDate.getText() + "'" +
-                " WHERE ID = " + userID.getText());
-
-        runDML("UPDATE admin" +
-                " SET Name = '" + name.getText() + "'," +
-                " DateOfBirth = STR_TO_DATE('" + dateOfBirth.getText() + "', '%Y-%m-%d')," +
-                " Address = '" + address.getText() + "'," +
-                " ContactNo = '" + contactNo.getText() + "'," +
-                " Gender = '" + Gender.getText() + "'," +
-                " Email = '" + email.getText() + "'," +
-                " Designation = '" + designation.getText() + "'," +
-                " BloodGroup = '" + bloodGroup.getText() + "'," +
-                " DateOfJoin = '" + joiningDate.getText() + "'" +
-                " WHERE ID = " + userID.getText());
-
-        runDML("UPDATE pathologist" +
-                " SET Name = '" + name.getText() + "'," +
-                " DateOfBirth = STR_TO_DATE('" + dateOfBirth.getText() + "', '%Y-%m-%d')," +
-                " Address = '" + address.getText() + "'," +
-                " ContactNo = '" + contactNo.getText() + "'," +
-                " Gender = '" + Gender.getText() + "'," +
-                " Email = '" + email.getText() + "'," +
-                " Designation = '" + designation.getText() + "'," +
-                " BloodGroup = '" + bloodGroup.getText() + "'," +
-                " DateOfJoin = '" + joiningDate.getText() + "'" +
-                " WHERE ID = " + userID.getText());
-
-        runDML("UPDATE receptionist" +
-                " SET Name = '" + name.getText() + "'," +
-                " DateOfBirth = STR_TO_DATE('" + dateOfBirth.getText() + "', '%Y-%m-%d')," +
-                " Address = '" + address.getText() + "'," +
-                " ContactNo = '" + contactNo.getText() + "'," +
-                " Gender = '" + Gender.getText() + "'," +
-                " Email = '" + email.getText() + "'," +
-                " Designation = '" + designation.getText() + "'," +
-                " BloodGroup = '" + bloodGroup.getText() + "'," +
-                " DateOfJoin = '" + joiningDate.getText() + "'" +
-                " WHERE ID = " + userID.getText());
+        Update.onUpdateHR(query, userID.getText(), name.getText(), dateOfBirth.getText(), address.getText(), contactNo.getText(), email.getText(), gender.getText(), educationQualification.getText(), designation.getText(), bloodGroup.getText(), joiningDate.getText());
     }
 
     void onViewEmployeeButton(){
@@ -113,7 +77,7 @@ public class ViewEmployee {
             dateOfBirth.setText(sqlConnector.resultSet.getString("DateOfBirth"));
             address.setText(sqlConnector.resultSet.getString("Address"));
             contactNo.setText(sqlConnector.resultSet.getString("ContactNo"));
-            Gender.setText(sqlConnector.resultSet.getString("Gender"));
+            gender.setText(sqlConnector.resultSet.getString("Gender"));
             email.setText(sqlConnector.resultSet.getString("email"));
             designation.setText(sqlConnector.resultSet.getString("Designation"));
             bloodGroup.setText(sqlConnector.resultSet.getString("BloodGroup"));
