@@ -42,18 +42,18 @@ public class PatientInformationDoctor {
         });
     }
 
-    void onBack(){
+    void onBack() {
         new DoctorStation(userid);
     }
 
-    void onRefresh(){
+    void onRefresh() {
         display.displayOff();
         new PatientInformationDoctor(userid);
     }
 
-    void onView(){
+    void onView() {
         String patientID = this.patientID.getText();
-        String query = ("SELECT * FROM patient WHERE ID="+patientID);
+        String query = ("SELECT * FROM patient WHERE ID=" + patientID);
         PatientInfo patientInfo = new PatientInfo();
         //if(())              //Rafi HELP
         patientInfo.getPatientInfoDoctor(query, name, age, gender, dateOfAdmission, dateOfAppointment, dateOfRelease, contactNo, email, bloodGroup, prescription, pathologyTests);
@@ -61,9 +61,14 @@ public class PatientInformationDoctor {
         //    JOptionPane.showMessageDialog(null, "No Patient With That ID");
     }
 
-    void onUpdate(){
-        String query = ("UPDATE patient SET DateOfRelease = ? PathologyTests = ?, Prescription = ?  WHERE ID = ?");
+    void onUpdate() {
+        String query = ("UPDATE patient SET DateOfRelease = ?, PathologyTests = ?, Prescription = ?  WHERE ID = ?");
 
-        Update.onUpdateDoctor(query, patientID.getText(),dateOfRelease.getText(),pathologyTests.getText(),prescription.getText());
+        Update.onUpdateDoctor(query, patientID.getText(), dateOfRelease.getText(), pathologyTests.getText(), prescription.getText());
+    }
+
+    public static void main(String[] args) {
+        String asd = null;
+        new PatientInformationDoctor(asd);
     }
 }
