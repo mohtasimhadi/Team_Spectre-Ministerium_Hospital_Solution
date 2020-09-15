@@ -12,7 +12,7 @@ public class Display {
     }
 
     public void changeSize(int height, int width){
-        jFrame.setSize(height, width);
+        jFrame.setSize(width, height);
     }
 
     public void displayOn(){

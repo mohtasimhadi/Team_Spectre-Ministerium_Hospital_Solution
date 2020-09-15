@@ -50,7 +50,7 @@ public class PasswordChanger {
     private void displayThis(){
         display = new Display("Change Password", PasswordChangerPanel);
         display.displayOn();
-        display.changeSize(400, 200);
+        display.changeSize(200, 400);
     }
     private void closeThis(){
         display.displayOff();
