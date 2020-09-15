@@ -1,8 +1,6 @@
 package Spectre.MHS.com.OperationsNTools;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.Arrays;
 
@@ -11,7 +9,7 @@ public class PasswordChanger {
     private JPasswordField NewPasswordField;
     private JButton OKButton;
     private JPanel PasswordChangerPanel;
-    private JButton backButton;
+    private JButton cancelButton;
     private Display display;
 
     public PasswordChanger(String tableName, String ID) {
@@ -46,16 +44,11 @@ public class PasswordChanger {
         });
 
         displayThis();
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                closeThis();
-            }
-        });
+        cancelButton.addActionListener(e -> closeThis());
     }
 
     private void displayThis(){
-        display = new Display("Password Changer", PasswordChangerPanel);
+        display = new Display("Change Password", PasswordChangerPanel);
         display.displayOn();
         display.changeSize(400, 200);
     }
