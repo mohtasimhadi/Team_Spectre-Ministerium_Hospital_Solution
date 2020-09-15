@@ -41,10 +41,59 @@ public class ViewEmployee {
         runDML("DELETE FROM admin WHERE ID = " + userID.getText());
         runDML("DELETE FROM pathologist WHERE ID = " + userID.getText());
         runDML("DELETE FROM receptionist WHERE ID = " + userID.getText());
+        JOptionPane.showMessageDialog(null, "Employee Removed");
     }
 
+    // This needs refactoring
     void onUpdateInformationButton(){
 
+        runDML("UPDATE doctor" +
+                " SET Name = '" + name.getText() + "'," +
+                    " DateOfBirth = STR_TO_DATE('" + dateOfBirth.getText() + "', '%Y-%m-%d')," +
+                    " Address = '" + address.getText() + "'," +
+                    " ContactNo = '" + contactNo.getText() + "'," +
+                    " Gender = '" + Gender.getText() + "'," +
+                    " Email = '" + email.getText() + "'," +
+                    " Designation = '" + designation.getText() + "'," +
+                    " BloodGroup = '" + bloodGroup.getText() + "'," +
+                    " DateOfJoin = '" + joiningDate.getText() + "'" +
+                " WHERE ID = " + userID.getText());
+
+        runDML("UPDATE admin" +
+                " SET Name = '" + name.getText() + "'," +
+                " DateOfBirth = STR_TO_DATE('" + dateOfBirth.getText() + "', '%Y-%m-%d')," +
+                " Address = '" + address.getText() + "'," +
+                " ContactNo = '" + contactNo.getText() + "'," +
+                " Gender = '" + Gender.getText() + "'," +
+                " Email = '" + email.getText() + "'," +
+                " Designation = '" + designation.getText() + "'," +
+                " BloodGroup = '" + bloodGroup.getText() + "'," +
+                " DateOfJoin = '" + joiningDate.getText() + "'" +
+                " WHERE ID = " + userID.getText());
+
+        runDML("UPDATE pathologist" +
+                " SET Name = '" + name.getText() + "'," +
+                " DateOfBirth = STR_TO_DATE('" + dateOfBirth.getText() + "', '%Y-%m-%d')," +
+                " Address = '" + address.getText() + "'," +
+                " ContactNo = '" + contactNo.getText() + "'," +
+                " Gender = '" + Gender.getText() + "'," +
+                " Email = '" + email.getText() + "'," +
+                " Designation = '" + designation.getText() + "'," +
+                " BloodGroup = '" + bloodGroup.getText() + "'," +
+                " DateOfJoin = '" + joiningDate.getText() + "'" +
+                " WHERE ID = " + userID.getText());
+
+        runDML("UPDATE receptionist" +
+                " SET Name = '" + name.getText() + "'," +
+                " DateOfBirth = STR_TO_DATE('" + dateOfBirth.getText() + "', '%Y-%m-%d')," +
+                " Address = '" + address.getText() + "'," +
+                " ContactNo = '" + contactNo.getText() + "'," +
+                " Gender = '" + Gender.getText() + "'," +
+                " Email = '" + email.getText() + "'," +
+                " Designation = '" + designation.getText() + "'," +
+                " BloodGroup = '" + bloodGroup.getText() + "'," +
+                " DateOfJoin = '" + joiningDate.getText() + "'" +
+                " WHERE ID = " + userID.getText());
     }
 
     void onViewEmployeeButton(){
