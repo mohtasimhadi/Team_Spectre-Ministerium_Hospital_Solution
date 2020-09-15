@@ -1,5 +1,6 @@
 package Spectre.MHS.com.OperationsNTools;
 
+import javax.swing.*;
 import java.sql.SQLException;
 
 public class Update {
@@ -13,6 +14,8 @@ public class Update {
             sqlConnector.preparedStatement.setString(1, data);
             sqlConnector.preparedStatement.setString(2, iD);
             sqlConnector.preparedStatement.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Updated");
         } catch (SQLException e) {
             e.printStackTrace();
         }

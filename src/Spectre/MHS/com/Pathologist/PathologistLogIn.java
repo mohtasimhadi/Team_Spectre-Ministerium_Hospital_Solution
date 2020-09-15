@@ -7,10 +7,10 @@ import javax.swing.*;
 import java.util.Arrays;
 
 public class PathologistLogIn{
-    private JPanel contentPanel;
-    private JButton logInButton, exitButton;
     private JTextField userid;
+    private JPanel contentPanel;
     private JPasswordField password;
+    private JButton logInButton, exitButton;
     private final LogIn logIn = new LogIn();
     private final Display display = new Display("Pathologist Log In", contentPanel);
 
@@ -18,11 +18,7 @@ public class PathologistLogIn{
         display.displayOn();
 
         exitButton.addActionListener(e -> onExit());
-
-        logInButton.addActionListener(e -> {
-            onLogIn();
-            display.displayOff();
-        });
+        logInButton.addActionListener(e -> onLogIn());
     }
 
     void onExit(){
@@ -39,6 +35,7 @@ public class PathologistLogIn{
             JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");
             new PathologistLogIn();
         }
+        display.displayOff();
     }
         public static void main(String[] args){
         new PathologistLogIn();
