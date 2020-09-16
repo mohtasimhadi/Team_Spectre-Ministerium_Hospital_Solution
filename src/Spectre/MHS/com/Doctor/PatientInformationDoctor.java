@@ -43,8 +43,7 @@ public class PatientInformationDoctor {
 
     void onRefer(){
          String query = ("UPDATE Patient SET AppointedDoctor = ?, DateOfAppointment =? WHERE ID = ?");
-         Update.onRefer(query, doctorReferID.getText(), dateOfNewAppointment.getText());
-        JOptionPane.showMessageDialog(null, "Referred");
+         Update.onRefer(query, patientID.getText(),doctorReferID.getText(), dateOfNewAppointment.getText());
     }
 
     void onBack() {
