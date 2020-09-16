@@ -6,7 +6,7 @@ import java.awt.*;
 public class Display {
     private final JFrame jFrame;
     private final Object contentPanel;
-
+    static GraphicsDevice graphicsDevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices()[0];
     public Display(String title, Object contentPanel){
         this.jFrame = new JFrame(title);
         this.contentPanel = contentPanel;
@@ -23,6 +23,7 @@ public class Display {
         jFrame.setSize(1280, 720);
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jFrame.add((Component) contentPanel);
+        graphicsDevice.setFullScreenWindow(jFrame);
     }
 
     public void displayOff(){
