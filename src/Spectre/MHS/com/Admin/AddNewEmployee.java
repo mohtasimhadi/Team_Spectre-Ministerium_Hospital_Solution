@@ -24,6 +24,9 @@ public class AddNewEmployee {
         display.displayOn();
         backButton.addActionListener(e -> onBack());
         addEmployeeButton.addActionListener(e -> onAddEmployeeButton());
+        gender.setSelectedItem(null);
+        bloodGroup.setSelectedItem(null);
+        designation.setSelectedItem(null);
     }
 
     boolean checkIfAllAreFilled(){
@@ -81,6 +84,9 @@ public class AddNewEmployee {
             email.setText("");
             gender.setSelectedIndex(-1);
             password.setText("");
+            gender.setSelectedItem(-1);
+            designation.setSelectedItem(-1);
+            bloodGroup.setSelectedItem(-1);
         } catch (SQLException e) {
             e.printStackTrace();
         }

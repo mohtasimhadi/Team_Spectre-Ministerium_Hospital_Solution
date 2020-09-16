@@ -72,31 +72,36 @@ public class ViewEmployee {
     }
 
     void onViewEmployeeButton(){
-        String query = "SELECT * FROM doctor WHERE ID = " + userID.getText() +
-                " UNION SELECT * FROM pathologist WHERE ID = " + userID.getText() +
-                " UNION SELECT * FROM receptionist WHERE ID = " + userID.getText() +
-                " UNION SELECT * FROM admin WHERE ID = " + userID.getText();
+        if(userID.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Insert ID");
+        } else {
 
-        try {
-            sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
-            sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
-            if(!sqlConnector.resultSet.next()){
-                JOptionPane.showMessageDialog(null, "Employee does not Exist");
-                return;
+            String query = "SELECT * FROM doctor WHERE ID = " + userID.getText() +
+                    " UNION SELECT * FROM pathologist WHERE ID = " + userID.getText() +
+                    " UNION SELECT * FROM receptionist WHERE ID = " + userID.getText() +
+                    " UNION SELECT * FROM admin WHERE ID = " + userID.getText();
+
+            try {
+                sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
+                sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
+                if(!sqlConnector.resultSet.next()){
+                    JOptionPane.showMessageDialog(null, "Employee does not Exist");
+                    return;
+                }
+                name.setText(sqlConnector.resultSet.getString("Name"));
+                dateOfBirth.setText(sqlConnector.resultSet.getString("DateOfBirth"));
+                address.setText(sqlConnector.resultSet.getString("Address"));
+                contactNo.setText(sqlConnector.resultSet.getString("ContactNo"));
+                gender.setSelectedItem(sqlConnector.resultSet.getString("Gender"));
+                email.setText(sqlConnector.resultSet.getString("email"));
+                educationQualification.setText(sqlConnector.resultSet.getString("educationQualification"));
+                bloodGroup.setSelectedItem(sqlConnector.resultSet.getString("BloodGroup"));
+                designation.setText(sqlConnector.resultSet.getString("Designation"));
+                joiningDate.setText(sqlConnector.resultSet.getString("DateOfJoin"));
+                updateAndDeleteButtonVisibility(true);
+            } catch (SQLException e){
+                e.printStackTrace();
             }
-            name.setText(sqlConnector.resultSet.getString("Name"));
-            dateOfBirth.setText(sqlConnector.resultSet.getString("DateOfBirth"));
-            address.setText(sqlConnector.resultSet.getString("Address"));
-            contactNo.setText(sqlConnector.resultSet.getString("ContactNo"));
-            gender.setSelectedItem(sqlConnector.resultSet.getString("Gender"));
-            email.setText(sqlConnector.resultSet.getString("email"));
-            educationQualification.setText(sqlConnector.resultSet.getString("educationQualification"));
-            bloodGroup.setSelectedItem(sqlConnector.resultSet.getString("BloodGroup"));
-            designation.setText(sqlConnector.resultSet.getString("Designation"));
-            joiningDate.setText(sqlConnector.resultSet.getString("DateOfJoin"));
-            updateAndDeleteButtonVisibility(true);
-        } catch (SQLException e){
-            e.printStackTrace();
         }
     }
 

@@ -2,7 +2,6 @@ package Spectre.MHS.com.Admin;
 
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PatientInfo;
-
 import javax.swing.*;
 
 public class PatientInformationAdmin {
@@ -25,13 +24,9 @@ public class PatientInformationAdmin {
             display.displayOff();
         });
 
-        refreshButton.addActionListener(e -> {
-            onRefresh();
-        });
+        refreshButton.addActionListener(e -> onRefresh());
 
-        viewButton.addActionListener(e -> {
-            onView();
-        });
+        viewButton.addActionListener(e -> onView());
     }
 
     void onBack(){
@@ -45,10 +40,14 @@ public class PatientInformationAdmin {
     }
     
     void onView(){
-        String patientID = this.patientID.getText();
-        String query = ("SELECT * FROM patient WHERE ID="+patientID);
-        PatientInfo patientInfo = new PatientInfo();
-        patientInfo.getPatientInfoReceptionist(query, name, age, gender, dateOfAdmission, dateOfAppointment, appointedDoctor, dateOfRelease, contactNo, email, bloodGroup, prescription, pathologyTests);
+        if(patientID.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Insert ID");
+        } else {
+            String query = ("SELECT * FROM patient WHERE ID="+patientID.getText());
+            PatientInfo patientInfo = new PatientInfo();
+            patientInfo.getPatientInfoReceptionist(query, name, age, gender, dateOfAdmission, dateOfAppointment, appointedDoctor, dateOfRelease, contactNo, email, bloodGroup, prescription, pathologyTests);
+        }
+
     }
 
 }
