@@ -3,7 +3,6 @@ package Spectre.MHS.com.Doctor;
 import Spectre.MHS.com.OperationsNTools.LogIn;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Encryption;
-
 import javax.swing.*;
 import java.util.Arrays;
 

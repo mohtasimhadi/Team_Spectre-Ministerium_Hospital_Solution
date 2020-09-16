@@ -25,16 +25,13 @@ public class PatientInformationDoctor {
         display.displayOn();
         doctorReferID.setEditable(false);
 
+        buttonVisibility(false);
+
         backButton.addActionListener(e -> onBack());
-
         refreshButton.addActionListener(e -> onRefresh());
-
         viewButton.addActionListener(e -> onView());
-
         updateButton.addActionListener(e -> onUpdate());
-
         viewDoctors.addActionListener(e -> onDoctorList());
-
         referButton.addActionListener(e -> onRefer());
     }
 
@@ -62,15 +59,21 @@ public class PatientInformationDoctor {
             JOptionPane.showMessageDialog(null, "Enter a Patient ID");
             return;
         }
-
         String patientID = this.patientID.getText();
         String query = ("SELECT * FROM patient WHERE ID=" + patientID);
         PatientInfo patientInfo = new PatientInfo();
         patientInfo.getPatientInfoDoctor(query, name, age, gender, dateOfAdmission, dateOfAppointment, dateOfRelease, contactNo, email, bloodGroup, prescription, pathologyTests);
+        buttonVisibility(true);
     }
 
     void onUpdate() {
         String query = ("UPDATE Patient SET DateOfRelease = ?, PathologyTests = ?, Prescription = ?  WHERE ID = ?");
         Update.onUpdateDoctor(query, patientID.getText(), dateOfRelease.getText(), pathologyTests.getText(), prescription.getText());
+    }
+
+    private void buttonVisibility(Boolean bool){
+        viewDoctors.setEnabled(bool);
+        referButton.setEnabled(bool);
+        updateButton.setEnabled(bool);
     }
 }
