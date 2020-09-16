@@ -59,12 +59,10 @@ public class AddNewEmployee {
             sqlConnector.preparedStatement.setString(9, Objects.requireNonNull(bloodGroup.getSelectedItem()).toString());
             sqlConnector.preparedStatement.setString(10, dateOfJoin.getText());
             sqlConnector.preparedStatement.setString(11, encryption.encrypt(Arrays.toString(password.getPassword())));
-
             sqlConnector.preparedStatement.executeUpdate();
 
             sql = "SELECT MAX(ID) FROM "+designation.getSelectedItem().toString();
             sqlConnector.executeQuery(sql);
-
             JOptionPane.showMessageDialog(contentPanel, "Employee Inserted with ID " + sqlConnector.resultSet.getInt(1));
             new AddNewEmployee(userid);
             display.displayOff();
