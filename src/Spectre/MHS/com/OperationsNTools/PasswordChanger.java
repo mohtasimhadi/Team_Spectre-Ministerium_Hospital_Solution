@@ -5,15 +5,14 @@ import java.sql.SQLException;
 import java.util.Arrays;
 
 public class PasswordChanger {
-    private Display display;
+
     private JPanel PasswordChangerPanel;
+    private final Display display = new Display("Change Password", PasswordChangerPanel);
     private JButton OKButton, cancelButton;
     private JPasswordField OldPasswordField, NewPasswordField;
 
     public PasswordChanger(String tableName, String ID) {
         OKButton.addActionListener(e -> {
-
-            display = new Display("Change Password", PasswordChangerPanel);
             Encryption encryption = new Encryption();
             String oldPassword = Arrays.toString(OldPasswordField.getPassword());
             String newPassword = Arrays.toString(NewPasswordField.getPassword());
