@@ -3,7 +3,6 @@ package Spectre.MHS.com.Admin;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PasswordChanger;
 import Spectre.MHS.com.OperationsNTools.PersonalInfo;
-
 import javax.swing.*;
 
 public class AdminHR {
@@ -23,9 +22,7 @@ public class AdminHR {
         logOutButton.addActionListener(e -> onLogOut());
         addNewEmployeeButton.addActionListener(e -> onAddNewEmployee());
         viewEmployeeButton.addActionListener(e -> onViewEmployee());
-        changePasswordButton.addActionListener(e -> {
-            new PasswordChanger("admin", userID.getText());
-        });
+        changePasswordButton.addActionListener(e -> new PasswordChanger("admin", userID.getText()));
     }
 
     void onViewEmployee(){

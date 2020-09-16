@@ -17,4 +17,10 @@ public class SQLConnector {
             e.printStackTrace();
         }
     }
+
+    public void executeQuery(String sql) throws SQLException {
+        preparedStatement = connection.prepareStatement(sql);
+        resultSet = preparedStatement.executeQuery();
+        //resultSet.next();
+    }
 }

@@ -14,7 +14,7 @@ public class ViewEmployee {
     private JComboBox<String> gender, bloodGroup;
     private JLabel designation;
     private JButton refreshButton;
-    private String userid, userType;
+    private final String userid, userType;
     private final Display display = new Display("View Employee", contentPanel);
     SQLConnector sqlConnector;
 
@@ -27,6 +27,7 @@ public class ViewEmployee {
         sqlConnector.connect();
 
         updateAndDeleteButtonVisibility(false);
+
         gender.setSelectedItem(null);
         bloodGroup.setSelectedItem(null);
 
@@ -37,12 +38,12 @@ public class ViewEmployee {
         refreshButton.addActionListener(e -> onRefresh());
     }
 
-    void onRefresh(){
+    private void onRefresh(){
         new ViewEmployee(userid, userType);
         display.displayOff();
     }
 
-    void onRemoveEmployeeButton(){
+    private void onRemoveEmployeeButton(){
         runDML("DELETE FROM doctor WHERE ID = " + userID.getText());
         runDML("DELETE FROM admin WHERE ID = " + userID.getText());
         runDML("DELETE FROM pathologist WHERE ID = " + userID.getText());
@@ -51,7 +52,7 @@ public class ViewEmployee {
         onRefresh();
     }
 
-    void onUpdateInformationButton(){
+    private void onUpdateInformationButton(){
         runUpdate("admin");
         runUpdate("doctor");
         runUpdate("pathologist");
@@ -59,7 +60,7 @@ public class ViewEmployee {
         JOptionPane.showMessageDialog(null, "Updated");
     }
 
-    void runUpdate(String table){
+    private void runUpdate(String table){
         String query = ("UPDATE "+table+" SET Name = ?, DateOfBirth = ?, Address = ?, ContactNo = ?, Email = ?, Gender = ?, EducationQualification = ?, Designation = ?, BloodGroup = ?, DateOfJoin = ?  WHERE ID = ?");
         Update.onUpdateHR(query, userID.getText(), name.getText(), dateOfBirth.getText(), address.getText(), contactNo.getText(), email.getText(), Objects.requireNonNull(gender.getSelectedItem()).toString(), educationQualification.getText(), designation.getText(), Objects.requireNonNull(bloodGroup.getSelectedItem()).toString(), joiningDate.getText());
     }
@@ -84,8 +85,7 @@ public class ViewEmployee {
                     " UNION SELECT * FROM admin WHERE ID = " + userID.getText();
 
             try {
-                sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
-                sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
+                sqlConnector.executeQuery(query);
                 if(!sqlConnector.resultSet.next()){
                     JOptionPane.showMessageDialog(null, "Employee does not Exist");
                     return;

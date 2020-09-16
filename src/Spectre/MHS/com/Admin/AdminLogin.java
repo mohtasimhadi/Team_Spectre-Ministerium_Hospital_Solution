@@ -4,7 +4,6 @@ import Spectre.MHS.com.MainLogin;
 import Spectre.MHS.com.OperationsNTools.LogIn;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Encryption;
-import Spectre.MHS.com.Receptionist.ReceptionistRange;
 
 import javax.swing.*;
 import java.util.Arrays;
@@ -28,19 +27,23 @@ public class AdminLogin{
 
     void wrongTypeMessage(){
         JOptionPane.showMessageDialog(null, "Wrong User Type");
+        display.displayOff();
         new AdminLogin();
     }
 
     void wrongUserNameOrPasswordMessage(){
         JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");
+        display.displayOff();
         new AdminLogin();
     }
 
     void logIntoHRAdmin(){
+        display.displayOff();
         new AdminHR(userid.getText());
     }
 
     void logIntoAdministrativeAdmin(){
+        display.displayOff();
         new AdministrativeDirector(userid.getText());
     }
 
@@ -48,7 +51,10 @@ public class AdminLogin{
         display.displayOff();
         Encryption encryption = new Encryption();
         String query = "select * from admin where ID = ? and Password = ?";
-
+        if(usertype.getSelectedItem() == null){
+            wrongTypeMessage();
+            return;
+        }
         if(logIn.onLogIn(query, userid.getText(), encryption.encrypt(Arrays.toString(password.getPassword())))){
             if(Objects.requireNonNull(usertype.getSelectedItem()).toString().equals("Human Resource Management Admin")){
                 if(logIn.userTypeFound.equals("Human Resource Management Admin"))

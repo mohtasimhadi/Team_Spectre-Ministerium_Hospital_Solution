@@ -14,17 +14,15 @@ public class AdministrativeDirector {
 
     public AdministrativeDirector(String userid) {
         display.displayOn();
+
         String query = "SELECT * FROM admin WHERE ID=?";
         PersonalInfo personalInfo = new PersonalInfo();
+
         personalInfo.getPersonalInfo(userid, query, userID, joiningDate, gender, email, designation,
                 contactNo, bloodGroup, address, dateOfBirth, name);
-        logOutButton.addActionListener(e -> {
-            display.displayOff();
-            onLogOut();
-        });
-        changePasswordButton.addActionListener(e -> {
-            new PasswordChanger("admin", userID.getText());
-        });
+
+        logOutButton.addActionListener(e -> onLogOut());
+        changePasswordButton.addActionListener(e -> new PasswordChanger("admin", userID.getText()));
         viewEmployeeButton.addActionListener(e -> onViewEmployees());
         viewPatientButton.addActionListener(e -> onViewPatients());
     }
@@ -41,5 +39,6 @@ public class AdministrativeDirector {
 
     void onLogOut(){
         new AdminLogin();
+        display.displayOff();
     }
 }

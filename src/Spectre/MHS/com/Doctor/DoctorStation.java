@@ -4,10 +4,7 @@ import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Lists.PatientList;
 import Spectre.MHS.com.OperationsNTools.PasswordChanger;
 import Spectre.MHS.com.OperationsNTools.PersonalInfo;
-
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class DoctorStation {
     private JPanel contentPanel;
@@ -25,28 +22,19 @@ public class DoctorStation {
         personalInfo.getPersonalInfo(userid, query, userID, joiningDate, gender, email,
                 designation, contactNo, bloodGroup, address, dateOfBirth, name);
 
-        logOutButton.addActionListener(e -> {
-            display.displayOff();
-            onLogOut();
-        });
-        patientInformationButton.addActionListener(e -> {
-            onPatientInformation();
-            display.displayOff();
-        });
+        logOutButton.addActionListener(e -> onLogOut());
+        patientInformationButton.addActionListener(e -> onPatientInformation());
         changePasswordButton.addActionListener(e -> new PasswordChanger("doctor", userID.getText()));
-        viewAppointmentsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new PatientList(userID.getText());
-            }
-        });
+        viewAppointmentsButton.addActionListener(e -> new PatientList(userID.getText()));
     }
 
     void onPatientInformation(){
+        display.displayOff();
         new PatientInformationDoctor(userid);
     }
 
     void onLogOut(){
+        display.displayOff();
         new DoctorLogin();
     }
 }

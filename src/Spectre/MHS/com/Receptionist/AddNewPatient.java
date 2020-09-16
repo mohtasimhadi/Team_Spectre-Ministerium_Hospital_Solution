@@ -56,21 +56,12 @@ public class AddNewPatient {
                 sqlConnector.preparedStatement.executeUpdate();
 
                 sql = "SELECT MAX(ID) FROM patient";
-                sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(sql);
-                sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
+                sqlConnector.executeQuery(sql);
                 sqlConnector.resultSet.next();
-
                 JOptionPane.showMessageDialog(contentPanel, "Patient Inserted with ID " + sqlConnector.resultSet.getInt(1));
 
-                name.setText("");
-                age.setText("");
-                gender.setSelectedIndex(-1);
-                dateOfAdmission.setText("");
-                dateOfAppointment.setText("");
-                appointedDoctor.setText("");
-                dateOfRelease.setText("");
-                contactNo.setText("");
-                bloodGroup.setSelectedIndex(-1);
+                new AddNewPatient(userid);
+                display.displayOff();
 
             } catch (SQLException e) {
                 e.printStackTrace();

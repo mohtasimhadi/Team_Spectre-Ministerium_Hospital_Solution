@@ -3,7 +3,6 @@ package Spectre.MHS.com.Receptionist;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PasswordChanger;
 import Spectre.MHS.com.OperationsNTools.PersonalInfo;
-
 import javax.swing.*;
 
 public class ReceptionistRange {
@@ -21,32 +20,22 @@ public class ReceptionistRange {
         PersonalInfo personalInfo = new PersonalInfo();
         personalInfo.getPersonalInfo(userid, query, userID, joiningDate, gender, email, designation, contactNo, bloodGroup, address, dateOfBirth, name);
 
-        patientInformationButton.addActionListener(e -> {
-            onPatientInformation();
-            display.displayOff();
-        });
-
+        patientInformationButton.addActionListener(e -> onPatientInformation());
         changePasswordButton.addActionListener(e -> new PasswordChanger("receptionist", userID.getText()));
-
-        logOutButton.addActionListener(e -> {
-            display.displayOff();
-            onLogOut();
-        });
-        addNewPatientButton.addActionListener(e -> {
-            display.displayOff();
-            onAddNewPatient();
-        });
+        logOutButton.addActionListener(e -> onLogOut());
+        addNewPatientButton.addActionListener(e -> onAddNewPatient());
     }
     void onPatientInformation(){
+        display.displayOff();
         new PatientInformationReceptionist(userid);
 
     }
     void onAddNewPatient(){
-
+        display.displayOff();
         new AddNewPatient(userid);
     }
     void onLogOut(){
-
+        display.displayOff();
         new ReceptionistLogin();
     }
 }
