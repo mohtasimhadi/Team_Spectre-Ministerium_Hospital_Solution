@@ -1,7 +1,7 @@
 package Spectre.MHS.com.Receptionist;
 
 import Spectre.MHS.com.OperationsNTools.Display;
-import Spectre.MHS.com.OperationsNTools.DoctorList;
+import Spectre.MHS.com.OperationsNTools.Lists.DoctorList;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
 import javax.swing.*;
 import java.sql.SQLException;
