@@ -27,10 +27,7 @@ public class AddNewEmployee {
     }
 
     boolean checkIfAllAreFilled(){
-        if(name.getText().isEmpty() || dateOfJoin.getText().isEmpty() || dateOfBirth.getText().isEmpty() || contactNo.getText().isEmpty() || address.getText().isEmpty() || email.getText().isEmpty() || educationalQualification.getText().isEmpty() || password.getText().isEmpty())
-            return false;
-        else
-            return true;
+        return !name.getText().isEmpty() && !dateOfJoin.getText().isEmpty() && !dateOfBirth.getText().isEmpty() && !contactNo.getText().isEmpty() && !address.getText().isEmpty() && !email.getText().isEmpty() && !educationalQualification.getText().isEmpty() && !password.getText().isEmpty();
     }
 
     void onAddEmployeeButton() {
@@ -66,7 +63,12 @@ public class AddNewEmployee {
 
             sqlConnector.preparedStatement.executeUpdate();
 
-            JOptionPane.showMessageDialog(contentPanel, "User Inserted");
+            sql = "SELECT MAX(ID) FROM "+designation.getSelectedItem().toString();
+            sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(sql);
+            sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
+            sqlConnector.resultSet.next();
+
+            JOptionPane.showMessageDialog(contentPanel, "Employee Inserted with ID " + sqlConnector.resultSet.getInt(1));
 
             address.setText("");
             bloodGroup.setSelectedIndex(-1);
