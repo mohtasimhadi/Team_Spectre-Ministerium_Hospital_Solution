@@ -56,7 +56,6 @@ public class Update {
             sqlConnector.preparedStatement.setString(10, dataOfJoin);
             sqlConnector.preparedStatement.setString(11, id);
             sqlConnector.preparedStatement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Updated");
         } catch (SQLException e) {
             e.printStackTrace();
         }

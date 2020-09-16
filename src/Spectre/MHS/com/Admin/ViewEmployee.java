@@ -4,8 +4,6 @@ import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
 import Spectre.MHS.com.OperationsNTools.Update;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.Objects;
 
@@ -28,16 +26,13 @@ public class ViewEmployee {
         sqlConnector = new SQLConnector();
         sqlConnector.connect();
 
+        updateAndDeleteButtonVisibility(false);
+
         backButton.addActionListener(e -> onBackButton(usertype));
         removeEmployeeButton.addActionListener(e -> onRemoveEmployeeButton());
         updateInformationButton.addActionListener(e -> onUpdateInformationButton());
         viewEmployeeButton.addActionListener(e -> onViewEmployeeButton());
-        refreshButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onRefresh();
-            }
-        });
+        refreshButton.addActionListener(e -> onRefresh());
     }
 
     void onRefresh(){
@@ -51,6 +46,7 @@ public class ViewEmployee {
         runDML("DELETE FROM pathologist WHERE ID = " + userID.getText());
         runDML("DELETE FROM receptionist WHERE ID = " + userID.getText());
         JOptionPane.showMessageDialog(null, "Employee Removed");
+        onRefresh();
     }
 
     void onUpdateInformationButton(){
@@ -98,12 +94,16 @@ public class ViewEmployee {
             bloodGroup.setSelectedItem(sqlConnector.resultSet.getString("BloodGroup"));
             designation.setText(sqlConnector.resultSet.getString("Designation"));
             joiningDate.setText(sqlConnector.resultSet.getString("DateOfJoin"));
-
+            updateAndDeleteButtonVisibility(true);
         } catch (SQLException e){
             e.printStackTrace();
         }
     }
 
+    private void updateAndDeleteButtonVisibility(Boolean bool){
+        removeEmployeeButton.setEnabled(bool);
+        updateInformationButton.setEnabled(bool);
+    }
     void onBackButton(String usertype){
         if(usertype.equals("Human Resource Management Admin")){
             new AdminHR(userid);
