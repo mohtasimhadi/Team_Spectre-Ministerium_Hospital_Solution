@@ -1,10 +1,13 @@
 package Spectre.MHS.com.Doctor;
 
 import Spectre.MHS.com.OperationsNTools.Display;
+import Spectre.MHS.com.OperationsNTools.Lists.PatientList;
 import Spectre.MHS.com.OperationsNTools.PasswordChanger;
 import Spectre.MHS.com.OperationsNTools.PersonalInfo;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class DoctorStation {
     private JPanel contentPanel;
@@ -31,6 +34,12 @@ public class DoctorStation {
             display.displayOff();
         });
         changePasswordButton.addActionListener(e -> new PasswordChanger("doctor", userID.getText()));
+        viewAppointmentsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new PatientList(userID.getText());
+            }
+        });
     }
 
     void onPatientInformation(){
