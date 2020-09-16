@@ -39,7 +39,7 @@ public class DoctorLogin{
             new DoctorStation(userid.getText());
         } else {
             JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");
-            new DoctorLogin();new DoctorStation(userid.getText());
+            new DoctorLogin();
         }
     }
 
