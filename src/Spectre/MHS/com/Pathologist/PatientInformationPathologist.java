@@ -26,17 +26,17 @@ public class PatientInformationPathologist {
         updateButton.addActionListener(e -> onUpdate());
     }
 
-    void onBack(){
+    private void onBack(){
         display.displayOff();
         new PathologistLocale(userid);
     }
 
-    void onRefresh(){
+    private void onRefresh(){
         display.displayOff();
         new PatientInformationPathologist(userid);
     }
 
-    void onView(){
+    private void onView(){
         if(patientID.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Insert ID");
             return;
@@ -45,7 +45,7 @@ public class PatientInformationPathologist {
         new PatientInfo().getPatientInfoPathologist(query, name, age, gender, bloodGroup, pathologyTests);
     }
 
-    void onUpdate(){
+    private void onUpdate(){
         String query = ("UPDATE patient SET PathologyTests = ?  WHERE ID = ?");
         Update.onUpdatePathologist(query, patientID.getText(),pathologyTests.getText());
         onRefresh();
