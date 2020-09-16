@@ -11,7 +11,8 @@ public class SQLConnector {
     public void connect(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mhs?useTimezone=true&serverTimezone=UTC","root","");
+            String url = "jdbc:mysql://localhost:3306/mhs?useTimezone=true&serverTimezone=UTC";
+            connection = DriverManager.getConnection(url,"root","");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }

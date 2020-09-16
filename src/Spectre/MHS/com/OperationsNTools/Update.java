@@ -5,14 +5,14 @@ import java.sql.SQLException;
 
 public class Update {
 
-    public static void onUpdatePathologist(String query, String iD, String data) {
+    public static void onUpdatePathologist(String query, String ID, String data) {
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();
 
         try {
             sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
             sqlConnector.preparedStatement.setString(1, data);
-            sqlConnector.preparedStatement.setString(2, iD);
+            sqlConnector.preparedStatement.setString(2, ID);
             sqlConnector.preparedStatement.executeUpdate();
 
             JOptionPane.showMessageDialog(null, "Updated");
