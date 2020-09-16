@@ -1,6 +1,6 @@
 package Spectre.MHS.com.Doctor;
 import Spectre.MHS.com.OperationsNTools.Display;
-import Spectre.MHS.com.OperationsNTools.DoctorList;
+import Spectre.MHS.com.OperationsNTools.Lists.DoctorList;
 import Spectre.MHS.com.OperationsNTools.PatientInfo;
 import Spectre.MHS.com.OperationsNTools.Update;
 
@@ -58,6 +58,11 @@ public class PatientInformationDoctor {
     }
 
     void onView() {
+        if(patientID.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Enter a Patient ID");
+            return;
+        }
+
         String patientID = this.patientID.getText();
         String query = ("SELECT * FROM patient WHERE ID=" + patientID);
         PatientInfo patientInfo = new PatientInfo();
@@ -67,6 +72,5 @@ public class PatientInformationDoctor {
     void onUpdate() {
         String query = ("UPDATE Patient SET DateOfRelease = ?, PathologyTests = ?, Prescription = ?  WHERE ID = ?");
         Update.onUpdateDoctor(query, patientID.getText(), dateOfRelease.getText(), pathologyTests.getText(), prescription.getText());
-        JOptionPane.showMessageDialog(null, "Updated");
     }
 }
