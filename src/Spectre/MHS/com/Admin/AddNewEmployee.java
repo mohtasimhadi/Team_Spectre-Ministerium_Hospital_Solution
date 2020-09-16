@@ -68,21 +68,8 @@ public class AddNewEmployee {
             sqlConnector.resultSet.next();
 
             JOptionPane.showMessageDialog(contentPanel, "Employee Inserted with ID " + sqlConnector.resultSet.getInt(1));
-
-            address.setText("");
-            bloodGroup.setSelectedIndex(-1);
-            contactNo.setText("");
-            dateOfBirth.setText("");
-            dateOfJoin.setText("");
-            educationalQualification.setText("");
-            designation.setSelectedIndex(-1);
-            name.setText("");
-            email.setText("");
-            gender.setSelectedIndex(-1);
-            password.setText("");
-            gender.setSelectedItem(-1);
-            designation.setSelectedItem(-1);
-            bloodGroup.setSelectedItem(-1);
+            new AddNewEmployee(userid);
+            display.displayOff();
         } catch (SQLException e) {
             e.printStackTrace();
         }
