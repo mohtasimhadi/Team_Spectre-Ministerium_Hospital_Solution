@@ -14,7 +14,6 @@ public class Update {
             sqlConnector.preparedStatement.setString(1, data);
             sqlConnector.preparedStatement.setString(2, ID);
             sqlConnector.preparedStatement.executeUpdate();
-
             JOptionPane.showMessageDialog(null, "Updated");
         } catch (SQLException e) {
             e.printStackTrace();
