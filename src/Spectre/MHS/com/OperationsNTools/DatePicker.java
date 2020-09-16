@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class DatePicker{
+public class DatePicker extends JPanel{
 
     JPanel contentPanel;
     JXDatePicker picker;
@@ -15,22 +15,14 @@ public class DatePicker{
     public DatePicker(){
         picker = new JXDatePicker();
         picker.setDate(Calendar.getInstance().getTime());
-        picker.setFormats(new SimpleDateFormat("yyyy-mm-dd"));
+        picker.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
         contentPanel = new JPanel();
         contentPanel.add(picker);
+        this.add(picker);
     }
 
-
-
-    public String getDate(){
+    public String getText(){
         Date date = picker.getDate();
         return new SimpleDateFormat("yyyy-MM-dd").format(date);
-    }
-
-    public static void main(String[] args) {
-        DatePicker d = new DatePicker();
-        Display a = new Display("ASD", d.contentPanel);
-        a.displayOn();
-        System.out.println(d.getDate());
     }
 }

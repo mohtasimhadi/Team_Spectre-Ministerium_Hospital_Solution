@@ -1,5 +1,6 @@
 package Spectre.MHS.com.Admin;
 
+import Spectre.MHS.com.OperationsNTools.DatePicker;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Encryption;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
@@ -14,8 +15,9 @@ public class AddNewEmployee {
     private JPasswordField password;
     private JButton backButton, addEmployeeButton;
     private JComboBox<String> designation, gender, bloodGroup;
-    private JTextField dateOfJoin, name, dateOfBirth, contactNo, address, email, educationalQualification;
+    private JTextField dateOfJoin, name, contactNo, address, email, educationalQualification;
     private final String userid;
+    private DatePicker dateOfBirth;
     private final Display display = new Display("Add New Employee", contentPanel);
     SQLConnector sqlConnector = new SQLConnector();
 
