@@ -1,12 +1,13 @@
 package Spectre.MHS.com.OperationsNTools;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Display {
     private final JFrame jFrame;
-    private final JPanel contentPanel;
+    private final Object contentPanel;
 
-    public Display(String title, JPanel contentPanel){
+    public Display(String title, Object contentPanel){
         this.jFrame = new JFrame(title);
         this.contentPanel = contentPanel;
     }
@@ -20,7 +21,7 @@ public class Display {
         jFrame.setResizable(false);
         jFrame.setSize(1280, 720);
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jFrame.add(contentPanel);
+        jFrame.add((Component) contentPanel);
     }
 
     public void displayOff(){

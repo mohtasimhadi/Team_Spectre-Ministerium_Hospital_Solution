@@ -1,14 +1,14 @@
-package Spectre.MHS.com.OperationsNTools;
+package Spectre.MHS.com.Receptionist;
 
+import Spectre.MHS.com.OperationsNTools.Display;
+import Spectre.MHS.com.OperationsNTools.SQLConnector;
 import javax.swing.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DoctorList {
-    private JTable Table;
-    private JScrollPane contentPanel;
     SQLConnector sqlConnector;
-    JFrame jf;
+    Display display;
 
     public DoctorList(){
         sqlConnector = new SQLConnector();
@@ -19,24 +19,18 @@ public class DoctorList {
         try {
             sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
             sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
         }
 
-        String data[][] = getStringData(sqlConnector.resultSet);
-        String columnNames[] = {"ID", "Name", "Designation"};
-        Table = new JTable(data , columnNames);
-        contentPanel = new JScrollPane(Table);
-        displayOn();
+        String[][] data = getStringData(sqlConnector.resultSet);
+        String[] columnNames = {"ID", "Name", "Designation"};
+        JTable table = new JTable(data, columnNames);
+        JScrollPane contentPanel = new JScrollPane(table);
+        display = new Display("Doctor's List", contentPanel);
+        display.displayOn();
+        display.changeSize(300, 300);
 
-    }
-
-    void displayOn(){
-        jf = new JFrame("Doctor's List");
-        jf.setSize(300,300);
-        jf.setResizable(false);
-        jf.add(contentPanel);
-        jf.setVisible(true);
     }
 
     int getNumberOfRows(ResultSet resultSet){
@@ -45,20 +39,20 @@ public class DoctorList {
             while (resultSet.next()){
                 i++;
             }
-        }catch (SQLException throwables){
-            throwables.printStackTrace();
+        }catch (SQLException throwable){
+            throwable.printStackTrace();
         }
         return i;
     }
 
     String[][] getStringData(ResultSet resultSet){
         int rows = getNumberOfRows(resultSet);
-        String data[][] = new String[rows][3];
+        String[][] data = new String[rows][3];
         try {
             resultSet.beforeFirst();
             int rowNum = 0;
             while (resultSet.next()){
-                String eachRow[] = new String[3];
+                String[] eachRow = new String[3];
                 for(int i=1; i<=3; i++){
                     eachRow[i-1] = resultSet.getString(i);
                 }
