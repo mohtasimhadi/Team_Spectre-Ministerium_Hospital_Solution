@@ -1,15 +1,18 @@
 package Spectre.MHS.com.Admin;
 
+import Spectre.MHS.com.MainLogin;
 import Spectre.MHS.com.OperationsNTools.LogIn;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Encryption;
+import Spectre.MHS.com.Receptionist.ReceptionistRange;
+
 import javax.swing.*;
 import java.util.Arrays;
 import java.util.Objects;
 
 public class AdminLogin{
     private JPanel contentPanel;
-    private JButton logInButton, exitButton;
+    private JButton logInButton, backButton;
     private JTextField userid;
     private JPasswordField password;
     private JComboBox usertype;
@@ -19,7 +22,7 @@ public class AdminLogin{
     public AdminLogin() {
         display.displayOn();
         usertype.setSelectedItem(null);
-        exitButton.addActionListener(e -> onExit());
+        backButton.addActionListener(e -> onBack());
         logInButton.addActionListener(e -> onLogIn());
     }
 
@@ -63,11 +66,8 @@ public class AdminLogin{
             wrongUserNameOrPasswordMessage();
     }
 
-    void onExit(){
-        System.exit(0);
-    }
-
-    public static void main(String[] args){
-        new AdminLogin();
+    void onBack(){
+        display.displayOff();
+        new MainLogin();
     }
 }

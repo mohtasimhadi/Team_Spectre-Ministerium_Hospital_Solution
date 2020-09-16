@@ -1,5 +1,6 @@
 package Spectre.MHS.com.Receptionist;
 
+import Spectre.MHS.com.MainLogin;
 import Spectre.MHS.com.OperationsNTools.LogIn;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Encryption;
@@ -11,19 +12,20 @@ public class ReceptionistLogin {
     private JTextField userid;
     private JPanel contentPanel;
     private JPasswordField password;
-    private JButton exitButton, logInButton;
+    private JButton backButton, logInButton;
 
     private final LogIn logIn = new LogIn();
     private final Display display = new Display("Receptionist Log In", contentPanel);
 
     public ReceptionistLogin(){
         display.displayOn();
-        exitButton.addActionListener(e -> onExit());
+        backButton.addActionListener(e -> onBack());
         logInButton.addActionListener(e -> onLogIn());
     }
 
-    void onExit(){
-        System.exit(0);
+    void onBack(){
+        display.displayOff();
+        new MainLogin();
     }
 
     void onLogIn(){
@@ -38,7 +40,4 @@ public class ReceptionistLogin {
         }
         display.displayOff();
     }
-        public static void main (String[]args){
-            new ReceptionistLogin();
-        }
 }

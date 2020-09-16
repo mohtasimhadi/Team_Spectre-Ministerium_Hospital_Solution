@@ -1,5 +1,6 @@
 package Spectre.MHS.com.Doctor;
 
+import Spectre.MHS.com.MainLogin;
 import Spectre.MHS.com.OperationsNTools.LogIn;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Encryption;
@@ -10,7 +11,7 @@ public class DoctorLogin{
     private JTextField userid;
     private JPanel contentPanel;
     private JPasswordField password;
-    private JButton logInButton, exitButton;
+    private JButton logInButton, backButton;
 
     private final LogIn logIn = new LogIn();
 
@@ -18,7 +19,7 @@ public class DoctorLogin{
 
     public DoctorLogin() {
         display.displayOn();
-        exitButton.addActionListener(e -> onExit());
+        backButton.addActionListener(e -> onBack());
 
         logInButton.addActionListener(e -> {
             onLogIn();
@@ -26,8 +27,9 @@ public class DoctorLogin{
         });
     }
 
-    void onExit(){
-        System.exit(0);
+    void onBack(){
+        display.displayOff();
+        new MainLogin();
     }
 
     void onLogIn(){
@@ -40,9 +42,5 @@ public class DoctorLogin{
             JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");
             new DoctorLogin();
         }
-    }
-
-    public static void main(String[] args){
-        new DoctorLogin();
     }
 }
