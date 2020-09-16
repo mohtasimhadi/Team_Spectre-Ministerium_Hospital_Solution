@@ -5,7 +5,7 @@ import Spectre.MHS.com.OperationsNTools.SQLConnector;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-public class DoctorList {
+public class DoctorListRefer {
     private JPanel contentPanel;
     private JButton backButton;
     private JButton referButton;
@@ -22,7 +22,7 @@ public class DoctorList {
     private final Display display = new Display("Doctor List", contentPanel);
 
 
-    public DoctorList(String userid){
+    public DoctorListRefer(String userid){
         display.displayOn();
         this.userid=userid;
         table1.setModel(model);

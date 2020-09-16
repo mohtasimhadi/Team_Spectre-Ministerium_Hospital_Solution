@@ -32,7 +32,7 @@ public class PatientInformationDoctor {
     }
 
     void onRefer(){
-        new DoctorList(userid);
+        new DoctorListRefer(userid);
         display.displayOff();
     }
 
