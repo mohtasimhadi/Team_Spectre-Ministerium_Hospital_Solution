@@ -1,16 +1,18 @@
 package Spectre.MHS.com.OperationsNTools.Lists;
 
 import Spectre.MHS.com.OperationsNTools.Display;
-import Spectre.MHS.com.OperationsNTools.SQLConnector;
 
+import javax.print.Doc;
 import javax.swing.*;
 import java.sql.SQLException;
 
-public class DoctorList extends AbstractList{
-    public DoctorList(JTextField field){
+public class PatientList extends AbstractList{
+    public PatientList(String DoctorID){
         connectSQL();
 
-        setQuery("SELECT ID, NAME, DESIGNATION FROM DOCTOR");
+        setQuery("SELECT Patient.ID, Patient.Name, Patient.DateOfAppointment " +
+                 "FROM Patient, Doctor " +
+                 "WHERE Patient.AppointedDoctor = " + DoctorID);
 
         try {
             sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
@@ -20,12 +22,11 @@ public class DoctorList extends AbstractList{
         }
 
         String[][] data = getStringData(sqlConnector.resultSet);
-        String[] columnNames = {"ID", "Name", "Designation"};
+        String[] columnNames = {"ID", "Name", "Appointment Date"};
         table = new JTable(data, columnNames);
         contentPanel = new JScrollPane(table);
         display = new Display("Doctor's List", contentPanel);
         display.displayOn();
-        display.changeSize(300, 300);
-        addMouseListener(field);
+        display.changeSize(300, 500);
     }
 }

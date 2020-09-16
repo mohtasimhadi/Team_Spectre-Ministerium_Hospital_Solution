@@ -16,6 +16,10 @@ public class AbstractList{
     JTable table;
     JScrollPane contentPanel;
 
+    void setQuery(String Query){
+        query = Query;
+    }
+
     void connectSQL(){
         sqlConnector = new SQLConnector();
         sqlConnector.connect();
