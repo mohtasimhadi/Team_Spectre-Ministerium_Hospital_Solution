@@ -21,6 +21,6 @@ public class SQLConnector {
     public void executeQuery(String sql) throws SQLException {
         preparedStatement = connection.prepareStatement(sql);
         resultSet = preparedStatement.executeQuery();
-        resultSet.next();
+        //resultSet.next();
     }
 }
