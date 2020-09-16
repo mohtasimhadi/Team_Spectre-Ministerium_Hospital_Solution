@@ -1,6 +1,8 @@
 package Spectre.MHS.com;
 
 import javax.swing.*;
+
+import Spectre.MHS.com.Admin.AdminLogin;
 import Spectre.MHS.com.OperationsNTools.Display;
 
 public class MainLogin {
@@ -16,11 +18,15 @@ public class MainLogin {
 
         exitButton.addActionListener(e -> onExit());
 
-        
+
     }
 
     void onExit(){
         System.exit(0);
+    }
+
+    public static void main(String[] args){
+        new MainLogin();
     }
 
 }
