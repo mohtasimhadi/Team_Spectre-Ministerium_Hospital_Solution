@@ -12,7 +12,7 @@ public class PatientList extends AbstractList{
 
         setQuery("SELECT Patient.ID, Patient.Name, Patient.DateOfAppointment " +
                  "FROM Patient, Doctor " +
-                 "WHERE Patient.AppointedDoctor = " + DoctorID);
+                 "WHERE Patient.AppointedDoctor = " + DoctorID + " GROUP BY Patient.ID");
 
         try {
             sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
