@@ -30,9 +30,7 @@ public class DoctorStation {
             onPatientInformation();
             display.displayOff();
         });
-        changePasswordButton.addActionListener(e -> {
-            new PasswordChanger("doctor", userID.getText());
-        });
+        changePasswordButton.addActionListener(e -> new PasswordChanger("doctor", userID.getText()));
     }
 
     void onPatientInformation(){

@@ -26,9 +26,7 @@ public class ReceptionistRange {
             display.displayOff();
         });
 
-        changePasswordButton.addActionListener(e -> {
-            new PasswordChanger("receptionist", userID.getText());
-        });
+        changePasswordButton.addActionListener(e -> new PasswordChanger("receptionist", userID.getText()));
 
         logOutButton.addActionListener(e -> {
             display.displayOff();
