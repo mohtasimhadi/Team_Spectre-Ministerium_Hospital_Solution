@@ -2,7 +2,7 @@ package Spectre.MHS.com.Admin;
 
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PasswordChanger;
-import Spectre.MHS.com.OperationsNTools.PersonalInfo;
+import Spectre.MHS.com.OperationsNTools.EmployeeInfo;
 import javax.swing.*;
 
 
@@ -16,9 +16,9 @@ public class AdministrativeDirector {
         display.displayOn();
 
         String query = "SELECT * FROM admin WHERE ID=?";
-        PersonalInfo personalInfo = new PersonalInfo();
+        EmployeeInfo employeeInfo = new EmployeeInfo();
 
-        personalInfo.getPersonalInfo(userid, query, userID, joiningDate, gender, email, designation,
+        employeeInfo.getPersonalInfo(userid, query, userID, joiningDate, gender, email, designation,
                 contactNo, bloodGroup, address, dateOfBirth, name);
 
         logOutButton.addActionListener(e -> onLogOut());

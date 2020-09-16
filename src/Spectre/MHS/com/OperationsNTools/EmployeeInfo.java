@@ -2,7 +2,7 @@ package Spectre.MHS.com.OperationsNTools;
 
 import javax.swing.*;
 
-public class PersonalInfo {
+public class EmployeeInfo {
     public void getPersonalInfo(String userid, String query,
                                 JLabel ID, JLabel joiningDate, JLabel gender,
                                 JLabel email, JLabel designation,

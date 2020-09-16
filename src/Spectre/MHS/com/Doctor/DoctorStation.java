@@ -3,7 +3,7 @@ package Spectre.MHS.com.Doctor;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Lists.PatientList;
 import Spectre.MHS.com.OperationsNTools.PasswordChanger;
-import Spectre.MHS.com.OperationsNTools.PersonalInfo;
+import Spectre.MHS.com.OperationsNTools.EmployeeInfo;
 import javax.swing.*;
 
 public class DoctorStation {
@@ -18,8 +18,8 @@ public class DoctorStation {
         display.displayOn();
 
         String query = "SELECT * FROM doctor WHERE ID=?";
-        PersonalInfo personalInfo = new PersonalInfo();
-        personalInfo.getPersonalInfo(userid, query, userID, joiningDate, gender, email,
+        EmployeeInfo employeeInfo = new EmployeeInfo();
+        employeeInfo.getPersonalInfo(userid, query, userID, joiningDate, gender, email,
                 designation, contactNo, bloodGroup, address, dateOfBirth, name);
 
         logOutButton.addActionListener(e -> onLogOut());
