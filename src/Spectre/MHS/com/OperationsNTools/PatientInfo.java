@@ -10,6 +10,7 @@ public class PatientInfo {
                                            JLabel bloodGroup, JTextArea prescription, JTextArea pathologyTests){
         setTexts(query, name, age, gender, dateOfAdmission, dateOfAppointment, appointedDoctor, dateOfRelease, contactNo, email, bloodGroup, prescription, pathologyTests);
     }
+
     public void getPatientInfoDoctor(String query, JLabel name, JLabel age,
                                      JLabel gender, JLabel dateOfAdmission, JLabel dateOfAppointment,
                                      JTextField dateOfRelease, JLabel contactNo, JLabel email,

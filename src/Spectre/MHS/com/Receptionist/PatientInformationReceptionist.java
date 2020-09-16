@@ -35,6 +35,10 @@ public class PatientInformationReceptionist {
         new PatientInformationReceptionist(userid);
     }
     void onView(){
+        if(patientID.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Enter a Patient ID");
+            return;
+        }
         String patientID = this.patientID.getText();
         String query = ("SELECT * FROM patient WHERE ID="+patientID);
         PatientInfo patientInfo = new PatientInfo();
