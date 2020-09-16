@@ -7,7 +7,7 @@ public class PersonalInfo {
                                 JLabel ID, JLabel joiningDate, JLabel gender,
                                 JLabel email, JLabel designation,
                                 JLabel contactNo, JLabel bloodGroup, JLabel address,
-                                JLabel dateOfBirth, JLabel name){
+                                JLabel dateOfBirth, JLabel name) {
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();
 
@@ -16,7 +16,7 @@ public class PersonalInfo {
             sqlConnector.preparedStatement.setString(1, userid);
             sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
 
-            if(sqlConnector.resultSet.next()){
+            if (sqlConnector.resultSet.next()) {
                 ID.setText(sqlConnector.resultSet.getString("ID"));
                 joiningDate.setText(sqlConnector.resultSet.getString("DateOfJoin"));
                 gender.setText(sqlConnector.resultSet.getString("Gender"));
@@ -32,5 +32,17 @@ public class PersonalInfo {
             e.printStackTrace();
         }
 
+    }
+
+    public void getDoctorList(String query) {
+        SQLConnector sqlConnector = new SQLConnector();
+        sqlConnector.connect();
+
+        try {
+            sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
+            sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
