@@ -44,14 +44,14 @@ public class AddNewPatient {
                 String[] parameters = new String[10];
                 parameters[0] = name.getText();
                 parameters[1] = age.getText();
-                parameters[2] = Objects.requireNonNull(gender.getSelectedItem().toString());
+                parameters[2] = Objects.requireNonNull(gender.getSelectedItem()).toString();
                 parameters[3] = dateOfAdmission.getText();
                 parameters[4] = dateOfAppointment.getText();
                 parameters[5] = appointedDoctor.getText();
                 parameters[6] = dateOfRelease.getText();
                 parameters[7] = contactNo.getText();
                 parameters[8] = email.getText();
-                parameters[9] = Objects.requireNonNull(bloodGroup.getSelectedItem().toString());
+                parameters[9] = Objects.requireNonNull(bloodGroup.getSelectedItem()).toString();
 
                 sqlConnector.executeUpdate(parameters, sql, 10);
 
