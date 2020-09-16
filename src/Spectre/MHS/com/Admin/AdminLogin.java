@@ -32,6 +32,11 @@ public class AdminLogin{
         new AdminLogin();
     }
 
+    void wrongUserNameOrPasswordMessage(){
+        JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");
+        new AdminLogin();
+    }
+
     void logIntoHRAdmin(){
         new AdminHR(userid.getText());
     }
@@ -57,10 +62,8 @@ public class AdminLogin{
                 else
                     wrongTypeMessage();
             }
-        } else {
-            JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");
-            new AdminLogin();
-        }
+        } else
+            wrongUserNameOrPasswordMessage();
     }
 
     void onExit(){
