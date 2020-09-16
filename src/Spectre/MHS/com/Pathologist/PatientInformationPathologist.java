@@ -3,7 +3,6 @@ package Spectre.MHS.com.Pathologist;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PatientInfo;
 import Spectre.MHS.com.OperationsNTools.Update;
-
 import javax.swing.*;
 
 public class PatientInformationPathologist {
@@ -40,7 +39,8 @@ public class PatientInformationPathologist {
     void onView(){
         String patientID = this.patientID.getText();
         String query = ("SELECT * FROM patient WHERE ID="+patientID);
-        PatientInfo.getPatientInfoPathologist(query, name, age, gender, bloodGroup, pathologyTests);
+        PatientInfo patientInfo = new PatientInfo();
+        patientInfo.getPatientInfoPathologist(query, name, age, gender, bloodGroup, pathologyTests);
     }
 
     void onUpdate(){
