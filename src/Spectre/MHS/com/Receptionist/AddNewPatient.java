@@ -41,24 +41,23 @@ public class AddNewPatient {
             sqlConnector.connect();
             String sql = "INSERT INTO patient (Name, Age, Gender, DateOfAdmission, DateOfAppointment, AppointedDoctor, DateOfRelease, ContactNo, Email, BloodGroup) values (?,?,?,?,?,?,?,?,?,?)";
             try {
-                sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(sql);
-                sqlConnector.preparedStatement.setString(1, name.getText());
-                sqlConnector.preparedStatement.setString(2, age.getText());
-                sqlConnector.preparedStatement.setString(3, Objects.requireNonNull(gender.getSelectedItem()).toString());
-                sqlConnector.preparedStatement.setString(4, dateOfAdmission.getText());
-                sqlConnector.preparedStatement.setString(5, dateOfAppointment.getText());
-                sqlConnector.preparedStatement.setString(6, appointedDoctor.getText());
-                sqlConnector.preparedStatement.setString(7, dateOfRelease.getText());
-                sqlConnector.preparedStatement.setString(8, contactNo.getText());
-                sqlConnector.preparedStatement.setString(9, email.getText());
-                sqlConnector.preparedStatement.setString(10, Objects.requireNonNull(bloodGroup.getSelectedItem()).toString());
+                String[] parameters = new String[10];
+                parameters[0] = name.getText();
+                parameters[1] = age.getText();
+                parameters[2] = Objects.requireNonNull(gender.getSelectedItem().toString());
+                parameters[3] = dateOfAdmission.getText();
+                parameters[4] = dateOfAppointment.getText();
+                parameters[5] = appointedDoctor.getText();
+                parameters[6] = dateOfRelease.getText();
+                parameters[7] = contactNo.getText();
+                parameters[8] = email.getText();
+                parameters[9] = Objects.requireNonNull(bloodGroup.getSelectedItem().toString());
 
-                sqlConnector.preparedStatement.executeUpdate();
+                sqlConnector.executeUpdate(parameters, sql, 10);
 
                 sql = "SELECT MAX(ID) FROM patient";
                 sqlConnector.executeQuery(sql, true);
                 JOptionPane.showMessageDialog(contentPanel, "Patient Inserted with ID " + sqlConnector.resultSet.getInt(1));
-
                 new AddNewPatient(userid);
                 display.displayOff();
 

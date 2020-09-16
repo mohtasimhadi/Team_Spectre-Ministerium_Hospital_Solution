@@ -24,4 +24,12 @@ public class SQLConnector {
         if(resultSetNext)
             resultSet.next();
     }
+
+    public void executeUpdate(String[] strings, String sql, int size) throws SQLException {
+        preparedStatement = connection.prepareStatement(sql);
+        for(int i=0; i<size; i++){
+            preparedStatement.setString(i+1, strings[i]);
+        }
+        preparedStatement.executeUpdate();
+    }
 }
