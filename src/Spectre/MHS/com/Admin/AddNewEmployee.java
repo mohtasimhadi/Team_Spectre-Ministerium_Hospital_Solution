@@ -29,10 +29,6 @@ public class AddNewEmployee {
         designation.setSelectedItem(null);
     }
 
-    boolean checkIfAllAreFilled(){
-        return !name.getText().isEmpty() && !dateOfJoin.getText().isEmpty() && !dateOfBirth.getText().isEmpty() && !contactNo.getText().isEmpty() && !address.getText().isEmpty() && !email.getText().isEmpty() && !educationalQualification.getText().isEmpty() && !password.getText().isEmpty();
-    }
-
     void onAddEmployeeButton() {
         if(!checkIfAllAreFilled()){
             JOptionPane.showMessageDialog(null, "Please Fill Out all the Information");
@@ -41,9 +37,9 @@ public class AddNewEmployee {
         String designation, sql;
         designation = Objects.requireNonNull(this.designation.getSelectedItem()).toString();
         if((designation.equals("Administrative Director"))||designation.equals("Human Resource Management Admin")){
-            sql = "INSERT INTO admin (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
-        } else
-            sql = "INSERT INTO " + designation.toLowerCase() + " (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
+            designation = "admin";
+        }
+        sql = "INSERT INTO " + designation.toLowerCase() + " (Name, DateOfBirth, ContactNo, Address, Email, Gender, EducationQualification, Designation, BloodGroup, DateOfJoin, Password) values(?,?,?,?,?,?,?,?,?,?,?)";
         addEmployee(sql);
     }
 
@@ -94,5 +90,8 @@ public class AddNewEmployee {
     void onBack(){
         new AdminHR(userid);
         display.displayOff();
+    }
+    boolean checkIfAllAreFilled(){
+        return !name.getText().isEmpty() && !Objects.requireNonNull(designation.getSelectedItem()).toString().isEmpty() && !dateOfJoin.getText().isEmpty() && !dateOfBirth.getText().isEmpty() && !contactNo.getText().isEmpty() && !address.getText().isEmpty() && !email.getText().isEmpty() && !educationalQualification.getText().isEmpty() && !Arrays.toString(password.getPassword()).isEmpty();
     }
 }
