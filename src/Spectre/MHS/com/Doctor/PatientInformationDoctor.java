@@ -9,14 +9,10 @@ import javax.swing.*;
 public class PatientInformationDoctor {
 
     private JPanel contentPanel;
-    private JTextField patientID, dateOfRelease;
+    private JTextField patientID, dateOfRelease, doctorReferID, dateOfNewAppointment;
     private JTextArea prescription, pathologyTests;
-    private JButton backButton, updateButton, viewDoctors, refreshButton, viewButton;
+    private JButton backButton, updateButton, viewDoctors, refreshButton, viewButton, referButton;
     private JLabel name, age, gender, dateOfAdmission, dateOfAppointment, bloodGroup, contactNo, email;
-    private JTextField doctorReferID;
-    private JButton referButton;
-    private JTextField dateOfNewAppointment;
-
     private final String userid;
     private final Display display = new Display("Patient Information", contentPanel);
 
@@ -31,12 +27,8 @@ public class PatientInformationDoctor {
         refreshButton.addActionListener(e -> onRefresh());
         viewButton.addActionListener(e -> onView());
         updateButton.addActionListener(e -> onUpdate());
-        viewDoctors.addActionListener(e -> onDoctorList());
+        viewDoctors.addActionListener(e -> new DoctorList(doctorReferID));
         referButton.addActionListener(e -> onRefer());
-    }
-
-    void onDoctorList(){
-        new DoctorList(doctorReferID);
     }
 
     void onRefer(){
