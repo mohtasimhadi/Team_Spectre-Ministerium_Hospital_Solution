@@ -15,7 +15,7 @@ public class AdminLogin{
     private JButton logInButton, backButton;
     private JTextField userid;
     private JPasswordField password;
-    private JComboBox usertype;
+    private JComboBox<String> usertype;
     private final LogIn logIn = new LogIn();
     private final Display display = new Display("Admin Log In", contentPanel);
 

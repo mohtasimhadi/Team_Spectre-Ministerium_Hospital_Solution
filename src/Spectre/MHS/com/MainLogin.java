@@ -10,7 +10,7 @@ import java.util.Objects;
 
 public class MainLogin {
     private JPanel contentPanel;
-    private JComboBox loginType;
+    private JComboBox<String> loginType;
     private JButton selectButton;
     private JButton exitButton;
     private final Display display = new Display("Ministerium Hospital Solution", contentPanel);

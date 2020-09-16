@@ -11,7 +11,7 @@ public class ViewEmployee {
     private JPanel contentPanel;
     private JButton backButton, viewEmployeeButton, updateInformationButton, removeEmployeeButton;
     private JTextField userID, name, dateOfBirth, address, contactNo, email, joiningDate, educationQualification;
-    private JComboBox gender, bloodGroup;
+    private JComboBox<String> gender, bloodGroup;
     private JLabel designation;
     private JButton refreshButton;
     private String userid, userType;

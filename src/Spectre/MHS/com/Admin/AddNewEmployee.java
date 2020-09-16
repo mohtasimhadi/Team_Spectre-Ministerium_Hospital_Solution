@@ -13,7 +13,7 @@ public class AddNewEmployee {
     private JPanel contentPanel;
     private JPasswordField password;
     private JButton backButton, addEmployeeButton;
-    private JComboBox designation, gender, bloodGroup;
+    private JComboBox<String> designation, gender, bloodGroup;
     private JTextField dateOfJoin, name, dateOfBirth, contactNo, address, email, educationalQualification;
     private final String userid;
     private final Display display = new Display("Add New Employee", contentPanel);
