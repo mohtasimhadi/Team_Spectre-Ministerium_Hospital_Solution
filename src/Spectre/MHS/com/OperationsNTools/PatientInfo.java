@@ -2,7 +2,7 @@ package Spectre.MHS.com.OperationsNTools;
 
 import javax.swing.*;
 
-public class PatientInfo {
+public class PatientInfo extends SQLConnector{
     public void getPatientInfoReceptionist(String query, JLabel name, JLabel age,
                                            JLabel gender, JLabel dateOfAdmission, JLabel dateOfAppointment,
                                            JLabel appointedDoctor, JTextField dateOfRelease, JLabel contactNo, JLabel email,
@@ -27,7 +27,7 @@ public class PatientInfo {
                                  JLabel appointedDoctor, JTextField dateOfRelease, JLabel contactNo, JLabel email,
                                  JLabel bloodGroup, JTextArea prescription, JTextArea pathologyTests){
         SQLConnector sqlConnector = new SQLConnector();
-        sqlConnector.connect();
+
         try {
             sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
             sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
@@ -69,7 +69,6 @@ public class PatientInfo {
                 if(pathologyTests!=null){
                     pathologyTests.setText(sqlConnector.resultSet.getString("PathologyTests"));
                 }
-
             } else {
                 JOptionPane.showMessageDialog(null, "No Patient With That ID");
             }

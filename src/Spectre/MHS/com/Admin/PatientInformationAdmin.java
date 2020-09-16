@@ -18,14 +18,9 @@ public class PatientInformationAdmin {
      public PatientInformationAdmin(String userid){
         this.userid = userid;
         display.displayOn();
-
-        backButton.addActionListener(e -> {
-            onBack();
-            display.displayOff();
-        });
-
+        dateOfRelease.setEnabled(false);
+        backButton.addActionListener(e -> onBack());
         refreshButton.addActionListener(e -> onRefresh());
-
         viewButton.addActionListener(e -> onView());
     }
 
