@@ -32,6 +32,7 @@ public class Update {
             sqlConnector.preparedStatement.setString(3, prescription);
             sqlConnector.preparedStatement.setString(4, iD);
             sqlConnector.preparedStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Updated");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -56,6 +57,7 @@ public class Update {
             sqlConnector.preparedStatement.setString(10, dataOfJoin);
             sqlConnector.preparedStatement.setString(11, id);
             sqlConnector.preparedStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Updated");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -70,6 +72,7 @@ public class Update {
             sqlConnector.preparedStatement.setString(1, dateOfRelease);
             sqlConnector.preparedStatement.setString(2, iD);
             sqlConnector.preparedStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Updated");
         } catch (SQLException e) {
             e.printStackTrace();
         }

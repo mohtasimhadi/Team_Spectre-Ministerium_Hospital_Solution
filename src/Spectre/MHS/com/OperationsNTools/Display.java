@@ -14,6 +14,7 @@ public class Display {
 
     public void changeSize(int height, int width){
         jFrame.setSize(width, height);
+        jFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     public void displayOn(){
