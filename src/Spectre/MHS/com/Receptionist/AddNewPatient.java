@@ -21,6 +21,7 @@ public class AddNewPatient {
     public AddNewPatient(String userid) {
         this.userid = userid;
         display.displayOn();
+        appointedDoctor.setEditable(false);
 
         backButton.addActionListener(e -> onBack());
         addPatientButton.addActionListener(e -> onAddPatient());

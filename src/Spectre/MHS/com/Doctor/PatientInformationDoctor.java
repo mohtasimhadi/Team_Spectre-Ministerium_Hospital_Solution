@@ -23,6 +23,7 @@ public class PatientInformationDoctor {
     public PatientInformationDoctor(String userid) {
         this.userid = userid;
         display.displayOn();
+        doctorReferID.setEditable(false);
 
         backButton.addActionListener(e -> onBack());
 
