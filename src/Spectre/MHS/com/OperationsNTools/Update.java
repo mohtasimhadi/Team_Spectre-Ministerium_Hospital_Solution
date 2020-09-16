@@ -78,16 +78,17 @@ public class Update {
         }
     }
 
-    public static void onRefer(String query, String doctorID, String newAppoinmentDate){
+    public static void onRefer(String query,String patientID, String doctorID, String newAppoinmentDate){
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();
 
         try {
             sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
-            sqlConnector.preparedStatement.setString(1, newAppoinmentDate);
-            sqlConnector.preparedStatement.setString(2, doctorID);
+            sqlConnector.preparedStatement.setString(1, doctorID);
+            sqlConnector.preparedStatement.setString(2, newAppoinmentDate);
+            sqlConnector.preparedStatement.setString(3, patientID);
             sqlConnector.preparedStatement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Updated");
+            JOptionPane.showMessageDialog(null, "Referred");
         } catch (SQLException e) {
             e.printStackTrace();
         }
