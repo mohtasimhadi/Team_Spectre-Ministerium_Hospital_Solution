@@ -28,7 +28,7 @@ public class AddNewPatient {
     }
 
     void onViewDoctors(){
-        new DoctorList();
+        new DoctorList(appointedDoctor);
     }
 
     void onAddPatient(){

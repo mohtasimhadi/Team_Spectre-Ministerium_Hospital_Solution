@@ -3,13 +3,23 @@ package Spectre.MHS.com.OperationsNTools.Lists;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
 
+import javax.swing.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AbstractList {
+public class AbstractList{
     SQLConnector sqlConnector;
     Display display;
     String query;
+    JTable table;
+    JScrollPane contentPanel;
+
+    void connectSQL(){
+        sqlConnector = new SQLConnector();
+        sqlConnector.connect();
+    }
 
     int getNumberOfRows(ResultSet resultSet){
         int i = 0;
@@ -42,4 +52,19 @@ public class AbstractList {
         }
         return data;
     }
+
+    void onClick(JTextField field){
+        int index = table.getSelectedRow();
+        field.setText((String) table.getValueAt(index, 0));
+    }
+
+    void addMouseListener(JTextField field){
+        table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                onClick(field);
+            }
+        });
+    }
+
 }

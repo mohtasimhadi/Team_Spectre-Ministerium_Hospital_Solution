@@ -7,9 +7,8 @@ import javax.swing.*;
 import java.sql.SQLException;
 
 public class DoctorList extends AbstractList{
-    public DoctorList(){
-        sqlConnector = new SQLConnector();
-        sqlConnector.connect();
+    public DoctorList(JTextField field){
+        connectSQL();
 
         String query = "SELECT ID, NAME, DESIGNATION FROM DOCTOR";
 
@@ -22,10 +21,11 @@ public class DoctorList extends AbstractList{
 
         String[][] data = getStringData(sqlConnector.resultSet);
         String[] columnNames = {"ID", "Name", "Designation"};
-        JTable table = new JTable(data, columnNames);
-        JScrollPane contentPanel = new JScrollPane(table);
+        table = new JTable(data, columnNames);
+        contentPanel = new JScrollPane(table);
         display = new Display("Doctor's List", contentPanel);
         display.displayOn();
         display.changeSize(300, 300);
+        addMouseListener(field);
     }
 }

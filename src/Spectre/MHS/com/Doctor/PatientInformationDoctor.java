@@ -38,7 +38,7 @@ public class PatientInformationDoctor {
     }
 
     void onDoctorList(){
-        new DoctorList();
+        new DoctorList(doctorReferID);
     }
 
     void onRefer(){
