@@ -63,9 +63,7 @@ public class AddNewEmployee {
             sqlConnector.preparedStatement.executeUpdate();
 
             sql = "SELECT MAX(ID) FROM "+designation.getSelectedItem().toString();
-            sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(sql);
-            sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
-            sqlConnector.resultSet.next();
+            sqlConnector.executeQuery(sql);
 
             JOptionPane.showMessageDialog(contentPanel, "Employee Inserted with ID " + sqlConnector.resultSet.getInt(1));
             new AddNewEmployee(userid);
