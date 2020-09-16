@@ -1,5 +1,6 @@
 package Spectre.MHS.com.Doctor;
 import Spectre.MHS.com.OperationsNTools.Display;
+import Spectre.MHS.com.OperationsNTools.DoctorList;
 import Spectre.MHS.com.OperationsNTools.PatientInfo;
 import Spectre.MHS.com.OperationsNTools.Update;
 
@@ -10,8 +11,11 @@ public class PatientInformationDoctor {
     private JPanel contentPanel;
     private JTextField patientID, dateOfRelease;
     private JTextArea prescription, pathologyTests;
-    private JButton backButton, updateButton, referButton, refreshButton, viewButton;
+    private JButton backButton, updateButton, viewDoctors, refreshButton, viewButton;
     private JLabel name, age, gender, dateOfAdmission, dateOfAppointment, bloodGroup, contactNo, email;
+    private JTextField doctorReferID;
+    private JButton referButton;
+    private JTextField dateOfNewAppointment;
 
     private final String userid;
     private final Display display = new Display("Patient Information", contentPanel);
@@ -28,12 +32,19 @@ public class PatientInformationDoctor {
 
         updateButton.addActionListener(e -> onUpdate());
 
+        viewDoctors.addActionListener(e -> onDoctorList());
+
         referButton.addActionListener(e -> onRefer());
     }
 
+    void onDoctorList(){
+        new DoctorList();
+    }
+
     void onRefer(){
-        new DoctorListRefer(userid);
-        display.displayOff();
+         String query = ("UPDATE Patient SET AppointedDoctor = ?, DateOfAppointment =? WHERE ID = ?");
+         Update.onRefer(query, doctorReferID.getText(), dateOfNewAppointment.getText());
+        JOptionPane.showMessageDialog(null, "Referred");
     }
 
     void onBack() {
@@ -54,7 +65,7 @@ public class PatientInformationDoctor {
     }
 
     void onUpdate() {
-        String query = ("UPDATE patient SET DateOfRelease = ?, PathologyTests = ?, Prescription = ?  WHERE ID = ?");
+        String query = ("UPDATE Patient SET DateOfRelease = ?, PathologyTests = ?, Prescription = ?  WHERE ID = ?");
         Update.onUpdateDoctor(query, patientID.getText(), dateOfRelease.getText(), pathologyTests.getText(), prescription.getText());
         JOptionPane.showMessageDialog(null, "Updated");
     }

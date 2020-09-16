@@ -77,4 +77,19 @@ public class Update {
             e.printStackTrace();
         }
     }
+
+    public static void onRefer(String query, String doctorID, String newAppoinmentDate){
+        SQLConnector sqlConnector = new SQLConnector();
+        sqlConnector.connect();
+
+        try {
+            sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
+            sqlConnector.preparedStatement.setString(1, newAppoinmentDate);
+            sqlConnector.preparedStatement.setString(2, doctorID);
+            sqlConnector.preparedStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Updated");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

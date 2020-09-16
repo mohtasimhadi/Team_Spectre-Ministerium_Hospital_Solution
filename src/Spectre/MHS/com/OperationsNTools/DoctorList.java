@@ -1,4 +1,4 @@
-package Spectre.MHS.com.Receptionist;
+package Spectre.MHS.com.OperationsNTools;
 
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
