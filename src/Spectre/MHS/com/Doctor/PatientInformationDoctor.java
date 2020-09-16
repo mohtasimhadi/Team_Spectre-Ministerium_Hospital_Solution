@@ -27,6 +27,13 @@ public class PatientInformationDoctor {
         viewButton.addActionListener(e -> onView());
 
         updateButton.addActionListener(e -> onUpdate());
+
+        referButton.addActionListener(e -> onRefer());
+    }
+
+    void onRefer(){
+        new DoctorList(userid);
+        display.displayOff();
     }
 
     void onBack() {
