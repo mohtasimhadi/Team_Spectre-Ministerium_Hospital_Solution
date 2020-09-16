@@ -23,8 +23,14 @@ public class MainLogin {
     }
 
     private void onSelectButton(){
+        if (loginType.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(null, "Select Designation Please");
+            new MainLogin();
+            display.displayOff();
+            return;
+        }
         String designation = Objects.requireNonNull(loginType.getSelectedItem()).toString();
-        if (designation.equals("Admin")){
+         if (designation.equals("Admin")){
             new AdminLogin();
             display.displayOff();
         } else if (designation.equals("Doctor")){
@@ -36,8 +42,6 @@ public class MainLogin {
         } else if (designation.equals("Receptionist")){
             new ReceptionistLogin();
             display.displayOff();
-        } else {
-            JOptionPane.showMessageDialog(null, "Select Designation Please");
         }
     }
 
