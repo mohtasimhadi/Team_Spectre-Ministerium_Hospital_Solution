@@ -37,7 +37,6 @@ public class PasswordChanger {
                 throwable.printStackTrace();
             }
         });
-        display.displayOn();
         display.changeSize(200, 400);
         cancelButton.addActionListener(e -> display.displayOff());
     }
