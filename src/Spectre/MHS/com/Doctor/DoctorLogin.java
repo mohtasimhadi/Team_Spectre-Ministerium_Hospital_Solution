@@ -12,7 +12,6 @@ public class DoctorLogin{
     private JPanel contentPanel;
     private JPasswordField password;
     private JButton logInButton, backButton;
-
     private final LogIn logIn = new LogIn();
 
     Display display = new Display("Doctor Log In", contentPanel);
@@ -20,11 +19,7 @@ public class DoctorLogin{
     public DoctorLogin() {
         display.displayOn();
         backButton.addActionListener(e -> onBack());
-
-        logInButton.addActionListener(e -> {
-            onLogIn();
-            display.displayOff();
-        });
+        logInButton.addActionListener(e -> onLogIn());
     }
 
     void onBack(){
@@ -33,6 +28,7 @@ public class DoctorLogin{
     }
 
     void onLogIn(){
+        display.displayOff();
         Encryption encryption = new Encryption();
         String query = "select * from doctor where ID = ? and Password = ?";
 
