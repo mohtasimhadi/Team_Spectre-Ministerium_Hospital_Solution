@@ -30,18 +30,23 @@ public class MainLogin {
             return;
         }
         String designation = Objects.requireNonNull(loginType.getSelectedItem()).toString();
-         if (designation.equals("Admin")){
-            new AdminLogin();
-            display.displayOff();
-        } else if (designation.equals("Doctor")){
-            new DoctorLogin();
-            display.displayOff();
-        } else if (designation.equals("Pathologist")){
-            new PathologistLogIn();
-            display.displayOff();
-        } else if (designation.equals("Receptionist")){
-            new ReceptionistLogin();
-            display.displayOff();
+        switch (designation) {
+            case "Admin":
+                new AdminLogin();
+                display.displayOff();
+                break;
+            case "Doctor":
+                new DoctorLogin();
+                display.displayOff();
+                break;
+            case "Pathologist":
+                new PathologistLogIn();
+                display.displayOff();
+                break;
+            case "Receptionist":
+                new ReceptionistLogin();
+                display.displayOff();
+                break;
         }
     }
 
