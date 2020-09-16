@@ -18,9 +18,10 @@ public class SQLConnector {
         }
     }
 
-    public void executeQuery(String sql) throws SQLException {
+    public void executeQuery(String sql, Boolean resultSetNext) throws SQLException {
         preparedStatement = connection.prepareStatement(sql);
         resultSet = preparedStatement.executeQuery();
-        //resultSet.next();
+        if(resultSetNext)
+            resultSet.next();
     }
 }

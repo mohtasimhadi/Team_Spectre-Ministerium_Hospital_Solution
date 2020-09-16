@@ -85,7 +85,7 @@ public class ViewEmployee {
                     " UNION SELECT * FROM admin WHERE ID = " + userID.getText();
 
             try {
-                sqlConnector.executeQuery(query);
+                sqlConnector.executeQuery(query, false);
                 if(!sqlConnector.resultSet.next()){
                     JOptionPane.showMessageDialog(null, "Employee does not Exist");
                     return;

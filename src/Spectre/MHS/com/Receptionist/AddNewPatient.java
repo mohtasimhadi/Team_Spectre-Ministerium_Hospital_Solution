@@ -56,8 +56,7 @@ public class AddNewPatient {
                 sqlConnector.preparedStatement.executeUpdate();
 
                 sql = "SELECT MAX(ID) FROM patient";
-                sqlConnector.executeQuery(sql);
-                sqlConnector.resultSet.next();
+                sqlConnector.executeQuery(sql, true);
                 JOptionPane.showMessageDialog(contentPanel, "Patient Inserted with ID " + sqlConnector.resultSet.getInt(1));
 
                 new AddNewPatient(userid);
