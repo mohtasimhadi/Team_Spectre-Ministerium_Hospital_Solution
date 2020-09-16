@@ -18,13 +18,9 @@ public class AdminLogin{
 
     public AdminLogin() {
         display.displayOn();
-
+        usertype.setSelectedItem(null);
         exitButton.addActionListener(e -> onExit());
-
-        logInButton.addActionListener(e -> {
-            onLogIn();
-            display.displayOff();
-        });
+        logInButton.addActionListener(e -> onLogIn());
     }
 
     void wrongTypeMessage(){
@@ -46,6 +42,7 @@ public class AdminLogin{
     }
 
     void onLogIn(){
+        display.displayOff();
         Encryption encryption = new Encryption();
         String query = "select * from admin where ID = ? and Password = ?";
 

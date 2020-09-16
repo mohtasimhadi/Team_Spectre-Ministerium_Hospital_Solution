@@ -37,10 +37,12 @@ public class PatientInformationPathologist {
     }
 
     void onView(){
-        String patientID = this.patientID.getText();
-        String query = ("SELECT * FROM patient WHERE ID="+patientID);
-        PatientInfo patientInfo = new PatientInfo();
-        patientInfo.getPatientInfoPathologist(query, name, age, gender, bloodGroup, pathologyTests);
+        if(patientID.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Insert ID");
+            return;
+        }
+        String query = ("SELECT * FROM patient WHERE ID="+patientID.getText());
+        new PatientInfo().getPatientInfoPathologist(query, name, age, gender, bloodGroup, pathologyTests);
     }
 
     void onUpdate(){

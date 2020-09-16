@@ -27,6 +27,8 @@ public class ViewEmployee {
         sqlConnector.connect();
 
         updateAndDeleteButtonVisibility(false);
+        gender.setSelectedItem(null);
+        bloodGroup.setSelectedItem(null);
 
         backButton.addActionListener(e -> onBackButton(usertype));
         removeEmployeeButton.addActionListener(e -> onRemoveEmployeeButton());

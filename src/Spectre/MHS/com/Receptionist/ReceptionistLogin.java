@@ -16,7 +16,7 @@ public class ReceptionistLogin {
     private final LogIn logIn = new LogIn();
     private final Display display = new Display("Receptionist Log In", contentPanel);
 
-    ReceptionistLogin(){
+    public ReceptionistLogin(){
         display.displayOn();
         exitButton.addActionListener(e -> onExit());
         logInButton.addActionListener(e -> onLogIn());
