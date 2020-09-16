@@ -5,20 +5,18 @@ import java.sql.SQLException;
 import java.util.Arrays;
 
 public class PasswordChanger {
-    private JPasswordField OldPasswordField;
-    private JPasswordField NewPasswordField;
-    private JButton OKButton;
-    private JPanel PasswordChangerPanel;
-    private JButton cancelButton;
     private Display display;
+    private JPanel PasswordChangerPanel;
+    private JButton OKButton, cancelButton;
+    private JPasswordField OldPasswordField, NewPasswordField;
 
     public PasswordChanger(String tableName, String ID) {
         OKButton.addActionListener(e -> {
 
+            display = new Display("Change Password", PasswordChangerPanel);
+            Encryption encryption = new Encryption();
             String oldPassword = Arrays.toString(OldPasswordField.getPassword());
             String newPassword = Arrays.toString(NewPasswordField.getPassword());
-            Encryption encryption = new Encryption();
-
             String oldPasswordQuery = "SELECT Password FROM " + tableName + " WHERE ID = " + ID;
             String newPasswordQuery = "UPDATE " + tableName + " SET Password = '" + encryption.encrypt(newPassword) + "' WHERE ID = " + ID;
 
@@ -32,7 +30,7 @@ public class PasswordChanger {
                     sqlConnector.statement = sqlConnector.connection.createStatement();
                     sqlConnector.statement.executeUpdate(newPasswordQuery);
                     JOptionPane.showMessageDialog(null, "Password has been successfully changed");
-                    closeThis();
+                    display.displayOff();
                 } else {
                     JOptionPane.showMessageDialog(null, "Old Password does not Match.");
                 }
@@ -40,17 +38,8 @@ public class PasswordChanger {
                 throwable.printStackTrace();
             }
         });
-
-        displayThis();
-        cancelButton.addActionListener(e -> closeThis());
-    }
-
-    private void displayThis(){
-        display = new Display("Change Password", PasswordChangerPanel);
         display.displayOn();
         display.changeSize(200, 400);
-    }
-    private void closeThis(){
-        display.displayOff();
+        cancelButton.addActionListener(e -> display.displayOff());
     }
 }

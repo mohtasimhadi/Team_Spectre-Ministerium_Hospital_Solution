@@ -48,10 +48,7 @@ public class PatientInformationAdmin {
         String patientID = this.patientID.getText();
         String query = ("SELECT * FROM patient WHERE ID="+patientID);
         PatientInfo patientInfo = new PatientInfo();
-        //if(())              //Rafi HELP
         patientInfo.getPatientInfoReceptionist(query, name, age, gender, dateOfAdmission, dateOfAppointment, appointedDoctor, dateOfRelease, contactNo, email, bloodGroup, prescription, pathologyTests);
-        //else
-        //    JOptionPane.showMessageDialog(null, "No Patient With That ID");
     }
 
 }

@@ -53,7 +53,6 @@ public class AddNewPatient {
 
                 sqlConnector.preparedStatement.executeUpdate();
 
-                //Check if it works
                 sql = "SELECT MAX(ID) FROM patient";
                 sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(sql);
                 sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();

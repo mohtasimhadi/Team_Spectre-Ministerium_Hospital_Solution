@@ -58,9 +58,4 @@ public class PatientInformationDoctor {
         Update.onUpdateDoctor(query, patientID.getText(), dateOfRelease.getText(), pathologyTests.getText(), prescription.getText());
         JOptionPane.showMessageDialog(null, "Updated");
     }
-
-    public static void main(String[] args) {
-        String asd = null;
-        new PatientInformationDoctor(asd);
-    }
 }
