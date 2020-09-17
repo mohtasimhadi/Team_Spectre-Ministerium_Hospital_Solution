@@ -1,4 +1,7 @@
-package Spectre.MHS.com.OperationsNTools;
+package Spectre.MHS.com.PatientInformation;
+
+import Spectre.MHS.com.OperationsNTools.DatePicker;
+import Spectre.MHS.com.OperationsNTools.SQLConnector;
 
 import javax.swing.*;
 

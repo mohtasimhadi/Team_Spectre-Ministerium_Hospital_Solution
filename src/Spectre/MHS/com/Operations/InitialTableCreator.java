@@ -1,4 +1,6 @@
-package Spectre.MHS.com.OperationsNTools;
+package Spectre.MHS.com.Operations;
+
+import Spectre.MHS.com.OperationsNTools.SQLConnector;
 
 import javax.swing.*;
 import java.sql.Connection;

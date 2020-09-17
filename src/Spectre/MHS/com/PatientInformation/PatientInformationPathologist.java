@@ -1,7 +1,6 @@
 package Spectre.MHS.com.PatientInformation;
 
 import Spectre.MHS.com.OperationsNTools.Display;
-import Spectre.MHS.com.OperationsNTools.PatientInfo;
 import Spectre.MHS.com.OperationsNTools.Update;
 import Spectre.MHS.com.UserProfile.PathologistLocale;
 

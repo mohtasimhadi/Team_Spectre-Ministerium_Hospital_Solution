@@ -3,7 +3,7 @@ package Spectre.MHS.com;
 import Spectre.MHS.com.LogIn.AdminLogin;
 import Spectre.MHS.com.LogIn.DoctorLogin;
 import Spectre.MHS.com.OperationsNTools.Display;
-import Spectre.MHS.com.OperationsNTools.InitialTableCreator;
+import Spectre.MHS.com.Operations.InitialTableCreator;
 import Spectre.MHS.com.LogIn.PathologistLogIn;
 import Spectre.MHS.com.LogIn.ReceptionistLogin;
 import javax.swing.*;

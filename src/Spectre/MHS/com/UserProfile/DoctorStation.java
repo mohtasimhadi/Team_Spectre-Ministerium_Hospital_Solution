@@ -4,8 +4,8 @@ import Spectre.MHS.com.PatientInformation.PatientInformationDoctor;
 import Spectre.MHS.com.LogIn.DoctorLogin;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Lists.PatientList;
-import Spectre.MHS.com.OperationsNTools.PasswordChanger;
-import Spectre.MHS.com.OperationsNTools.EmployeeInfo;
+import Spectre.MHS.com.Operations.PasswordChanger;
+import Spectre.MHS.com.Operations.EmployeeInfo;
 import javax.swing.*;
 
 public class DoctorStation {

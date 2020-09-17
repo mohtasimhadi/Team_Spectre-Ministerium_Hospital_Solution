@@ -2,8 +2,8 @@ package Spectre.MHS.com.UserProfile;
 
 import Spectre.MHS.com.LogIn.ReceptionistLogin;
 import Spectre.MHS.com.OperationsNTools.Display;
-import Spectre.MHS.com.OperationsNTools.PasswordChanger;
-import Spectre.MHS.com.OperationsNTools.EmployeeInfo;
+import Spectre.MHS.com.Operations.PasswordChanger;
+import Spectre.MHS.com.Operations.EmployeeInfo;
 import Spectre.MHS.com.Operations.Receptionist.AddNewPatient;
 import Spectre.MHS.com.PatientInformation.PatientInformationReceptionist;
 

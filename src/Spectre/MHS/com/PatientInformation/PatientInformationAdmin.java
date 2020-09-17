@@ -2,7 +2,6 @@ package Spectre.MHS.com.PatientInformation;
 
 import Spectre.MHS.com.OperationsNTools.DatePicker;
 import Spectre.MHS.com.OperationsNTools.Display;
-import Spectre.MHS.com.OperationsNTools.PatientInfo;
 import Spectre.MHS.com.UserProfile.AdministrativeDirector;
 
 import javax.swing.*;

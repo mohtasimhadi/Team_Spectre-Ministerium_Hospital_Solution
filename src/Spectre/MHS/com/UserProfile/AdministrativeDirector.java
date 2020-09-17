@@ -4,8 +4,8 @@ import Spectre.MHS.com.PatientInformation.PatientInformationAdmin;
 import Spectre.MHS.com.Operations.Admin.ViewEmployee;
 import Spectre.MHS.com.LogIn.AdminLogin;
 import Spectre.MHS.com.OperationsNTools.Display;
-import Spectre.MHS.com.OperationsNTools.PasswordChanger;
-import Spectre.MHS.com.OperationsNTools.EmployeeInfo;
+import Spectre.MHS.com.Operations.PasswordChanger;
+import Spectre.MHS.com.Operations.EmployeeInfo;
 import javax.swing.*;
 
 
