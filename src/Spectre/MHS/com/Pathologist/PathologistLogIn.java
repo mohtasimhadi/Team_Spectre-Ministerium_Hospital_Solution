@@ -22,12 +22,12 @@ public class PathologistLogIn{
         logInButton.addActionListener(e -> onLogIn());
     }
 
-    void onBack(){
+    private void onBack(){
         display.displayOff();
         new MainLogin();
     }
 
-    void onLogIn(){
+    private void onLogIn(){
         Encryption encryption = new Encryption();
         String query = "select * from pathologist where ID = ? and Password = ?";
 

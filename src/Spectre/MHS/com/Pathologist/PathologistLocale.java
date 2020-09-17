@@ -26,12 +26,12 @@ public class PathologistLocale {
         changePassword.addActionListener(e -> new PasswordChanger("pathologist", userID.getText()));
     }
 
-    void onPatientInformation(){
+    private void onPatientInformation(){
         new PatientInformationPathologist(userid);
         display.displayOff();
     }
 
-    void onLogOut(){
+    private void onLogOut(){
         display.displayOff();
         new PathologistLogIn();
     }

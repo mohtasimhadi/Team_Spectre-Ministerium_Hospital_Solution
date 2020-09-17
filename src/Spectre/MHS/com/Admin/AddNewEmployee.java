@@ -49,20 +49,21 @@ public class AddNewEmployee {
         sqlConnector.connect();
         Encryption encryption = new Encryption();
         try {
-            sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(sql);
-            sqlConnector.preparedStatement.setString(1, name.getText());
-            sqlConnector.preparedStatement.setString(2, dateOfBirth.getText());
-            sqlConnector.preparedStatement.setString(3, contactNo.getText());
-            sqlConnector.preparedStatement.setString(4, address.getText());
-            sqlConnector.preparedStatement.setString(5, email.getText());
-            sqlConnector.preparedStatement.setString(6, Objects.requireNonNull(gender.getSelectedItem()).toString());
-            sqlConnector.preparedStatement.setString(7, educationalQualification.getText());
-            sqlConnector.preparedStatement.setString(8, Objects.requireNonNull(designation.getSelectedItem()).toString());
-            sqlConnector.preparedStatement.setString(9, Objects.requireNonNull(bloodGroup.getSelectedItem()).toString());
-            sqlConnector.preparedStatement.setString(10, dateOfJoin.getText());
-            sqlConnector.preparedStatement.setString(11, encryption.encrypt(Arrays.toString(password.getPassword())));
-            sqlConnector.preparedStatement.executeUpdate();
+            String[] parameters = new String[11];
 
+            parameters[0] = name.getText();
+            parameters[1] = dateOfBirth.getText();
+            parameters[2] = contactNo.getText();
+            parameters[3] = address.getText();
+            parameters[4] = email.getText();
+            parameters[5] = Objects.requireNonNull(gender.getSelectedItem()).toString();
+            parameters[6] = educationalQualification.getText();
+            parameters[7] = Objects.requireNonNull(designation.getSelectedItem()).toString();
+            parameters[8] = Objects.requireNonNull(bloodGroup.getSelectedItem()).toString();
+            parameters[9] = dateOfJoin.getText();
+            parameters[10] = encryption.encrypt(Arrays.toString(password.getPassword()));
+
+            sqlConnector.executeUpdate(parameters, sql, 11);
             sql = "SELECT MAX(ID) FROM "+designation.getSelectedItem().toString();
             sqlConnector.executeQuery(sql, true);
             JOptionPane.showMessageDialog(contentPanel, "Employee Inserted with ID " + sqlConnector.resultSet.getInt(1));

@@ -30,15 +30,15 @@ public class PatientInformationReceptionist {
         updateButton.addActionListener(e -> onUpdate());
     }
 
-    void onBack(){
+    private void onBack(){
         display.displayOff();
         new ReceptionistRange(userid);
     }
-    void onRefresh(){
+    private void onRefresh(){
         display.displayOff();
         new PatientInformationReceptionist(userid);
     }
-    void onView(){
+    private void onView(){
         if(patientID.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Enter a Patient ID");
             return;
@@ -49,7 +49,7 @@ public class PatientInformationReceptionist {
         patientInfo.getPatientInfoReceptionist(query, name, age, gender, dateOfAdmission, dateOfAppointment, appointedDoctor, dateOfRelease, contactNo, email, bloodGroup, prescription, pathologyTests);
     }
 
-    void onUpdate(){
+    private void onUpdate(){
         String query = ("UPDATE patient SET DateOfRelease = ?  WHERE ID = ?");
         Update.onUpdateReceptionist(query, patientID.getText(),dateOfRelease.getText());
     }
