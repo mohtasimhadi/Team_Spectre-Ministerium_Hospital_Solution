@@ -30,7 +30,7 @@ public class SQLConnector {
         for (int i=0; i<size; i++){
             preparedStatement.setString(i+1, parameters[i]);
         }
-        preparedStatement.executeQuery();
+        resultSet = preparedStatement.executeQuery();
     }
 
     public void executeUpdate(String sql) throws SQLException {
