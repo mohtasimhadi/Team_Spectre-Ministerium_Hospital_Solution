@@ -8,7 +8,11 @@ public class SQLConnector {
     public ResultSet resultSet;
     public Statement statement;
 
-    public void connect(){
+    public SQLConnector(){
+        connect();
+    }
+
+    private void connect(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/mhs?useTimezone=true&serverTimezone=UTC";

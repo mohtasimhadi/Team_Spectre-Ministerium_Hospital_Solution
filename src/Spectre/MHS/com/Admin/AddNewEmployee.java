@@ -46,7 +46,7 @@ public class AddNewEmployee {
     }
 
     void addEmployee(String sql){
-        sqlConnector.connect();
+        //sqlConnector.connect();
         Encryption encryption = new Encryption();
         try {
             String[] parameters = new String[11];
@@ -66,9 +66,9 @@ public class AddNewEmployee {
             sqlConnector.executeUpdate(parameters, sql, 11);
             sql = "SELECT MAX(ID) FROM "+designation.getSelectedItem().toString();
             sqlConnector.executeQuery(sql, true);
-            new AddNewEmployee(userid);
             JOptionPane.showMessageDialog(contentPanel, "Employee Inserted with ID " + sqlConnector.resultSet.getInt(1));
             display.displayOff();
+            new AddNewEmployee(userid);
         } catch (SQLException e) {
             e.printStackTrace();
         }

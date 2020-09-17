@@ -9,7 +9,7 @@ public class EmployeeInfo {
                                 JLabel contactNo, JLabel bloodGroup, JLabel address,
                                 JLabel dateOfBirth, JLabel name) {
         SQLConnector sqlConnector = new SQLConnector();
-        sqlConnector.connect();
+        //sqlConnector.connect();
 
         try {
 
@@ -37,7 +37,7 @@ public class EmployeeInfo {
 
     public void getDoctorList(String query) {
         SQLConnector sqlConnector = new SQLConnector();
-        sqlConnector.connect();
+        //sqlConnector.connect();
 
         try {
             sqlConnector.executeQuery(query, false);/*

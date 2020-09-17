@@ -21,6 +21,8 @@ public class PatientInformationReceptionist {
 
     PatientInformationReceptionist(String userid){
         this.userid = userid;
+        dateOfAdmission.setEnabled(false);
+        dateOfAppointment.setEnabled(false);
         backButton.addActionListener(e -> onBack());
         refreshButton.addActionListener(e -> onRefresh());
         viewButton.addActionListener(e -> onView());

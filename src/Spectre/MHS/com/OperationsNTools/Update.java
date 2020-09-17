@@ -7,7 +7,7 @@ public class Update {
 
     public static void onUpdatePathologist(String query, String ID, String data) {
         SQLConnector sqlConnector = new SQLConnector();
-        sqlConnector.connect();
+        //sqlConnector.connect();
 
         try {
             String[] parameters = new String[2];
@@ -23,7 +23,7 @@ public class Update {
 
     public static void onUpdateDoctor(String query, String ID, String dateOfRelease, String pathologyTests, String prescription ) {
         SQLConnector sqlConnector = new SQLConnector();
-        sqlConnector.connect();
+        //sqlConnector.connect();
 
         try {
             String[] parameters = new String[4];
@@ -41,7 +41,7 @@ public class Update {
     public static void onUpdateHR(String query, String ID, String name, String dateOfBirth, String address, String contactNo,
                                   String email, String gender, String education, String designation, String bloodGroup, String dataOfJoin) {
         SQLConnector sqlConnector = new SQLConnector();
-        sqlConnector.connect();
+        //sqlConnector.connect();
 
         try {
             String[] parameters = new String[11];
@@ -64,7 +64,7 @@ public class Update {
 
     public static void onUpdateReceptionist(String query, String ID, String dateOfRelease) {
         SQLConnector sqlConnector = new SQLConnector();
-        sqlConnector.connect();
+        //sqlConnector.connect();
 
         try {
             String[] parameters = new String[2];
@@ -79,7 +79,7 @@ public class Update {
 
     public static void onRefer(String query,String patientID, String doctorID, String newAppoinmentDate){
         SQLConnector sqlConnector = new SQLConnector();
-        sqlConnector.connect();
+        //sqlConnector.connect();
 
         try {
             String[] parameters = new String[3];

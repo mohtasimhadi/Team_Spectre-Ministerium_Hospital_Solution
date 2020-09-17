@@ -27,14 +27,14 @@ public class AdminLogin{
 
     private void wrongTypeMessage(){
         JOptionPane.showMessageDialog(null, "Wrong User Type");
-        new AdminLogin();
         display.displayOff();
+        new AdminLogin();
     }
 
     private void wrongUserNameOrPasswordMessage(){
         JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");
-        new AdminLogin();
         display.displayOff();
+        new AdminLogin();
     }
 
     private void logIntoHRAdmin(){

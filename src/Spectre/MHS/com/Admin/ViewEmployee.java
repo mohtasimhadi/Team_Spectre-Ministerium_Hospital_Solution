@@ -25,7 +25,7 @@ public class ViewEmployee {
         this.userType = usertype;
 
         sqlConnector = new SQLConnector();
-        sqlConnector.connect();
+        //sqlConnector.connect();
 
         updateAndDeleteButtonVisibility(false);
 

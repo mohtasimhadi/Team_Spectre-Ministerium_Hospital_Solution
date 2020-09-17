@@ -21,7 +21,7 @@ public class AbstractList{
 
     void connectSQL(){
         sqlConnector = new SQLConnector();
-        sqlConnector.connect();
+        //sqlConnector.connect();
     }
 
     private int getNumberOfRows(ResultSet resultSet){

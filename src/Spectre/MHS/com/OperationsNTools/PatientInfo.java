@@ -29,7 +29,7 @@ public class PatientInfo {
                                  JLabel appointedDoctor, DatePicker dateOfRelease, JLabel contactNo, JLabel email,
                                  JLabel bloodGroup, JTextArea prescription, JTextArea pathologyTests){
         SQLConnector sqlConnector = new SQLConnector();
-        sqlConnector.connect();
+        //sqlConnector.connect();
         try {
             sqlConnector.executeQuery(query, false);
 
