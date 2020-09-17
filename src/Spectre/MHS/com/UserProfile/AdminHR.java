@@ -17,7 +17,6 @@ public class AdminHR {
 
     public AdminHR(String userid) {
         this.userid = userid;
-        display.displayOn();
         String query = "SELECT * FROM admin WHERE ID=?";
         EmployeeInfo employeeInfo = new EmployeeInfo();
         employeeInfo.getPersonalInfo(userid, query, userID, joiningDate, gender, email, designation,
@@ -26,6 +25,8 @@ public class AdminHR {
         addNewEmployeeButton.addActionListener(e -> onAddNewEmployee());
         viewEmployeeButton.addActionListener(e -> onViewEmployee());
         changePasswordButton.addActionListener(e -> new PasswordChanger("admin", userID.getText()));
+
+        display.displayOn();
     }
 
     private void onViewEmployee(){

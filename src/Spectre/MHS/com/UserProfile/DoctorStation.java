@@ -17,12 +17,10 @@ public class DoctorStation {
 
     public DoctorStation(String userid) {
         this.userid = userid;
-
         String query = "SELECT * FROM doctor WHERE ID=?";
         EmployeeInfo employeeInfo = new EmployeeInfo();
         employeeInfo.getPersonalInfo(userid, query, userID, joiningDate, gender, email,
                 designation, contactNo, bloodGroup, address, dateOfBirth, name);
-
         logOutButton.addActionListener(e -> onLogOut());
         patientInformationButton.addActionListener(e -> onPatientInformation());
         changePasswordButton.addActionListener(e -> new PasswordChanger("doctor", userID.getText()));
