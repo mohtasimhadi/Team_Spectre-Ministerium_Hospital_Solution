@@ -13,8 +13,7 @@ public class AddNewPatient {
     private JButton backButton;
     private JComboBox<String> gender, bloodGroup;
     private JButton addPatientButton, viewDoctors;
-    private JTextField name, age,
-            dateOfRelease, contactNo, email, appointedDoctor;
+    private JTextField name, age, dateOfRelease, contactNo, email, appointedDoctor;
 
     private DatePicker dateOfAdmission, dateOfAppointment;
 
@@ -31,11 +30,11 @@ public class AddNewPatient {
         viewDoctors.addActionListener(e -> onViewDoctors());
     }
 
-    void onViewDoctors(){
+    private void onViewDoctors(){
         new DoctorList(appointedDoctor);
     }
 
-    void onAddPatient(){
+    private void onAddPatient(){
         if(name.getText().equals(""))
             JOptionPane.showMessageDialog(contentPanel, "Input Data Correctly");
         else{
@@ -70,7 +69,7 @@ public class AddNewPatient {
         }
     }
 
-    void onBack(){
+    private void onBack(){
         new ReceptionistRange(userid);
         display.displayOff();
     }

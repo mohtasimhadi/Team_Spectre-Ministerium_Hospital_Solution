@@ -25,16 +25,16 @@ public class ReceptionistRange {
         logOutButton.addActionListener(e -> onLogOut());
         addNewPatientButton.addActionListener(e -> onAddNewPatient());
     }
-    void onPatientInformation(){
+    private void onPatientInformation(){
         display.displayOff();
         new PatientInformationReceptionist(userid);
 
     }
-    void onAddNewPatient(){
+    private void onAddNewPatient(){
         display.displayOff();
         new AddNewPatient(userid);
     }
-    void onLogOut(){
+    private void onLogOut(){
         display.displayOff();
         new ReceptionistLogin();
     }

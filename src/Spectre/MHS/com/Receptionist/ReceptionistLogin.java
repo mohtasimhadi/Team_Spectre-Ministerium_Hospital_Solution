@@ -23,12 +23,12 @@ public class ReceptionistLogin {
         logInButton.addActionListener(e -> onLogIn());
     }
 
-    void onBack(){
+    private void onBack(){
         display.displayOff();
         new MainLogin();
     }
 
-    void onLogIn(){
+    private void onLogIn(){
         Encryption encryption = new Encryption();
         String query = "select * from receptionist where ID = ? and Password = ?";
 
