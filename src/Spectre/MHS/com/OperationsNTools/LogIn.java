@@ -9,11 +9,10 @@ public class LogIn {
         sqlConnector.connect();
 
         try{
-            sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
-            sqlConnector.preparedStatement.setString(1, userid);
-            sqlConnector.preparedStatement.setString(2,password);
-            sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
-
+            String[] parameters = new String[2];
+            parameters[0] = userid;
+            parameters[1] = password;
+            sqlConnector.executeQuery(parameters, query, 2);
             if(sqlConnector.resultSet.next()){
                 userTypeFound = sqlConnector.resultSet.getString("Designation");
                 return true;

@@ -12,6 +12,7 @@ public class EmployeeInfo {
         sqlConnector.connect();
 
         try {
+
             sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
             sqlConnector.preparedStatement.setString(1, userid);
             sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
@@ -39,8 +40,9 @@ public class EmployeeInfo {
         sqlConnector.connect();
 
         try {
+            sqlConnector.executeQuery(query, false);/*
             sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
-            sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
+            sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();*/
         } catch (Exception e) {
             e.printStackTrace();
         }

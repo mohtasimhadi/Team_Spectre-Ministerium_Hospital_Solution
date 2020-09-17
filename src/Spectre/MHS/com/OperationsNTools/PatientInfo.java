@@ -31,8 +31,7 @@ public class PatientInfo {
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();
         try {
-            sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(query);
-            sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
+            sqlConnector.executeQuery(query, false);
 
             if(sqlConnector.resultSet.next()){
                 if(name!=null){
