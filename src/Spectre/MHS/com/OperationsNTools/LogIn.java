@@ -6,7 +6,6 @@ public class LogIn {
     SQLConnector sqlConnector = new SQLConnector();
     public String userTypeFound;
     public boolean onLogIn(String query, String userid, String password){
-        //sqlConnector.connect();
 
         try{
             String[] parameters = new String[2];

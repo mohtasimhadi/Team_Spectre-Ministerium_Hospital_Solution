@@ -20,7 +20,6 @@ public class PasswordChanger {
             String newPasswordQuery = "UPDATE " + tableName + " SET Password = '" + encryption.encrypt(newPassword) + "' WHERE ID = " + ID;
 
             SQLConnector sqlConnector = new SQLConnector();
-            //sqlConnector.connect();
             try {
                 sqlConnector.executeQuery(oldPasswordQuery, true);
                 if(sqlConnector.resultSet.getString(1).equals(encryption.encrypt(oldPassword))) {

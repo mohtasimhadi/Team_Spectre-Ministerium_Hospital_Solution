@@ -46,7 +46,6 @@ public class AddNewEmployee {
     }
 
     void addEmployee(String sql){
-        //sqlConnector.connect();
         Encryption encryption = new Encryption();
         try {
             String[] parameters = new String[11];

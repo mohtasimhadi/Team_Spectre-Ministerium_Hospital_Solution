@@ -43,7 +43,5 @@ public class PatientInformationAdmin {
             PatientInfo patientInfo = new PatientInfo();
             patientInfo.getPatientInfoReceptionist(query, name, age, gender, dateOfAdmission, dateOfAppointment, appointedDoctor, dateOfRelease, contactNo, email, bloodGroup, prescription, pathologyTests);
         }
-
     }
-
 }

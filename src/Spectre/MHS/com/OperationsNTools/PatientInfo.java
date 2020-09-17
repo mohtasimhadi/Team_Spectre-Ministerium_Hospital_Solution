@@ -16,7 +16,7 @@ public class PatientInfo {
                                      DatePicker dateOfRelease, JLabel contactNo, JLabel email,
                                      JLabel bloodGroup, JTextArea prescription, JTextArea pathologyTests){
 
-        setTexts(query, name, age, gender, dateOfAdmission, dateOfAppointment, (JLabel) null, dateOfRelease, contactNo, email, bloodGroup, prescription, pathologyTests);
+        setTexts(query, name, age, gender, dateOfAdmission, dateOfAppointment, null, dateOfRelease, contactNo, email, bloodGroup, prescription, pathologyTests);
     }
 
     public void getPatientInfoPathologist(String query, JLabel name, JLabel age, JLabel gender,
@@ -29,7 +29,6 @@ public class PatientInfo {
                                  JLabel appointedDoctor, DatePicker dateOfRelease, JLabel contactNo, JLabel email,
                                  JLabel bloodGroup, JTextArea prescription, JTextArea pathologyTests){
         SQLConnector sqlConnector = new SQLConnector();
-        //sqlConnector.connect();
         try {
             sqlConnector.executeQuery(query, false);
 

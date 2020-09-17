@@ -40,7 +40,6 @@ public class AddNewPatient {
         else{
 
             SQLConnector sqlConnector = new SQLConnector();
-            //sqlConnector.connect();
             String sql = "INSERT INTO patient (Name, Age, Gender, DateOfAdmission, DateOfAppointment, AppointedDoctor, DateOfRelease, ContactNo, Email, BloodGroup) values (?,?,?,?,?,?,?,?,?,?)";
             try {
                 String[] parameters = new String[10];
