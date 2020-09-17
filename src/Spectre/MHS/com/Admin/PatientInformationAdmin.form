@@ -180,7 +180,7 @@
                       <text value=""/>
                     </properties>
                   </component>
-                  <component id="2272e" class="javax.swing.JLabel" binding="dateOfAdmission">
+                  <component id="2272e" class="Spectre.MHS.com.OperationsNTools.DatePicker" binding="dateOfAdmission">
                     <constraints>
                       <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -188,7 +188,7 @@
                       <text value=""/>
                     </properties>
                   </component>
-                  <component id="ca27b" class="javax.swing.JLabel" binding="dateOfAppointment">
+                  <component id="ca27b" class="Spectre.MHS.com.OperationsNTools.DatePicker" binding="dateOfAppointment">
                     <constraints>
                       <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -196,7 +196,7 @@
                       <text value=""/>
                     </properties>
                   </component>
-                  <component id="99a37" class="javax.swing.JTextField" binding="dateOfRelease">
+                  <component id="99a37" class="Spectre.MHS.com.OperationsNTools.DatePicker" binding="dateOfRelease">
                     <constraints>
                       <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>

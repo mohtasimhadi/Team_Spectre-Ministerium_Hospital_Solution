@@ -1,17 +1,21 @@
 package Spectre.MHS.com.Receptionist;
 
+import Spectre.MHS.com.OperationsNTools.DatePicker;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PatientInfo;
 import Spectre.MHS.com.OperationsNTools.Update;
 import javax.swing.*;
+import java.util.Date;
 
 public class PatientInformationReceptionist {
 
     private JPanel contentPanel;
-    private JTextField patientID, dateOfRelease;
+    private JTextField patientID;
+    private DatePicker dateOfRelease;
     private JTextArea prescription, pathologyTests;
     private JButton backButton, viewButton, refreshButton, updateButton;
-    private JLabel name, age, gender, dateOfAdmission, dateOfAppointment, appointedDoctor, contactNo, email, bloodGroup;
+    private JLabel name, age, gender, appointedDoctor, contactNo, email, bloodGroup;
+    private DatePicker dateOfAdmission, dateOfAppointment;
 
     private final String userid;
     private final Display display = new Display("Patient Information", contentPanel);

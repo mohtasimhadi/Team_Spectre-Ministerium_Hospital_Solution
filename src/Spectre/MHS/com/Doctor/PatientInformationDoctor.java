@@ -1,4 +1,5 @@
 package Spectre.MHS.com.Doctor;
+import Spectre.MHS.com.OperationsNTools.DatePicker;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Lists.DoctorList;
 import Spectre.MHS.com.OperationsNTools.PatientInfo;
@@ -9,10 +10,11 @@ import javax.swing.*;
 public class PatientInformationDoctor {
 
     private JPanel contentPanel;
-    private JTextField patientID, dateOfRelease, doctorReferID, dateOfNewAppointment;
+    private JTextField patientID, doctorReferID;
     private JTextArea prescription, pathologyTests;
     private JButton backButton, updateButton, viewDoctors, refreshButton, viewButton, referButton;
-    private JLabel name, age, gender, dateOfAdmission, dateOfAppointment, bloodGroup, contactNo, email;
+    private JLabel name, age, gender, bloodGroup, contactNo, email;
+    private DatePicker dateOfRelease, dateOfNewAppointment, dateOfAdmission, dateOfAppointment;
     private final String userid;
     private final Display display = new Display("Patient Information", contentPanel);
 
@@ -22,6 +24,9 @@ public class PatientInformationDoctor {
         doctorReferID.setEditable(false);
 
         buttonVisibility(false);
+
+        dateOfAdmission.makeUneditable();
+        dateOfAppointment.makeUneditable();
 
         backButton.addActionListener(e -> onBack());
         refreshButton.addActionListener(e -> onRefresh());

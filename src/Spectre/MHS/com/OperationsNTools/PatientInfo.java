@@ -5,18 +5,18 @@ import javax.swing.*;
 public class PatientInfo {
 
     public void getPatientInfoReceptionist(String query, JLabel name, JLabel age,
-                                           JLabel gender, JLabel dateOfAdmission, JLabel dateOfAppointment,
-                                           JLabel appointedDoctor, JTextField dateOfRelease, JLabel contactNo, JLabel email,
+                                           JLabel gender, DatePicker dateOfAdmission, DatePicker dateOfAppointment,
+                                           JLabel appointedDoctor, DatePicker dateOfRelease, JLabel contactNo, JLabel email,
                                            JLabel bloodGroup, JTextArea prescription, JTextArea pathologyTests){
         setTexts(query, name, age, gender, dateOfAdmission, dateOfAppointment, appointedDoctor, dateOfRelease, contactNo, email, bloodGroup, prescription, pathologyTests);
     }
 
     public void getPatientInfoDoctor(String query, JLabel name, JLabel age,
-                                     JLabel gender, JLabel dateOfAdmission, JLabel dateOfAppointment,
-                                     JTextField dateOfRelease, JLabel contactNo, JLabel email,
+                                     JLabel gender, DatePicker dateOfAdmission, DatePicker dateOfAppointment,
+                                     DatePicker dateOfRelease, JLabel contactNo, JLabel email,
                                      JLabel bloodGroup, JTextArea prescription, JTextArea pathologyTests){
 
-        setTexts(query, name, age, gender, dateOfAdmission, dateOfAppointment, null, dateOfRelease, contactNo, email, bloodGroup, prescription, pathologyTests);
+        setTexts(query, name, age, gender, dateOfAdmission, dateOfAppointment, (JLabel) null, dateOfRelease, contactNo, email, bloodGroup, prescription, pathologyTests);
     }
 
     public void getPatientInfoPathologist(String query, JLabel name, JLabel age, JLabel gender,
@@ -25,8 +25,8 @@ public class PatientInfo {
     }
 
     private static void setTexts(String query, JLabel name, JLabel age,
-                                 JLabel gender, JLabel dateOfAdmission, JLabel dateOfAppointment,
-                                 JLabel appointedDoctor, JTextField dateOfRelease, JLabel contactNo, JLabel email,
+                                 JLabel gender, DatePicker dateOfAdmission, DatePicker dateOfAppointment,
+                                 JLabel appointedDoctor, DatePicker dateOfRelease, JLabel contactNo, JLabel email,
                                  JLabel bloodGroup, JTextArea prescription, JTextArea pathologyTests){
         SQLConnector sqlConnector = new SQLConnector();
         sqlConnector.connect();

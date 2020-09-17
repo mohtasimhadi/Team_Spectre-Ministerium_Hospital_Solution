@@ -1,5 +1,6 @@
 package Spectre.MHS.com.Receptionist;
 
+import Spectre.MHS.com.OperationsNTools.DatePicker;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Lists.DoctorList;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
@@ -12,8 +13,10 @@ public class AddNewPatient {
     private JButton backButton;
     private JComboBox<String> gender, bloodGroup;
     private JButton addPatientButton, viewDoctors;
-    private JTextField name, age, dateOfAdmission, dateOfAppointment,
+    private JTextField name, age,
             dateOfRelease, contactNo, email, appointedDoctor;
+
+    private DatePicker dateOfAdmission, dateOfAppointment;
 
     private final String userid;
     private final Display display = new Display("Add New Patient", contentPanel);

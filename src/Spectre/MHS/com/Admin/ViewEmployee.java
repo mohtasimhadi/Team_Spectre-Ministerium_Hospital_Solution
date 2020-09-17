@@ -1,5 +1,6 @@
 package Spectre.MHS.com.Admin;
 
+import Spectre.MHS.com.OperationsNTools.DatePicker;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
 import Spectre.MHS.com.OperationsNTools.Update;
@@ -10,10 +11,11 @@ import java.util.Objects;
 public class ViewEmployee {
     private JPanel contentPanel;
     private JButton backButton, viewEmployeeButton, updateInformationButton, removeEmployeeButton;
-    private JTextField userID, name, dateOfBirth, address, contactNo, email, joiningDate, educationQualification;
+    private JTextField userID, name, address, contactNo, email, educationQualification;
     private JComboBox<String> gender, bloodGroup;
     private JLabel designation;
     private JButton refreshButton;
+    private DatePicker dateOfBirth, joiningDate;
     private final String userid, userType;
     private final Display display = new Display("View Employee", contentPanel);
     SQLConnector sqlConnector;
@@ -27,6 +29,9 @@ public class ViewEmployee {
         sqlConnector.connect();
 
         updateAndDeleteButtonVisibility(false);
+
+        dateOfBirth.makeUneditable();
+        joiningDate.makeUneditable();
 
         gender.setSelectedItem(null);
         bloodGroup.setSelectedItem(null);
