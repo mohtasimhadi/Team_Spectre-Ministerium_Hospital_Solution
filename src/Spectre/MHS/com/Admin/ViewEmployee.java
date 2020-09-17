@@ -105,7 +105,7 @@ public class ViewEmployee {
                 designation.setText(sqlConnector.resultSet.getString("Designation"));
                 joiningDate.setText(sqlConnector.resultSet.getString("DateOfJoin"));
                 updateAndDeleteButtonVisibility(true);
-            } catch (SQLException | ParseException e){
+            } catch (SQLException e){
                 e.printStackTrace();
             }
         }
