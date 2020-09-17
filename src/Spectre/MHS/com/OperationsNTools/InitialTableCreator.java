@@ -1,13 +1,22 @@
 package Spectre.MHS.com.OperationsNTools;
 
 import javax.swing.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class InitialTableCreator {
+    public static Connection connection;
+    public static Statement statement;
+
     public static void createDBTable(){
-        SQLConnector sqlConnector = new SQLConnector();
 
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://localhost:3306/mysql?useTimezone=true&serverTimezone=UTC";
+            connection = DriverManager.getConnection(url,"root","");
+
             String sql0 = "CREATE DATABASE mhs";
 
             String sql1 = "CREATE TABLE `admin` (\n" +
@@ -111,7 +120,9 @@ public class InitialTableCreator {
             String sql11 = "INSERT INTO `patient` (`ID`, `Name`, `Age`, `Gender`, `DateOfAdmission`, `DateOfAppointment`, `AppointedDoctor`, `DateOfRelease`, `ContactNo`, `Email`, `BloodGroup`, `Prescription`, `PathologyTests`) \n" +
                     "VALUES ('10000', 'a', '1', 'b', '2000-01-01', '2000-01-01', '2000', '2000-01-01', '0000000000000', 'c@d.com', 'e+', 'ffffff', 'ggggggggg');";
 
-            sqlConnector.executeUpdate(sql0);
+            statement = connection.createStatement();
+            statement.executeUpdate(sql0);
+            SQLConnector sqlConnector = new SQLConnector();
             sqlConnector.executeUpdate(sql1);
             sqlConnector.executeUpdate(sql2);
             sqlConnector.executeUpdate(sql3);
@@ -126,9 +137,15 @@ public class InitialTableCreator {
 
             JOptionPane.showMessageDialog(null, "Database Created");
 
-        } catch (SQLException e) {
+        }
+        catch (SQLException e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Database Already Exists");
+            String exception = e.toString();
+            if (exception.equals("java.sql.SQLException: Can't create database 'mhs'; database exists"))
+                JOptionPane.showMessageDialog(null, "Database Already Exists");
+        }
+        catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
 
     }
