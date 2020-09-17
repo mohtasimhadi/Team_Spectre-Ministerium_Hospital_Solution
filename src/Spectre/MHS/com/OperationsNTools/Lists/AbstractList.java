@@ -59,6 +59,7 @@ public class AbstractList{
     private void onClick(JTextField field){
         int index = table.getSelectedRow();
         field.setText((String) table.getValueAt(index, 0));
+        display.displayOff();
     }
 
     void addMouseListener(JTextField field){
@@ -68,6 +69,7 @@ public class AbstractList{
                 onClick(field);
             }
         });
+        display.displayOff();
     }
 
 }
