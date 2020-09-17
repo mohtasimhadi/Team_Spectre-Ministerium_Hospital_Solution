@@ -31,7 +31,7 @@ public class AddNewEmployee {
         designation.setSelectedItem(null);
     }
 
-    void onAddEmployeeButton() {
+    private void onAddEmployeeButton() {
         if(!checkIfAllAreFilled()){
             JOptionPane.showMessageDialog(null, "Please Fill Out all the Information");
             return;
@@ -45,7 +45,7 @@ public class AddNewEmployee {
         addEmployee(sql);
     }
 
-    void addEmployee(String sql){
+    private void addEmployee(String sql){
         Encryption encryption = new Encryption();
         try {
             String[] parameters = new String[11];
@@ -72,7 +72,7 @@ public class AddNewEmployee {
             e.printStackTrace();
         }
     }
-    void onBack(){
+    private void onBack(){
         new AdminHR(userid);
         display.displayOff();
     }
