@@ -15,7 +15,6 @@ public class PathologistLocale {
 
     public PathologistLocale(String userid) {
         this.userid = userid;
-        display.displayOn();
         String query = "SELECT * FROM pathologist WHERE ID=?";
         EmployeeInfo employeeInfo = new EmployeeInfo();
         employeeInfo.getPersonalInfo(userid, query, userID, joiningDate, gender, email, designation,
@@ -24,6 +23,7 @@ public class PathologistLocale {
         logOutButton.addActionListener(e -> onLogOut());
         patientInformationButton.addActionListener(e -> onPatientInformation());
         changePassword.addActionListener(e -> new PasswordChanger("pathologist", userID.getText()));
+        display.displayOn();
     }
 
     private void onPatientInformation(){
@@ -32,7 +32,7 @@ public class PathologistLocale {
     }
 
     private void onLogOut(){
-        display.displayOff();
         new PathologistLogIn();
+        display.displayOff();
     }
 }

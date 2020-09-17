@@ -14,7 +14,6 @@ public class ReceptionistRange {
 
     public ReceptionistRange(String userid) {
         this.userid = userid;
-        display.displayOn();
 
         String query = "SELECT * FROM receptionist WHERE ID=?";
         EmployeeInfo employeeInfo = new EmployeeInfo();
@@ -24,18 +23,19 @@ public class ReceptionistRange {
         changePasswordButton.addActionListener(e -> new PasswordChanger("receptionist", userID.getText()));
         logOutButton.addActionListener(e -> onLogOut());
         addNewPatientButton.addActionListener(e -> onAddNewPatient());
+        display.displayOn();
     }
     private void onPatientInformation(){
-        display.displayOff();
         new PatientInformationReceptionist(userid);
+        display.displayOff();
 
     }
     private void onAddNewPatient(){
-        display.displayOff();
         new AddNewPatient(userid);
+        display.displayOff();
     }
     private void onLogOut(){
-        display.displayOff();
         new ReceptionistLogin();
+        display.displayOff();
     }
 }

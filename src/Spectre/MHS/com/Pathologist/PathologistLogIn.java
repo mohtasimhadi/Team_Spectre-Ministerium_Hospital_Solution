@@ -16,15 +16,14 @@ public class PathologistLogIn{
     private final Display display = new Display("Pathologist Log In", contentPanel);
 
     public PathologistLogIn() {
-        display.displayOn();
-
         backButton.addActionListener(e -> onBack());
         logInButton.addActionListener(e -> onLogIn());
+        display.displayOn();
     }
 
     private void onBack(){
-        display.displayOff();
         new MainLogin();
+        display.displayOff();
     }
 
     private void onLogIn(){

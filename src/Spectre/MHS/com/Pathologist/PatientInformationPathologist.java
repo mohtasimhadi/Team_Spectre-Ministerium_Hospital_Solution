@@ -18,22 +18,21 @@ public class PatientInformationPathologist {
 
     public PatientInformationPathologist(String userid) {
         this.userid = userid;
-        display.displayOn();
-
         backButton.addActionListener(e -> onBack());
         refreshButton.addActionListener(e -> onRefresh());
         viewButton.addActionListener(e -> onView());
         updateButton.addActionListener(e -> onUpdate());
+        display.displayOn();
     }
 
     private void onBack(){
-        display.displayOff();
         new PathologistLocale(userid);
+        display.displayOff();
     }
 
     private void onRefresh(){
-        display.displayOff();
         new PatientInformationPathologist(userid);
+        display.displayOff();
     }
 
     private void onView(){

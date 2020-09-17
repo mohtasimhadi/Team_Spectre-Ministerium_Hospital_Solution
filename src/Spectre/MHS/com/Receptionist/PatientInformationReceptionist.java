@@ -5,7 +5,6 @@ import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PatientInfo;
 import Spectre.MHS.com.OperationsNTools.Update;
 import javax.swing.*;
-import java.util.Date;
 
 public class PatientInformationReceptionist {
 
@@ -22,21 +21,20 @@ public class PatientInformationReceptionist {
 
     PatientInformationReceptionist(String userid){
         this.userid = userid;
-        display.displayOn();
-
         backButton.addActionListener(e -> onBack());
         refreshButton.addActionListener(e -> onRefresh());
         viewButton.addActionListener(e -> onView());
         updateButton.addActionListener(e -> onUpdate());
+        display.displayOn();
     }
 
     private void onBack(){
-        display.displayOff();
         new ReceptionistRange(userid);
+        display.displayOff();
     }
     private void onRefresh(){
-        display.displayOff();
         new PatientInformationReceptionist(userid);
+        display.displayOff();
     }
     private void onView(){
         if(patientID.getText().isEmpty()){

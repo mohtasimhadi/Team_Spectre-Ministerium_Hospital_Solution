@@ -25,18 +25,23 @@ public class SQLConnector {
             resultSet.next();
     }
 
-    public void executeQuery(String[] strings, String sql, int size) throws SQLException {
+    public void executeQuery(String[] parameters, String sql, int size) throws SQLException {
         preparedStatement = connection.prepareStatement(sql);
         for (int i=0; i<size; i++){
-            preparedStatement.setString(i+1, strings[i]);
+            preparedStatement.setString(i+1, parameters[i]);
         }
         preparedStatement.executeQuery();
     }
 
-    public void executeUpdate(String[] strings, String sql, int size) throws SQLException {
+    public void executeUpdate(String sql) throws SQLException {
+        statement = connection.createStatement();
+        statement.executeUpdate(sql);
+    }
+
+    public void executeUpdate(String[] parameters, String sql, int size) throws SQLException {
         preparedStatement = connection.prepareStatement(sql);
         for(int i=0; i<size; i++){
-            preparedStatement.setString(i+1, strings[i]);
+            preparedStatement.setString(i+1, parameters[i]);
         }
         preparedStatement.executeUpdate();
     }

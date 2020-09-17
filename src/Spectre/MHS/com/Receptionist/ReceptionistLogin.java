@@ -18,14 +18,14 @@ public class ReceptionistLogin {
     private final Display display = new Display("Receptionist Log In", contentPanel);
 
     public ReceptionistLogin(){
-        display.displayOn();
         backButton.addActionListener(e -> onBack());
         logInButton.addActionListener(e -> onLogIn());
+        display.displayOn();
     }
 
     private void onBack(){
-        display.displayOff();
         new MainLogin();
+        display.displayOff();
     }
 
     private void onLogIn(){

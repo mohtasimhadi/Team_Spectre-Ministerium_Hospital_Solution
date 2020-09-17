@@ -22,12 +22,9 @@ public class PasswordChanger {
             SQLConnector sqlConnector = new SQLConnector();
             sqlConnector.connect();
             try {
-                sqlConnector.preparedStatement = sqlConnector.connection.prepareStatement(oldPasswordQuery);
-                sqlConnector.resultSet = sqlConnector.preparedStatement.executeQuery();
-                sqlConnector.resultSet.next();
+                sqlConnector.executeQuery(oldPasswordQuery, true);
                 if(sqlConnector.resultSet.getString(1).equals(encryption.encrypt(oldPassword))) {
-                    sqlConnector.statement = sqlConnector.connection.createStatement();
-                    sqlConnector.statement.executeUpdate(newPasswordQuery);
+                    sqlConnector.executeUpdate(newPasswordQuery);
                     JOptionPane.showMessageDialog(null, "Password has been successfully changed");
                     display.displayOff();
                 } else {

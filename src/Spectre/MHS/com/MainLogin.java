@@ -24,9 +24,9 @@ public class MainLogin {
 
     private void onSelectButton(){
         if (loginType.getSelectedItem() == null){
-            JOptionPane.showMessageDialog(null, "Select Designation Please");
             new MainLogin();
             display.displayOff();
+            JOptionPane.showMessageDialog(null, "Select Designation Please");
             return;
         }
         String designation = Objects.requireNonNull(loginType.getSelectedItem()).toString();
