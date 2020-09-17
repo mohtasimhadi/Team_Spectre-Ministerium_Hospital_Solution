@@ -1,6 +1,6 @@
-package Spectre.MHS.com.OperationsNTools.Lists;
+package Spectre.MHS.com.Tools.Lists;
 
-import Spectre.MHS.com.OperationsNTools.Display;
+import Spectre.MHS.com.Tools.Display;
 import javax.swing.*;
 import java.sql.SQLException;
 

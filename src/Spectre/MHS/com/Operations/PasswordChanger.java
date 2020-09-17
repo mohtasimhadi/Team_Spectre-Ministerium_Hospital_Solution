@@ -1,8 +1,8 @@
 package Spectre.MHS.com.Operations;
 
-import Spectre.MHS.com.OperationsNTools.Display;
-import Spectre.MHS.com.OperationsNTools.Encryption;
-import Spectre.MHS.com.OperationsNTools.SQLConnector;
+import Spectre.MHS.com.Tools.Display;
+import Spectre.MHS.com.Tools.Encryption;
+import Spectre.MHS.com.Tools.SQLConnector;
 
 import javax.swing.*;
 import java.sql.SQLException;

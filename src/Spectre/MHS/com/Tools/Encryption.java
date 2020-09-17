@@ -1,4 +1,4 @@
-package Spectre.MHS.com.OperationsNTools;
+package Spectre.MHS.com.Tools;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

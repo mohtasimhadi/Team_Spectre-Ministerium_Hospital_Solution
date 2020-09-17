@@ -1,7 +1,7 @@
-package Spectre.MHS.com.OperationsNTools.Lists;
+package Spectre.MHS.com.Tools.Lists;
 
-import Spectre.MHS.com.OperationsNTools.Display;
-import Spectre.MHS.com.OperationsNTools.SQLConnector;
+import Spectre.MHS.com.Tools.Display;
+import Spectre.MHS.com.Tools.SQLConnector;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

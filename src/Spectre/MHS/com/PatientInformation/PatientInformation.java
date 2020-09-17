@@ -1,11 +1,10 @@
 package Spectre.MHS.com.PatientInformation;
 
-import Spectre.MHS.com.OperationsNTools.DatePicker;
-import Spectre.MHS.com.OperationsNTools.SQLConnector;
-
+import Spectre.MHS.com.Tools.DatePicker;
+import Spectre.MHS.com.Tools.SQLConnector;
 import javax.swing.*;
 
-public class PatientInfo {
+public class PatientInformation {
 
     public void getPatientInfoReceptionist(String query, JLabel name, JLabel age,
                                            JLabel gender, DatePicker dateOfAdmission, DatePicker dateOfAppointment,

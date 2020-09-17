@@ -1,12 +1,12 @@
 package Spectre.MHS.com.PatientInformation;
 
-import Spectre.MHS.com.OperationsNTools.Display;
-import Spectre.MHS.com.OperationsNTools.Update;
+import Spectre.MHS.com.Tools.Display;
+import Spectre.MHS.com.Tools.Update;
 import Spectre.MHS.com.UserProfile.PathologistLocale;
 
 import javax.swing.*;
 
-public class PatientInformationPathologist {
+public class PatientInformationPathologist extends PatientInformation{
 
     private JPanel contentPanel;
     private JTextField patientID;
@@ -42,7 +42,7 @@ public class PatientInformationPathologist {
             return;
         }
         String query = ("SELECT * FROM patient WHERE ID="+patientID.getText());
-        new PatientInfo().getPatientInfoPathologist(query, name, age, gender, bloodGroup, pathologyTests);
+        new PatientInformation().getPatientInfoPathologist(query, name, age, gender, bloodGroup, pathologyTests);
     }
 
     private void onUpdate(){

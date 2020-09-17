@@ -1,13 +1,12 @@
 package Spectre.MHS.com.PatientInformation;
 
-import Spectre.MHS.com.OperationsNTools.DatePicker;
-import Spectre.MHS.com.OperationsNTools.Display;
-import Spectre.MHS.com.OperationsNTools.Update;
+import Spectre.MHS.com.Tools.DatePicker;
+import Spectre.MHS.com.Tools.Display;
+import Spectre.MHS.com.Tools.Update;
 import Spectre.MHS.com.UserProfile.ReceptionistRange;
-
 import javax.swing.*;
 
-public class PatientInformationReceptionist {
+public class PatientInformationReceptionist extends PatientInformation{
 
     private JPanel contentPanel;
     private JTextField patientID;
@@ -46,8 +45,7 @@ public class PatientInformationReceptionist {
         }
         String patientID = this.patientID.getText();
         String query = ("SELECT * FROM patient WHERE ID="+patientID);
-        PatientInfo patientInfo = new PatientInfo();
-        patientInfo.getPatientInfoReceptionist(query, name, age, gender, dateOfAdmission, dateOfAppointment, appointedDoctor, dateOfRelease, contactNo, email, bloodGroup, prescription, pathologyTests);
+        getPatientInfoReceptionist(query, name, age, gender, dateOfAdmission, dateOfAppointment, appointedDoctor, dateOfRelease, contactNo, email, bloodGroup, prescription, pathologyTests);
     }
 
     private void onUpdate(){
