@@ -6,6 +6,7 @@ import Spectre.MHS.com.OperationsNTools.SQLConnector;
 import Spectre.MHS.com.OperationsNTools.Update;
 import javax.swing.*;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.Objects;
 
 public class ViewEmployee {
@@ -104,7 +105,7 @@ public class ViewEmployee {
                 designation.setText(sqlConnector.resultSet.getString("Designation"));
                 joiningDate.setText(sqlConnector.resultSet.getString("DateOfJoin"));
                 updateAndDeleteButtonVisibility(true);
-            } catch (SQLException e){
+            } catch (SQLException | ParseException e){
                 e.printStackTrace();
             }
         }

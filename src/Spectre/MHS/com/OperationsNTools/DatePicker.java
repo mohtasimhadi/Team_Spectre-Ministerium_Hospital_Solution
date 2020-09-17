@@ -26,7 +26,7 @@ public class DatePicker extends JPanel{
         return new SimpleDateFormat("yyyy-MM-dd").format(date);
     }
 
-    public void setText(String Text){
+    public void setText(String Text) throws ParseException {
         Date date = null;
         try {
             date = new SimpleDateFormat("yyyy-MM-dd").parse(Text);

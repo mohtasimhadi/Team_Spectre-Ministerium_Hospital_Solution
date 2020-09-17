@@ -20,9 +20,10 @@ public class Display {
     }
 
     public void displayOn(){
+        jFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        jFrame.setUndecorated(true);
         jFrame.setVisible(true);
         jFrame.setResizable(false);
-        jFrame.setSize(1280, 720);
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jFrame.add((Component) contentPanel);
     }
