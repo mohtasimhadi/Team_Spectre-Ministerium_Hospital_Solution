@@ -1,5 +1,6 @@
 package Spectre.MHS.com.OperationsNTools;
 
+import javax.swing.*;
 import java.sql.SQLException;
 
 public class InitialTableCreator {
@@ -7,142 +8,127 @@ public class InitialTableCreator {
         SQLConnector sqlConnector = new SQLConnector();
 
         try {
+            String sql0 = "CREATE DATABASE mhs";
 
-            String sql = "SET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";\n" +
-                    "SET AUTOCOMMIT = 0;\n" +
-                    "START TRANSACTION;\n" +
-                    "SET time_zone = \"+00:00\";\n" +
-                    "\n" +
-                    "CREATE TABLE `admin` (\n" +
-                    "  `ID` int(10) NOT NULL,\n" +
-                    "  `Name` varchar(50) NOT NULL,\n" +
-                    "  `DateOfBirth` date NOT NULL,\n" +
-                    "  `Address` varchar(150) NOT NULL,\n" +
-                    "  `ContactNo` int(13) NOT NULL,\n" +
-                    "  `Email` varchar(50) NOT NULL,\n" +
-                    "  `Gender` varchar(6) NOT NULL,\n" +
-                    "  `EducationQualification` varchar(20) NOT NULL,\n" +
-                    "  `Designation` varchar(100) NOT NULL,\n" +
-                    "  `BloodGroup` varchar(3) NOT NULL,\n" +
-                    "  `DateOfJoin` date NOT NULL,\n" +
-                    "  `Password` varchar(250) NOT NULL\n" +
-                    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;\n" +
-                    "\uFEFF\n" +
-                    "CREATE TABLE `doctor` (\n" +
-                    "  `ID` int(10) NOT NULL,\n" +
-                    "  `Name` varchar(50) NOT NULL,\n" +
-                    "  `DateOfBirth` date NOT NULL,\n" +
-                    "  `Address` varchar(150) NOT NULL,\n" +
-                    "  `ContactNo` int(13) NOT NULL,\n" +
-                    "  `Email` varchar(50) NOT NULL,\n" +
-                    "  `Gender` varchar(6) NOT NULL,\n" +
-                    "  `EducationQualification` varchar(20) NOT NULL,\n" +
-                    "  `Designation` varchar(100) NOT NULL,\n" +
-                    "  `BloodGroup` varchar(3) NOT NULL,\n" +
-                    "  `DateOfJoin` date NOT NULL,\n" +
-                    "  `Password` varchar(255) NOT NULL\n" +
-                    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;\n" +
-                    "\n" +
-                    "CREATE TABLE `pathologist` (\n" +
-                    "  `ID` int(10) NOT NULL,\n" +
-                    "  `Name` varchar(50) NOT NULL,\n" +
-                    "  `DateOfBirth` date NOT NULL,\n" +
-                    "  `Address` varchar(150) NOT NULL,\n" +
-                    "  `ContactNo` int(13) NOT NULL,\n" +
-                    "  `Email` varchar(50) NOT NULL,\n" +
-                    "  `Gender` varchar(6) NOT NULL,\n" +
-                    "  `EducationQualification` varchar(20) NOT NULL,\n" +
-                    "  `Designation` varchar(100) NOT NULL,\n" +
-                    "  `BloodGroup` varchar(3) NOT NULL,\n" +
-                    "  `DateOfJoin` date NOT NULL,\n" +
-                    "  `Password` varchar(255) NOT NULL\n" +
-                    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;\n" +
-                    "\n" +
-                    "CREATE TABLE `patient` (\n" +
-                    "  `ID` int(10) NOT NULL,\n" +
-                    "  `Name` varchar(50) NOT NULL,\n" +
-                    "  `Age` int(3) NOT NULL,\n" +
-                    "  `Gender` varchar(6) NOT NULL,\n" +
-                    "  `DateOfAdmission` date NOT NULL,\n" +
-                    "  `DateOfAppointment` date NOT NULL,\n" +
-                    "  `AppointedDoctor` int(10) NOT NULL,\n" +
-                    "  `DateOfRelease` date NOT NULL,\n" +
-                    "  `ContactNo` int(13) NOT NULL,\n" +
-                    "  `Email` varchar(50) NOT NULL,\n" +
-                    "  `BloodGroup` varchar(3) NOT NULL,\n" +
-                    "  `Prescription` varchar(500) NOT NULL,\n" +
-                    "  `PathologyTests` varchar(300) NOT NULL\n" +
-                    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;\n" +
-                    "\uFEFF\n" +
+            String sql1 = "CREATE TABLE `admin` (\n" +
+                    "  `ID` int(10) NOT NULL AUTO_INCREMENT,\n" +
+                    "  `Name` varchar(50),\n" +
+                    "  `DateOfBirth` date,\n" +
+                    "  `Address` varchar(150),\n" +
+                    "  `ContactNo` int(13),\n" +
+                    "  `Email` varchar(50),\n" +
+                    "  `Gender` varchar(6),\n" +
+                    "  `EducationQualification` varchar(20),\n" +
+                    "  `Designation` varchar(100),\n" +
+                    "  `BloodGroup` varchar(3),\n" +
+                    "  `DateOfJoin` date,\n" +
+                    "  `Password` varchar(250) NOT NULL,\n" +
+                    "  CONSTRAINT admin_pk PRIMARY KEY (ID)\n" +
+                    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+
+            String sql2 = "CREATE TABLE `doctor` (\n" +
+                    "  `ID` int(10) NOT NULL AUTO_INCREMENT,\n" +
+                    "  `Name` varchar(50) ,\n" +
+                    "  `DateOfBirth` date ,\n" +
+                    "  `Address` varchar(150) ,\n" +
+                    "  `ContactNo` int(13) ,\n" +
+                    "  `Email` varchar(50) ,\n" +
+                    "  `Gender` varchar(6) ,\n" +
+                    "  `EducationQualification` varchar(20) ,\n" +
+                    "  `Designation` varchar(100) ,\n" +
+                    "  `BloodGroup` varchar(3) ,\n" +
+                    "  `DateOfJoin` date ,\n" +
+                    "  `Password` varchar(255) NOT NULL,\n" +
+                    "  CONSTRAINT doctor_pk PRIMARY KEY (ID)\n" +
+                    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+
+            String sql3 = "CREATE TABLE `pathologist` (\n" +
+                    "  `ID` int(10) NOT NULL AUTO_INCREMENT,\n" +
+                    "  `Name` varchar(50) ,\n" +
+                    "  `DateOfBirth` date ,\n" +
+                    "  `Address` varchar(150) ,\n" +
+                    "  `ContactNo` int(13) ,\n" +
+                    "  `Email` varchar(50) ,\n" +
+                    "  `Gender` varchar(6) ,\n" +
+                    "  `EducationQualification` varchar(20) ,\n" +
+                    "  `Designation` varchar(100) ,\n" +
+                    "  `BloodGroup` varchar(3) ,\n" +
+                    "  `DateOfJoin` date ,\n" +
+                    "  `Password` varchar(255) NOT NULL,\n" +
+                    "  CONSTRAINT pathologist_pk PRIMARY KEY (ID)\n" +
+                    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+
+            String sql4 = "CREATE TABLE `patient` (\n" +
+                    "  `ID` int(10) NOT NULL AUTO_INCREMENT,\n" +
+                    "  `Name` varchar(50) ,\n" +
+                    "  `Age` int(3) ,\n" +
+                    "  `Gender` varchar(6) ,\n" +
+                    "  `DateOfAdmission` date ,\n" +
+                    "  `DateOfAppointment` date ,\n" +
+                    "  `AppointedDoctor` int(10) ,\n" +
+                    "  `DateOfRelease` date ,\n" +
+                    "  `ContactNo` int(13) ,\n" +
+                    "  `Email` varchar(50) ,\n" +
+                    "  `BloodGroup` varchar(3) ,\n" +
+                    "  `Prescription` varchar(500) ,\n" +
+                    "  `PathologyTests` varchar(300) ,\n" +
+                    "  CONSTRAINT patient_pk PRIMARY KEY (ID),\n" +
+                    "CONSTRAINT `patient_ibfk_1` FOREIGN KEY (`AppointedDoctor`) REFERENCES `doctor` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION\n" +
+                    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+
+            String sql5 =
                     "CREATE TABLE `receptionist` (\n" +
-                    "  `ID` int(10) NOT NULL,\n" +
-                    "  `Name` varchar(50) NOT NULL,\n" +
-                    "  `DateOfBirth` date NOT NULL,\n" +
-                    "  `Address` varchar(150) NOT NULL,\n" +
-                    "  `ContactNo` int(13) NOT NULL,\n" +
-                    "  `Email` varchar(50) NOT NULL,\n" +
-                    "  `Gender` varchar(6) NOT NULL,\n" +
-                    "  `EducationQualification` varchar(20) NOT NULL,\n" +
-                    "  `Designation` varchar(100) NOT NULL,\n" +
-                    "  `BloodGroup` varchar(3) NOT NULL,\n" +
-                    "  `DateOfJoin` date NOT NULL,\n" +
-                    "  `Password` varchar(255) NOT NULL\n" +
-                    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;\n" +
-                    "\uFEFF\n" +
-                    "ALTER TABLE `admin`\n" +
-                    "  ADD PRIMARY KEY (`ID`);\n" +
-                    "\n" +
-                    "ALTER TABLE `doctor`\n" +
-                    "  ADD PRIMARY KEY (`ID`);\n" +
-                    "\n" +
-                    "ALTER TABLE `pathologist`\n" +
-                    "  ADD PRIMARY KEY (`ID`);\n" +
-                    "\n" +
-                    "ALTER TABLE `patient`\n" +
-                    "  ADD PRIMARY KEY (`ID`),\n" +
-                    "  ADD KEY `AppointedDoctor` (`AppointedDoctor`);\n" +
-                    "\n" +
-                    "ALTER TABLE `receptionist`\n" +
-                    "  ADD PRIMARY KEY (`ID`);\n" +
-                    "\uFEFF\n" +
-                    "ALTER TABLE `admin`\n" +
-                    "  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;\n" +
-                    "\n" +
-                    "ALTER TABLE `doctor`\n" +
-                    "  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;\n" +
-                    "\n" +
-                    "ALTER TABLE `pathologist`\n" +
-                    "  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;\n" +
-                    "\n" +
-                    "ALTER TABLE `patient`\n" +
-                    "  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;\n" +
-                    "\n" +
-                    "ALTER TABLE `receptionist`\n" +
-                    "  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;\n" +
-                    "\uFEFF\n" +
-                    "ALTER TABLE `patient`\n" +
-                    "  ADD CONSTRAINT `patient_ibfk_1` FOREIGN KEY (`AppointedDoctor`) REFERENCES `doctor` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;\n" +
-                    "\uFEFFCOMMIT;\n" +
-                    "\n" +
-                    "INSERT INTO `admin` (`ID`, `Name`, `DateOfBirth`, `Address`, `ContactNo`, `Email`, `Gender`, `EducationQualification`, `Designation`, `BloodGroup`, `DateOfJoin`, `Password`) \n" +
-                    "VALUES ('1000', 'admin', '2000-01-01', 'a', '0000000000000', 'a@b.com', 'cccccc', 'ddd', 'Human Resource Management Admin', 'z+', '2000-01-01', 'admin');\n" +
-                    "\n" +
-                    "INSERT INTO `doctor` (`ID`, `Name`, `DateOfBirth`, `Address`, `ContactNo`, `Email`, `Gender`, `EducationQualification`, `Designation`, `BloodGroup`, `DateOfJoin`, `Password`) \n" +
-                    "VALUES ('2000', 'a', '2000-01-01', 'a', '0000000000000', 'a@b.com', 'cccccc', 'ddd', 'Doctor', 'z+', '2000-01-01', 'a');\n" +
-                    "\n" +
-                    "INSERT INTO `receptionist` (`ID`, `Name`, `DateOfBirth`, `Address`, `ContactNo`, `Email`, `Gender`, `EducationQualification`, `Designation`, `BloodGroup`, `DateOfJoin`, `Password`) \n" +
-                    "VALUES ('3000', 'a', '2000-01-01', 'a', '0000000000000', 'a@b.com', 'cccccc', 'ddd', 'Receptionist', 'z+', '2000-01-01', 'a');\n" +
-                    "\n" +
-                    "INSERT INTO `pathologist` (`ID`, `Name`, `DateOfBirth`, `Address`, `ContactNo`, `Email`, `Gender`, `EducationQualification`, `Designation`, `BloodGroup`, `DateOfJoin`, `Password`) \n" +
-                    "VALUES ('4000', 'a', '2000-01-01', 'a', '0000000000000', 'a@b.com', 'cccccc', 'ddd', 'Pathologist', 'z+', '2000-01-01', 'a');\n" +
-                    "\n" +
-                    "INSERT INTO `patient` (`ID`, `Name`, `Age`, `Gender`, `DateOfAdmission`, `DateOfAppointment`, `AppointedDoctor`, `DateOfRelease`, `ContactNo`, `Email`, `BloodGroup`, `Prescription`, `PathologyTests`) \n" +
+                    "  `ID` int(10) NOT NULL AUTO_INCREMENT,\n" +
+                    "  `Name` varchar(50) ,\n" +
+                    "  `DateOfBirth` date ,\n" +
+                    "  `Address` varchar(150) ,\n" +
+                    "  `ContactNo` int(13) ,\n" +
+                    "  `Email` varchar(50) ,\n" +
+                    "  `Gender` varchar(6) ,\n" +
+                    "  `EducationQualification` varchar(20) ,\n" +
+                    "  `Designation` varchar(100) ,\n" +
+                    "  `BloodGroup` varchar(3) ,\n" +
+                    "  `DateOfJoin` date ,\n" +
+                    "  `Password` varchar(255) NOT NULL,\n" +
+                    "  CONSTRAINT doctor_pk PRIMARY KEY (ID)\n" +
+                    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;\n";
+
+            String sql6 = "ALTER TABLE `patient`\n" +
+                    "  ADD KEY `AppointedDoctor` (`AppointedDoctor`);";
+
+            String sql7 = "INSERT INTO `admin` (`ID`, `Name`, `DateOfBirth`, `Address`, `ContactNo`, `Email`, `Gender`, `EducationQualification`, `Designation`, `BloodGroup`, `DateOfJoin`, `Password`) \n" +
+                    "VALUES ('1000', 'admin', '2000-01-01', 'a', '0000000000000', 'a@b.com', 'cccccc', 'ddd', 'Human Resource Management Admin', 'z+', '2000-01-01', 'admin');";
+
+            String sql8 = "INSERT INTO `doctor` (`ID`, `Name`, `DateOfBirth`, `Address`, `ContactNo`, `Email`, `Gender`, `EducationQualification`, `Designation`, `BloodGroup`, `DateOfJoin`, `Password`) \n" +
+                    "VALUES ('2000', 'a', '2000-01-01', 'a', '0000000000000', 'a@b.com', 'cccccc', 'ddd', 'Doctor', 'z+', '2000-01-01', 'a');";
+
+            String sql9 = "INSERT INTO `receptionist` (`ID`, `Name`, `DateOfBirth`, `Address`, `ContactNo`, `Email`, `Gender`, `EducationQualification`, `Designation`, `BloodGroup`, `DateOfJoin`, `Password`) \n" +
+                    "VALUES ('3000', 'a', '2000-01-01', 'a', '0000000000000', 'a@b.com', 'cccccc', 'ddd', 'Receptionist', 'z+', '2000-01-01', 'a');";
+
+            String sql10 = "INSERT INTO `pathologist` (`ID`, `Name`, `DateOfBirth`, `Address`, `ContactNo`, `Email`, `Gender`, `EducationQualification`, `Designation`, `BloodGroup`, `DateOfJoin`, `Password`) \n" +
+                    "VALUES ('4000', 'a', '2000-01-01', 'a', '0000000000000', 'a@b.com', 'cccccc', 'ddd', 'Pathologist', 'z+', '2000-01-01', 'a');";
+
+            String sql11 = "INSERT INTO `patient` (`ID`, `Name`, `Age`, `Gender`, `DateOfAdmission`, `DateOfAppointment`, `AppointedDoctor`, `DateOfRelease`, `ContactNo`, `Email`, `BloodGroup`, `Prescription`, `PathologyTests`) \n" +
                     "VALUES ('10000', 'a', '1', 'b', '2000-01-01', '2000-01-01', '2000', '2000-01-01', '0000000000000', 'c@d.com', 'e+', 'ffffff', 'ggggggggg');";
 
-            sqlConnector.executeUpdate(sql);
+            sqlConnector.executeUpdate(sql0);
+            sqlConnector.executeUpdate(sql1);
+            sqlConnector.executeUpdate(sql2);
+            sqlConnector.executeUpdate(sql3);
+            sqlConnector.executeUpdate(sql4);
+            sqlConnector.executeUpdate(sql5);
+            sqlConnector.executeUpdate(sql6);
+            sqlConnector.executeUpdate(sql7);
+            sqlConnector.executeUpdate(sql8);
+            sqlConnector.executeUpdate(sql9);
+            sqlConnector.executeUpdate(sql10);
+            sqlConnector.executeUpdate(sql11);
+
+            JOptionPane.showMessageDialog(null, "Database Created");
 
         } catch (SQLException e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Database Already Exists");
         }
 
     }
