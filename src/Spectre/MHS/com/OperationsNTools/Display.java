@@ -23,8 +23,10 @@ public class Display {
     public void displayOn(){
         jFrame.setVisible(true);
         jFrame.setResizable(false);
+        jFrame.setSize(1280, 720);
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jFrame.add((Component) contentPanel);
+        jFrame.setAlwaysOnTop(true);
         graphicsDevice.setFullScreenWindow(jFrame);
     }
 

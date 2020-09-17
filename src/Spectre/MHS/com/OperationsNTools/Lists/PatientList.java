@@ -25,7 +25,7 @@ public class PatientList extends AbstractList{
         table = new JTable(data, columnNames);
         contentPanel = new JScrollPane(table);
         display = new Display("Doctor's List", contentPanel);
-        display.displayOn();
+        //display.displayOn();
         display.changeSize(300, 500);
     }
 }
