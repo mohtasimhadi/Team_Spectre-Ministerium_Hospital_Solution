@@ -73,4 +73,18 @@ public class Update {
         }
     }
 
+    public static void onRefer(String query,String patientID, String doctorID, String newAppoinmentDate){
+        SQLConnector sqlConnector = new SQLConnector();
+
+        try {
+            String[] parameters = new String[3];
+            parameters[0] = doctorID;
+            parameters[1] = newAppoinmentDate;
+            parameters[2] = patientID;
+            sqlConnector.executeUpdate(parameters, query, 3);
+            JOptionPane.showMessageDialog(null, "Referred");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
