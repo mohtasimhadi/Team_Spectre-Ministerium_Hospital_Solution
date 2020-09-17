@@ -13,9 +13,8 @@ public class AddNewPatient {
     private JButton backButton;
     private JComboBox<String> gender, bloodGroup;
     private JButton addPatientButton, viewDoctors;
-    private JTextField name, age, dateOfRelease, contactNo, email, appointedDoctor;
-
-    private DatePicker dateOfAdmission, dateOfAppointment;
+    private JTextField name, age, contactNo, email, appointedDoctor;
+    private DatePicker dateOfAdmission, dateOfAppointment, dateOfRelease;
 
     private final String userid;
     private final Display display = new Display("Add New Patient", contentPanel);
