@@ -1,11 +1,11 @@
 package Spectre.MHS.com;
 
-import Spectre.MHS.com.Admin.AdminLogin;
-import Spectre.MHS.com.Doctor.DoctorLogin;
+import Spectre.MHS.com.LogIn.AdminLogin;
+import Spectre.MHS.com.LogIn.DoctorLogin;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.InitialTableCreator;
-import Spectre.MHS.com.Pathologist.PathologistLogIn;
-import Spectre.MHS.com.Receptionist.ReceptionistLogin;
+import Spectre.MHS.com.LogIn.PathologistLogIn;
+import Spectre.MHS.com.LogIn.ReceptionistLogin;
 import javax.swing.*;
 import java.util.Objects;
 

@@ -1,21 +1,22 @@
-package Spectre.MHS.com.Pathologist;
+package Spectre.MHS.com.LogIn;
 
+import Spectre.MHS.com.Doctor.DoctorStation;
 import Spectre.MHS.com.Home;
-import Spectre.MHS.com.OperationsNTools.LogIn;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Encryption;
 import javax.swing.*;
 import java.util.Arrays;
 
-public class PathologistLogIn{
+public class DoctorLogin{
     private JTextField userid;
     private JPanel contentPanel;
     private JPasswordField password;
     private JButton logInButton, backButton;
     private final LogIn logIn = new LogIn();
-    private final Display display = new Display("Pathologist Log In", contentPanel);
 
-    public PathologistLogIn() {
+    Display display = new Display("Doctor Log In", contentPanel);
+
+    public DoctorLogin() {
         backButton.addActionListener(e -> onBack());
         logInButton.addActionListener(e -> onLogIn());
         display.displayOn();
@@ -28,13 +29,13 @@ public class PathologistLogIn{
 
     private void onLogIn(){
         Encryption encryption = new Encryption();
-        String query = "select * from pathologist where ID = ? and Password = ?";
+        String query = "select * from doctor where ID = ? and Password = ?";
 
         if(logIn.onLogIn(query, userid.getText(), encryption.encrypt(Arrays.toString(password.getPassword())))){
-            new PathologistLocale(userid.getText());
+            new DoctorStation(userid.getText());
         } else {
             JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");
-            new PathologistLogIn();
+            new DoctorLogin();
         }
         display.displayOff();
     }

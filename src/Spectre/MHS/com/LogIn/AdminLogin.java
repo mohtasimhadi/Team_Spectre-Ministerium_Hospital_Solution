@@ -1,7 +1,8 @@
-package Spectre.MHS.com.Admin;
+package Spectre.MHS.com.LogIn;
 
+import Spectre.MHS.com.Admin.AdminHR;
+import Spectre.MHS.com.Admin.AdministrativeDirector;
 import Spectre.MHS.com.Home;
-import Spectre.MHS.com.OperationsNTools.LogIn;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Encryption;
 

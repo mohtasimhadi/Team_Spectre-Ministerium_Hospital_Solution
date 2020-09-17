@@ -1,5 +1,6 @@
 package Spectre.MHS.com.Doctor;
 
+import Spectre.MHS.com.LogIn.DoctorLogin;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Lists.PatientList;
 import Spectre.MHS.com.OperationsNTools.PasswordChanger;

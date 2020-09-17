@@ -1,5 +1,6 @@
 package Spectre.MHS.com.Receptionist;
 
+import Spectre.MHS.com.LogIn.ReceptionistLogin;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PasswordChanger;
 import Spectre.MHS.com.OperationsNTools.EmployeeInfo;

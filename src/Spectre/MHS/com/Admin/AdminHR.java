@@ -1,5 +1,6 @@
 package Spectre.MHS.com.Admin;
 
+import Spectre.MHS.com.LogIn.AdminLogin;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PasswordChanger;
 import Spectre.MHS.com.OperationsNTools.EmployeeInfo;

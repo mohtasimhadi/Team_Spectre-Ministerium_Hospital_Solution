@@ -1,5 +1,6 @@
 package Spectre.MHS.com.Pathologist;
 
+import Spectre.MHS.com.LogIn.PathologistLogIn;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PasswordChanger;
 import Spectre.MHS.com.OperationsNTools.EmployeeInfo;
