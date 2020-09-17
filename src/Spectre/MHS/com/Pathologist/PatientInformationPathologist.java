@@ -3,6 +3,8 @@ package Spectre.MHS.com.Pathologist;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PatientInfo;
 import Spectre.MHS.com.OperationsNTools.Update;
+import Spectre.MHS.com.UserProfile.PathologistLocale;
+
 import javax.swing.*;
 
 public class PatientInformationPathologist {

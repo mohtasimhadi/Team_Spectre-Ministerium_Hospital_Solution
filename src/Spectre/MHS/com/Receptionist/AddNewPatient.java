@@ -4,6 +4,8 @@ import Spectre.MHS.com.OperationsNTools.DatePicker;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Lists.DoctorList;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
+import Spectre.MHS.com.UserProfile.ReceptionistRange;
+
 import javax.swing.*;
 import java.sql.SQLException;
 import java.util.Objects;

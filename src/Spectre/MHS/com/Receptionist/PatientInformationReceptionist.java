@@ -4,6 +4,8 @@ import Spectre.MHS.com.OperationsNTools.DatePicker;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PatientInfo;
 import Spectre.MHS.com.OperationsNTools.Update;
+import Spectre.MHS.com.UserProfile.ReceptionistRange;
+
 import javax.swing.*;
 
 public class PatientInformationReceptionist {
@@ -19,7 +21,7 @@ public class PatientInformationReceptionist {
     private final String userid;
     private final Display display = new Display("Patient Information", contentPanel);
 
-    PatientInformationReceptionist(String userid){
+    public PatientInformationReceptionist(String userid){
         this.userid = userid;
         dateOfAdmission.setEnabled(false);
         dateOfAppointment.setEnabled(false);

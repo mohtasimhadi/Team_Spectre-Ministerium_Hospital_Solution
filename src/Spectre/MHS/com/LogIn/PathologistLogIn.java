@@ -3,7 +3,7 @@ package Spectre.MHS.com.LogIn;
 import Spectre.MHS.com.Home;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Encryption;
-import Spectre.MHS.com.Pathologist.PathologistLocale;
+import Spectre.MHS.com.UserProfile.PathologistLocale;
 
 import javax.swing.*;
 import java.util.Arrays;

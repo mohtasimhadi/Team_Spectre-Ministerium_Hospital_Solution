@@ -4,9 +4,11 @@ import Spectre.MHS.com.OperationsNTools.DatePicker;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.SQLConnector;
 import Spectre.MHS.com.OperationsNTools.Update;
+import Spectre.MHS.com.UserProfile.AdminHR;
+import Spectre.MHS.com.UserProfile.AdministrativeDirector;
+
 import javax.swing.*;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.Objects;
 
 public class ViewEmployee {

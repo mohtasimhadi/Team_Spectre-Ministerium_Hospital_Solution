@@ -3,6 +3,8 @@ package Spectre.MHS.com.Admin;
 import Spectre.MHS.com.OperationsNTools.DatePicker;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PatientInfo;
+import Spectre.MHS.com.UserProfile.AdministrativeDirector;
+
 import javax.swing.*;
 
 public class PatientInformationAdmin {

@@ -1,9 +1,12 @@
-package Spectre.MHS.com.Receptionist;
+package Spectre.MHS.com.UserProfile;
 
 import Spectre.MHS.com.LogIn.ReceptionistLogin;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PasswordChanger;
 import Spectre.MHS.com.OperationsNTools.EmployeeInfo;
+import Spectre.MHS.com.Receptionist.AddNewPatient;
+import Spectre.MHS.com.Receptionist.PatientInformationReceptionist;
+
 import javax.swing.*;
 
 public class ReceptionistRange {

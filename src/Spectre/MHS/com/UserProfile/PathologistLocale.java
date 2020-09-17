@@ -1,9 +1,11 @@
-package Spectre.MHS.com.Pathologist;
+package Spectre.MHS.com.UserProfile;
 
 import Spectre.MHS.com.LogIn.PathologistLogIn;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PasswordChanger;
 import Spectre.MHS.com.OperationsNTools.EmployeeInfo;
+import Spectre.MHS.com.Pathologist.PatientInformationPathologist;
+
 import javax.swing.*;
 
 public class PathologistLocale {

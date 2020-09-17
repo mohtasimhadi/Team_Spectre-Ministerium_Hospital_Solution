@@ -1,5 +1,6 @@
-package Spectre.MHS.com.Doctor;
+package Spectre.MHS.com.UserProfile;
 
+import Spectre.MHS.com.Doctor.PatientInformationDoctor;
 import Spectre.MHS.com.LogIn.DoctorLogin;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Lists.PatientList;

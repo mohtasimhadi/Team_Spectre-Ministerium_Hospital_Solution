@@ -1,6 +1,6 @@
 package Spectre.MHS.com.LogIn;
 
-import Spectre.MHS.com.Doctor.DoctorStation;
+import Spectre.MHS.com.UserProfile.DoctorStation;
 import Spectre.MHS.com.Home;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Encryption;
