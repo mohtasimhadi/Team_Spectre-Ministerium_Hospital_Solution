@@ -63,7 +63,10 @@ public class AddNewEmployee {
             parameters[10] = encryption.encrypt(Arrays.toString(password.getPassword()));
 
             sqlConnector.executeUpdate(parameters, sql, 11);
-            sql = "SELECT MAX(ID) FROM "+designation.getSelectedItem().toString();
+            String queryDesignation = designation.getSelectedItem().toString();
+            if((queryDesignation.equals("Administrative Director"))||queryDesignation.equals("Human Resource Management Admin")){
+                queryDesignation = "admin";}
+            sql = "SELECT MAX(ID) FROM "+queryDesignation;
             sqlConnector.executeQuery(sql, true);
             JOptionPane.showMessageDialog(contentPanel, "Employee Inserted with ID " + sqlConnector.resultSet.getInt(1));
             display.displayOff();
