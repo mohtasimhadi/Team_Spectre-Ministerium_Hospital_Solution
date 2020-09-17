@@ -8,14 +8,14 @@ import Spectre.MHS.com.Receptionist.ReceptionistLogin;
 import javax.swing.*;
 import java.util.Objects;
 
-public class MainLogin {
+public class Home {
     private JPanel contentPanel;
     private JComboBox<String> loginType;
     private JButton selectButton;
     private JButton exitButton;
     private final Display display = new Display("Ministerium Hospital Solution", contentPanel);
 
-    public MainLogin() {
+    public Home() {
         selectButton.addActionListener(e -> onSelectButton());
         exitButton.addActionListener(e -> onExit());
         loginType.setSelectedItem(null);
@@ -25,7 +25,7 @@ public class MainLogin {
     private void onSelectButton(){
         if (loginType.getSelectedItem() == null){
             JOptionPane.showMessageDialog(null, "Select Designation Please");
-            new MainLogin();
+            new Home();
             display.displayOff();
             return;
         }
@@ -55,7 +55,7 @@ public class MainLogin {
     }
 
     public static void main(String[] args){
-        new MainLogin();
+        new Home();
     }
 
 }

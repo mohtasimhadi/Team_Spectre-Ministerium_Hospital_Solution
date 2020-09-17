@@ -1,6 +1,6 @@
 package Spectre.MHS.com.Pathologist;
 
-import Spectre.MHS.com.MainLogin;
+import Spectre.MHS.com.Home;
 import Spectre.MHS.com.OperationsNTools.LogIn;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Encryption;
@@ -22,7 +22,7 @@ public class PathologistLogIn{
     }
 
     private void onBack(){
-        new MainLogin();
+        new Home();
         display.displayOff();
     }
 
