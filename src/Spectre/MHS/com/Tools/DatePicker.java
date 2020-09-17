@@ -30,9 +30,7 @@ public class DatePicker extends JPanel{
         Date date = null;
         try {
             date = new SimpleDateFormat("yyyy-MM-dd").parse(Text);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        } catch (ParseException ignore) {}
         picker.setDate(date);
     }
 }

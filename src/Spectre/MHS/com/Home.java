@@ -6,6 +6,7 @@ import Spectre.MHS.com.Tools.Display;
 import Spectre.MHS.com.Operations.InitialTableCreator;
 import Spectre.MHS.com.LogIn.PathologistLogIn;
 import Spectre.MHS.com.LogIn.ReceptionistLogin;
+
 import javax.swing.*;
 import java.util.Objects;
 
@@ -14,15 +15,14 @@ public class Home {
     private JComboBox<String> loginType;
     private JButton selectButton;
     private JButton exitButton;
-    private JButton initializeDatabaseButton;
     private final Display display = new Display("Ministerium Hospital Solution", contentPanel);
 
     public Home() {
         selectButton.addActionListener(e -> onSelectButton());
         exitButton.addActionListener(e -> onExit());
-        initializeDatabaseButton.addActionListener(e -> onInitializeDatabase());
         loginType.setSelectedItem(null);
         display.displayOn();
+        InitialTableCreator.createDBTable();
     }
 
     private void onSelectButton(){
@@ -53,10 +53,6 @@ public class Home {
         }
     }
 
-    private void onInitializeDatabase(){
-        InitialTableCreator.createDBTable();
-    }
-
     void onExit(){
         System.exit(0);
     }
@@ -64,5 +60,4 @@ public class Home {
     public static void main(String[] args){
         new Home();
     }
-
 }

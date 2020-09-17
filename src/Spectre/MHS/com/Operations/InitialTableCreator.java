@@ -140,12 +140,7 @@ public class InitialTableCreator {
             JOptionPane.showMessageDialog(null, "Database Created");
 
         }
-        catch (SQLException e) {
-            e.printStackTrace();
-            String exception = e.toString();
-            if (exception.equals("java.sql.SQLException: Can't create database 'mhs'; database exists"))
-                JOptionPane.showMessageDialog(null, "Database Already Exists");
-        }
+        catch (SQLException ignored) {}
         catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
