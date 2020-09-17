@@ -1,7 +1,7 @@
 package Spectre.MHS.com.UserProfile;
 
-import Spectre.MHS.com.Admin.AddNewEmployee;
-import Spectre.MHS.com.Admin.ViewEmployee;
+import Spectre.MHS.com.Operations.Admin.AddNewEmployee;
+import Spectre.MHS.com.Operations.Admin.ViewEmployee;
 import Spectre.MHS.com.LogIn.AdminLogin;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PasswordChanger;

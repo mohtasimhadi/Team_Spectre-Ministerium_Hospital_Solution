@@ -1,4 +1,4 @@
-package Spectre.MHS.com.Admin;
+package Spectre.MHS.com.Operations.Admin;
 
 import Spectre.MHS.com.OperationsNTools.DatePicker;
 import Spectre.MHS.com.OperationsNTools.Display;

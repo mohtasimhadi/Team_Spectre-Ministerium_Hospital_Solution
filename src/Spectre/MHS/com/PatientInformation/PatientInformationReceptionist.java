@@ -1,4 +1,4 @@
-package Spectre.MHS.com.Receptionist;
+package Spectre.MHS.com.PatientInformation;
 
 import Spectre.MHS.com.OperationsNTools.DatePicker;
 import Spectre.MHS.com.OperationsNTools.Display;

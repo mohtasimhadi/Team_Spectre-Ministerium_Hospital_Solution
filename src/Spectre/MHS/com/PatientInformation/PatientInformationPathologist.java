@@ -1,4 +1,4 @@
-package Spectre.MHS.com.Pathologist;
+package Spectre.MHS.com.PatientInformation;
 
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PatientInfo;

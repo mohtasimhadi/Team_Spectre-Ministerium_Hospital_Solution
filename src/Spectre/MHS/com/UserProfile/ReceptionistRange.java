@@ -4,8 +4,8 @@ import Spectre.MHS.com.LogIn.ReceptionistLogin;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.PasswordChanger;
 import Spectre.MHS.com.OperationsNTools.EmployeeInfo;
-import Spectre.MHS.com.Receptionist.AddNewPatient;
-import Spectre.MHS.com.Receptionist.PatientInformationReceptionist;
+import Spectre.MHS.com.Operations.Receptionist.AddNewPatient;
+import Spectre.MHS.com.PatientInformation.PatientInformationReceptionist;
 
 import javax.swing.*;
 
