@@ -106,7 +106,7 @@ public class InitialTableCreator {
                     "  ADD KEY `AppointedDoctor` (`AppointedDoctor`);";
 
             String sql7 = "INSERT INTO `admin` (`ID`, `Name`, `DateOfBirth`, `Address`, `ContactNo`, `Email`, `Gender`, `EducationQualification`, `Designation`, `BloodGroup`, `DateOfJoin`, `Password`) \n" +
-                    "VALUES ('1000', 'admin', '2000-01-01', 'a', '0000000000000', 'a@b.com', 'cccccc', 'ddd', 'Human Resource Management Admin', 'z+', '2000-01-01', 'admin');";
+                    "VALUES ('1000', 'admin', '2000-01-01', 'a', '0000000000000', 'a@b.com', 'cccccc', 'ddd', 'Human Resource Management Admin', 'z+', '2000-01-01', '80f5414f8bda805dd0484569dc7be9573807c65f');";
 
             String sql8 = "INSERT INTO `doctor` (`ID`, `Name`, `DateOfBirth`, `Address`, `ContactNo`, `Email`, `Gender`, `EducationQualification`, `Designation`, `BloodGroup`, `DateOfJoin`, `Password`) \n" +
                     "VALUES ('2000', 'a', '2000-01-01', 'a', '0000000000000', 'a@b.com', 'cccccc', 'ddd', 'Doctor', 'z+', '2000-01-01', 'a');";
