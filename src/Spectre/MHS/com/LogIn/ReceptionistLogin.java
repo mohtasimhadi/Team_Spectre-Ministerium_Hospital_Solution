@@ -8,14 +8,12 @@ import Spectre.MHS.com.UserProfile.ReceptionistRange;
 import javax.swing.*;
 import java.util.Arrays;
 
-public class ReceptionistLogin {
+public class ReceptionistLogin extends LogIn{
 
     private JTextField userid;
     private JPanel contentPanel;
     private JPasswordField password;
     private JButton backButton, logInButton;
-
-    private final LogIn logIn = new LogIn();
     private final Display display = new Display("Receptionist Log In", contentPanel);
 
     public ReceptionistLogin(){
@@ -33,7 +31,7 @@ public class ReceptionistLogin {
         Encryption encryption = new Encryption();
         String query = "select * from receptionist where ID = ? and Password = ?";
 
-        if(logIn.onLogIn(query, userid.getText(), encryption.encrypt(Arrays.toString(password.getPassword())))){
+        if(passwordMatch(query, userid.getText(), encryption.encrypt(Arrays.toString(password.getPassword())))){
             new ReceptionistRange(userid.getText());
         } else {
             JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");

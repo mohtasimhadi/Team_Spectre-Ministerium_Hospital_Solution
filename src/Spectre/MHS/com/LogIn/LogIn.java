@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class LogIn {
     SQLConnector sqlConnector = new SQLConnector();
     public String userTypeFound;
-    public boolean onLogIn(String query, String userid, String password){
+    public boolean passwordMatch(String query, String userid, String password){
 
         try{
             String[] parameters = new String[2];

@@ -7,12 +7,11 @@ import Spectre.MHS.com.OperationsNTools.Encryption;
 import javax.swing.*;
 import java.util.Arrays;
 
-public class DoctorLogin{
+public class DoctorLogin extends LogIn{
     private JTextField userid;
     private JPanel contentPanel;
     private JPasswordField password;
     private JButton logInButton, backButton;
-    private final LogIn logIn = new LogIn();
 
     Display display = new Display("Doctor Log In", contentPanel);
 
@@ -31,7 +30,7 @@ public class DoctorLogin{
         Encryption encryption = new Encryption();
         String query = "select * from doctor where ID = ? and Password = ?";
 
-        if(logIn.onLogIn(query, userid.getText(), encryption.encrypt(Arrays.toString(password.getPassword())))){
+        if(passwordMatch(query, userid.getText(), encryption.encrypt(Arrays.toString(password.getPassword())))){
             new DoctorStation(userid.getText());
         } else {
             JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");

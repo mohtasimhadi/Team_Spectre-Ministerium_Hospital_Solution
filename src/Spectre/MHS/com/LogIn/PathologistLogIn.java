@@ -8,12 +8,11 @@ import Spectre.MHS.com.UserProfile.PathologistLocale;
 import javax.swing.*;
 import java.util.Arrays;
 
-public class PathologistLogIn{
+public class PathologistLogIn extends LogIn{
     private JTextField userid;
     private JPanel contentPanel;
     private JPasswordField password;
     private JButton logInButton, backButton;
-    private final LogIn logIn = new LogIn();
     private final Display display = new Display("Pathologist Log In", contentPanel);
 
     public PathologistLogIn() {
@@ -31,7 +30,7 @@ public class PathologistLogIn{
         Encryption encryption = new Encryption();
         String query = "select * from pathologist where ID = ? and Password = ?";
 
-        if(logIn.onLogIn(query, userid.getText(), encryption.encrypt(Arrays.toString(password.getPassword())))){
+        if(passwordMatch(query, userid.getText(), encryption.encrypt(Arrays.toString(password.getPassword())))){
             new PathologistLocale(userid.getText());
         } else {
             JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");

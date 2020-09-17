@@ -5,18 +5,16 @@ import Spectre.MHS.com.UserProfile.AdministrativeDirector;
 import Spectre.MHS.com.Home;
 import Spectre.MHS.com.OperationsNTools.Display;
 import Spectre.MHS.com.OperationsNTools.Encryption;
-
 import javax.swing.*;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class AdminLogin{
+public class AdminLogin extends LogIn{
     private JPanel contentPanel;
     private JButton logInButton, backButton;
     private JTextField userid;
     private JPasswordField password;
     private JComboBox<String> usertype;
-    private final LogIn logIn = new LogIn();
     private final Display display = new Display("Admin Log In", contentPanel);
 
     public AdminLogin() {
@@ -55,15 +53,15 @@ public class AdminLogin{
             wrongTypeMessage();
             return;
         }
-        if(logIn.onLogIn(query, userid.getText(), encryption.encrypt(Arrays.toString(password.getPassword())))){
+        if(passwordMatch(query, userid.getText(), encryption.encrypt(Arrays.toString(password.getPassword())))){
             if(Objects.requireNonNull(usertype.getSelectedItem()).toString().equals("Human Resource Management Admin")){
-                if(logIn.userTypeFound.equals("Human Resource Management Admin"))
+                if(userTypeFound.equals("Human Resource Management Admin"))
                     logIntoHRAdmin();
                 else
                     wrongTypeMessage();
             }
             else {
-                if(logIn.userTypeFound.equals("Administrative Director"))
+                if(userTypeFound.equals("Administrative Director"))
                     logIntoAdministrativeAdmin();
                 else
                     wrongTypeMessage();
