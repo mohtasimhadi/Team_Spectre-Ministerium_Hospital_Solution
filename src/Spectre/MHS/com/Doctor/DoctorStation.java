@@ -15,7 +15,6 @@ public class DoctorStation {
 
     public DoctorStation(String userid) {
         this.userid = userid;
-        display.displayOn();
 
         String query = "SELECT * FROM doctor WHERE ID=?";
         EmployeeInfo employeeInfo = new EmployeeInfo();
@@ -26,15 +25,17 @@ public class DoctorStation {
         patientInformationButton.addActionListener(e -> onPatientInformation());
         changePasswordButton.addActionListener(e -> new PasswordChanger("doctor", userID.getText()));
         viewAppointmentsButton.addActionListener(e -> new PatientList(userID.getText()));
+
+        display.displayOn();
     }
 
-    void onPatientInformation(){
-        display.displayOff();
+    private void onPatientInformation(){
         new PatientInformationDoctor(userid);
+        display.displayOff();
     }
 
-    void onLogOut(){
-        display.displayOff();
+    private void onLogOut(){
         new DoctorLogin();
+        display.displayOff();
     }
 }

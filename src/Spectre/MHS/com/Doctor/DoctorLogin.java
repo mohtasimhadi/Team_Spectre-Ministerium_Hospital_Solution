@@ -17,18 +17,17 @@ public class DoctorLogin{
     Display display = new Display("Doctor Log In", contentPanel);
 
     public DoctorLogin() {
-        display.displayOn();
         backButton.addActionListener(e -> onBack());
         logInButton.addActionListener(e -> onLogIn());
+        display.displayOn();
     }
 
-    void onBack(){
-        display.displayOff();
+    private void onBack(){
         new MainLogin();
+        display.displayOff();
     }
 
-    void onLogIn(){
-        display.displayOff();
+    private void onLogIn(){
         Encryption encryption = new Encryption();
         String query = "select * from doctor where ID = ? and Password = ?";
 
@@ -38,5 +37,6 @@ public class DoctorLogin{
             JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");
             new DoctorLogin();
         }
+        display.displayOff();
     }
 }

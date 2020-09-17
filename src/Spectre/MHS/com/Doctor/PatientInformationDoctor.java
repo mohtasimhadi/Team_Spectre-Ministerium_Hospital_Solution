@@ -20,13 +20,9 @@ public class PatientInformationDoctor {
 
     public PatientInformationDoctor(String userid) {
         this.userid = userid;
-        display.displayOn();
         doctorReferID.setEditable(false);
 
         buttonVisibility(false);
-
-        dateOfAdmission.makeUneditable();
-        dateOfAppointment.makeUneditable();
 
         backButton.addActionListener(e -> onBack());
         refreshButton.addActionListener(e -> onRefresh());
@@ -34,24 +30,25 @@ public class PatientInformationDoctor {
         updateButton.addActionListener(e -> onUpdate());
         viewDoctors.addActionListener(e -> new DoctorList(doctorReferID));
         referButton.addActionListener(e -> onRefer());
+        display.displayOn();
     }
 
-    void onRefer(){
+    private void onRefer(){
          String query = ("UPDATE Patient SET AppointedDoctor = ?, DateOfAppointment =? WHERE ID = ?");
          Update.onRefer(query, patientID.getText(),doctorReferID.getText(), dateOfNewAppointment.getText());
     }
 
-    void onBack() {
+    private void onBack() {
         new DoctorStation(userid);
         display.displayOff();
     }
 
-    void onRefresh() {
-        display.displayOff();
+    private void onRefresh() {
         new PatientInformationDoctor(userid);
+        display.displayOff();
     }
 
-    void onView() {
+    private void onView() {
         if(patientID.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Enter a Patient ID");
             return;
@@ -63,7 +60,7 @@ public class PatientInformationDoctor {
         buttonVisibility(true);
     }
 
-    void onUpdate() {
+    private void onUpdate() {
         String query = ("UPDATE Patient SET DateOfRelease = ?, PathologyTests = ?, Prescription = ?  WHERE ID = ?");
         Update.onUpdateDoctor(query, patientID.getText(), dateOfRelease.getText(), pathologyTests.getText(), prescription.getText());
     }

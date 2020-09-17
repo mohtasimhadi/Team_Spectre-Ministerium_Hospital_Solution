@@ -26,10 +26,6 @@ public class DatePicker extends JPanel{
         return new SimpleDateFormat("yyyy-MM-dd").format(date);
     }
 
-    public void makeUneditable(){
-
-    }
-
     public void setText(String Text){
         Date date = null;
         try {

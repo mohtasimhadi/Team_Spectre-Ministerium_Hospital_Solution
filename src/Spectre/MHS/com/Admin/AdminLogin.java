@@ -19,36 +19,35 @@ public class AdminLogin{
     private final Display display = new Display("Admin Log In", contentPanel);
 
     public AdminLogin() {
-        display.displayOn();
         usertype.setSelectedItem(null);
         backButton.addActionListener(e -> onBack());
         logInButton.addActionListener(e -> onLogIn());
+        display.displayOn();
     }
 
-    void wrongTypeMessage(){
+    private void wrongTypeMessage(){
         JOptionPane.showMessageDialog(null, "Wrong User Type");
-        display.displayOff();
         new AdminLogin();
+        display.displayOff();
     }
 
-    void wrongUserNameOrPasswordMessage(){
+    private void wrongUserNameOrPasswordMessage(){
         JOptionPane.showMessageDialog(contentPanel, "Username or Password didn't match");
-        display.displayOff();
         new AdminLogin();
+        display.displayOff();
     }
 
-    void logIntoHRAdmin(){
-        display.displayOff();
+    private void logIntoHRAdmin(){
         new AdminHR(userid.getText());
+        display.displayOff();
     }
 
-    void logIntoAdministrativeAdmin(){
-        display.displayOff();
+    private void logIntoAdministrativeAdmin(){
         new AdministrativeDirector(userid.getText());
+        display.displayOff();
     }
 
-    void onLogIn(){
-        display.displayOff();
+    private void onLogIn(){
         Encryption encryption = new Encryption();
         String query = "select * from admin where ID = ? and Password = ?";
         if(usertype.getSelectedItem() == null){
@@ -70,10 +69,11 @@ public class AdminLogin{
             }
         } else
             wrongUserNameOrPasswordMessage();
+        display.displayOff();
     }
 
     void onBack(){
-        display.displayOff();
         new MainLogin();
+        display.displayOff();
     }
 }

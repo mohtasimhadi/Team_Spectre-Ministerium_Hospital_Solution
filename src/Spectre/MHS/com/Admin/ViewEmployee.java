@@ -23,15 +23,11 @@ public class ViewEmployee {
     public ViewEmployee(String userid, String usertype){
         this.userid = userid;
         this.userType = usertype;
-        display.displayOn();
 
         sqlConnector = new SQLConnector();
         sqlConnector.connect();
 
         updateAndDeleteButtonVisibility(false);
-
-        dateOfBirth.makeUneditable();
-        joiningDate.makeUneditable();
 
         gender.setSelectedItem(null);
         bloodGroup.setSelectedItem(null);
@@ -41,6 +37,8 @@ public class ViewEmployee {
         updateInformationButton.addActionListener(e -> onUpdateInformationButton());
         viewEmployeeButton.addActionListener(e -> onViewEmployeeButton());
         refreshButton.addActionListener(e -> onRefresh());
+
+        display.displayOn();
     }
 
     private void onRefresh(){
@@ -70,7 +68,7 @@ public class ViewEmployee {
         Update.onUpdateHR(query, userID.getText(), name.getText(), dateOfBirth.getText(), address.getText(), contactNo.getText(), email.getText(), Objects.requireNonNull(gender.getSelectedItem()).toString(), educationQualification.getText(), designation.getText(), Objects.requireNonNull(bloodGroup.getSelectedItem()).toString(), joiningDate.getText());
     }
 
-    void runDML(String query){
+    private void runDML(String query){
         try {
             sqlConnector.statement = sqlConnector.connection.createStatement();
             sqlConnector.statement.executeUpdate(query);
@@ -79,7 +77,7 @@ public class ViewEmployee {
         }
     }
 
-    void onViewEmployeeButton(){
+    private void onViewEmployeeButton(){
         if(userID.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Insert ID");
         } else {
@@ -116,7 +114,7 @@ public class ViewEmployee {
         removeEmployeeButton.setEnabled(bool);
         updateInformationButton.setEnabled(bool);
     }
-    void onBackButton(String usertype){
+    private void onBackButton(String usertype){
         if(usertype.equals("Human Resource Management Admin")){
             new AdminHR(userid);
         } else {

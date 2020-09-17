@@ -25,17 +25,17 @@ public class AdminHR {
         changePasswordButton.addActionListener(e -> new PasswordChanger("admin", userID.getText()));
     }
 
-    void onViewEmployee(){
+    private void onViewEmployee(){
         new ViewEmployee(userid, "Human Resource Management Admin");
         display.displayOff();
     }
 
-    void onAddNewEmployee(){
+    private void onAddNewEmployee(){
         new AddNewEmployee(userid);
         display.displayOff();
     }
 
-    void onLogOut(){
+    private void onLogOut(){
         new AdminLogin();
         display.displayOff();
     }

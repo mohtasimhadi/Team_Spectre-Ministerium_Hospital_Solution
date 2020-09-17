@@ -27,17 +27,17 @@ public class AdministrativeDirector {
         viewPatientButton.addActionListener(e -> onViewPatients());
     }
 
-    void onViewEmployees(){
+    private void onViewEmployees(){
         new ViewEmployee(userID.getText(), "Administrative Admin");
         display.displayOff();
     }
 
-    void onViewPatients(){
+    private void onViewPatients(){
         new PatientInformationAdmin(userID.getText());
         display.displayOff();
     }
 
-    void onLogOut(){
+    private void onLogOut(){
         new AdminLogin();
         display.displayOff();
     }

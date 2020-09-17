@@ -17,31 +17,25 @@ public class PatientInformationAdmin {
     private final String userid;
     private final Display display = new Display("Patient Information", contentPanel);
 
-     public PatientInformationAdmin(String userid){
+    public PatientInformationAdmin(String userid){
         this.userid = userid;
-        display.displayOn();
-        dateOfRelease.setEnabled(false);
-
-        dateOfAdmission.makeUneditable();
-        dateOfAppointment.makeUneditable();
-        dateOfRelease.makeUneditable();
-
         backButton.addActionListener(e -> onBack());
         refreshButton.addActionListener(e -> onRefresh());
         viewButton.addActionListener(e -> onView());
+        display.displayOn();
     }
 
-    void onBack(){
-        display.displayOff();
+    private void onBack(){
         new AdministrativeDirector(userid);
+        display.displayOff();
     }
 
-    void onRefresh(){
-        display.displayOff();
+    private void onRefresh(){
         new PatientInformationAdmin(userid);
+        display.displayOff();
     }
     
-    void onView(){
+    private void onView(){
         if(patientID.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Insert ID");
         } else {
