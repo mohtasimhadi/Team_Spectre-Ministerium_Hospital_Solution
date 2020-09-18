@@ -55,21 +55,4 @@ public class AbstractList{
         }
         return data;
     }
-
-    private void onClick(JTextField field){
-        int index = table.getSelectedRow();
-        field.setText((String) table.getValueAt(index, 0));
-        display.displayOff();
-    }
-
-    void addMouseListener(JTextField field){
-        table.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                onClick(field);
-            }
-        });
-        display.displayOff();
-    }
-
 }

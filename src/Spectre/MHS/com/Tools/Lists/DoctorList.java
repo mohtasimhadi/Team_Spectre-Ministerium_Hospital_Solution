@@ -2,6 +2,8 @@ package Spectre.MHS.com.Tools.Lists;
 
 import Spectre.MHS.com.Tools.Display;
 import javax.swing.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 
 public class DoctorList extends AbstractList{
@@ -23,5 +25,20 @@ public class DoctorList extends AbstractList{
         display = new Display("Doctor's List", contentPanel);
         addMouseListener(field);
         display.displayDialogueBox(300, 300);
+    }
+
+    void addMouseListener(JTextField field){
+        table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                onClick(field);
+            }
+        });
+        display.displayOff();
+    }
+    private void onClick(JTextField field){
+        int index = table.getSelectedRow();
+        field.setText((String) table.getValueAt(index, 0));
+        display.displayOff();
     }
 }
